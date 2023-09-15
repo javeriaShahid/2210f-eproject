@@ -15,3 +15,4 @@ use App\Http\Controllers\usercontroller;
 */
 
 Route::get('/', [usercontroller::class, "index"]);
+sad
