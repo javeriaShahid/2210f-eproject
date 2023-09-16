@@ -10,3 +10,13 @@ class usercontroller extends Controller
     return view("index");
    }
 }
+
+public function sign_up_logic(Request $request){
+ $user = new User;
+      $user->name = $request->name;
+      $user->email = $request->email;
+      $user->password= $request->pass;
+      $user->save();
+
+
+}
