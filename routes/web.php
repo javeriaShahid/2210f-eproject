@@ -15,3 +15,6 @@ use App\Http\Controllers\usercontroller;
 */
 
 Route::get('/', [usercontroller::class, "index"]);
+Route::get('/aboutus', [usercontroller::class, "about-us"]);
+Route::get('/accordion', [usercontroller::class, "accordion"]);
+Route::get('/blog', [usercontroller::class, "blog-details"]);
