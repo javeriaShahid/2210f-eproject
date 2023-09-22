@@ -467,7 +467,7 @@
 <div class="swiper instagram-slider">
 <div class="swiper-wrapper">
 <div class="swiper-slide">
-{{-- <a href="https://www.instagram.com/"><img src="assets/img/home1/insta-img1.png" alt></a> --}}
+<a href="https://www.instagram.com/"><img src="assets/img/home1/insta-img6.png" alt></a>
 </div>
 <div class="swiper-slide">
 <a href="https://www.instagram.com/"><img src="assets/img/home1/insta-img2.png" alt></a>

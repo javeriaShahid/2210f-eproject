@@ -56,7 +56,7 @@
 </div>
 <h1>Healthy skin cannot be rushed.</h1>
 <p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.</p>
-<a href="shop-list.html" class="primary-btn1 hover-btn3">*Shop Now* </a>
+<a href="slider" class="primary-btn1 hover-btn3">*Shop Now* </a>
 </div>
 </div>
 <div class="banner-right-wrapper">
@@ -80,7 +80,7 @@
 </div>
 <h1>Skin wellness takes gentle time.</h1>
 <p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.</p>
-<a href="shop-list.html" class="primary-btn1 hover-btn3">*Shop Now* </a>
+<a href="slider" class="primary-btn1 hover-btn3">*Shop Now* </a>
 </div>
 </div>
 <div class="banner-right-wrapper">
@@ -103,7 +103,7 @@
 </div>
 <h1>Glow requires gradual nurturing.</h1>
 <p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.</p>
-<a href="shop-list.html" class="primary-btn1 hover-btn3">*Shop Now* </a>
+<a href="slider" class="primary-btn1 hover-btn3">*Shop Now* </a>
 </div>
 </div>
 <div class="banner-right-wrapper">
@@ -126,7 +126,7 @@
 </div>
 <h1>Nurture skin for lasting health.</h1>
 <p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.</p>
-<a href="shop-list.html" class="primary-btn1 hover-btn3">*Shop Now* </a>
+<a href="slider" class="primary-btn1 hover-btn3">*Shop Now* </a>
 </div>
 </div>
 <div class="banner-right-wrapper">
@@ -220,7 +220,7 @@
 <div class="row gy-4 justify-content-center">
 <div class="col-lg-4 col-md-6">
 <div class="choose-product-card hover-img style-2">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/choose-product-card-img1.png" alt>
 </a>
 <div class="choose-product-card-content">
@@ -231,7 +231,7 @@
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="choose-product-card hover-img style-2">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/choose-product-card-img2.png" alt>
 </a>
 <div class="choose-product-card-content">
@@ -242,7 +242,7 @@
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="choose-product-card hover-img style-2">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/choose-product-card-img3.png" alt>
 </a>
 <div class="choose-product-card-content style-2">
@@ -261,7 +261,7 @@
 <div class="section-title2">
 <h3>Best Selling Product</h3>
 <div class="all-product hover-underline">
-<a href="shop-list.html">*View All Product
+<a href="slider">*View All Product
 <svg width="33" height="13" viewBox="0 0 33 13" xmlns="http://www.w3.org/2000/svg">
 <path d="M25.5083 7.28L0.491206 7.25429C0.36093 7.25429 0.23599 7.18821 0.143871 7.0706C0.0517519 6.95299 0 6.79347 0 6.62714C0 6.46081 0.0517519 6.3013 0.143871 6.18369C0.23599 6.06607 0.36093 6 0.491206 6L25.5088 6.02571C25.6391 6.02571 25.764 6.09179 25.8561 6.2094C25.9482 6.32701 26 6.48653 26 6.65286C26 6.81919 25.9482 6.9787 25.8561 7.09631C25.764 7.21393 25.6386 7.28 25.5083 7.28Z" />
 <path d="M33.0001 6.50854C29.2204 7.9435 24.5298 10.398 21.623 13L23.9157 6.50034L21.6317 0C24.5358 2.60547 29.2224 5.06539 33.0001 6.50854Z" />
@@ -273,7 +273,7 @@
 <div class="col-lg-4 col-md-6">
 <div class="product-card hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-1.png" alt class="img1">
 <img src="assets/img/home1/product-img-4.png" alt class="img2">
 <div class="countdown-timer">
@@ -300,13 +300,13 @@
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -326,8 +326,8 @@
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Poutsicle Hydrating Lip Stain.</a></h6>
-<p><a href="shop-list.html">REVLON</a></p>
+<h6><a href="accordion" class="hover-underline">Poutsicle Hydrating Lip Stain.</a></h6>
+<p><a href="#">REVLON</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -346,7 +346,7 @@
 <div class="col-lg-4 col-md-6">
 <div class="product-card hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-8.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -354,13 +354,13 @@
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -380,8 +380,8 @@
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="shop-list.html">Crystal</a></p>
+<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
+<p><a href="#">Crystal</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -400,7 +400,7 @@
 <div class="col-lg-4 col-md-6">
 <div class="product-card hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-3.png" alt class="img1">
 <img src="assets/img/home1/product-img-20.png" alt class="img2">
 <div class="batch">
@@ -409,13 +409,13 @@
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -435,8 +435,8 @@
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Velvet Red Charm</a></h6>
-<p><a href="shop-list.html">Aqua Kiss</a></p>
+<h6><a href="accordion" class="hover-underline">Velvet Red Charm</a></h6>
+<p><a href="#">Aqua Kiss</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -455,7 +455,7 @@
 <div class="col-lg-4 col-md-6">
 <div class="product-card hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-4.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -463,13 +463,13 @@
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="product-with-size-variation.html" class="hover-btn3 add-cart-btn ">Select options</a>
+<a href="#" class="hover-btn3 add-cart-btn ">Select options</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -489,8 +489,8 @@
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Hydrating Waves</a></h6>
-<p><a href="shop-list.html">Sea Breeze</a></p>
+<h6><a href="accordion" class="hover-underline">Hydrating Waves</a></h6>
+<p><a href="#">Sea Breeze</a></p>
 <p class="price">$150.00 - $200.00</p>
 <ul class="product-size">
 <li>250 ml</li>
@@ -505,7 +505,7 @@
 <div class="col-lg-4 col-md-6">
 <div class="product-card hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-5.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -516,13 +516,13 @@
 </div>
 <div class="overlay">
 <div class="cart-area">
-<a href="out-of-stock.html" class="hover-btn3 add-cart-btn ">Request Stock</a>
+<a href="#" class="hover-btn3 add-cart-btn ">Request Stock</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -542,8 +542,8 @@
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Organic Jojoba Blend</a></h6>
-<p><a href="shop-list.html">Lash Luxe</a></p>
+<h6><a href="accordion" class="hover-underline">Organic Jojoba Blend</a></h6>
+<p><a href="#">Lash Luxe</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -562,7 +562,7 @@
 <div class="col-lg-4 col-md-6">
 <div class="product-card hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-6.png" alt class="img1">
 <img src="assets/img/home1/product-img-7.png" alt class="img2">
 <div class="batch">
@@ -571,13 +571,13 @@
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -597,8 +597,8 @@
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Nourishing Herbal Cleanse</a></h6>
-<p><a href="shop-list.html">Radiance</a></p>
+<h6><a href="accordion" class="hover-underline">Nourishing Herbal Cleanse</a></h6>
+<p><a href="#">Radiance</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -709,14 +709,14 @@ Praesent commodo at massa eget suscipit. Utani vitae enim velit.</p>
 </div>
 </div>
 <div class="shop-details-btn">
-<a href="shop-list.html" class="primary-btn1 hover-btn3">*Buy Now*</a>
+<a href="#" class="primary-btn1 hover-btn3">*Buy Now*</a>
 <a href="#" class="primary-btn1 style-3 hover-btn4">*Add to Cart*</a>
 </div>
 <div class="product-info">
 <ul class="product-info-list">
 <li> <span>SKU:</span> 9852410</li>
-<li> <span>Brand:</span> <a href="shop-4-columns.html">Chanel</a></li>
-<li> <span>Category:</span> <a href="shop-slider.html">Body</a>, <a href="shop-slider.html">Face</a></li>
+<li> <span>Brand:</span> <a href="#">Chanel</a></li>
+<li> <span>Category:</span> <a href="#">Body</a>, <a href="#">Face</a></li>
 </ul>
 </div>
 <div class="payment-method">
@@ -759,7 +759,7 @@ Free worldwide shipping on all orders over $100
 <div class="compare-wishlist-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <span>
 <svg width="11" height="11" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_168_378)">
@@ -789,7 +789,7 @@ Add to wishlist
 <div class="section-title2 style-2">
 <h3>Just For You</h3>
 <div class="all-product hover-underline">
-<a href="shop-list.html">*View All Product
+<a href="slider">*View All Product
 <svg width="33" height="13" viewBox="0 0 33 13" xmlns="http://www.w3.org/2000/svg">
 <path d="M25.5083 7.28L0.491206 7.25429C0.36093 7.25429 0.23599 7.18821 0.143871 7.0706C0.0517519 6.95299 0 6.79347 0 6.62714C0 6.46081 0.0517519 6.3013 0.143871 6.18369C0.23599 6.06607 0.36093 6 0.491206 6L25.5088 6.02571C25.6391 6.02571 25.764 6.09179 25.8561 6.2094C25.9482 6.32701 26 6.48653 26 6.65286C26 6.81919 25.9482 6.9787 25.8561 7.09631C25.764 7.21393 25.6386 7.28 25.5083 7.28Z" />
 <path d="M33.0001 6.50854C29.2204 7.9435 24.5298 10.398 21.623 13L23.9157 6.50034L21.6317 0C24.5358 2.60547 29.2224 5.06539 33.0001 6.50854Z" />
@@ -846,7 +846,7 @@ Skin Care
 </svg>
 <h6>30% <br><span>off</span></h6>
 </div>
-<a href="shop-list.html" class="buy-btn hover-btn4">*Buy Now*</a>
+<a href="slider" class="buy-btn hover-btn4">*Buy Now*</a>
 </div>
 </div>
 </div>
@@ -857,7 +857,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-7.png" alt class="img1">
 <img src="assets/img/home1/product-img-22.png" alt class="img2">
 <div class="batch">
@@ -866,13 +866,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Youthful Renewal Formula</a></h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<h6><a href="accordion" class="hover-underline">Youthful Renewal Formula</a></h6>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -891,7 +891,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-8.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -902,13 +902,13 @@ Skin Care
 </div>
 <div class="overlay">
 <div class="cart-area">
-<a href="out-of-stock.html" class="hover-btn3 add-cart-btn ">Request Stock</a>
+<a href="#" class="hover-btn3 add-cart-btn ">Request Stock</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="shop-list.html">REVLON</a></p>
+<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
+<p><a href="#">REVLON</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -927,7 +927,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-9.png" alt class="img1">
 <img src="assets/img/home1/product-img-21.png" alt class="img2">
 <div class="batch">
@@ -936,13 +936,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Firming Night Cream</a></h6>
-<p><a href="shop-list.html">Crystal</a></p>
+<h6><a href="accordion" class="hover-underline">Firming Night Cream</a></h6>
+<p><a href="#">Crystal</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -961,7 +961,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-10.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -969,13 +969,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Brightening Cream Complex</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Brightening Cream Complex</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -994,7 +994,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-11.png" alt class="img1">
 <img src="assets/img/home1/product-img-14.png" alt class="img2">
 <div class="batch">
@@ -1003,13 +1003,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Age-Defying Miracle</a></h6>
-<p><a href="shop-list.html">Radiance</a></p>
+<h6><a href="accordion" class="hover-underline">Age-Defying Miracle</a></h6>
+<p><a href="#">Radiance</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1028,7 +1028,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-12.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1036,13 +1036,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Oil-Control Pressed</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Oil-Control Pressed</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1065,7 +1065,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-7.png" alt class="img1">
 <img src="assets/img/home1/product-img-22.png" alt class="img2">
 <div class="batch">
@@ -1074,13 +1074,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Youthful Renewal Formula</a></h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<h6><a href="accordion" class="hover-underline">Youthful Renewal Formula</a></h6>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1099,7 +1099,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-8.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1107,13 +1107,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="shop-list.html">REVLON</a></p>
+<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
+<p><a href="#">REVLON</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1132,7 +1132,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-9.png" alt class="img1">
 <img src="assets/img/home1/product-img-21.png" alt class="img2">
 <div class="batch">
@@ -1141,13 +1141,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Firming Night Cream</a></h6>
-<p><a href="shop-list.html">Crystal</a></p>
+<h6><a href="accordion" class="hover-underline">Firming Night Cream</a></h6>
+<p><a href="#">Crystal</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1166,7 +1166,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-10.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1174,13 +1174,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Brightening Cream Complex</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Brightening Cream Complex</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1199,7 +1199,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-11.png" alt class="img1">
 <img src="assets/img/home1/product-img-14.png" alt class="img2">
 <div class="batch">
@@ -1208,13 +1208,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Age-Defying Miracle</a></h6>
-<p><a href="shop-list.html">Radiance</a></p>
+<h6><a href="accordion" class="hover-underline">Age-Defying Miracle</a></h6>
+<p><a href="#">Radiance</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1233,7 +1233,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-12.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1241,13 +1241,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Oil-Control Pressed</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Oil-Control Pressed</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1270,7 +1270,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-7.png" alt class="img1">
 <img src="assets/img/home1/product-img-22.png" alt class="img2">
 <div class="batch">
@@ -1279,13 +1279,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Youthful Renewal Formula</a></h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<h6><a href="accordion" class="hover-underline">Youthful Renewal Formula</a></h6>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1304,7 +1304,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-8.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1312,13 +1312,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="shop-list.html">REVLON</a></p>
+<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
+<p><a href="#">REVLON</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1337,7 +1337,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-9.png" alt class="img1">
 <img src="assets/img/home1/product-img-21.png" alt class="img2">
 <div class="batch">
@@ -1346,13 +1346,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Firming Night Cream</a></h6>
-<p><a href="shop-list.html">Crystal</a></p>
+<h6><a href="accordion" class="hover-underline">Firming Night Cream</a></h6>
+<p><a href="#">Crystal</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1371,7 +1371,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-10.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1379,13 +1379,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Brightening Cream Complex</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Brightening Cream Complex</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1404,7 +1404,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-11.png" alt class="img1">
 <img src="assets/img/home1/product-img-14.png" alt class="img2">
 <div class="batch">
@@ -1413,13 +1413,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Age-Defying Miracle</a></h6>
-<p><a href="shop-list.html">Radiance</a></p>
+<h6><a href="accordion" class="hover-underline">Age-Defying Miracle</a></h6>
+<p><a href="#">Radiance</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1438,7 +1438,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-12.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1446,13 +1446,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Oil-Control Pressed</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Oil-Control Pressed</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1475,7 +1475,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-7.png" alt class="img1">
 <img src="assets/img/home1/product-img-22.png" alt class="img2">
 <div class="batch">
@@ -1484,13 +1484,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Youthful Renewal Formula</a></h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<h6><a href="accordion" class="hover-underline">Youthful Renewal Formula</a></h6>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1509,7 +1509,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-8.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1517,13 +1517,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="shop-list.html">REVLON</a></p>
+<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
+<p><a href="#">REVLON</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1542,7 +1542,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-9.png" alt class="img1">
 <img src="assets/img/home1/product-img-21.png" alt class="img2">
 <div class="batch">
@@ -1551,13 +1551,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Firming Night Cream</a></h6>
-<p><a href="shop-list.html">Crystal</a></p>
+<h6><a href="accordion" class="hover-underline">Firming Night Cream</a></h6>
+<p><a href="#">Crystal</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1576,7 +1576,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-10.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1584,13 +1584,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Brightening Cream Complex</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Brightening Cream Complex</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1609,7 +1609,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-11.png" alt class="img1">
 <img src="assets/img/home1/product-img-14.png" alt class="img2">
 <div class="batch">
@@ -1618,13 +1618,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Age-Defying Miracle</a></h6>
-<p><a href="shop-list.html">Radiance</a></p>
+<h6><a href="accordion" class="hover-underline">Age-Defying Miracle</a></h6>
+<p><a href="#">Radiance</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1643,7 +1643,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-12.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1651,13 +1651,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Oil-Control Pressed</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Oil-Control Pressed</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1680,7 +1680,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-7.png" alt class="img1">
 <img src="assets/img/home1/product-img-22.png" alt class="img2">
 <div class="batch">
@@ -1689,13 +1689,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Youthful Renewal Formula</a></h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<h6><a href="accordion" class="hover-underline">Youthful Renewal Formula</a></h6>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1714,7 +1714,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-8.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1722,13 +1722,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="shop-list.html">REVLON</a></p>
+<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
+<p><a href="#">REVLON</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1747,7 +1747,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-9.png" alt class="img1">
 <img src="assets/img/home1/product-img-21.png" alt class="img2">
 <div class="batch">
@@ -1756,13 +1756,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Firming Night Cream</a></h6>
-<p><a href="shop-list.html">Crystal</a></p>
+<h6><a href="accordion" class="hover-underline">Firming Night Cream</a></h6>
+<p><a href="#">Crystal</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1781,7 +1781,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-10.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1789,13 +1789,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Brightening Cream Complex</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Brightening Cream Complex</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1814,7 +1814,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-11.png" alt class="img1">
 <img src="assets/img/home1/product-img-14.png" alt class="img2">
 <div class="batch">
@@ -1823,13 +1823,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Age-Defying Miracle</a></h6>
-<p><a href="shop-list.html">Radiance</a></p>
+<h6><a href="accordion" class="hover-underline">Age-Defying Miracle</a></h6>
+<p><a href="#">Radiance</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1848,7 +1848,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-12.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1856,13 +1856,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Oil-Control Pressed</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Oil-Control Pressed</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1885,7 +1885,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-7.png" alt class="img1">
 <img src="assets/img/home1/product-img-22.png" alt class="img2">
 <div class="batch">
@@ -1894,13 +1894,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Youthful Renewal Formula</a></h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<h6><a href="accordion" class="hover-underline">Youthful Renewal Formula</a></h6>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1919,7 +1919,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-8.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1927,13 +1927,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="shop-list.html">REVLON</a></p>
+<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
+<p><a href="#">REVLON</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1952,7 +1952,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-9.png" alt class="img1">
 <img src="assets/img/home1/product-img-21.png" alt class="img2">
 <div class="batch">
@@ -1961,13 +1961,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Firming Night Cream</a></h6>
-<p><a href="shop-list.html">Crystal</a></p>
+<h6><a href="accordion" class="hover-underline">Firming Night Cream</a></h6>
+<p><a href="#">Crystal</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -1986,7 +1986,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-10.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -1994,13 +1994,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Brightening Cream Complex</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Brightening Cream Complex</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2019,7 +2019,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-11.png" alt class="img1">
 <img src="assets/img/home1/product-img-14.png" alt class="img2">
 <div class="batch">
@@ -2028,13 +2028,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Age-Defying Miracle</a></h6>
-<p><a href="shop-list.html">Radiance</a></p>
+<h6><a href="accordion" class="hover-underline">Age-Defying Miracle</a></h6>
+<p><a href="#">Radiance</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2053,7 +2053,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-12.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2061,13 +2061,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Oil-Control Pressed</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Oil-Control Pressed</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2090,7 +2090,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-7.png" alt class="img1">
 <img src="assets/img/home1/product-img-22.png" alt class="img2">
 <div class="batch">
@@ -2099,13 +2099,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Youthful Renewal Formula</a></h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<h6><a href="accordion" class="hover-underline">Youthful Renewal Formula</a></h6>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2124,7 +2124,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-8.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2132,13 +2132,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="shop-list.html">REVLON</a></p>
+<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
+<p><a href="#">REVLON</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2157,7 +2157,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-9.png" alt class="img1">
 <img src="assets/img/home1/product-img-21.png" alt class="img2">
 <div class="batch">
@@ -2166,13 +2166,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Firming Night Cream</a></h6>
-<p><a href="shop-list.html">Crystal</a></p>
+<h6><a href="accordion" class="hover-underline">Firming Night Cream</a></h6>
+<p><a href="#">Crystal</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2191,7 +2191,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-10.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2199,13 +2199,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Brightening Cream Complex</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Brightening Cream Complex</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2224,7 +2224,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-11.png" alt class="img1">
 <img src="assets/img/home1/product-img-14.png" alt class="img2">
 <div class="batch">
@@ -2233,13 +2233,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Age-Defying Miracle</a></h6>
-<p><a href="shop-list.html">Radiance</a></p>
+<h6><a href="accordion" class="hover-underline">Age-Defying Miracle</a></h6>
+<p><a href="#">Radiance</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2258,7 +2258,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-12.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2266,13 +2266,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Oil-Control Pressed</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Oil-Control Pressed</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2295,7 +2295,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-7.png" alt class="img1">
 <img src="assets/img/home1/product-img-22.png" alt class="img2">
 <div class="batch">
@@ -2304,13 +2304,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Youthful Renewal Formula</a></h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<h6><a href="accordion" class="hover-underline">Youthful Renewal Formula</a></h6>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2329,7 +2329,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-8.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2337,13 +2337,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="shop-list.html">REVLON</a></p>
+<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
+<p><a href="#">REVLON</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2362,7 +2362,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-9.png" alt class="img1">
 <img src="assets/img/home1/product-img-21.png" alt class="img2">
 <div class="batch">
@@ -2371,13 +2371,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Firming Night Cream</a></h6>
-<p><a href="shop-list.html">Crystal</a></p>
+<h6><a href="accordion" class="hover-underline">Firming Night Cream</a></h6>
+<p><a href="#">Crystal</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2396,7 +2396,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-10.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2404,13 +2404,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Brightening Cream Complex</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Brightening Cream Complex</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2429,7 +2429,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-11.png" alt class="img1">
 <img src="assets/img/home1/product-img-14.png" alt class="img2">
 <div class="batch">
@@ -2438,13 +2438,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Age-Defying Miracle</a></h6>
-<p><a href="shop-list.html">Radiance</a></p>
+<h6><a href="accordion" class="hover-underline">Age-Defying Miracle</a></h6>
+<p><a href="#">Radiance</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2463,7 +2463,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-12.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2471,13 +2471,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Oil-Control Pressed</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Oil-Control Pressed</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2500,7 +2500,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-7.png" alt class="img1">
 <img src="assets/img/home1/product-img-22.png" alt class="img2">
 <div class="batch">
@@ -2509,13 +2509,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Youthful Renewal Formula</a></h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<h6><a href="accordion" class="hover-underline">Youthful Renewal Formula</a></h6>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2534,7 +2534,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-8.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2542,13 +2542,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="shop-list.html">REVLON</a></p>
+<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
+<p><a href="#">REVLON</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2567,7 +2567,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-9.png" alt class="img1">
 <img src="assets/img/home1/product-img-21.png" alt class="img2">
 <div class="batch">
@@ -2576,13 +2576,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Firming Night Cream</a></h6>
-<p><a href="shop-list.html">Crystal</a></p>
+<h6><a href="accordion" class="hover-underline">Firming Night Cream</a></h6>
+<p><a href="#">Crystal</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2601,7 +2601,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-10.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2609,13 +2609,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Brightening Cream Complex</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Brightening Cream Complex</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2634,7 +2634,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-11.png" alt class="img1">
 <img src="assets/img/home1/product-img-14.png" alt class="img2">
 <div class="batch">
@@ -2643,13 +2643,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Age-Defying Miracle</a></h6>
-<p><a href="shop-list.html">Radiance</a></p>
+<h6><a href="accordion" class="hover-underline">Age-Defying Miracle</a></h6>
+<p><a href="#">Radiance</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2668,7 +2668,7 @@ Skin Care
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-12.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2676,13 +2676,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Oil-Control Pressed</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Oil-Control Pressed</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2719,7 +2719,7 @@ Skin Care
 <h5>Get</h5>
 <h5><span>30%</span> off</h5>
 </div>
-<a href="shop-list.html" class="buy-btn2 hover-btn3">*Buy Now*</a>
+<a href="slider" class="buy-btn2 hover-btn3">*Buy Now*</a>
 </div>
 </div>
 </div>
@@ -2730,7 +2730,7 @@ Skin Care
 <h5>All Makeup Product</h5>
 <h4>30% <span>off</span></h4>
 <p>Whatever your summer looks like, bring your own.</p>
-<a href="shop-list.html" class="buy-btn2 hover-btn3">*Buy Now*</a>
+<a href="slider" class="buy-btn2 hover-btn3">*Buy Now*</a>
 </div>
 </div>
 </div>
@@ -2759,7 +2759,7 @@ Skin Care
 <div class="swiper-slide">
 <div class="product-card hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-13.png" alt class="img1">
 <img src="assets/img/home1/product-img-12.png" alt class="img2">
 <div class="countdown-timer">
@@ -2785,13 +2785,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -2811,8 +2811,8 @@ Skin Care
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Soothing Aloe Bliss</a></h6>
-<p><a href="shop-list.html">Radiant Glow</a></p>
+<h6><a href="accordion" class="hover-underline">Soothing Aloe Bliss</a></h6>
+<p><a href="#">Radiant Glow</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2831,7 +2831,7 @@ Skin Care
 <div class="swiper-slide">
 <div class="product-card hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-14.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2839,13 +2839,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -2865,8 +2865,8 @@ Skin Care
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Calming Skin Relief</a></h6>
-<p><a href="shop-list.html">Silk Glow</a></p>
+<h6><a href="accordion" class="hover-underline">Calming Skin Relief</a></h6>
+<p><a href="#">Silk Glow</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2885,7 +2885,7 @@ Skin Care
 <div class="swiper-slide">
 <div class="product-card hover-btn">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-15.png" alt class="img1">
 <img src="assets/img/home1/product-img-18.png" alt class="img2">
 <div class="batch">
@@ -2894,13 +2894,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -2920,8 +2920,8 @@ Skin Care
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Timeless Amber Essence</a></h6>
-<p><a href="shop-list.html">Lash Luxe</a></p>
+<h6><a href="accordion" class="hover-underline">Timeless Amber Essence</a></h6>
+<p><a href="#">Lash Luxe</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -2940,7 +2940,7 @@ Skin Care
 <div class="swiper-slide">
 <div class="product-card hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/product-img-16.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -2948,13 +2948,13 @@ Skin Care
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -2974,8 +2974,8 @@ Skin Care
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Crimson Dreamy Hue</a></h6>
-<p><a href="shop-list.html">Crystal Clear</a></p>
+<h6><a href="accordion" class="hover-underline">Crimson Dreamy Hue</a></h6>
+<p><a href="#">Crystal Clear</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3054,18 +3054,18 @@ Cruelty-Free
 Antioxidants
 </li>
 </ul>
-<a href="shop-list.html" class="primary-btn1 hover-btn3">*Buy Now*</a>
+<a href="slider" class="primary-btn1 hover-btn3">*Buy Now*</a>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="exclusive-product-right">
 <div class="product-right-img hover-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/ex-product-img-01.png" alt>
 </a>
 </div>
 <div class="product-right-content">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/loreal-logo.png" alt>
 </a>
 <div class="star-bg">
@@ -3121,18 +3121,18 @@ Cruelty-Free
 Antioxidants
 </li>
 </ul>
-<a href="shop-list.html" class="primary-btn1 hover-btn3">*Buy Now*</a>
+<a href="slider" class="primary-btn1 hover-btn3">*Buy Now*</a>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="exclusive-product-right">
 <div class="product-right-img hover-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/ex-product-img-02.png" alt>
 </a>
 </div>
 <div class="product-right-content">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/loreal-logo.png" alt>
 </a>
 <div class="star-bg">
@@ -3188,18 +3188,18 @@ Cruelty-Free
 Antioxidants
 </li>
 </ul>
-<a href="shop-list.html" class="primary-btn1 hover-btn3">*Buy Now*</a>
+<a href="slider" class="primary-btn1 hover-btn3">*Buy Now*</a>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="exclusive-product-right">
 <div class="product-right-img hover-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/ex-product-img-03.png" alt>
 </a>
 </div>
 <div class="product-right-content">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/loreal-logo.png" alt>
 </a>
 <div class="star-bg">
@@ -3271,7 +3271,7 @@ UP!</p>
 </ul>
 </div>
 </div>
-<a href="shop-list.html" class="primary-btn1 style-2 hover-btn3">*Shop Now*</a>
+<a href="slider" class="primary-btn1 style-2 hover-btn3">*Shop Now*</a>
 </div>
 </div>
 <div class="col-lg-8 p-lg-0">
@@ -3280,7 +3280,7 @@ UP!</p>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-01.png" alt class="img1">
 <img src="assets/img/home1/sp-product-img-05.png" alt class="img2">
 <div class="batch">
@@ -3295,8 +3295,8 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Mystic Woods Aroma</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Mystic Woods Aroma</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3314,7 +3314,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-02.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -3328,8 +3328,8 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Dewy Fresh Face</a></h6>
-<p><a href="shop-list.html">Pure Bliss</a></p>
+<h6><a href="accordion" class="hover-underline">Dewy Fresh Face</a></h6>
+<p><a href="#">Pure Bliss</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3347,7 +3347,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-03.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -3361,8 +3361,8 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Rose Petal Flush</a></h6>
-<p><a href="shop-list.html">Velvet Tint</a></p>
+<h6><a href="accordion" class="hover-underline">Rose Petal Flush</a></h6>
+<p><a href="#">Velvet Tint</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3380,7 +3380,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-04.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -3394,9 +3394,9 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Hydrating Waves</a>
+<h6><a href="accordion" class="hover-underline">Hydrating Waves</a>
 </h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3414,7 +3414,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img double-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-05.png" alt class="img1">
 <img src="assets/img/home1/sp-product-img-01.png" alt class="img2">
 <div class="batch">
@@ -3429,8 +3429,8 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Velvet Red Charm</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Velvet Red Charm</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3448,7 +3448,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-06.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -3462,9 +3462,9 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Intensive Cream</a>
+<h6><a href="accordion" class="hover-underline">Intensive Cream</a>
 </h6>
-<p><a href="shop-list.html">Nectar Nouri</a></p>
+<p><a href="#">Nectar Nouri</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3482,7 +3482,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-01.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -3496,8 +3496,8 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Mystic Woods Aroma</a></h6>
-<p><a href="shop-list.html">Whispering</a></p>
+<h6><a href="accordion" class="hover-underline">Mystic Woods Aroma</a></h6>
+<p><a href="#">Whispering</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3515,7 +3515,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-02.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -3529,8 +3529,8 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Dewy Fresh Face</a></h6>
-<p><a href="shop-list.html">Pure Bliss</a></p>
+<h6><a href="accordion" class="hover-underline">Dewy Fresh Face</a></h6>
+<p><a href="#">Pure Bliss</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3548,7 +3548,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-03.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -3562,8 +3562,8 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Rose Petal Flush</a></h6>
-<p><a href="shop-list.html">Velvet Tint</a></p>
+<h6><a href="accordion" class="hover-underline">Rose Petal Flush</a></h6>
+<p><a href="#">Velvet Tint</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3581,7 +3581,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-04.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -3595,9 +3595,9 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Hydrating Waves</a>
+<h6><a href="accordion" class="hover-underline">Hydrating Waves</a>
 </h6>
-<p><a href="shop-list.html">Crystal Gleam</a></p>
+<p><a href="#">Crystal Gleam</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3615,7 +3615,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-05.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -3629,8 +3629,8 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Velvet Red Charm</a></h6>
-<p><a href="shop-list.html">Radiant</a></p>
+<h6><a href="accordion" class="hover-underline">Velvet Red Charm</a></h6>
+<p><a href="#">Radiant</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3648,7 +3648,7 @@ To Cart</a>
 <div class="slide-item">
 <div class="product-card style-4">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/home1/sp-product-img-06.png" alt>
 <div class="batch">
 <span>-15%</span>
@@ -3662,9 +3662,9 @@ To Cart</a>
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Intensive Cream</a>
+<h6><a href="accordion" class="hover-underline">Intensive Cream</a>
 </h6>
-<p><a href="shop-list.html">Nectar Nouri</a></p>
+<p><a href="#">Nectar Nouri</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -3700,49 +3700,49 @@ To Cart</a>
 <div class="swiper-wrapper">
 <div class="swiper-slide">
 <div class="brand-icon">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/brand-logo1.png" alt>
 </a>
 </div>
 </div>
 <div class="swiper-slide">
 <div class="brand-icon">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/brand-logo2.png" alt>
 </a>
 </div>
 </div>
 <div class="swiper-slide">
 <div class="brand-icon">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/brand-logo3.png" alt>
 </a>
 </div>
 </div>
 <div class="swiper-slide">
 <div class="brand-icon">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/brand-logo4.png" alt>
 </a>
 </div>
 </div>
 <div class="swiper-slide">
 <div class="brand-icon">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/brand-logo5.png" alt>
 </a>
 </div>
 </div>
 <div class="swiper-slide">
 <div class="brand-icon">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/brand-logo6.png" alt>
 </a>
 </div>
 </div>
 <div class="swiper-slide">
 <div class="brand-icon">
-<a href="shop-list.html">
+<a href="slider">
 <img src="assets/img/home1/brand-logo7.png" alt>
 </a>
 </div>
@@ -3770,7 +3770,7 @@ To Cart</a>
 <span>BROW BESTSELLERS</span>
 <h2>They’re kinda our Best thing!</h2>
 <p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.Pellentesque ipsum dui, laoreet vitae ex in, pellentesque aliquam leo.</p>
-<a href="shop-list.html" class="primary-btn1 style-2 hover-btn3">*Shop All Brows*</a>
+<a href="slider" class="primary-btn1 style-2 hover-btn3">*Shop All Brows*</a>
 </div>
 </div>
 </div>
@@ -3780,7 +3780,7 @@ To Cart</a>
 <div class="makeup-content">
 <h2>Try on your perfect Best Makeup!</h2>
 <p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.Pellentesque ipsum dui, laoreet vitae ex in, pellentesque aliquam leo.</p>
-<a href="shop-list.html" class="primary-btn1 style-2 hover-btn3">*Try It Now*</a>
+<a href="slider" class="primary-btn1 style-2 hover-btn3">*Try It Now*</a>
 </div>
 </div>
 <div class="col-lg-6 order-lg-2 order-1">
@@ -3934,9 +3934,9 @@ To Cart</a>
 <div class="article-card">
 <div class="article-image">
 <div class="blog-date">
-<a href="blog-grid.html">20 July, 2023</a>
+<a href="#">20 July, 2023</a>
 </div>
-<a href="blog-details.html" class="article-card-img hover-img">
+<a href="#" class="article-card-img hover-img">
 <img src="assets/img/home1/article-img1.png" alt>
 </a>
 </div>
@@ -3944,49 +3944,49 @@ To Cart</a>
 <div class="tag">
 <ul>
 <li>
-<a href="blog-grid.html">Beauty</a>
+<a href="#">Beauty</a>
 </li>
 <li>
-<a href="blog-grid.html">Makeup </a>
+<a href="#">Makeup </a>
 </li>
 <li>
-<a href="blog-grid.html">Health</a>
+<a href="#">Health</a>
 </li>
 </ul>
 </div>
-<h5><a href="blog-details.html" class="hover-underline">Vestibulum leo ex posueret eu lobortis ut.</a></h5>
+<h5><a href="blog_details" class="hover-underline">Vestibulum leo ex posueret eu lobortis ut.</a></h5>
 <p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog-details.html">Read More</a>
+<a href="blog_details">Read More</a>
 </div>
 </div>
 </div>
 <div class="col-sm-6">
 <div class="article-card">
 <div class="article-image">
-<a href="blog-details.html" class="article-card-img hover-img">
+<a href="blog_details" class="article-card-img hover-img">
 <img src="assets/img/home1/article-img2.png" alt>
 </a>
 <div class="blog-date">
-<a href="blog-grid.html">25 July, 2023</a>
+<a href="#">25 July, 2023</a>
 </div>
 </div>
 <div class="article-card-content">
 <div class="tag">
 <ul>
 <li>
-<a href="blog-grid.html">Beauty</a>
+<a href="#">Beauty</a>
 </li>
 <li>
-<a href="blog-grid.html">Makeup </a>
+<a href="#">Makeup </a>
 </li>
 <li>
-<a href="blog-grid.html">Health</a>
+<a href="#">Health</a>
 </li>
 </ul>
 </div>
-<h5><a href="blog-details.html" class="hover-underline">Duis justo orci consecteturi et convallis.</a></h5>
+<h5><a href="blog_details" class="hover-underline">Duis justo orci consecteturi et convallis.</a></h5>
 <p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog-details.html">Read More</a>
+<a href="blog_details">Read More</a>
 </div>
 </div>
 </div>
@@ -3995,30 +3995,30 @@ To Cart</a>
 <div class="col-lg-5">
 <div class="article-card">
 <div class="article-image">
-<a href="blog-details.html" class="article-card-img hover-img">
+<a href="blog_details" class="article-card-img hover-img">
 <img src="assets/img/home1/article-img3.png" alt>
 </a>
 <div class="blog-date">
-<a href="blog-grid.html">10 June, 2023</a>
+<a href="#">10 June, 2023</a>
 </div>
 </div>
 <div class="article-card-content style-2">
 <div class="tag">
 <ul>
 <li>
-<a href="blog-grid.html">Beauty</a>
+<a href="#">Beauty</a>
 </li>
 <li>
-<a href="blog-grid.html">Makeup </a>
+<a href="#">Makeup </a>
 </li>
 <li>
-<a href="blog-grid.html">Health</a>
+<a href="#">Health</a>
 </li>
 </ul>
 </div>
-<h5><a href="blog-details.html" class="hover-underline">Fusce vel auctor leo, a tempus sapieno Nunc ut purus.</a></h5>
+<h5><a href="blog_details" class="hover-underline">Fusce vel auctor leo, a tempus sapieno Nunc ut purus.</a></h5>
 <p>Software development is the process offer creatain onet computer software programs that perform specific tasks and its helps user to complete tasks in easy way.......</p>
-<a href="blog-details.html">Read More</a>
+<a href="blog_details">Read More</a>
 </div>
 </div>
 </div>
@@ -4054,7 +4054,7 @@ To Cart</a>
 <div class="container">
 <div class="section-title style-3">
 <h3>Instagram Feed</h3>
-<p>Follow us on <a href>@Egenslab</a></p>
+<p>Follow us on <a href>@Dazzle</a></p>
 </div>
 </div>
 <div class="instagram-wrapper">
@@ -4105,7 +4105,7 @@ To Cart</a>
 <div class="gift-card-content">
 <p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.Pellentesque ipsum dui.</p>
 </div>
-<a href="gift-card.html" class="primary-btn1 hover-btn3">*Shop Gift Cards*</a>
+<a href="gift_card" class="primary-btn1 hover-btn3">*Shop Gift Cards*</a>
 </div>
 </div>
 </div>
