@@ -41,7 +41,7 @@
 <div class="container">
 <nav aria-label="breadcrumb">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item"><a href="/">Home</a></li>
 <li class="breadcrumb-item active" aria-current="page">Shop</li>
 <li class="breadcrumb-item active" aria-current="page">Whistlist</li>
 </ol>
@@ -77,7 +77,7 @@
 <img src="assets/img/inner-page/whistlist-img1.png" alt>
 </div>
 <div class="product-content">
-<h6><a href="product-default.html">Eau De Blue Perfume</a></h6>
+<h6><a href="accordion">Eau De Blue Perfume</a></h6>
 </div>
 </td>
 <td data-label="Price">
@@ -90,7 +90,7 @@ $30.00
 <span>In Stock</span>
 </td>
 <td>
-<a href="cart.html" class="add-cart-btn hover-btn2"><i class="bi bi-bag-check"></i>Add To Cart</a>
+<a href="cart" class="add-cart-btn hover-btn2"><i class="bi bi-bag-check"></i>Add To Cart</a>
 </td>
 </tr>
 <tr>
@@ -104,7 +104,7 @@ $30.00
 <img src="assets/img/inner-page/whistlist-img2.png" alt>
 </div>
 <div class="product-content">
-<h6><a href="product-default.html">Smooth Makeup Box</a></h6>
+<h6><a href="ssccordion">Smooth Makeup Box</a></h6>
 </div>
 </td>
 <td data-label="Price">
@@ -117,7 +117,7 @@ $25.00
 <span>In Stock</span>
 </td>
 <td>
-<a href="cart.html" class="add-cart-btn hover-btn2"><i class="bi bi-bag-check"></i>Add To Cart</a>
+<a href="cart" class="add-cart-btn hover-btn2"><i class="bi bi-bag-check"></i>Add To Cart</a>
 </td>
 </tr>
 <tr>
@@ -131,7 +131,7 @@ $25.00
 <img src="assets/img/inner-page/whistlist-img3.png" alt>
 </div>
 <div class="product-content">
-<h6><a href="product-default.html">Modern Red Lipstick</a></h6>
+<h6><a href="accordion">Modern Red Lipstick</a></h6>
 </div>
 </td>
 <td data-label="Price">
@@ -144,7 +144,7 @@ $32.00
 <span>In Stock</span>
 </td>
 <td>
-<a href="cart.html" class="add-cart-btn hover-btn2"><i class="bi bi-bag-check"></i>Add To Cart</a>
+<a href="cart" class="add-cart-btn hover-btn2"><i class="bi bi-bag-check"></i>Add To Cart</a>
 </td>
 </tr>
 <tr>
@@ -158,7 +158,7 @@ $32.00
 <img src="assets/img/inner-page/whistlist-img4.png" alt>
 </div>
 <div class="product-content">
-<h6><a href="product-default.html">New Botanical Shampoo</a></h6>
+<h6><a href="accordion">New Botanical Shampoo</a></h6>
 </div>
 </td>
 <td data-label="Price">
@@ -171,7 +171,7 @@ $27.00
 <span>In Stock</span>
 </td>
 <td>
-<a href="cart.html" class="add-cart-btn hover-btn2"><i class="bi bi-bag-check"></i>Add To Cart</a>
+<a href="cart" class="add-cart-btn hover-btn2"><i class="bi bi-bag-check"></i>Add To Cart</a>
 </td>
 </tr>
 </tbody>

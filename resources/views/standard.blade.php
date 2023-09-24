@@ -39,7 +39,7 @@
 <div class="container">
 <nav aria-label="breadcrumb">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item"><a href="/">Home</a></li>
 <li class="breadcrumb-item active" aria-current="page">Shop</li>
 <li class="breadcrumb-item active" aria-current="page">Standard</li>
 </ol>
@@ -69,7 +69,7 @@
 <div class="col-md-12">
 <div class="product-card style-6 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/jewelleryy/earrings.jpg" alt>
 <div class="countdown-timer">
 <ul data-countdown="2023-10-23 12:00:00">
@@ -94,13 +94,13 @@
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -120,8 +120,8 @@
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Botanical & Organic hair Shampoo</a></h6>
-<p><a href="shop-list.html">Radiant Vibe</a></p>
+<h6><a href="accordion" class="hover-underline">ROUND LOOP CLIP TOPS</a></h6>
+<p><a href="accordion">Style # 15321</a></p>
 <p class="price">$150.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -141,49 +141,53 @@
 <div class="col-md-12">
     <div class="product-card style-6 hover-btn">
     <div class="product-card-img">
-    <a href="product-default.html">
+    <a href="accordion">
     <img src="assets/img/jewelleryy/pendant (2).jpg" alt>
     <div class="batch">
     <span>-14%</span>
     </div>
     </a>
     <div class="overlay">
-    <div class="cart-area">
-    <a href="product-with-size-variation.html" class="hover-btn3 add-cart-btn">Select options</a>
-    </div>
-    </div>
-    <div class="view-and-favorite-area">
-    <ul>
-    <li>
-    <a href="whistlist.html">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-    <g clip-path="url(#clip0_168_378)">
-    <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-    </g>
-    </svg>
-    </a>
-    </li>
-    <li>
-    <a data-bs-toggle="modal" data-bs-target="#product-view">
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-    <path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-    <path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-    </svg>
-    </a>
-    </li>
-    </ul>
-    </div>
+        <div class="cart-area">
+        <a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+        </div>
+        </div>
+        <div class="view-and-favorite-area">
+            <ul>
+            <li>
+            <a href="wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+            <g clip-path="url(#clip0_168_378)">
+            <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
+            </g>
+            </svg>
+            </a>
+            </li>
+            <li>
+            <a data-bs-toggle="modal" data-bs-target="#product-view">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+            <path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
+            <path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
+            </svg>
+            </a>
+            </li>
+            </ul>
+            </div>
     </div>
     <div class="product-card-content">
-    <h6><a href="product-default.html" class="hover-underline">Organic & Botanical vitamin cream</a></h6>
-    <p><a href="shop-list.html">pantene</a></p>
+    <h6><a href="accordion" class="hover-underline">FLOWER CHARM BIRD PENDANT</a></h6>
+    <p><a href="accordion">Style # 15671</a></p>
     <p class="price">$140.00 <del>$200.00</del></p>
-    <ul class="product-size justify-content-sm-start justify-content-center flex-wrap">
-    <li>250 ml</li>
-    <li>500 ml</li>
-    <li>1000 ml</li>
-    <li>1500 ml</li>
-    </ul>
+    <div class="rating">
+        <ul>
+        <li><i class="bi bi-star-fill"></i></li>
+        <li><i class="bi bi-star-fill"></i></li>
+        <li><i class="bi bi-star-fill"></i></li>
+        <li><i class="bi bi-star-fill"></i></li>
+        <li><i class="bi bi-star-fill"></i></li>
+        </ul>
+        <span>(50)</span>
+        </div>
     </div>
     <span class="for-border"></span>
     </div>
@@ -191,49 +195,53 @@
 <div class="col-md-12">
 <div class="product-card style-6 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/jewelleryy/bracelet.jpg" alt>
 <div class="batch">
 <span>-14%</span>
 </div>
 </a>
 <div class="overlay">
-<div class="cart-area">
-<a href="product-with-size-variation.html" class="hover-btn3 add-cart-btn">Select options</a>
-</div>
-</div>
-<div class="view-and-favorite-area">
-<ul>
-<li>
-<a href="whistlist.html">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-<g clip-path="url(#clip0_168_378)">
-<path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-</g>
-</svg>
-</a>
-</li>
-<li>
-<a data-bs-toggle="modal" data-bs-target="#product-view">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-<path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-<path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-</svg>
-</a>
-</li>
-</ul>
-</div>
+    <div class="cart-area">
+    <a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+    </div>
+    </div>
+    <div class="view-and-favorite-area">
+        <ul>
+        <li>
+        <a href="wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+        <g clip-path="url(#clip0_168_378)">
+        <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
+        </g>
+        </svg>
+        </a>
+        </li>
+        <li>
+        <a data-bs-toggle="modal" data-bs-target="#product-view">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+        <path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
+        <path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
+        </svg>
+        </a>
+        </li>
+        </ul>
+        </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Organic & Botanical vitamin cream</a></h6>
-<p><a href="shop-list.html">pantene</a></p>
+<h6><a href="accordion" class="hover-underline">CHUNKY CHAIN STAINLESS STEEL BRACELET</a></h6>
+<p><a href="accordion">Style # 15323</a></p>
 <p class="price">$140.00 <del>$200.00</del></p>
-<ul class="product-size justify-content-sm-start justify-content-center flex-wrap">
-<li>250 ml</li>
-<li>500 ml</li>
-<li>1000 ml</li>
-<li>1500 ml</li>
-</ul>
+<div class="rating">
+    <ul>
+    <li><i class="bi bi-star-fill"></i></li>
+    <li><i class="bi bi-star-fill"></i></li>
+    <li><i class="bi bi-star-fill"></i></li>
+    <li><i class="bi bi-star-fill"></i></li>
+    <li><i class="bi bi-star-fill"></i></li>
+    </ul>
+    <span>(50)</span>
+    </div>
 </div>
 <span class="for-border"></span>
 </div>
@@ -241,7 +249,7 @@
 <div class="col-md-12">
 <div class="product-card style-6 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/jewelleryy/bracelet (2).jpg" alt>
 <div class="batch">
 <span>-12</span>
@@ -249,13 +257,13 @@
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -275,8 +283,8 @@
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Eau de perfume for women</a></h6>
-<p><a href="shop-list.html">Belle Luxe</a></p>
+<h6><a href="accordion" class="hover-underline">FUNKY GOLD CHAIN BRACELET PRE-OWNED</a></h6>
+<p><a href="accordion">Style # 34321</a></p>
 <p class="price">$135.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -295,7 +303,7 @@
 <div class="col-md-12">
 <div class="product-card style-6 hover-btn">
 <div class="product-card-img">
-<a href="product-default.html">
+<a href="accordion">
 <img src="assets/img/jewelleryy/pendant (3).jpg" alt>
 <div class="batch">
 <span>-18%</span>
@@ -303,13 +311,13 @@
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
 </div>
 </div>
 <div class="view-and-favorite-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
 <g clip-path="url(#clip0_168_378)">
 <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
@@ -329,8 +337,8 @@
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Poutsicle Hydrating Modern Lip Stain</a></h6>
-<p><a href="shop-list.html">Elevate Glow</a></p>
+<h6><a href="accordion" class="hover-underline">ELEVATED COLLECTION-OBELISK NECKLACE+CUFF</a></h6>
+<p><a href="accordion">Style # 15377</a></p>
 <p class="price">$130.00 <del>$200.00</del></p>
 <div class="rating">
 <ul>
@@ -408,28 +416,28 @@
 <h5 class="shop-widget-title">Categories</h5>
 <ul class="shop-item">
 <li>
-<a href="shop-list.html">All Product</a>
+<a href="slider">All Product</a>
 </li>
 <li>
-<a href="shop-list.html">Healthy & Natural</a>
+<a href="slider">Healthy & Natural</a>
 </li>
 <li>
-<a href="shop-list.html">Beauty & Cosmetics</a>
+<a href="slider">Beauty & Cosmetics</a>
 </li>
 <li>
-<a href="shop-list.html">Selfcare Veggies</a>
+<a href="slider">Selfcare Veggies</a>
 </li>
 <li>
-<a href="shop-list.html">Personal Care</a>
+<a href="slider">Personal Care</a>
 </li>
 <li>
-<a href="shop-list.html">Men’s Collections</a>
+<a href="slider">Men’s Collections</a>
 </li>
 <li>
-<a href="shop-list.html">kids & Baby Set</a>
+<a href="slider">kids & Baby Set</a>
 </li>
 <li>
-<a href="shop-list.html">Summer product</a>
+<a href="slider">Summer product</a>
 </li>
 </ul>
 </div>
@@ -439,32 +447,32 @@
 <h5 class="shop-widget-title">Our Brand </h5>
 <ul class="shop-item">
 <li class="brand-list">
-<a href="shop-list.html">Nivea
+<a href="slider">Nivea
 <span>50</span>
 </a>
 </li>
 <li class="brand-list">
-<a href="shop-list.html">Loreal
+<a href="slider">Loreal
 <span>35</span>
 </a>
 </li>
 <li class="brand-list">
-<a href="shop-list.html">Gillette
+<a href="slider">Gillette
 <span>20</span>
 </a>
 </li>
 <li class="brand-list">
-<a href="shop-list.html">Garnier
+<a href="slider">Garnier
 <span>18</span>
 </a>
 </li>
 <li class="brand-list">
-<a href="shop-list.html">Cetaphil
+<a href="slider">Cetaphil
 <span>06</span>
 </a>
 </li>
 <li class="brand-list">
-<a href="shop-list.html">Aveeno
+<a href="slider">Aveeno
 <span>08</span>
 </a>
 </li>
@@ -475,28 +483,28 @@
 <h5 class="shop-widget-title">Top Rated Product</h5>
 <div class="top-product-widget mb-20">
 <div class="top-product-img">
-<a href="product-default.html"><img src="assets/img/inner-page/top-product1.png" alt></a>
+<a href="accordion"><img src="assets/img/inner-page/top-product1.png" alt></a>
 </div>
 <div class="top-product-content">
-<h6><a href="product-default.html">Estee Lauder new Body Lotion</a></h6>
+<h6><a href="accordion">Estee Lauder new Body Lotion</a></h6>
 <span>$150.00 <del>$200.00</del></span>
 </div>
 </div>
 <div class="top-product-widget mb-20">
 <div class="top-product-img">
-<a href="product-default.html"><img src="assets/img/inner-page/top-product2.png" alt></a>
+<a href="accordion"><img src="assets/img/inner-page/top-product2.png" alt></a>
 </div>
 <div class="top-product-content">
-<h6><a href="product-default.html">Argan & Olive Nature organ Oil</a></h6>
+<h6><a href="accordion">Argan & Olive Nature organ Oil</a></h6>
 <span>$130.00 <del>$200.00</del></span>
 </div>
 </div>
 <div class="top-product-widget">
 <div class="top-product-img">
-<a href="product-default.html"><img src="assets/img/inner-page/top-product3.png" alt></a>
+<a href="accordion"><img src="assets/img/inner-page/top-product3.png" alt></a>
 </div>
 <div class="top-product-content">
-<h6><a href="product-default.html">Char Pull black & gray Face Mask</a></h6>
+<h6><a href="accordion">Char Pull black & gray Face Mask</a></h6>
 <span>$110.00 <del>$200.00</del></span>
 </div>
 </div>
@@ -598,14 +606,14 @@ Praesent commodo at massa eget suscipit. Utani vitae enim velit.</p>
 </div>
 </div>
 <div class="shop-details-btn">
-<a href="shop-list.html" class="primary-btn1 hover-btn3">*Buy Now*</a>
+<a href="slider" class="primary-btn1 hover-btn3">*Buy Now*</a>
 <a href="#" class="primary-btn1 style-3 hover-btn4">*Add to Cart*</a>
 </div>
 <div class="product-info">
 <ul class="product-info-list">
 <li> <span>SKU:</span> 9852410</li>
-<li> <span>Brand:</span> <a href="shop-4-columns.html">Chanel</a></li>
-<li> <span>Category:</span> <a href="shop-slider.html">Body</a>, <a href="shop-slider.html">Face</a></li>
+<li> <span>Brand:</span> <a href="slider">Chanel</a></li>
+<li> <span>Category:</span> <a href="slider">Body</a>, <a href="slider">Face</a></li>
 </ul>
 </div>
 <div class="payment-method">
@@ -648,7 +656,7 @@ Free worldwide shipping on all orders over $100
 <div class="compare-wishlist-area">
 <ul>
 <li>
-<a href="whistlist.html">
+<a href="wishlist">
 <span>
 <svg width="11" height="11" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_168_378)">
@@ -680,7 +688,7 @@ Add to wishlist
 <div class="gift-card-content">
 <p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.Pellentesque ipsum dui.</p>
 </div>
-<a href="gift-card.html" class="primary-btn1 hover-btn3">*Shop Gift Cards*</a>
+<a href="gift_card" class="primary-btn1 hover-btn3">*Shop Gift Cards*</a>
 </div>
 </div>
 </div>

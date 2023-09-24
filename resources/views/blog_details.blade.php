@@ -39,7 +39,7 @@
 <div class="container">
 <nav aria-label="breadcrumb">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item"><a href="/">Home</a></li>
 <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
 </ol>
 </nav>
@@ -66,13 +66,13 @@ By, <a href="#">Cooper Jogan</a>
 <div class="tag">
 <ul>
 <li>
-<a href="blog-grid.html">Beauty</a>
+<a href="slider">Beauty</a>
 </li>
 <li>
-<a href="blog-grid.html">Makeup </a>
+<a href="slider">Makeup </a>
 </li>
 <li>
-<a href="blog-grid.html">Health</a>
+<a href="slider">Health</a>
 </li>
 </ul>
 </div>
@@ -101,7 +101,7 @@ By, <a href="#">Cooper Jogan</a>
 </div>
 <div class="blog-thumb">
 <img src="assets/img/inner-page/blog-thumb-img.png" alt>
-<a href="blog-grid.html">20 July, 2023</a>
+<a href="#">20 July, 2023</a>
 </div>
 <div class="blog-content">
 <h1>Vestibulum leo ex posueret eurot lobortis utoo beauty.</h1>
@@ -147,28 +147,28 @@ By, <a href="#">Cooper Jogan</a>
 <h5 class="shop-widget-title">Categories</h5>
 <ul class="shop-item">
 <li>
-<a href="blog-grid.html">All Product</a>
+<a href="slider">All Product</a>
 </li>
 <li>
-<a href="blog-grid.html">Healthy & Natural</a>
+<a href="slider">Healthy & Natural</a>
 </li>
 <li>
-<a href="blog-grid.html">Beauty & Cosmetics</a>
+<a href="slider">Beauty & Cosmetics</a>
 </li>
 <li>
-<a href="blog-grid.html">Selfcare Veggies</a>
+<a href="slider">Selfcare Veggies</a>
 </li>
 <li>
-<a href="blog-grid.html">Personal Care</a>
+<a href="slider">Personal Care</a>
 </li>
 <li>
-<a href="blog-grid.html">Men’s Collections</a>
+<a href="slider">Men’s Collections</a>
 </li>
 <li>
-<a href="blog-grid.html">kids & Baby Set</a>
+<a href="slider">kids & Baby Set</a>
 </li>
 <li>
-<a href="blog-grid.html">Summer product</a>
+<a href="slider">Summer product</a>
 </li>
 </ul>
 </div>
@@ -177,29 +177,29 @@ By, <a href="#">Cooper Jogan</a>
 <h5 class="shop-widget-title">Recent Post</h5>
 <div class="recent-post-widget mb-20">
 <div class="recent-post-img">
-<a href="blog-details.html"><img src="assets/img/inner-page/recent-post-img1.png" alt></a>
+<a href="#"><img src="assets/img/inner-page/recent-post-img1.png" alt></a>
 </div>
 <div class="recent-post-content">
-<a href="blog-grid.html">20 July, 2023</a>
-<h6><a href="blog-details.html">Poutsicle Hydrating Lipo Stain offering.</a></h6>
+<a href="slider">20 July, 2023</a>
+<h6><a href="#">Poutsicle Hydrating Lipo Stain offering.</a></h6>
 </div>
 </div>
 <div class="recent-post-widget mb-20">
 <div class="recent-post-img">
-<a href="blog-details.html"><img src="assets/img/inner-page/recent-post-img2.png" alt></a>
+<a href="#"><img src="assets/img/inner-page/recent-post-img2.png" alt></a>
 </div>
 <div class="recent-post-content">
-<a href="blog-grid.html">12 July, 2023</a>
-<h6><a href="blog-details.html">rutrum vitae augue idel euismod pulvi.</a></h6>
+<a href="#">12 July, 2023</a>
+<h6><a href="#">rutrum vitae augue idel euismod pulvi.</a></h6>
 </div>
 </div>
 <div class="recent-post-widget mb-20">
 <div class="recent-post-img">
-<a href="blog-details.html"><img src="assets/img/inner-page/recent-post-img3.png" alt></a>
+<a href="#"><img src="assets/img/inner-page/recent-post-img3.png" alt></a>
 </div>
 <div class="recent-post-content">
-<a href="blog-grid.html">04 July, 2023</a>
-<h6><a href="blog-details.html">Donec blandit fermentu diam non.</a></h6>
+<a href="#">04 July, 2023</a>
+<h6><a href="#">Donec blandit fermentu diam non.</a></h6>
 </div>
 </div>
 </div>
@@ -207,31 +207,31 @@ By, <a href="#">Cooper Jogan</a>
 <h5 class="shop-widget-title">Tags</h5>
 <ul class="tag-list">
 <li>
-<a href="blog-grid.html"> Makeup</a>
+<a href="slider"> Makeup</a>
 </li>
 <li>
-<a href="blog-grid.html"> Organic</a>
+<a href="slider"> Organic</a>
 </li>
 <li>
-<a href="blog-grid.html"> Skin Care</a>
+<a href="slider"> Skin Care</a>
 </li>
 <li>
-<a href="blog-grid.html"> Beauty Care</a>
+<a href="slider"> Beauty Care</a>
 </li>
 <li>
-<a href="blog-grid.html"> Herbal</a>
+<a href="slider"> Herbal</a>
 </li>
 <li>
-<a href="blog-grid.html"> Handmade</a>
+<a href="slider"> Handmade</a>
 </li>
 <li>
-<a href="blog-grid.html"> Zerowaste</a>
+<a href="slider"> Zerowaste</a>
 </li>
 <li>
-<a href="blog-grid.html"> Women Fashion</a>
+<a href="slider"> Women Fashion</a>
 </li>
 <li>
-<a href="blog-grid.html"> Natural</a>
+<a href="slider"> Natural</a>
 </li>
 </ul>
 </div>
@@ -243,16 +243,16 @@ By, <a href="#">Cooper Jogan</a>
 <h6>Tag: </h6>
 <ul class="tag-list">
 <li>
-<a href="blog-grid.html"> Makeup</a>
+<a href="slider"> Makeup</a>
 </li>
 <li>
-<a href="blog-grid.html"> Organic</a>
+<a href="slider"> Organic</a>
 </li>
 <li>
-<a href="blog-grid.html"> Skin Care</a>
+<a href="slider"> Skin Care</a>
 </li>
 <li>
-<a href="blog-grid.html"> Beauty Care</a>
+<a href="slider"> Beauty Care</a>
 </li>
 </ul>
 </div>
@@ -279,24 +279,24 @@ By, <a href="#">Cooper Jogan</a>
 <div class="blog-details-navigation">
 <div class="single-navigation">
 <div class="content">
-<a href="blog-details.html">Previous</a>
-<h4><a href="blog-details.html">Nam condimentum ante at</a></h4>
+<a href="#">Previous</a>
+<h4><a href="#">Nam condimentum ante at</a></h4>
 </div>
-<a href="blog-details.html" class="nav-icon">
+<a href="#" class="nav-icon">
 <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
 <path d="M10 17.4854L1.51472 9.00007M1.51472 9.00007L10 0.514789M1.51472 9.00007L17.4246 9.35362" />
 </svg>
 </a>
 </div>
 <div class="single-navigation two">
-<a href="blog-details.html" class="nav-icon">
+<a href="#" class="nav-icon">
 <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 0.514648L16.4853 8.99993M16.4853 8.99993L8 17.4852M16.4853 8.99993L0.575379 8.64638" />
 </svg>
 </a>
 <div class="content">
-<a href="blog-details.html">NEXT </a>
-<h4><a href="blog-details.html">Vestibulum eu sapien velit</a></h4>
+<a href="#">NEXT </a>
+<h4><a href="#">Vestibulum eu sapien velit</a></h4>
 </div>
 </div>
 </div>
