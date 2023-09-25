@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('email_verification_tables', function (Blueprint $table) {
             $table->id();
             $table->string('email_address');
-            $table->integer('verification_codes');
+            $table->integer('verification_code');
             $table->timestamps();
         });
     }

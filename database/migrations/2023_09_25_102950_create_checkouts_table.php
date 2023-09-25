@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
             $table->unsignedinteger('cart_id');
+            $table->unsignedinteger('user_id');
             $table->string('payment_method');
             $table->timestamps();
         });
