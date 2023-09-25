@@ -12,6 +12,20 @@ class Adminseeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \DB::table('users')->insert(
+            array(
+               
+            ) ,
+            array(
+
+            ) , 
+            array(
+                
+            ) , 
+            array(
+
+            ) , 
+
+        );
     }
 }
