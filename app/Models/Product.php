@@ -22,4 +22,13 @@ class Product extends Model
         'sku' ,
         'deleted_at'
       ];
+      public function category()
+      {
+          return $this->hasOne(Category::class , 'id' , 'category_id');
+      }
+    
+      public function subcategory()
+      {
+          return $this->hasOne(Subcategory::class , 'id' , 'subcategory_id');
+      }
 }
