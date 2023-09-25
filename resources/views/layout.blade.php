@@ -102,10 +102,19 @@ Log In
 </div>
 <form>
 <div class="form-inner mb-25">
+<input type="file" placeholder="">
+</div>
+<div class="form-inner mb-25">
+<input type="text" placeholder="Full Name *">
+</div>
+<div class="form-inner mb-25">
 <input type="text" placeholder="User Name *">
 </div>
 <div class="form-inner mb-25">
 <input type="email" placeholder="Email Here *">
+</div>
+<div class="form-inner mb-25">
+<input type="number" placeholder="Contact number *">
 </div>
 <div class="form-inner mb-25">
 <input id="password2" type="password" placeholder="Password *">
