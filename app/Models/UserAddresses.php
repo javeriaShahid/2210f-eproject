@@ -19,4 +19,8 @@ class UserAddresses extends Model
         'phone_number1',  
         'phone_number2',  
       ];
+    public function user()
+    {
+        return $this->hasOne(User::class ,'id' , 'user_id');
+    }
 }

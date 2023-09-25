@@ -13,4 +13,12 @@ class Category extends Model
         'name' ,
         'deleted_at'  // woh columns aenge jo database ke tables mai hain hamare means migrations mai hai Id ko chorkar ok
     ];
+    public function subcategory()
+    {
+        return $this->hasMany(Subcategory::class ,'category_id' , 'id');
+    }
+    public function products()
+    {
+        return $this->hasMany(Product::class , 'category_id' , 'id');
+    }
 }

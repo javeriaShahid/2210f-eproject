@@ -13,4 +13,6 @@ class Checkout extends Model
         'user_id' , 
         'payment_method',  
       ];
+      
+      
 }
