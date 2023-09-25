@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('iso2');
             $table->string('latitude');
             $table->string('longitude');
+            $table->integer('flag');
+            $table->integer('wikiDataId');
             $table->timestamps();
         });
     }

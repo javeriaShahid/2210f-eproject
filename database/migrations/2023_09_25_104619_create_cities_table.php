@@ -20,6 +20,8 @@ return new class extends Migration
             $table->Integer('state_code');
             $table->string('latitude');
             $table->string('longitude');
+            $table->integer('flag');
+            $table->integer('wikiDataId');
             $table->timestamps();
         });
     }
