@@ -13,25 +13,25 @@ return new class extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('iso3');
-            $table->string('iso2');
-            $table->string('phonecode');
-            $table->string('capital');
-            $table->string('currency');
-            $table->string('currency_symbol');
-            $table->string('tld');
-            $table->string('native');
-            $table->string('region');
-            $table->string('subregion');
-            $table->string('timezones');
-            $table->string('translations');
-            $table->string('latitude');
-            $table->string('longitude');
-            $table->string('emoji');
-            $table->string('emojiU');
-            $table->integer('flag');
-            $table->integer('wikiDataId');
+            $table->string('name')->nullable();
+            $table->string('iso3')->nullable();
+            $table->string('iso2')->nullable();
+            $table->string('phonecode')->nullable();
+            $table->string('capital')->nullable();
+            $table->string('currency')->nullable();
+            $table->string('currency_symbol')->nullable();
+            $table->string('tld')->nullable();
+            $table->string('native')->nullable();
+            $table->string('region')->nullable();
+            $table->string('subregion')->nullable();
+            $table->longText('timezones')->nullable();
+            $table->longText('translations')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->longText('emoji')->nullable();
+            $table->longText('emojiU')->nullable();
+            $table->integer('flag')->nullable();
+            $table->string('wikiDataId')->nullable();
             $table->timestamps();
         });
     }

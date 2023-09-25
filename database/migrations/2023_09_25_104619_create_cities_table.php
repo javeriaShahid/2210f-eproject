@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->unsignedBigInteger('country_id');
-            $table->string('country_code');
+            $table->string('country_code')->nullable();
             $table->unsignedBigInteger('state_id');
-            $table->Integer('state_code');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->string('state_code')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->integer('flag');
-            $table->integer('wikiDataId');
+            $table->string('wikiDataId')->nullable();
             $table->timestamps();
         });
     }
