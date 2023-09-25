@@ -79,7 +79,8 @@
               
               </span>
               
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Dazzle</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">
+                <img src="assets/img/logo.png" style="height: 50px" alt>              </span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -533,13 +534,13 @@
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
+                          <h5 class="card-title text-dark">Congratulations dear! 🎉</h5>
                           <p class="mb-4">
                             You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
                             your profile.
                           </p>
 
-                          <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
+                          <a href="javascript:;" class="btn btn-sm btn-outline-dark">View Badges</a>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
@@ -641,7 +642,7 @@
                           <div class="text-center">
                             <div class="dropdown">
                               <button
-                                class="btn btn-sm btn-outline-primary dropdown-toggle"
+                                class="btn btn-sm btn-outline-dark dropdown-toggle"
                                 type="button"
                                 id="growthReportId"
                                 data-bs-toggle="dropdown"
@@ -664,7 +665,7 @@
                         <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between">
                           <div class="d-flex">
                             <div class="me-2">
-                              <span class="badge bg-label-primary p-2"><i class="bx bx-dollar text-primary"></i></span>
+                              <span class="badge bg-label-dark p-2"><i class="bx bx-dollar text-dark"></i></span>
                             </div>
                             <div class="d-flex flex-column">
                               <small>2022</small>
@@ -812,7 +813,7 @@
                       <ul class="p-0 m-0">
                         <li class="d-flex mb-4 pb-1">
                           <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-primary"
+                            <span class="avatar-initial rounded bg-label-dark"
                               ><i class="bx bx-mobile-alt"></i
                             ></span>
                           </div>

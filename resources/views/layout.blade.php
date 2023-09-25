@@ -128,7 +128,7 @@ Log In
 <header class="header-area">
     <div class="container-xxl container-fluid position-relative  d-flex flex-nowrap align-items-center justify-content-between">
     <div class="header-logo d-lg-none d-flex">
-    <a href="index.html"><img alt="image" class="img-fluid" src="assets/img/logo.svg"></a>
+    <a href="index.html"><img alt="image" class="img-fluid" src="assets/img/logo.png" style="height: 50px"></a>
     </div>
     <div class="category-dropdown">
     <div class="category-button">
@@ -177,7 +177,7 @@ Log In
 <div class="main-menu">
 <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
 <div class="mobile-logo-wrap">
-<a href="/"><img alt="image" src="assets/img/logo.svg"></a>
+<a href="/"><img alt="image" src="assets/img/logo.png" style="height: 50px"></a>
 </div>
 </div>
 <ul class="menu-list">
@@ -1222,7 +1222,7 @@ Setting Spray
     <p>©Copyright 2023 Dazzle | Design By <a href="#"> Javeria Shahid</a></p>
     </div>
     <div class="footer-logo">
-    <a href="/"><img src="assets/img/logo.svg" alt></a>
+    <a href="/"><img src="assets/img/logo.png" style="height: 50px" alt></a>
     </div>
     <div class="footer-contact">
     <div class="logo">
