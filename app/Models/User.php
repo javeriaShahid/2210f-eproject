@@ -21,6 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'contact_number' ,
+        'profile_image' ,
+        'is_blocked' ,
+        'role' ,
+        'status' ,
+        'country_code',
+        ''
     ];
 
     /**
@@ -42,7 +49,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function address(){
-        
+
         return $this->hasMany(UserAddresses::class ,'user_id' , 'id');
+    }
+    public function countries()
+    {
+        return $this->hasOne(Country::class ,'phonecode' , 'phone_code');
     }
 }

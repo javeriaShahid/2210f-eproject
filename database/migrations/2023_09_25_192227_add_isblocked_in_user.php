@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('is_blocked')->default(0);
-            $table->string('country_code');
+            $table->string('phone_code');
         });
-      
+
     }
 
     /**
@@ -25,7 +25,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropcolumn('is_blocked');
-            $table->dropcolumn('country_code');
+            $table->dropcolumn('phone_code');
 
         });
     }
