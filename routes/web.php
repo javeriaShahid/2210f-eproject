@@ -38,9 +38,10 @@ Route::get('/registration', [usercontroller::class, "registration"])->name('regi
 
 Route::get('/loggedIn',[Authcontroller::class, "login"])->name('login');
 
+
 Route::middleware('admin')->group(function(){
-    
     Route::get('/dashboard', [usercontroller::class, "dashboard"])->name('dashboard');
+    
 });
 
 

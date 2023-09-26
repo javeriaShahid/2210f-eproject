@@ -2,15 +2,18 @@
 @section('content')
 
 <style>
-    .bg-image{
-        background-size: cover;
+    
+    .form-control{
+        box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.219)!important;
+        border:1px solid black !important;
+        border-radius:0 !important;
+        outline:none !important;
     }
     
     </style>
-    <section class="vh-100 bg-image"
-      style="background-image: url('https://images.unsplash.com/photo-1608042314453-ae338d80c427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2010&q=80');"> 
-     
-  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+ <section style="background-image: url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1912&q=80')" >
+  {{-- <div style="background:white; width:auto ;" class="mask d-flex align-items-center h-100 gradient-custom-3"> --}}
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
@@ -21,40 +24,35 @@
               <form>
 
                   <div class="form-outline mb-4">
-                      <label class="form-label" for="form3Example1cg"></label>
+                      <label class="form-label" for="form3Example1cg">Profile Image</label>
                     <input type="file" id="form3Example1cg" class="form-control form-control-lg" />
                   </div>
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">Full Name</label>
+                    <label class="form-label" for="form3Example1cg">Full Name</label>
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="Full Name"/>
                 </div>
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">User Name</label>
+                    <label class="form-label" for="form3Example1cg">User Name</label>
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="User Name" />
                 </div>
                 <div class="form-outline mb-4">
-                  <input type="number" id="form3Example1cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">Contact Here</label>
-                </div>
-
-                <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                    <label class="form-label" for="form3Example1cg">Contact Here</label>
+                  <input type="number" id="form3Example1cg" class="form-control form-control-lg" placeholder="Contact Here" />
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cg">Password</label>
+                    <label class="form-label" for="form3Example3cg">Your Email</label>
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" placeholder="Your Email" />
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cg">Confirm Password</label>
+                    <label class="form-label" for="form3Example4cg">Password</label>
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" placeholder="Password" />
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                    <label class="form-label" for="form3Example4cg">Confirm Password</label>
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" placeholder="Confirm Password" />
                 </div>
 
                 <div class="form-check d-flex justify-content-center mb-5">
