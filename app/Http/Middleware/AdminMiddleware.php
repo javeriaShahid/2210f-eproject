@@ -19,10 +19,10 @@ class AdminMiddleware
         {
 
         }
-        if(!session()->get('admin')['role'] == 1)
-        {
-            return redirect(Route('admin.login.view'))->with('error' , 'You are not an admin please Loggin with your admin account');
-        }
+        // if(!session()->get('admin')['role'] == 1)
+        // {
+        //     return redirect(Route('admin.login.view'))->with('error' , 'You are not an admin please Loggin with your admin account');
+        // }
         if(!session()->has('admin'))
         {
             return redirect(Route("admin.login.view"))->with('error' , 'You are not logged in login before accessing dashboard');

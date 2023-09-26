@@ -68,6 +68,9 @@ class usercontroller extends Controller
    public function wishlist(){
       return view("wishlist");
      }
+   public function registration(){
+      return view("registration");
+     }
 }
 
 

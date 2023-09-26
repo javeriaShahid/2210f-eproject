@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usercontroller;
+use App\Http\Controllers\Authcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,11 @@ use App\Http\Controllers\usercontroller;
 */
 
 Route::get('/', [usercontroller::class, "index"]);
-Route::get('/login', [usercontroller::class, "login"])->name('login');
-Route::get('/dashboard', [usercontroller::class, "dashboard"])->name('dashboard');
+Route::get('/login', [usercontroller::class, "login"])->name('admin.login.view');
 Route::get('/about_us', [usercontroller::class, "about_us"])->name('about_us');
 Route::get('/accordion', [usercontroller::class, "accordion"])->name('accordion');
 Route::get('/blog_details', [usercontroller::class, "blog_details"])->name('blog_details');
 Route::get('/blog', [usercontroller::class, "blog"])->name('blog');
-Route::get('/cart', [usercontroller::class, "cart"])->name('cart');
 Route::get('/category', [usercontroller::class, "category"])->name('category');
 Route::get('/checkout', [usercontroller::class, "checkout"])->name('checkout');
 Route::get('/contact', [usercontroller::class, "contact"])->name('contact');
@@ -34,3 +33,14 @@ Route::get('/quick_view', [usercontroller::class, "quick_view"])->name('quick_vi
 Route::get('/slider', [usercontroller::class, "slider"])->name('slider');
 Route::get('/standard', [usercontroller::class, "standard"])->name('standard');
 Route::get('/wishlist', [usercontroller::class, "wishlist"])->name('wishlist');
+Route::get('/cart', [usercontroller::class, "cart"])->name('cart');
+Route::get('/registration', [usercontroller::class, "registration"])->name('registration');
+
+Route::get('/loggedIn',[Authcontroller::class, "login"])->name('login');
+
+Route::middleware('admin')->group(function(){
+    
+    Route::get('/dashboard', [usercontroller::class, "dashboard"])->name('dashboard');
+});
+
+
