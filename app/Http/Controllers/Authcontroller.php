@@ -20,7 +20,7 @@ class Authcontroller extends Controller
                 if($login->role == 1 ) // Jab Data bhi miljaiga or Email Verified bhi hoga to fir yahan woh check karega ke role keya hai agr 1 hai to means woh admin hai
                 {
                     session()->put('admin' , $login); // or role 1 hone ki wja se admin ka session banaiga or us session mai admin ke data ko daldega or yeh tab tk mujood hoga jab tk admin loggedin hoga  logout hote woh remove honge session storage se database se nhi
-                    return redirect(Route('Admin.Dashboard'));
+                    return redirect(Route('admin.dashboard'));
                 }
                 if($login->role == 0) // Agr nhi to fir woh user ka session banae or home ke route mai redirect ho user session mai same user data dalde
                 {
@@ -40,5 +40,17 @@ class Authcontroller extends Controller
 
 
 
+    }
+
+    public function admin_logout()
+    {
+        session()->forget('admin');
+        return redirect(Route('admin.login.view'));
+    }
+
+    public function user_logout()
+    {
+        session()->forget('user');
+        return redirect(Route('user.login.view'));
     }
 }
