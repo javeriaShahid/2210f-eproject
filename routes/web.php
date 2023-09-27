@@ -16,7 +16,6 @@ use App\Http\Controllers\Authcontroller;
 */
 
 Route::get('/', [usercontroller::class, "index"]);
-Route::get('/login', [usercontroller::class, "login"])->name('admin.login.view');
 Route::get('/about_us', [usercontroller::class, "about_us"])->name('about_us');
 Route::get('/accordion', [usercontroller::class, "accordion"])->name('accordion');
 Route::get('/blog_details', [usercontroller::class, "blog_details"])->name('blog_details');
@@ -34,12 +33,15 @@ Route::get('/slider', [usercontroller::class, "slider"])->name('slider');
 Route::get('/standard', [usercontroller::class, "standard"])->name('standard');
 Route::get('/wishlist', [usercontroller::class, "wishlist"])->name('wishlist');
 Route::get('/cart', [usercontroller::class, "cart"])->name('cart');
+Route::get('/login', [usercontroller::class, "login"])->name('admin.login.view');
 Route::get('/registration', [usercontroller::class, "registration"])->name('registration');
+Route::get('/Auth_register', [usercontroller::class, "Auth_register"])->name('Auth_register');
+Route::get('/Auth_login',[usercontroller::class, "Auth_login"])->name('Auth_login');
 
-Route::get('/loggedIn',[Authcontroller::class, "login"])->name('login');
 
 
 Route::middleware('admin')->group(function(){
+    
     Route::get('/dashboard', [usercontroller::class, "dashboard"])->name('dashboard');
     
 });

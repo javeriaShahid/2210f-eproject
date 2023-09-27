@@ -26,8 +26,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
+    <link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
 
-    <title>Register Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Login</title>
 
     <meta name="description" content="" />
 
@@ -70,40 +71,45 @@
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
-          <!-- Register Card -->
+          <!-- Register -->
           <div class="card">
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
-                   
+                    
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Dazzle</span>
+                
+                  
+                  <span class="app-brand-text demo text-body fw-bolder">
+                    <img src="assets/img/logo.png" height="40px" alt="">
+                  </span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Adventure starts here 🚀</h4>
-              <p class="mb-4">Make your app management easy and fun!</p>
+              <h4 class="mb-2">Welcome to dazzle! 👋</h4>
+              <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
               <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
+                  <label for="email" class="form-label">Email or Username</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="username"
-                    name="username"
-                    placeholder="Enter your username"
+                    id="email"
+                    name="email-username"
+                    placeholder="Enter your email or username"
                     autofocus
                   />
                 </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
-                </div>
                 <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="password">Password</label>
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="password">Password</label>
+                    <a href="auth-forgot-password-basic.html">
+                      <small>Forgot Password?</small>
+                    </a>
+                  </div>
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
@@ -116,34 +122,32 @@
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
-
                 <div class="mb-3">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-                    <label class="form-check-label" for="terms-conditions">
-                      I agree to
-                      <a href="javascript:void(0);">privacy policy & terms</a>
-                    </label>
+                    <input class="form-check-input" type="checkbox" id="remember-me" />
+                    <label class="form-check-label" for="remember-me"> Remember Me </label>
                   </div>
                 </div>
-                <button class="btn btn-primary d-grid w-100">Sign up</button>
+                <div class="mb-3">
+                  <button class="btn btn-dark d-grid w-100" type="submit">Sign in</button>
+                </div>
               </form>
 
               <p class="text-center">
-                <span>Already have an account?</span>
-                <a href="auth-login-basic.html">
-                  <span>Sign in instead</span>
+                <span>New on our platform?</span>
+                <a href="Auth_register">
+                  <span>Create an account</span>
                 </a>
               </p>
             </div>
           </div>
-          <!-- Register Card -->
+          <!-- /Register -->
         </div>
       </div>
     </div>
 
     <!-- / Content -->
-
+{{-- 
     <div class="buy-now">
       <a
         href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
@@ -151,7 +155,7 @@
         class="btn btn-danger btn-buy-now"
         >Upgrade to Pro</a
       >
-    </div>
+    </div> --}}
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

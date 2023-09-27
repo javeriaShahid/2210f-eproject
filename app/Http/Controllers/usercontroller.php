@@ -9,68 +9,75 @@ use App\Http\Controllers\usercontroller;
 class usercontroller extends Controller
 {
    public function index(){
-    return view("index");
+    return view("user.index");
    }
-   public function login(){
-      return view("login");
+   public function Auth_register(){
+    return view("admin.Auth_register");
+   }
+   public function Auth_login(){
+      return view("admin.Auth_login");
      }
    public function dashboard(){
-      return view("dashboard");
+      return view("user.dashboard");
      }
    public function about_us(){
-      return view("about_us");
+      return view("user.about_us");
      }
    public function accordion(){
-      return view("accordion");
+      return view("user.accordion");
      }
    public function blog_details(){
-      return view("blog_details");
+      return view("user.blog_details");
      }
    public function blog(){
-      return view("blog");
+      return view("user.blog");
      }
    public function cart(){
-      return view("cart");
+      return view("user.cart");
      }
    public function checkout(){
-      return view("checkout");
+      return view("user.checkout");
      }
    public function category(){
-      return view("category");
+      return view("user.category");
      }
    public function contact(){
-      return view("contact");
+      return view("user.contact");
      }
    public function error(){
-      return view("error");
+      return view("user.error");
      }
    public function faq(){
-      return view("faq");
+      return view("user.faq");
      }
    public function gift_card(){
-      return view("gift_card");
+      return view("user.gift_card");
      }
    public function myaccount(){
-      return view("myaccount");
+      return view("user.myaccount");
      }
    public function our_brand(){
-      return view("our_brand");
+      return view("user.our_brand");
      }
    public function quick_view(){
-      return view("quick_view");
+      return view("user.quick_view");
      }
    public function slider(){
-      return view("slider");
+      return view("user.slider");
      }
    public function standard(){
-      return view("standard");
+      return view("user.standard");
      }
    public function wishlist(){
-      return view("wishlist");
+      return view("user.wishlist");
      }
    public function registration(){
-      return view("registration");
+      return view("user.registration");
      }
+     
+   public function login(){
+      return view("user.login");
+   }
 }
 
 
@@ -81,8 +88,4 @@ class usercontroller extends Controller
 //     Route::get('/', 'index');
 //     Route::post('/aboutus', 'about-us');
 // });
-
-
-
-
 
