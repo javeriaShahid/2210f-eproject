@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usercontroller;
@@ -45,7 +46,7 @@ Route::get('/admin/login',[usercontroller::class, "Auth_login"])->name('Auth_log
 
 
 
-Route::middleware('admin')->group(function(){
+Route::prefix('admin')->middleware('admin')->group(function(){
 
     Route::get('/dashboard', [DashboardController::class, "index"])->name('admin.dashboard');
 
@@ -73,7 +74,23 @@ Route::middleware('admin')->group(function(){
         Route::Post('/store' , [SubCategoryController::class , 'store'])->name('subcategory.store');
         Route::Post('/update/{id?}' , [SubCategoryController::class , 'update'])->name('subcategory.update');
     });
-
+    // Product Routes
+    Route::prefix('/product')->group(function(){
+        Route::get('/' , [ProductController::class , 'index'])->name('product.index');
+        Route::get('/published' , [ProductController::class , 'published'])->name('product.published');
+        Route::get('/unpublished' , [ProductController::class , 'unpublished'])->name('product.unpublished');
+        Route::get('/create' , [ProductController::class , 'create'])->name('product.create');
+        Route::get('/trash' , [ProductController::class , 'trash'])->name('product.trash');
+        Route::get('/edit/{id?}' , [ProductController::class , 'edit'])->name('product.edit');
+        Route::get('/getsubcategory/{id?}' , [ProductController::class , 'getSubcategory'])->name('product.subcategory');
+        Route::get('/delete/{id?}' , [ProductController::class , 'delete'])->name('product.delete');
+        Route::get('/restore/{id?}' , [ProductController::class , 'restore'])->name('product.restore');
+        Route::get('/destroy/{id?}' , [ProductController::class , 'destroy'])->name('product.destroy');
+        Route::Post('/store' , [ProductController::class , 'store'])->name('product.store');
+        Route::Post('/update/{id?}' , [ProductController::class , 'update'])->name('product.update');
+        Route::get('/subimage/{id?}' , [ProductController::class , 'subimageview'])->name('subimage.view');
+        Route::get('/published_product/{id?}' , [ProductController::class , 'published_product'])->name('product.published.done');
+    });
 });
 
 

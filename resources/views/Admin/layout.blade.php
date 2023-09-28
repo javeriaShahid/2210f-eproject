@@ -48,6 +48,11 @@
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+    <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="{{ asset('assets/js/config.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
 
@@ -59,11 +64,7 @@
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
 
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{ asset('assets/js/config.js') }}"></script>
   </head>
 
   <body>
@@ -99,7 +100,7 @@
               </a>
             </li>
 
-    
+
             <!-- Components -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Category Management</span></li>
             <!-- Category -->
@@ -117,13 +118,13 @@
                 <div data-i18n="Basic">Trashed Categories</div>
               </a>
             </li>
-      
-    
+
+
 
             <!-- Forms & Tables -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Sub Categories  Management</span></li>
             <!-- Forms -->
-           
+
             <li class="menu-item">
                 <a href="{{ route('subcategory.create') }}" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-plus"></i>
@@ -138,31 +139,37 @@
                   <div data-i18n="Basic">Trashed Sub Categories</div>
                 </a>
               </li>
-         
-             
-          
+
+
+
             <!-- Misc -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Product Managment</span></li>
+
             <li class="menu-item">
-              <a
-                href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                target="_blank"
-                class="menu-link"
-              >
-                <i class="menu-icon tf-icons bx bx-support"></i>
-                <div data-i18n="Support">Support</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a
-                href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                target="_blank"
-                class="menu-link"
-              >
-                <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Documentation">Documentation</div>
-              </a>
-            </li>
+                <a href="{{ route('product.create') }}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-plus"></i>
+                  <div data-i18n="Basic">Add Products</div>
+                </a>
+                <a href="{{ route('product.index') }}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-collection"></i>
+                  <div data-i18n="Basic">View Products</div>
+                </a>
+                </a>
+                <a href="{{ route('product.published') }}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-collection"></i>
+                  <div data-i18n="Basic">Published Products</div>
+                </a>
+                </a>
+                <a href="{{ route('product.unpublished') }}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-collection"></i>
+                  <div data-i18n="Basic">Un-Published Products</div>
+                </a>
+                <a href="{{ route('product.trash') }}" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-trash"></i>
+                  <div data-i18n="Basic">Trashed Product</div>
+                </a>
+              </li>
+              {{-- End of products managemnet --}}
           </ul>
         </aside>
         <!-- / Menu -->
@@ -274,7 +281,7 @@
           </nav>
 
           <!-- / Navbar -->
-          
+
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <div class="container-xxl flex-grow-1 container-p-y">
@@ -295,56 +302,27 @@
                         <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Dazzle.</a>
                       </div>
                       <div>
-                   
+
                       </div>
                     </div>
                   </footer>
                   <!-- / Footer -->
-      
+
                   <div class="content-backdrop fade"></div>
                 </div>
                 <!-- Content wrapper -->
               </div>
               <!-- / Layout page -->
             </div>
-      
+
             <!-- Overlay -->
             <div class="layout-overlay layout-menu-toggle"></div>
           </div>
           <!-- / Layout wrapper -->
-      
-          {{-- <div class="buy-now">
-            <a
-              href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-              target="_blank"
-              class="btn btn-danger btn-buy-now"
-              >Upgrade to Pro</a
-            >
-          </div> --}}
-      
-          <!-- Core JS -->
-          <!-- build:js assets/vendor/js/core.js -->
-          <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
-          <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
-          <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
-          <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-      
-          <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
-          <!-- endbuild -->
-      
-          <!-- Vendors JS -->
-          <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
-      
-          <!-- Main JS -->
-          <script src="{{ asset('assets/js/main.js') }}"></script>
-          <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
-          <!-- Page JS -->
-          <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
-          {{-- custom --}}
-          <script src="{{ asset('assets/css/custom/category.js') }}"></script>
-          <script src="{{ asset('assets/css/custom/subcategory.js') }}"></script>
-          <!-- Place this tag in your head or just before your close body tag. -->
-          <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+       
         </body>
       </html>
       <script>

@@ -45,6 +45,7 @@
 
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.css') }}">
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
@@ -78,10 +79,10 @@
               <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
-                    
+
                   </span>
-                
-                  
+
+
                   <span class="app-brand-text demo text-body fw-bolder">
                     <img src="assets/img/logo.png" height="40px" alt="">
                   </span>
@@ -148,7 +149,7 @@
     </div>
 
     <!-- / Content -->
-{{-- 
+{{--
     <div class="buy-now">
       <a
         href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
@@ -179,3 +180,40 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
+
+          <!-- Core JS -->
+          <!-- build:js assets/vendor/js/core.js -->
+          <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
+          <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
+          <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
+          <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+
+          <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+          <!-- endbuild -->
+
+          <!-- Vendors JS -->
+          <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+
+          <!-- Main JS -->
+          <script src="{{ asset('assets/js/main.js') }}"></script>
+          <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
+          <!-- Page JS -->
+          <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+          {{-- custom --}}
+<script>
+    // To show every error that occure
+@if( Session::has('success'))
+  toastr['success']("{{ Session::get('success') }}")
+  @endif
+  // IF error occurs
+  @if(Session::has('error'))
+  toastr['error']("{{ Session::get('error') }}")
+  @endif
+  // Redirected Errors
+  @if($errors->any())
+    @foreach( $errors->all() as $error)
+    toastr['error']("{{ $error }}")
+    @endforeach
+  @endif
+  // Redirected Error ends here
+</script>

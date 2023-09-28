@@ -25,7 +25,7 @@ class AdminMiddleware
         // }
         if(!session()->has('admin'))
         {
-            return redirect(Route("admin.login.view"))->with('error' , 'You are not logged in login before accessing dashboard');
+            return redirect(Route("Auth_login"))->with('error' , 'You are not logged in login before accessing dashboard');
 
         }
         return $next($request);

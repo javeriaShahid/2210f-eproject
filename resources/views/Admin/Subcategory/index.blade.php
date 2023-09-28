@@ -41,11 +41,11 @@ All Sub Category
                             <td>{{ $loop->iteration  }}</td>
                             <td>{{ $category->category->name }}</td>
                              <td>{{ $category->name}}</td>
-                            
+
                              @if($category->product)
                              <td>{{ $category->product->count() }}</td>
                              @endif
-                    
+
                             {{-- Modal button ends --}}
                             <td><a href="{{ route('subcategory.edit' , $category->id) }}" class="btn btn-success"><i class="bx bx-pencil"></i></a></td>
                             <td><a href="{{ route('subcategory.delete' , $category->id) }}" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
@@ -53,8 +53,8 @@ All Sub Category
 
                     <!-- Modal -->
                         <!-- Modal trigger button -->
-                
-                       
+
+
                     {{-- Modal ends --}}
                     @endforeach
 
@@ -65,4 +65,24 @@ All Sub Category
           <!--/ Hoverable Table rows -->
 </div>
 </div>
+<script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
+<script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+
+<script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+<script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+
+<!-- Main JS -->
+<script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
+<!-- Page JS -->
+<script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+
+<script src="{{ asset('assets/css/custom/subcategory.js') }}"></script>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 @endsection
