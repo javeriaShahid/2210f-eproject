@@ -139,7 +139,7 @@ Log In
 <header class="header-area">
     <div class="container-xxl container-fluid position-relative  d-flex flex-nowrap align-items-center justify-content-between">
     <div class="header-logo d-lg-none d-flex">
-    <a href="index.html"><img alt="image" class="img-fluid" src="assets/img/logo.png" style="height: 50px"></a>
+    <a href="{{ route('user.index') }}"><img alt="image" class="img-fluid" src="assets/img/logo.png" style="height: 50px"></a>
     </div>
     <div class="category-dropdown">
     <div class="category-button">
@@ -1030,105 +1030,40 @@ Setting Spray
 <div class="nav-right d-flex jsutify-content-end align-items-center">
 
 <div class="dropdown">
-<button type="button" class="modal-btn header-cart-btn">
-<svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.0139 18H3.98532C1.86389 18 0.128174 16.2643 0.128174 14.1429V14.0143L0.513888 3.72857C0.578174 1.60714 2.31389 0 4.37103 0H13.6282C15.6853 0 17.421 1.60714 17.4853 3.72857L17.871 14.0143C17.9353 15.0429 17.5496 16.0071 16.8425 16.7786C16.1353 17.55 15.171 18 14.1425 18H14.0139ZM4.37103 1.28571C2.95675 1.28571 1.86389 2.37857 1.7996 3.72857L1.41389 14.1429C1.41389 15.5571 2.57103 16.7143 3.98532 16.7143H14.1425C14.8496 16.7143 15.4925 16.3929 15.9425 15.8786C16.3925 15.3643 16.6496 14.7214 16.6496 14.0143L16.2639 3.72857C16.1996 2.31429 15.1067 1.28571 13.6925 1.28571H4.37103Z" />
-<path d="M8.99951 7.71427C6.49237 7.71427 4.49951 5.72141 4.49951 3.21427C4.49951 2.82855 4.75665 2.57141 5.14237 2.57141C5.52808 2.57141 5.78523 2.82855 5.78523 3.21427C5.78523 5.01427 7.19951 6.42855 8.99951 6.42855C10.7995 6.42855 12.2138 5.01427 12.2138 3.21427C12.2138 2.82855 12.4709 2.57141 12.8567 2.57141C13.2424 2.57141 13.4995 2.82855 13.4995 3.21427C13.4995 5.72141 11.5067 7.71427 8.99951 7.71427Z" />
-</svg>
-<span>01</span>
-</button>
-<div class="cart-menu">
-<div class="cart-body">
-<ul>
-<li class="single-item">
-<div class="item-area">
-<div class="item-img">
-<img src="assets/img/home1/cart-img-1.png" alt>
-</div>
-<div class="content-and-quantity">
-<div class="content">
-<div class="price-and-btn d-flex align-items-center justify-content-between">
-<span>$150 <del>$200</del></span>
-<button class="close-btn">
-<i class="bi bi-x"></i>
-</button>
-</div>
-<p><a href="#">Estee Lauder new Nail Polish</a></p>
-</div>
-<div class="quantity-area">
-<div class="quantity">
-<a class="quantity__minus"><span><i class="bi bi-dash"></i></span></a>
-<input name="quantity" type="text" class="quantity__input" value="01">
-<a class="quantity__plus"><span><i class="bi bi-plus"></i></span></a>
-</div>
-</div>
-</div>
-</div>
-</li>
-<li class="single-item">
-<div class="item-area">
-<div class="item-img">
-<img src="assets/img/home1/cart-img-2.png" alt>
-</div>
-<div class="content-and-quantity">
-<div class="content">
-<div class="price-and-btn d-flex align-items-center justify-content-between">
-<span>$150 <del>$200</del></span>
-<button class="close-btn">
-<i class="bi bi-x"></i>
-</button>
-</div>
-<p><a href="#">Argan & Olive Nature organ Oil</a></p>
-</div>
-<div class="quantity-area">
-<div class="quantity">
-<a class="quantity__minus"><span><i class="bi bi-dash"></i></span></a>
-<input name="quantity" type="text" class="quantity__input" value="01">
-<a class="quantity__plus"><span><i class="bi bi-plus"></i></span></a>
-</div>
-</div>
-</div>
-</div>
-</li>
-</ul>
-</div>
-<div class="cart-footer">
-<div class="pricing-area">
-<ul>
-<li><span>Sub Total</span><span>$468</span></li>
-<li><span>Offer (20%)</span><span>$56</span></li>
-</ul>
-<ul class="total">
-<li><span>Total</span><span>$425</span></li>
-</ul>
-</div>
-<div class="footer-button">
-<ul>
-<li><a class="primary-btn1 hover-btn4" href="slider">Continue Shopping</a></li>
-<li><a class="primary-btn1 hover-btn3" href="checkout">Product Checkout</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="save-btn">
-<a href="wishlist">
-<svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_68_10)">
-<path d="M16.528 2.20922C16.0674 1.71414 15.5099 1.31909 14.8902 1.04862C14.2704 0.778143 13.6017 0.638026 12.9255 0.636976C12.2487 0.637756 11.5794 0.777669 10.959 1.04803C10.3386 1.31839 9.78042 1.71341 9.31911 2.20857L9.00132 2.54439L8.68352 2.20857C6.83326 0.217182 3.71893 0.102819 1.72758 1.95309C1.63932 2.0351 1.5541 2.12032 1.47209 2.20857C-0.490696 4.32568 -0.490696 7.59756 1.47209 9.71466L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1869C9.45217 17.1789 9.46039 17.1707 9.46838 17.1622L16.528 9.71466C18.4907 7.59779 18.4907 4.32609 16.528 2.20922ZM15.5971 8.82882H15.5965L9.00132 15.7849L2.40553 8.82882C0.90608 7.21116 0.90608 4.71143 2.40553 3.09377C3.76722 1.61792 6.06755 1.52538 7.5434 2.88706C7.61505 2.95317 7.68401 3.02213 7.75012 3.09377L8.5343 3.92107C8.79272 4.17784 9.20995 4.17784 9.46838 3.92107L10.2526 3.09441C11.6142 1.61856 13.9146 1.52602 15.3904 2.8877C15.4621 2.95381 15.531 3.02277 15.5971 3.09441C17.1096 4.71464 17.1207 7.21893 15.5971 8.82882Z" />
-</g>
-</svg>
-</a>
-</div>
-<div class="user-login">
-<button type="button" class="user-btn" data-bs-toggle="modal" data-bs-target="#user-login">
-<svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_122_313)">
-<path d="M15.364 11.636C14.3837 10.6558 13.217 9.93013 11.9439 9.49085C13.3074 8.55179 14.2031 6.9802 14.2031 5.20312C14.2031 2.33413 11.869 0 9 0C6.131 0 3.79688 2.33413 3.79688 5.20312C3.79688 6.9802 4.69262 8.55179 6.05609 9.49085C4.78308 9.93013 3.61631 10.6558 2.63605 11.636C0.936176 13.3359 0 15.596 0 18H1.40625C1.40625 13.8128 4.81279 10.4062 9 10.4062C13.1872 10.4062 16.5938 13.8128 16.5938 18H18C18 15.596 17.0638 13.3359 15.364 11.636ZM9 9C6.90641 9 5.20312 7.29675 5.20312 5.20312C5.20312 3.1095 6.90641 1.40625 9 1.40625C11.0936 1.40625 12.7969 3.1095 12.7969 5.20312C12.7969 7.29675 11.0936 9 9 9Z" />
-</g>
-</svg>
-</button>
-</div>
+@if(session()->has('user'))
+<a href="{{ route('cart') }}" class="modal-btn header-cart-btn">
+    <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.0139 18H3.98532C1.86389 18 0.128174 16.2643 0.128174 14.1429V14.0143L0.513888 3.72857C0.578174 1.60714 2.31389 0 4.37103 0H13.6282C15.6853 0 17.421 1.60714 17.4853 3.72857L17.871 14.0143C17.9353 15.0429 17.5496 16.0071 16.8425 16.7786C16.1353 17.55 15.171 18 14.1425 18H14.0139ZM4.37103 1.28571C2.95675 1.28571 1.86389 2.37857 1.7996 3.72857L1.41389 14.1429C1.41389 15.5571 2.57103 16.7143 3.98532 16.7143H14.1425C14.8496 16.7143 15.4925 16.3929 15.9425 15.8786C16.3925 15.3643 16.6496 14.7214 16.6496 14.0143L16.2639 3.72857C16.1996 2.31429 15.1067 1.28571 13.6925 1.28571H4.37103Z" />
+    <path d="M8.99951 7.71427C6.49237 7.71427 4.49951 5.72141 4.49951 3.21427C4.49951 2.82855 4.75665 2.57141 5.14237 2.57141C5.52808 2.57141 5.78523 2.82855 5.78523 3.21427C5.78523 5.01427 7.19951 6.42855 8.99951 6.42855C10.7995 6.42855 12.2138 5.01427 12.2138 3.21427C12.2138 2.82855 12.4709 2.57141 12.8567 2.57141C13.2424 2.57141 13.4995 2.82855 13.4995 3.21427C13.4995 5.72141 11.5067 7.71427 8.99951 7.71427Z" />
+    </svg>
+    @php
+        $cart   = \App\Models\Cart::where('user_id' , session()->get('user')['id'])->count();
+    @endphp
+    <span id="cartCount">{{$cart}}</span>
+    </a>
+    
+    </div>
+@endif    
+
+<div class="dropdown">
+<button type="button"   class="bg-transparent dropdown-toggle user-btn" style="width: max-content" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_122_313)">
+    <path d="M15.364 11.636C14.3837 10.6558 13.217 9.93013 11.9439 9.49085C13.3074 8.55179 14.2031 6.9802 14.2031 5.20312C14.2031 2.33413 11.869 0 9 0C6.131 0 3.79688 2.33413 3.79688 5.20312C3.79688 6.9802 4.69262 8.55179 6.05609 9.49085C4.78308 9.93013 3.61631 10.6558 2.63605 11.636C0.936176 13.3359 0 15.596 0 18H1.40625C1.40625 13.8128 4.81279 10.4062 9 10.4062C13.1872 10.4062 16.5938 13.8128 16.5938 18H18C18 15.596 17.0638 13.3359 15.364 11.636ZM9 9C6.90641 9 5.20312 7.29675 5.20312 5.20312C5.20312 3.1095 6.90641 1.40625 9 1.40625C11.0936 1.40625 12.7969 3.1095 12.7969 5.20312C12.7969 7.29675 11.0936 9 9 9Z" />
+    </g>
+    </svg>
+    </button>
+   
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        @if(session()->has('user'))
+        <li><a class="dropdown-item" href="#">Profile Setting</a></li>
+        <li><a class="dropdown-item" href="{{ route('user.logout') }}">Logout</a></li>
+        @else
+        <li><a class="dropdown-item" href="{{ route('login.view') }}">Sign In</a></li>
+        <li><a class="dropdown-item" href="{{ route('registration') }}">Register</a></li>
+        @endif
+    </ul>
+  </div>
 <div class="sidebar-button mobile-menu-btn ">
 <span></span>
 </div>

@@ -1,38 +1,7 @@
 
 
-@extends('Layout')
+@extends('User.layout')
 @section('content')
-
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:16 GMT -->
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-
-<link href="assets/css/all.min.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link href="assets/css/fontawesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/boxicons.min.css">
-
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Dazzle</title>
-<link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
-</head>
-<body>
 
 
 <div class="breadcrumb-section">
@@ -148,75 +117,55 @@
 <div class="added-product-summary mb-30">
 <h5>Order Summary</h5>
 <ul class="added-products">
+    @php
+    $totalAmount  = 0 ;
+    $shippingFees = 0 ;
+     @endphp
+
+@foreach ($data['cart'] as $cart )
+    
+
 <li class="single-product">
 <div class="product-area">
 <div class="product-img">
-<img src="assets/img/inner-page/checkout-product-img1.png" alt>
+<img src="{{ asset('assets/Productimages/'.$cart->product->image)}}" alt>
 </div>
 <div class="product-info">
-<h5><a href="#">Brand new Nail Polish</a></h5>
+<h5><a href="#">{{ $cart->product->name }}</a></h5>
 <div class="product-total">
 <div class="quantity-counter">
-<a href="#" class="quantity__minus"><i class="bx bx-minus"></i></a>
-<input name="quantity" type="text" class="quantity__input" value="01">
-<a href="#" class="quantity__plus"><i class="bx bx-plus"></i></a>
+    <input name="cart_id" type="hidden"  value="{{$cart->id}}">
+    <a href="#" class="quantity__minus minus-cart"><i class="bx bx-minus minus-cart"></i></a>
+    <input name="quantity" type="text" class="quantity__input" value="{{$cart->quantity}}">
+    <a href="#" class="quantity__plus plus-cart"><i class="bx bx-plus"></i></a>
 </div>
-<strong> <i class="bi bi-x-lg px-2"></i>
-<span class="product-price">$39.00</span>
+
+ @php
+ $price   =  0 ;
+ if($cart->product->sale_status == 1)
+ {
+    $price  = $cart->product->discounted_price * $cart->quantity ;
+ }
+ else {
+    
+    $price  = $cart->product->price * $cart->quantity;
+ }
+ $totalAmount  += $price ;
+ $shippingFees += $cart->product->shipping_fees;
+ @endphp   
+<span class="product-price totalprice">Rs,{{$price}}</span>
 </strong>
 </div>
 </div>
 </div>
-<div class="delete-btn">
+<input name="cartId" type="hidden"  value="{{$cart->id}}">
+<div class="delete-btn delete-icon">
 <i class="bx bx-x"></i>
 </div>
 </li>
-<li class="single-product">
-<div class="product-area">
-<div class="product-img">
-<img src="assets/img/inner-page/checkout-product-img2.png" alt>
-</div>
-<div class="product-info">
-<h5><a href="#">Brand new Face Product</a></h5>
-<div class="product-total">
-<div class="quantity-counter">
-<a href="#" class="quantity__minus"><i class="bx bx-minus"></i></a>
-<input name="quantity" type="text" class="quantity__input" value="01">
-<a href="#" class="quantity__plus"><i class="bx bx-plus"></i></a>
-</div>
-<strong> <i class="bi bi-x-lg px-2"></i>
-<span class="product-price">$60.00</span>
-</strong>
-</div>
-</div>
-</div>
-<div class="delete-btn">
-<i class="bx bx-x"></i>
-</div>
-</li>
-<li class="single-product">
-<div class="product-area">
-<div class="product-img">
-<img src="assets/img/inner-page/checkout-product-img3.png" alt>
-</div>
-<div class="product-info">
-<h5><a href="#">Brand new Shampoo</a></h5>
-<div class="product-total">
-<div class="quantity-counter">
-<a href="#" class="quantity__minus"><i class="bx bx-minus"></i></a>
-<input name="quantity" type="text" class="quantity__input" value="01">
-<a href="#" class="quantity__plus"><i class="bx bx-plus"></i></a>
-</div>
-<strong> <i class="bi bi-x-lg px-2"></i>
-<span class="product-price">$40.00</span>
-</strong>
-</div>
-</div>
-</div>
-<div class="delete-btn">
-<i class="bx bx-x"></i>
-</div>
-</li>
+@endforeach
+
+
 </ul>
 </div>
 <div class="cost-summary mb-30">
@@ -224,22 +173,15 @@
 <thead>
 <tr>
 <th>Subtotal</th>
-<th>$128.70</th>
+<th id="subTotal">PKR, {{$totalAmount}}</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tax">Tax</td>
-<td>$5</td>
+<td class="tax">Delivery Charges</td>
+<td id="shipping_fees">PKR,{{ $shippingFees }}</td>
 </tr>
-<tr>
-<td>Total ( tax excl.)</td>
-<td>$15</td>
-</tr>
-<tr>
-<td>Total ( tax incl.)</td>
-<td>$15</td>
-</tr>
+
 </tbody>
 </table>
 </div>
@@ -248,7 +190,7 @@
 <thead>
 <tr>
 <th>Total</th>
-<th>$162.70</th>
+<th id="totalAmount">PKR,{{ $totalAmount + $shippingFees }}</th>
 </tr>
 </thead>
 </table>
@@ -359,23 +301,13 @@ conditions</a></label>
 </div>
 
 
-
-<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
-
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
-
-<script src="assets/js/jquery.fancybox.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/slick.js"></script>
-
-<script src="assets/js/swiper-bundle.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-
-<script src="assets/js/main.js"></script>
-</body>
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:18 GMT -->
-</html>
+<script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
+<script src="{{ asset('assets/css/custom/cart.js') }}"></script>
+<script>
+    let deleteCartRoute   = "{{ route('cart.delete') }}";
+    let addQuantityRoute  = "{{ route('cart.plus') }}" ;
+    let minusQuantityCart = "{{ route('cart.minus') }}" ;
+</script>
 
 @endsection

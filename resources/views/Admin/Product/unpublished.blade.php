@@ -35,6 +35,7 @@ All Products
                     <th>Name of Category</th>
                     <th>Name of Subcategory</th>
                     <th>Price</th>
+                    <th>Delivery Duration</th>
                     <th>Quantity</th>
                     <th>Number Of Sales</th>
                     <th>Discount Status</th>
@@ -61,6 +62,7 @@ All Products
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->subcategory->name }}</td>
                             <td>Rs,{{ $product->price }}</td>
+                            <td>{{ $product->delivery_duration }} Days</td>
                             <td>{{ $product->stock }}</td>
                             <td>{{ $product->number_of_sales }}</td>
                             @if($product->sale_status == 0)
