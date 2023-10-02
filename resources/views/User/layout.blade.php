@@ -1059,7 +1059,7 @@ Setting Spray
    
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         @if(session()->has('user'))
-        <li><a class="dropdown-item" href="#">Profile Setting</a></li>
+        <li><a class="dropdown-item" href="{{ route('myaccount' ,session()->get('')) }}">My Account</a></li>
         <li><a class="dropdown-item" href="{{ route('user.logout') }}">Logout</a></li>
         @else
         <li><a class="dropdown-item" href="{{ route('login.view') }}">Sign In</a></li>
