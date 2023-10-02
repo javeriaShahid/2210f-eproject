@@ -1044,9 +1044,9 @@ Setting Spray
     @endphp
     <span id="cartCount">{{$cart}}</span>
     </a>
-    
+
     </div>
-@endif    
+@endif
 
 <div class="dropdown">
 <button type="button"   class="bg-transparent dropdown-toggle user-btn" style="width: max-content" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -1056,10 +1056,10 @@ Setting Spray
     </g>
     </svg>
     </button>
-   
+
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         @if(session()->has('user'))
-        <li><a class="dropdown-item" href="{{ route('myaccount' ,session()->get('')) }}">My Account</a></li>
+        <li><a class="dropdown-item" href="{{ route('myaccount' ,session()->get('user')['id']) }}">My Account</a></li>
         <li><a class="dropdown-item" href="{{ route('user.logout') }}">Logout</a></li>
         @else
         <li><a class="dropdown-item" href="{{ route('login.view') }}">Sign In</a></li>
