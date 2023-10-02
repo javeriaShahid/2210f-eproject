@@ -1,6 +1,6 @@
 
 
-@extends('Layout')
+@extends('User.layout')
 @section('content')
 
 

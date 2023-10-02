@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\usercontroller;
-
+use App\Models\Country;
 
 class usercontroller extends Controller
 {
-   public function index(){
-    return view("user.index");
-   }
+   public $countryModel    = Country::class ;
    public function Auth_register(){
     return view("admin.Auth_register");
    }
@@ -31,9 +28,6 @@ class usercontroller extends Controller
      }
    public function blog(){
       return view("user.blog");
-     }
-   public function cart(){
-      return view("user.cart");
      }
    public function checkout(){
       return view("user.checkout");
@@ -72,9 +66,10 @@ class usercontroller extends Controller
       return view("user.wishlist");
      }
    public function registration(){
-      return view("user.registration");
+      $data['country']    = $this->countryModel::all();
+      return view("user.registration")->with('data'  , $data);
      }
-     
+
    public function login(){
       return view("user.login");
    }

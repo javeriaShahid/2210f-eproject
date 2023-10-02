@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('User.layout')
 @section('content')
  <style>
 
@@ -19,20 +19,20 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Login</h2>
 
-              <form>
-
+              <form action="{{ route('auth.login') }}" method="Post">
+                @csrf
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="form3Example1cg">User Name</label>
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="User Name"/>
+                    <label class="form-label" for="form3Example1cg">Email</label>
+                  <input type="text" name="email" id="form3Example1cg" class="form-control form-control-lg" placeholder="User Name"/>
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example4cg">Password</label>
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" placeholder="Password" />
+                  <input type="password" name="password" id="form3Example4cg" class="form-control form-control-lg" placeholder="Password" />
                 </div>
 
 
                 <div class="d-flex justify-content-center">
-                  <button type="button"
+                  <button type="submit"
                     class="btn btn-dark btn-block btn-lg gradient-custom-4 text-light" >Login</button>
                 </div>
 

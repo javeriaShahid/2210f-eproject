@@ -1,7 +1,13 @@
 @extends('Admin.layout')
+@if($data['action'] == "create")
 @section('title')
 Sub Category Create
 @endsection
+@else
+@section('title')
+Sub Category Edit
+@endsection
+@endif
 @section('content')
 <?php
 $action = $data['action'] ;

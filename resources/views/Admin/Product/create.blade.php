@@ -1,12 +1,20 @@
 @extends('Admin.layout')
+
+@section('content')
+@if($data['action'] == "create")
 @section('title')
 Product Create
 @endsection
-@section('content')
+@else
+@section('title')
+Product Edit
+@endsection
+@endif
 <?php
 $action = $data['action'] ;
 if($action == "create")
 {
+
     $parentRoute  = Route('product.store');
     $parentButton = "Create" ;
 }
@@ -18,7 +26,7 @@ if($action == "edit")
 }
 ?>
 {{-- If Condition --}}
-<form action="{{ $parentRoute }}" id="categoryForm" method="Post" enctype="multipart/form-data">
+<form action="{{ $parentRoute }}" id="productForm" method="Post" enctype="multipart/form-data">
 @csrf
 <div class="row">
 <div class="col-md-12">
@@ -33,12 +41,24 @@ if($action == "edit")
         <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-collection"></div>Product Name</label>
         <input name="name" type="text" class="form-control" placeholder="Enter Product name" aria-describedby="defaultFormControlHelp"/>
 
-        <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-collection"></div>Product Price</label>
+        <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-money"></div> Product Price</label>
         <input name="price" type="number" class="form-control" placeholder="Enter Product Price" aria-describedby="defaultFormControlHelp"/>
+     
+        <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-money"></div> Shipping Fees <small>(optional)</small></label>
+        <input name="shipping_fees" type="number" class="form-control" placeholder="Enter Shipping Fees" aria-describedby="defaultFormControlHelp"/>
 
         <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-collection"></div>Product Quantity</label>
         <input name="quantity" type="number" class="form-control" placeholder="Enter Product Quantity" aria-describedby="defaultFormControlHelp"/>
+        <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-collection"></div>Delivery Duration</label>
+        <input name="delivery_duration" type="number" class="form-control" placeholder="Enter Product Quantity" aria-describedby="defaultFormControlHelp"/>
 
+        <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-collection"></div>Brand Name</label>
+        <select name="brand" id="brand" class="form-control">
+            <option value="">Select Brand</option>
+            @foreach ($data['brand'] as $brand )
+             <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+            @endforeach
+        </select>
 
         <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-collection"></div>Category Name</label>
         <select name="category" id="category" class="form-control">
@@ -49,7 +69,7 @@ if($action == "edit")
         </select>
         <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-collection"></div>Sub Category Name</label>
         <select name="subcategory" id="subcategory" class="form-control">
-            <option>Select Category First</option>
+            <option value="">Select Category First</option>
         </select> <!--Data will be appended from ajax-->
         {{-- color --}}
         <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-collection"></div>Product Color</label>
@@ -76,9 +96,9 @@ if($action == "edit")
 <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
 <script src="{{ asset('dashboardassets/vendor/js/menu.js') }}"></script>
-<script src="{{ asset('dashboardassets/js/main.js') }}"></script>
-
 <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+<script src={{ asset('dashboardassets/js/main.js') }}></script>
 
 <!-- endbuild -->
 

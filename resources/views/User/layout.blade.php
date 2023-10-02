@@ -6,28 +6,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
-<link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+<link href="{{ asset('assets/css/bootstrap-icons.css') }}" rel="stylesheet">
 
-<link href="assets/css/all.min.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
+<link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/nice-select.css') }}" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
 
-<link href="assets/css/fontawesome.min.css" rel="stylesheet">
+<link href="{{ asset('assets/css/fontawesome.min.css') }}" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/css/boxicons.min.css">
+<link rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}">
 
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
-<link rel="stylesheet" href="assets/css/slick.css">
+<link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}">
+<link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
 
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
 
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 <title>Dazzle</title>
-<link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
+<link rel="icon" href="{{ asset("assets/img/sm-logo.svg") }}" type="image/gif">
+<link rel="stylesheet" href="{{ asset('assets/toastr/toastr.css') }}">
 </head>
 <body>
 <div class="top-bar">
@@ -38,7 +39,7 @@
 <p>*New Winter Product 2023 <a href="slider">Shop Now*</a></p>
 </div>
 <div class="company-logo">
-<a href="/"><img src="assets/img/logo.png" style="height: 50px" alt></a>
+<a href="/"><img src="{{asset('assets/img/logo.png')}}" style="height: 50px" alt></a>
 </div>
 <div class="search-area">
 <form>
@@ -75,12 +76,13 @@ Log In
 <div class="form-title">
 <h3>Log In</h3>
 </div>
-<form>
+<form action="{{ route('auth.login') }}" method="Post">
+    @csrf
 <div class="form-inner mb-35">
-<input type="text" placeholder="User name or Email *">
+<input type="text" name="email" placeholder="User name or Email *">
 </div>
 <div class="form-inner">
-<input id="password" type="password" placeholder="Password *">
+<input id="password" name="password" type="password" placeholder="Password *">
 <i class="bi bi-eye-slash" id="togglePassword"></i>
 </div>
 <div class="form-remember-forget">
@@ -1140,8 +1142,8 @@ Setting Spray
 
 
 
-    
-    
+
+
     <footer class="footer-section">
     <img src="assets/img/home1/icon/vector-2.svg" alt class="vector1">
     <img src="assets/img/home1/icon/banner-vector1.svg" alt class="vector2">
@@ -1253,23 +1255,41 @@ Setting Spray
     </div>
     </div>
     </footer>
-    
-    
+
+
     <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
-    
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    
-    <script src="assets/js/jquery.fancybox.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/slick.js"></script>
-    
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    
-    <script src="assets/js/jquery.fancybox.min.js"></script>
-    
-    <script src="assets/js/main.js"></script>
+
+    <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/slick.js') }}"></script>
+
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/main.js') }}"></script>
     </body>
-    
+
     <!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/about_us by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:47 GMT -->
     </html>
+    <script>
+        // To show every error that occure
+        @if( Session::has('success'))
+      toastr['success']("{{ Session::get('success') }}")
+      @endif
+      // IF error occurs
+      @if(Session::has('error'))
+      toastr['error']("{{ Session::get('error') }}")
+      @endif
+      // Redirected Errors
+      @if($errors->any())
+        @foreach( $errors->all() as $error)
+        toastr['error']("{{ $error }}")
+        @endforeach
+      @endif
+      // Redirected Error ends here
+    </script>

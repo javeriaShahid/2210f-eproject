@@ -11,6 +11,7 @@ class Product extends Model
     use HasFactory ,SoftDeletes;
     protected $fillable = [
         'name' ,
+        'brand_id' ,
         'category_id',  
         'subcategory_id' ,
         'description' ,
@@ -20,7 +21,9 @@ class Product extends Model
         'is_published' ,
         'color_code' ,
         'sku' ,
-        'deleted_at'
+        'deleted_at' ,
+        'shipping_fees' ,
+        'delivery_duration'
       ];
       public function category()
       {
@@ -33,5 +36,9 @@ class Product extends Model
       }
       public function productimages(){
         return $this->hasMany(Productimages::class ,'product_id' , 'id');
+      }
+      public function brand()
+      {
+        return $this->hasOne(Brand::class , 'id' , 'brand_id');
       }
 }

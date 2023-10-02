@@ -1,40 +1,7 @@
 
 
-@extends('Layout')
+@extends('User.layout')
 @section('content')
-
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:33:47 GMT -->
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-
-<link href="assets/css/all.min.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-<link href="assets/css/animate.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link href="assets/css/fontawesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/boxicons.min.css">
-
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Dazzle</title>
-<link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
-</head>
-<body>
-
 
 
 <div class="banner-section">
@@ -259,48 +226,63 @@
 <div class="best-selling-section mb-110">
 <div class="container">
 <div class="section-title2">
-<h3>Best Selling Product</h3>
-<div class="all-product hover-underline">
-<a href="slider">*View All Product
-<svg width="33" height="13" viewBox="0 0 33 13" xmlns="http://www.w3.org/2000/svg">
-<path d="M25.5083 7.28L0.491206 7.25429C0.36093 7.25429 0.23599 7.18821 0.143871 7.0706C0.0517519 6.95299 0 6.79347 0 6.62714C0 6.46081 0.0517519 6.3013 0.143871 6.18369C0.23599 6.06607 0.36093 6 0.491206 6L25.5088 6.02571C25.6391 6.02571 25.764 6.09179 25.8561 6.2094C25.9482 6.32701 26 6.48653 26 6.65286C26 6.81919 25.9482 6.9787 25.8561 7.09631C25.764 7.21393 25.6386 7.28 25.5083 7.28Z" />
-<path d="M33.0001 6.50854C29.2204 7.9435 24.5298 10.398 21.623 13L23.9157 6.50034L21.6317 0C24.5358 2.60547 29.2224 5.06539 33.0001 6.50854Z" />
-</svg>
-</a>
-</div>
+    <h3>Best Selling Product</h3>
+    <div class="all-product hover-underline">
+        <a href="slider">*View All Product
+            <svg width="33" height="13" viewBox="0 0 33 13" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25.5083 7.28L0.491206 7.25429C0.36093 7.25429 0.23599 7.18821 0.143871 7.0706C0.0517519 6.95299 0 6.79347 0 6.62714C0 6.46081 0.0517519 6.3013 0.143871 6.18369C0.23599 6.06607 0.36093 6 0.491206 6L25.5088 6.02571C25.6391 6.02571 25.764 6.09179 25.8561 6.2094C25.9482 6.32701 26 6.48653 26 6.65286C26 6.81919 25.9482 6.9787 25.8561 7.09631C25.764 7.21393 25.6386 7.28 25.5083 7.28Z" />
+                <path d="M33.0001 6.50854C29.2204 7.9435 24.5298 10.398 21.623 13L23.9157 6.50034L21.6317 0C24.5358 2.60547 29.2224 5.06539 33.0001 6.50854Z" />
+            </svg>
+        </a>
+    </div>
 </div>
 <div class="row gy-4">
-<div class="col-lg-4 col-md-6">
+@foreach ( $data['popular'] as $product )
+
+
+    <div class="col-lg-4 col-md-6">
 <div class="product-card hover-btn">
 <div class="product-card-img double-img">
 <a href="accordion">
-<img src="assets/img/home1/product-img-1.png" alt class="img1">
-<img src="assets/img/home1/product-img-4.png" alt class="img2">
+<img src="{{ asset('assets/Productimages/' . $product->image) }}" style="height:280px!important;object-fit:contain" alt class="img1">
+<?php
+    $subimage   = \DB::table('productimages')->where('product_id' , $product->id)->first();
+
+    ?>
+
+<img src="{{ asset('assets/subImages/' . $subimage->image) }}" style="height:280px!important;object-fit:contain" alt class="img2">
+@if($product->sale_status == 1)
 <div class="countdown-timer">
-<ul data-countdown="2023-10-23 12:00:00">
-<li class="times" data-days="00">00</li>
-<li>
-:
-</li>
-<li class="times" data-hours="00">00</li>
-<li>
-:
-</li>
-<li class="times" data-minutes="00">00</li>
-<li>
-:
-</li>
-<li class="times" data-seconds="00">00</li>
-</ul>
-</div>
-<div class="batch">
-<span class="new">New</span>
-<span>-15%</span>
-</div>
+    <ul data-countdown="{{ $product->discounted_end_time }} 00:00:00">
+    <li class="times" data-days="00">00</li>
+    <li>
+    :
+    </li>
+    <li class="times" data-hours="00">00</li>
+    <li>
+    :
+    </li>
+    <li class="times" data-minutes="00">00</li>
+    <li>
+    :
+    </li>
+    <li class="times" data-seconds="00">00</li>
+    </ul>
+    </div>
+    <div class="batch">
+    <span class="new">Deal</span>
+    <span>- {{$product->discount_percentage}}%</span>
+    </div>
+    @endif
 </a>
 <div class="overlay">
 <div class="cart-area">
-<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+    @if(session()->has('user'))
+<input type="hidden" name="productId" value="{{ $product->id }}">
+<button type="button"  class="hover-btn3 add-cart-btn addToCart"><i class="bi bi-bag-check"></i> Add To Cart</button>
+@else
+<a  href="{{ route('cart.error') }}" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+@endif
 </div>
 </div>
 <div class="view-and-favorite-area">
@@ -326,297 +308,17 @@
 </div>
 </div>
 <div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Poutsicle Hydrating Lip Stain.</a></h6>
-<p><a href="#">REVLON</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
+<h6><a href="accordion" class="hover-underline">{{ $product->name}}</a></h6>
+<p><a href="#">{{$product->brand->name}}</a></p>
+@if($product->sale_status == 1)
+<p class="price">Rs,{{$product->discounted_price}} <del class="text-danger">Rs,{{ $product->price }}</del></p>
+@else
+<p class="price">Rs,{{$product->price}}</p>
+@endif
 </div>
 <span class="for-border"></span>
 </div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="product-card hover-btn">
-<div class="product-card-img">
-<a href="accordion">
-<img src="assets/img/home1/product-img-8.png" alt>
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-<div class="view-and-favorite-area">
-<ul>
-<li>
-<a href="wishlist">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-<g clip-path="url(#clip0_168_378)">
-<path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-</g>
-</svg>
-</a>
-</li>
-<li>
-<a data-bs-toggle="modal" data-bs-target="#product-view">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-<path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-<path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-</svg>
-</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="#">Crystal</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="product-card hover-btn">
-<div class="product-card-img double-img">
-<a href="accordion">
-<img src="assets/img/home1/product-img-3.png" alt class="img1">
-<img src="assets/img/home1/product-img-20.png" alt class="img2">
-<div class="batch">
-<span>-25%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-<div class="view-and-favorite-area">
-<ul>
-<li>
-<a href="wishlist">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-<g clip-path="url(#clip0_168_378)">
-<path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-</g>
-</svg>
-</a>
-</li>
-<li>
-<a data-bs-toggle="modal" data-bs-target="#product-view">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-<path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-<path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-</svg>
-</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Velvet Red Charm</a></h6>
-<p><a href="#">Aqua Kiss</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="product-card hover-btn">
-<div class="product-card-img">
-<a href="accordion">
-<img src="assets/img/home1/product-img-4.png" alt>
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="#" class="hover-btn3 add-cart-btn ">Select options</a>
-</div>
-</div>
-<div class="view-and-favorite-area">
-<ul>
-<li>
-<a href="wishlist">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-<g clip-path="url(#clip0_168_378)">
-<path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-</g>
-</svg>
-</a>
-</li>
-<li>
-<a data-bs-toggle="modal" data-bs-target="#product-view">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-<path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-<path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-</svg>
-</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Hydrating Waves</a></h6>
-<p><a href="#">Sea Breeze</a></p>
-<p class="price">$150.00 - $200.00</p>
-<ul class="product-size">
-<li>250 ml</li>
-<li>500 ml</li>
-<li>1000 ml</li>
-<li>1500 ml</li>
-</ul>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="product-card hover-btn">
-<div class="product-card-img">
-<a href="accordion">
-<img src="assets/img/home1/product-img-5.png" alt>
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="out-of-stock">
-<span>Out Of Stock</span>
-</div>
-<div class="overlay">
-<div class="cart-area">
-<a href="#" class="hover-btn3 add-cart-btn ">Request Stock</a>
-</div>
-</div>
-<div class="view-and-favorite-area">
-<ul>
-<li>
-<a href="wishlist">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-<g clip-path="url(#clip0_168_378)">
-<path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-</g>
-</svg>
-</a>
-</li>
-<li>
-<a data-bs-toggle="modal" data-bs-target="#product-view">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-<path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-<path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-</svg>
-</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Organic Jojoba Blend</a></h6>
-<p><a href="#">Lash Luxe</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="product-card hover-btn">
-<div class="product-card-img double-img">
-<a href="accordion">
-<img src="assets/img/home1/product-img-6.png" alt class="img1">
-<img src="assets/img/home1/product-img-7.png" alt class="img2">
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-<div class="view-and-favorite-area">
-<ul>
-<li>
-<a href="wishlist">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-<g clip-path="url(#clip0_168_378)">
-<path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-</g>
-</svg>
-</a>
-</li>
-<li>
-<a data-bs-toggle="modal" data-bs-target="#product-view">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-<path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-<path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-</svg>
-</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Nourishing Herbal Cleanse</a></h6>
-<p><a href="#">Radiance</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-</div>
-</div>
-</div>
+</div> @endforeach
 
 <div class="modal product-view-modal" id="product-view">
 <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -3698,55 +3400,16 @@ To Cart</a>
 <div class="col-lg-12">
 <div class="swiper brand-slider">
 <div class="swiper-wrapper">
-<div class="swiper-slide">
-<div class="brand-icon">
-<a href="slider">
-<img src="assets/img/home1/brand-logo1.png" alt>
-</a>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="brand-icon">
-<a href="slider">
-<img src="assets/img/home1/brand-logo2.png" alt>
-</a>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="brand-icon">
-<a href="slider">
-<img src="assets/img/home1/brand-logo3.png" alt>
-</a>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="brand-icon">
-<a href="slider">
-<img src="assets/img/home1/brand-logo4.png" alt>
-</a>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="brand-icon">
-<a href="slider">
-<img src="assets/img/home1/brand-logo5.png" alt>
-</a>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="brand-icon">
-<a href="slider">
-<img src="assets/img/home1/brand-logo6.png" alt>
-</a>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="brand-icon">
-<a href="slider">
-<img src="assets/img/home1/brand-logo7.png" alt>
-</a>
-</div>
-</div>
+    @foreach ($data['brand'] as $brand )
+    <div class="swiper-slide">
+        <div class="brand-icon">
+        <a href="slider">
+        <img src="{{ asset('assets/BrandImages/' . $brand->image)}}" alt>
+        </a>
+        </div>
+        </div>
+
+    @endforeach
 </div>
 </div>
 </div>
@@ -4112,22 +3775,11 @@ To Cart</a>
 
 
 
-<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
 
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
-
-<script src="assets/js/jquery.fancybox.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/slick.js"></script>
-
-<script src="assets/js/swiper-bundle.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-
-<script src="assets/js/main.js"></script>
-</body>
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:35:07 GMT -->
-</html>
-
+<script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
+<script src="{{ asset('assets/css/custom/cart.js') }}"></script>
+<script>
+    let addToCartRoute  = "{{ route('cart.store') }}";
+</script>
 @endsection

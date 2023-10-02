@@ -1,41 +1,9 @@
 
 
-@extends('Layout')
+@extends('User.layout')
 @section('content')
 
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:14 GMT -->
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-
-<link href="assets/css/all.min.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link href="assets/css/fontawesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/boxicons.min.css">
-
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Dazzle</title>
-<link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
-</head>
-<body>
-
 
 
 <div class="breadcrumb-section">
@@ -67,99 +35,67 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+    @php
+    $totalAmount  = 0 ;
+    $shippingFees = 0 ;
+     @endphp
+    @if($data['cart']->count() < 1)
+    <tr>
+     
+     <td  colspan="6"><center><span class="text-danger">No Items Left</span></center></td>
+        
+     </tr>
+     @else
+@foreach ($data['cart'] as $cart )
+<tr id="cartContainer">
 <td>
+<input type="hidden" value="{{ $cart->id }}" name="cartId">   
 <div class="delete-icon">
 <i class="bi bi-x-lg"></i>
 </div>
 </td>
 <td data-label="Product" class="table-product">
 <div class="product-img">
-<img src="assets/img/inner-page/whistlist-img1.png" alt>
+<img src="{{ asset('assets/Productimages/'. $cart->product->image) }}" alt>
 </div>
 <div class="product-content">
-<h6><a href="#">Eau De Blue Perfume</a></h6>
+<h6><a href="#">{{ $cart->product->name }}</a></h6>
 </div>
 </td>
 <td data-label="Price">
 <p class="price">
-<del>$40.00</del>
-$30.00
+@if($cart->product->sale_status == 1)
+<del>PKR ,{{ $cart->product->price }}</del>
+PKR ,{{ $cart->product->discounted_price }}
+@else
+PKR ,{{ $cart->product->price }}
+@endif
 </p>
 </td>
 <td data-label="Quantity">
 <div class="quantity-counter">
-<a href="#" class="quantity__minus"><i class="bx bx-minus"></i></a>
-<input name="quantity" type="text" class="quantity__input" value="01">
-<a href="#" class="quantity__plus"><i class="bx bx-plus"></i></a>
+<input name="cart_id" type="hidden"  value="{{$cart->id}}">
+<a href="#" class="quantity__minus minus-cart"><i class="bx bx-minus minus-cart"></i></a>
+<input name="quantity" type="text" class="quantity__input" value="{{$cart->quantity}}">
+<a href="#" class="quantity__plus plus-cart"><i class="bx bx-plus"></i></a>
 </div>
 </td>
-<td data-label="Total">
-$30.00
+<td class="totalprice" data-label="Total">
+@php
+if($cart->product->sale_status == 1)
+$productTotal = $cart->product->discounted_price  * $cart->quantity ;
+else {
+$productTotal = $cart->product->price  * $cart->quantity ;
+}
+$totalAmount  += $productTotal ;
+$shippingFees += $cart->product->shipping_fees;
+@endphp
+PKR ,{{ $productTotal }}
+
 </td>
 </tr>
-<tr>
-<td>
-<div class="delete-icon">
-<i class="bi bi-x-lg"></i>
-</div>
-</td>
-<td data-label="Product" class="table-product">
-<div class="product-img">
-<img src="assets/img/inner-page/whistlist-img2.png" alt>
-</div>
-<div class="product-content">
-<h6><a href="#">Smooth Makeup Box</a></h6>
-</div>
-</td>
-<td data-label="Price">
-<p class="price">
-<del>$40.00</del>
-$25.00
-</p>
-</td>
-<td data-label="Quantity">
-<div class="quantity-counter">
-<a href="#" class="quantity__minus"><i class="bx bx-minus"></i></a>
-<input name="quantity" type="text" class="quantity__input" value="01">
-<a href="#" class="quantity__plus"><i class="bx bx-plus"></i></a>
-</div>
-</td>
-<td data-label="Total">
-$50.00
-</td>
-</tr>
-<tr>
-<td>
-<div class="delete-icon">
-<i class="bi bi-x-lg"></i>
-</div>
-</td>
-<td data-label="Product" class="table-product">
-<div class="product-img">
-<img src="assets/img/inner-page/whistlist-img3.png" alt>
-</div>
-<div class="product-content">
-<h6><a href="#">Modern Red Lipstick</a></h6>
-</div>
-</td>
-<td data-label="Price">
-<p class="price">
-<del>$40.00</del>
-$32.00
-</p>
-</td>
-<td data-label="Quantity">
-<div class="quantity-counter">
-<a href="#" class="quantity__minus"><i class="bx bx-minus"></i></a>
-<input name="quantity" type="text" class="quantity__input" value="01">
-<a href="#" class="quantity__plus"><i class="bx bx-plus"></i></a>
-</div>
-</td>
-<td data-label="Total">
-$30.00
-</td>
-</tr>
+@endforeach
+@endif
 </tbody>
 </table>
 </div>
@@ -185,7 +121,7 @@ $30.00
 <tr>
 <th>Cart Totals</th>
 <th></th>
-<th>$128.70</th>
+<th id="subTotal">PKR,{{ $totalAmount }}</th>
 </tr>
 </thead>
 <tbody>
@@ -193,31 +129,27 @@ $30.00
 <td>Shipping</td>
 <td>
 <ul class="cost-list text-start">
-<li>Shipping Fee</li>
-<li>Total ( tax excl.)</li>
-<li>Total ( tax incl.)</li>
-<li>Taxes</li>
-<li>Shipping Enter your address to view shipping options. <br> <a href="#">Calculate
-shipping</a>
-</li>
+<li>Total Shipping Fee</li>
+
 </ul>
 </td>
 <td>
 <ul class="single-cost text-center">
-<li>Fee</li>
-<li>$15</li>
-<li></li>
-<li>$15</li>
-<li>$15</li>
-<li>$5</li>
+{{-- <li>${{  }}</li> --}}
+<li id="shipping_fees">PKR,{{ $shippingFees }}</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td>Subtotal</td>
 <td></td>
-<td>$162.70</td>
+@php
+    $subTotal  = $totalAmount + $shippingFees  ; 
+    
+@endphp
+<td id="totalAmount">PKR,{{ $subTotal }}</td>
 </tr>
+
 </tbody>
 </table>
 <button type="submit" class="primary-btn1 hover-btn3">Product Checkout</button>
@@ -228,23 +160,14 @@ shipping</a>
 
 
 
-<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
 
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
 
-<script src="assets/js/jquery.fancybox.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/slick.js"></script>
-
-<script src="assets/js/swiper-bundle.min.js"></script>
-
-<script src="assets/js/jquery.fancybox.min.js"></script>
-
-<script src="assets/js/main.js"></script>
-</body>
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:16 GMT -->
-</html>
-
+<script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
+<script src="{{ asset('assets/css/custom/cart.js') }}"></script>
+<script>
+    let deleteCartRoute   = "{{ route('cart.delete') }}";
+    let addQuantityRoute  = "{{ route('cart.plus') }}" ;
+    let minusQuantityCart = "{{ route('cart.minus') }}" ;
+</script>
 @endsection

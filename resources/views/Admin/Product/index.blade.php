@@ -31,10 +31,17 @@ All Products
                     <th>Image</th>
                     <th>View Sub Images</th>
                     <th>Name of Product</th>
+                    <th>Name of Brand</th>
                     <th>Name of Category</th>
                     <th>Name of Subcategory</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th>Number Of Sales</th>
+                    <th>Discount Status</th>
+                    <th>Discounted Price</th>
+                    <th>Discount Percentage</th>
+                    <th>Sale Start</th>
+                    <th>Sale End</th>
                     <th>Stock Status</th>
                     <th>Publish Status</th>
                     <th>Color</th>
@@ -48,12 +55,27 @@ All Products
                         <tr>
                             <td>{{ $loop->iteration  }}</td>
                             <td><img src="{{ asset('assets/Productimages/'.$product->image) }}" style="width:40px; height:40px; object-fit:cover;" alt=""></td>
-                            <td><a href="{{ route('subimage.view' , $product->id) }}" class="btn btn-warning"><div class="bx bx-undo"></div></a></td>
+                            <td><a href="{{ route('subimage.index' , $product->id) }}" class="btn btn-warning"><div class="bx bx-undo"></div></a></td>
                             <td>{{ $product->name }}</td>
+                            <td>{{ $product->brand->name }}</td>
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->subcategory->name }}</td>
                             <td>Rs,{{ $product->price }}</td>
                             <td>{{ $product->stock }}</td>
+                            <td>{{ $product->number_of_sales }}</td>
+                            @if($product->sale_status == 0)
+                            <td><a href="{{ route('view.discount' , $product->id) }}" class="btn btn-danger"><div class="bx bx-plus"></div></a></td>
+                            <td class="text-danger">Not In Discount</td>
+                            <td class="text-danger">Not In Discount</td>
+                            <td class="text-danger">Not In Discount</td>
+                            <td class="text-danger">Not In Discount</td>
+                            @elseif($product->sale_status == 1)
+                            <td><a href="{{ route('product.removediscount' , $product->id) }}" class="btn btn-success"><div class="bx bx-time"></div></a></td>
+                            <td class="text-success">Rs ,{{ $product->discounted_price }}</td>
+                            <td class="text-success">{{ $product->discount_percentage }}%</td>
+                            <td class="text-success">{{ $product->discounted_start_time }}</td>
+                            <td class="text-danger">{{ $product->discounted_end_time }}</td>
+                            @endif
                             @if($product->stock >= 1)
                             <td><button readonly class="btn btn-success">In Stock</button></td>
                             @else
@@ -88,9 +110,11 @@ All Products
 <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
 <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
+<script src="{{ asset('dashboardassets/vendor/js/menu.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+<script src={{ asset('dashboardassets/js/main.js') }}></script>
 
-<script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->
