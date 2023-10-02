@@ -12,6 +12,7 @@ use App\Http\Controllers\usercontroller;
 use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\User\Cartcontroller;
+use App\Http\Controllers\User\Checkoutcontroller;
 use App\Http\Controllers\User\HomeController;
 
 /*
@@ -31,7 +32,6 @@ Route::get('/accordion', [usercontroller::class, "accordion"])->name('accordion'
 Route::get('/blog_details', [usercontroller::class, "blog_details"])->name('blog_details');
 Route::get('/blog', [usercontroller::class, "blog"])->name('blog');
 Route::get('/category', [usercontroller::class, "category"])->name('category');
-Route::get('/checkout', [usercontroller::class, "checkout"])->name('checkout');
 Route::get('/contact', [usercontroller::class, "contact"])->name('contact');
 Route::get('/error', [usercontroller::class, "error"])->name('error');
 Route::get('/faq', [usercontroller::class, "faq"])->name('faq');
@@ -49,6 +49,8 @@ Route::Post('/login_auth', [Authcontroller::class, "login"])->name('auth.login')
 Route::get('/registration', [usercontroller::class, "registration"])->name('registration');
 Route::get('/Auth_register', [usercontroller::class, "Auth_register"])->name('Auth_register');
 Route::get('/admin/login',[usercontroller::class, "Auth_login"])->name('Auth_login');
+Route::get('/user/logout',[Authcontroller::class, "user_logout"])->name('user.logout');
+
 Route::post('/user/register',[Authcontroller::class, "registeration"])->name('user.register.post');
 Route::get('/Account_setting',[usercontroller::class, "Account_setting"])->name('Account_setting');
 Route::get('loadPdf/{id?}' , [PDFController::class,'generatePdf'])->name('generate.label');
@@ -56,6 +58,8 @@ Route::post('/update/profile/{id?}' , [Authcontroller::class , 'update'])->name(
 // User Routes For Cart and checkout
 Route::get('cartError' , [Cartcontroller::class , 'cart_error'])->name('cart.error');
 Route::middleware('user')->group(function(){
+Route::get('/checkout', [Checkoutcontroller::class, "index"])->name('checkout');
+
 Route::get('/addTocart/{id?}' , [Cartcontroller::class , 'store'])->name('cart.store');
 Route::get('/deleteCart/{id?}' , [Cartcontroller::class ,'delete'])->name('cart.delete');
 Route::get('/addQuantity/{id?}' , [Cartcontroller::class , 'increment'])->name('cart.plus');

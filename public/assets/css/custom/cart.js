@@ -9,9 +9,10 @@ $(document)
             type : 'Get' ,
             success:function(response)
             {
-                if(response == 'success')
+                if(response.message == 'success')
                 {
                     e.preventDefault();
+                    $('#cartCount').text(response.total_cart);
                     toastr['success']('Product added to cart');
 
                 }
@@ -28,6 +29,7 @@ $(document)
         e.preventDefault();
         let id = $(this).siblings('input[name="cartId"]').val();
         $(this).closest('tr').remove();
+        $(this).closest('li').remove();
         let subtotal      = $('#subTotal');
         let totalAmount   = $("#totalAmount");
         let shipping_fees = $('#shipping_fees');
@@ -40,6 +42,7 @@ $(document)
                 {
                     e.preventDefault();
                     toastr['success']("Cart has been removed");
+                    $('#cartCount').text(response.total_cart);
                     subtotal.text('PKR,' + response.total);
                     shipping_fees.text('PKR,' + response.fees);
                     totalAmount.text('PKR,' + (response.total + response.fees));
@@ -64,6 +67,7 @@ $(document)
         e.preventDefault();
         let id            = $(this).siblings('input[name="cart_id"]').val();
         let total         =  $(this).closest('tr').find('.totalprice');
+        let totalLi       = $(this).closest('li').find('.totalprice');
         let subtotal      = $('#subTotal');
         let totalAmount   = $("#totalAmount");
         let shipping_fees = $('#shipping_fees');
@@ -73,6 +77,7 @@ $(document)
             success:function(response)
             {
               total.text("PKR,"+response.total);
+              totalLi.text("PKR,"+response.total);
               toastr['success']("Quantity has been updated");
               subtotal.text("PKR,"+response.subTotal);
               totalAmount.text("PKR,"+(response.subTotal + response.fees));
@@ -84,8 +89,8 @@ $(document)
     $(document).on('click' , '.minus-cart' , function(e){
         e.preventDefault();
         let id            = $(this).siblings('input[name="cart_id"]').val();
-        let total         =  $(this).closest('tr').find('.totalprice');
-       
+        let total         = $(this).closest('tr').find('.totalprice');
+        let totalLi       = $(this).closest('li').find('.totalprice');
         let subtotal      = $('#subTotal');
         let totalAmount   = $("#totalAmount");
         let shipping_fees = $('#shipping_fees');
@@ -97,6 +102,7 @@ $(document)
                 if(response.message == "success")
                 {
                     total.text("PKR,"+response.total);
+                    totalLi.text("PKR,"+response.total);
                     toastr['success']("Quantity has been updated");
                     subtotal.text("PKR,"+response.subTotal);
                     totalAmount.text("PKR,"+(response.subTotal + response.fees));

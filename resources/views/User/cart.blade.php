@@ -152,7 +152,7 @@ PKR ,{{ $productTotal }}
 
 </tbody>
 </table>
-<button type="submit" class="primary-btn1 hover-btn3">Product Checkout</button>
+<a href="{{ route('checkout') }}" class="primary-btn1 hover-btn3">Product Checkout</a>
 </div>
 </div>
 </div>

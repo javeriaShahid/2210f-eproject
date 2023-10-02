@@ -32,6 +32,12 @@ $(document).ready(function(){
             e.preventDefault();
             toastr['error']('Brand Field is required');
         }
+        
+        if($(delivery_duration).val() == "")
+        {
+            e.preventDefault();
+            toastr['error']('Delvery Duration Field is required');
+        }
         if($(price).val() == "")
         {
             e.preventDefault();
@@ -116,6 +122,7 @@ $(document).ready(function(){
         $(description).val(product.description);
         $(brand).val(product.brand_id);
         $(shippingFees).val(product.shipping_fees);
+        $(delivery_duration).val(product.delivery_duration);
     }
     // End of Edit Product
 });

@@ -29,9 +29,7 @@ class usercontroller extends Controller
    public function blog(){
       return view("user.blog");
      }
-   public function checkout(){
-      return view("user.checkout");
-     }
+   
    public function category(){
       return view("user.category");
      }

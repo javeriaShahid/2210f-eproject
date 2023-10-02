@@ -23,13 +23,14 @@ class Cartcontroller extends Controller
             $addToCart    = $this->parentModel::where('product_id' , $id)->update([
                 'quantity'  => $incrementedQuantity,
             ]);
+            $cart_count    = $this->parentModel::where('user_id' , session()->get('user')['id'])->count();
             if($addToCart == true)
             {
-                return response()->json('success');
+                return response()->json(['message' => 'success' , 'total_cart' => $cart_count]);
             }
             else
             {
-                return response()->json('error');
+                return response()->json(['message'=>'error']);
             }
         }
         else{
@@ -42,7 +43,11 @@ class Cartcontroller extends Controller
             ]);
             if($addToCart == true)
             {
-                return response()->json('success');
+                $cart_count    = $this->parentModel::where('user_id' , session()->get('user')['id'])->count();
+                if($addToCart == true)
+                {
+                    return response()->json(['message' => 'success' , 'total_cart' => $cart_count]);
+                }
             }
             else
             {
@@ -78,14 +83,17 @@ class Cartcontroller extends Controller
                 $price = $cart->product->price * $cart->quantity ;
             }
             $totalPrice += $price ;
-}
-            return response(['message' => 'success' , 'fees' => $fees , 'total' => $totalPrice]);
+            $cart_count    = $this->parentModel::where('user_id' , session()->get('user')['id'])->count();
+            return response(['message' => 'success' , 'fees' => $fees , 'total' => $totalPrice , 'total_cart' => $cart_count]);
+          }
+          
       
         }
         // if cart is empty
         else
         {
-            return response(['message' => 'empty' , 'fees' => $fees , 'total' => $totalPrice]);
+            $cart_count    = $this->parentModel::where('user_id' , session()->get('user')['id'])->count();
+            return response(['message' => 'success' , 'fees' => $fees , 'total' => $totalPrice , 'total_cart' => $cart_count]);
         }
         }
         else
