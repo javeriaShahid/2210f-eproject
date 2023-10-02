@@ -1,6 +1,6 @@
 
 
-@extends('Layout')
+@extends('user.Layout')
 @section('content')
 
 <!DOCTYPE html>
