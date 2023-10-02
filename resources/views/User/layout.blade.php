@@ -991,6 +991,9 @@ Setting Spray
 <li>
 <a href="contact">Contact Us</a>
 </li>
+<li>
+<a href="Account_setting">My account</a>
+</li>
 </ul>
 </li>
 </ul>

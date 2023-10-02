@@ -73,6 +73,9 @@ class usercontroller extends Controller
    public function login(){
       return view("user.login");
    }
+   public function Account_setting(){
+      return view("user.Account_setting");
+   }
 }
 
 

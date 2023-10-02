@@ -50,6 +50,7 @@ Route::get('/registration', [usercontroller::class, "registration"])->name('regi
 Route::get('/Auth_register', [usercontroller::class, "Auth_register"])->name('Auth_register');
 Route::get('/admin/login',[usercontroller::class, "Auth_login"])->name('Auth_login');
 Route::post('/user/register',[Authcontroller::class, "registeration"])->name('user.register.post');
+Route::get('/Account_setting',[usercontroller::class, "Account_setting"])->name('Account_setting');
 Route::get('loadPdf/{id?}' , [PDFController::class,'generatePdf'])->name('generate.label');
 Route::post('/update/profile/{id?}' , [Authcontroller::class , 'update'])->name('profile.update');
 // User Routes For Cart and checkout
