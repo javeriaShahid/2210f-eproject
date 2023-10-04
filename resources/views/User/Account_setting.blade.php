@@ -4,38 +4,6 @@
 @section('content')
 
 
-<!DOCTYPE html>
-<html lang="en">
-    
-    <!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:47 GMT -->
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        
-        <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-        
-        <link href="assets/css/all.min.css" rel="stylesheet">
-        <link href="assets/css/nice-select.css" rel="stylesheet">
-        
-        <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link href="assets/css/fontawesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/boxicons.min.css">
-
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Dazzle</title>
-<link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
-</head>
-
 
 
 <div class="breadcrumb-section">
@@ -183,22 +151,35 @@ to view or edit information.</p>
 <div class="row">
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
-<input type="text" placeholder="Enter your first name*">
+<input type="text" placeholder="Enter your first name*" value="{{ $data['user']->name }}">
 </div>
 </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
-<input type="text" placeholder="Enter your last name*">
+<input type="text" placeholder="Enter your User name*" value="{{ $data['user']->username }}">
 </div>
 </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
-<input type="text" placeholder="Enter yout contact number">
+<div class="row">
+    <div class="col-md-3">
+        <select id="country">
+            <option value="{{ $data['user']->phone_code }}">{{ $data['user']->phone_code }}</option>
+            @foreach ($data['country'] as $country)
+                <option value="{{ $country->phonecode }}">{{$country->phonecode}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="col-md-9">
+<input type="text" placeholder="Enter yout contact number" value="{{ $data['user']->contact_number }}">
+
+    </div>
+</div>
 </div>
 </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
-<input type="text" placeholder="Enter your email address*">
+<input type="text" placeholder="Enter your email address*" value="{{ $data['user']->email }}">
 </div>
 </div>
 <div class="col-12 mb-25">
@@ -207,14 +188,13 @@ to view or edit information.</p>
 </div>
 </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
+{{-- <input type="text" list="country" id="countries"> --}}
 <div class="form-inner">
-<select id="city">
-<option>City</option>
-<option>Dhaka</option>
-<option>Sylhet</option>
-<option>Chittagong</option>
-<option>Rajshahi</option>
-</select>
+    <select id="country" >
+        @foreach ($data['country'] as $country)
+            <option value="{{ $country->id }}">{{ $country->name }}</option>
+        @endforeach
+    </select>
 </div>
 </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
@@ -244,18 +224,7 @@ to view or edit information.</p>
 </select>
 </div>
 </div>
-<div class="col-12 mb-25">
-<div class="form-inner">
-<input type="password" name="password" id="password4" placeholder="Password" />
-<i class="bi bi-eye-slash" id="togglePassword4"></i>
-</div>
-</div>
-<div class="col-12 mb-25">
-<div class="form-inner mb-0">
-<input type="password" name="password" id="password5" placeholder="Confirm password" />
-<i class="bi bi-eye-slash" id="togglePassword5"></i>
-</div>
-</div>
+
 <div class="col-12">
 <div class="button-group">
 <button type="submit" class="primary-btn3 black-bg  hover-btn5 hover-white">Update
@@ -391,23 +360,12 @@ have received.</p>
 </div>
 </div>
 
+<script>
+
+    let stateCityRoute   = "{{ route('get.state.city') }}";
+    
+</script>
 
 
-<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
 
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
-
-<script src="assets/js/jquery.fancybox.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/slick.js"></script>
-
-<script src="assets/js/swiper-bundle.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-
-<script src="assets/js/main.js"></script>
-</body>
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/my-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:19 GMT -->
-</html>
 @endsection

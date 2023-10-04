@@ -52,7 +52,7 @@
 <div class="col-lg-4">
 <div class="single-location">
 <div class="title-and-view-btn">
-<h5>Dhaka, Bangladesh</h5>
+<h5>Karachi, Pakistan</h5>
 <a href="#">View Map
 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
 <path d="M6.669 2.27202L0.94102 8L0 7.05898L5.72731 1.331H0.679478V0H8V7.32052H6.669V2.27202Z" />
@@ -79,7 +79,7 @@
 </svg>
 </div>
 <div class="info">
-<a>Canada City, Office-02, Road-11, House-3B/B, Section-H</a>
+<a>Karachi City, Office-02, Road-11, House-3B/B, Section-H</a>
 </div>
 </li>
 </ul>
@@ -88,7 +88,7 @@
 <div class="col-lg-4">
 <div class="single-location">
 <div class="title-and-view-btn">
-<h5>New Delhi, India </h5>
+<h5>Karachi, Pakistan </h5>
 <a href="#">View Map
 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
 <path d="M6.669 2.27202L0.94102 8L0 7.05898L5.72731 1.331H0.679478V0H8V7.32052H6.669V2.27202Z" />
@@ -115,7 +115,7 @@
 </svg>
 </div>
 <div class="info">
-<a>Canada City, Office-02, Road-11, House-3B/B, Section-H</a>
+<a>Karachi City, Office-02, Road-11, House-3B/B, Section-H</a>
 </div>
 </li>
 </ul>
@@ -124,7 +124,7 @@
 <div class="col-lg-4">
 <div class="single-location">
 <div class="title-and-view-btn">
-<h5>City of Panama,</h5>
+<h5>Karachi, Pakistan</h5>
 <a href="#">View Map
 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
 <path d="M6.669 2.27202L0.94102 8L0 7.05898L5.72731 1.331H0.679478V0H8V7.32052H6.669V2.27202Z" />
@@ -151,7 +151,7 @@
 </svg>
 </div>
 <div class="info">
-<a>Canada City, Office-02, Road-11, House-3B/B, Section-H</a>
+<a>Karachi City, Office-02, Road-11, House-3B/B, Section-H</a>
 </div>
 </li>
 </ul>

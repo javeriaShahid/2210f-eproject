@@ -22,7 +22,39 @@
 <div class="row gy-5">
 <div class="col-lg-7">
 <div class="form-wrap mb-30">
+    <div class="row">
+        <div class="col-md-6">
 <h4>Billing Details</h4>
+
+        </div>
+        <div class="col-md-6 d-flex justify-content-end mb-3">
+
+            <!-- Button trigger modal -->
+<button type="button" class="primary-btn1 hover-btn3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Select Address
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="primary-btn1" data-bs-dismiss="modal">Create</button>
+          <button type="button" class="primary-btn1">Add Address</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+
+    </div>
 <form>
 <div class="row">
 <div class="col-lg-6">
@@ -66,7 +98,7 @@
 </div>
 <div class="col-12">
 <div class="form-inner">
-<label>Additional Information</label>
+<label>Contact Number</label>
 <input type="text" name="fname" placeholder="Your Phone Number">
 </div>
 </div>
@@ -123,7 +155,7 @@
      @endphp
 
 @foreach ($data['cart'] as $cart )
-    
+
 
 <li class="single-product">
 <div class="product-area">
@@ -147,12 +179,12 @@
     $price  = $cart->product->discounted_price * $cart->quantity ;
  }
  else {
-    
+
     $price  = $cart->product->price * $cart->quantity;
  }
  $totalAmount  += $price ;
  $shippingFees += $cart->product->shipping_fees;
- @endphp   
+ @endphp
 <span class="product-price totalprice">Rs,{{$price}}</span>
 </strong>
 </div>

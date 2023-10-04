@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\State;
+use App\Models\City;
 use Illuminate\Support\Facades\Hash;
 
 class Authcontroller extends Controller
 {
     public $parentModel = User::class;
+    public $countryModel = Country::class ;
+    public $cityModel   = City::class ;
+    public $stateModel  = State::class;
     public function login(Request $request){
         $email    = $request->email;
         $password = $request->password;
@@ -52,10 +58,10 @@ class Authcontroller extends Controller
     {
         $name         =  $request->name ;
         $email        =  $request->email;
-        $password     = Hash::make($request->password);
-        $username     = $request->username ;
-        $contact      = $request->contact_number;
-        $country_code = $request->country_code;
+        $password     =  Hash::make($request->password);
+        $username     =  $request->username ;
+        $contact      =  $request->contact_number;
+        $country_code =  $request->country_code;
 
         $user_create  = $this->parentModel::create([
             'name'            => $name ,
@@ -112,6 +118,13 @@ class Authcontroller extends Controller
         $data['user']    = $this->parentModel::where('id' , $id)->first();
         return view('Admin.profile.account-setting')->with('data' , $data);
     }
+    public function edit_user()
+    {
+        $id              = session()->get('user')['id'];
+        $data['user']    = $this->parentModel::where('id' , $id)->first();
+        $data['country'] = $this->countryModel::all();
+        return view('User.Account_setting')->with('data' , $data);
+    }
     public function update($id = null , Request $request)
     {
         $name             = $request->name ;
@@ -142,6 +155,20 @@ class Authcontroller extends Controller
         {
             return redirect()->back()->with('error' , 'Failed to change profile info');
 
+        }
+    }
+
+    public function get_state_and_city($id = null)
+    {
+        $state   = $this->stateModel::where('country_code' , $id)->get();
+        $city   = $this->cityModel::where('country_code' , $id)->get();
+        if($state != null && $city != null)
+        {
+            return response()->json(['state' => $state , 'city' => $city]);
+        }
+        else
+        {
+            return response()->json(['message'=>'error']);
         }
     }
 }
