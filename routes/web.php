@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImageController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -162,7 +163,16 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::prefix('account')->group(function(){
         Route::get('setting' , [Authcontroller::class , 'edit_admin'])->name('admin.account.setting');
     });
-
+    // Orders Management System
+    Route::prefix('/orders')->group(function(){
+        Route::get('/' , [OrderController::class , 'index'])->name('admin.order.index');
+        Route::get('/delivered/{id?}' , [OrderController::class , 'delivered_product'])->name('delivered.order');
+        Route::get('/pending' , [AdminUserController::class , 'active'])->name('admin.user.active');
+        Route::get('/deactive' , [AdminUserController::class , 'deactive'])->name('admin.user.deactive');
+        Route::get('/block/{id?}' , [AdminUserController::class , 'block_user'])->name('admin.user.blocked');
+        Route::get('/unblock/{id?}' , [AdminUserController::class , 'unblock_user'])->name('admin.user.unblock');
+        Route::get('/delete/{id?}' , [AdminUserController::class , 'delete'])->name('admin.user.delete');
+    });
 
 });
 

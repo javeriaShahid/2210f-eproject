@@ -40,8 +40,8 @@ class Checkoutcontroller extends Controller
             $user_id          = session()->get('user')['id'] ;
             $cartId           = $request->cart_ids ;
             $payment_method   = $request->payment_method;
-            // ADDRESS Variables 
-            $addressId        = $request->addressId;
+            // ADDRESS Variables
+            $addressId        = $request->address_id;
             $streetAddress1   = $request->streetaddress1;
             $streetAddress2   = $request->streetaddress2;
             $country          = $request->country;
@@ -51,12 +51,11 @@ class Checkoutcontroller extends Controller
             $contact2         = $request->contactNumber2;
             $postalCode       = $request->postalcode;
             // Address Variables Ends here
-            $trackingId       =  '#'.rand(000000000000,999999999999) ;
             $OrderPlaceDate   = Carbon::now()->toDateString();
             $productIds       = [];
             $productId        = $this->cartData::whereIn('id' , $cartId)->with('product')->get();
             $totalAmount      = 0;
-            $totalFeeDelivery = 0;     
+            $totalFeeDelivery = 0;
             $deliveryDate     = $request->DeliveryDate;
             $finalDate        = [] ;
             foreach($deliveryDate as $deliveryDates)
@@ -85,7 +84,7 @@ class Checkoutcontroller extends Controller
                 $subtotal           = $totalAmount + $totalFeeDelivery ;
             }
             // Getting Delivey Date
-            
+
             if($addressId == "" || $addressId == null)
             {
                 $addressCreate  =  $this->addressModel::create([
@@ -102,8 +101,36 @@ class Checkoutcontroller extends Controller
                 $addressId       = $addressCreate->id;
             }
             // Create Checkout
-            foreach($cartId as $key )
-  
+            foreach($cartId as $key => $value)
+            {
+                $trackingId       = rand(000000000000,999999999999) ;
+                $createCheckout  =  $this->parentModel::create([
+                    'cart_id'            => $cartId[$key] ,
+                    'product_id'         => $productIds[$key] ,
+                    'address_id'         => $addressId ,
+                    'quantity'           => $$quantity[$key] ,
+                    'user_id'            => $user_id ,
+                    'order_placed_date'  => $OrderPlaceDate ,
+                    'delivery_date'      => $finalDate[$key],
+                    'payment_method'     => $payment_method ,
+                    'tracking_id'        => $trackingId
+
+                ]);
+
+            }
+            if($createCheckout == true)
+            {
+                foreach($cartId as $key => $value)
+                {
+                    $cartDelete     =  $this->cartData::where('id' , $cartId[$key])->forceDelete();
+                }
+                return response()->json(['message' => 'Data hase been Uploaded']);
+            }
+            else
+            {
+                return response()->json(['message' => 'Failed to Insert Data']);
+            }
+
 
 
    }

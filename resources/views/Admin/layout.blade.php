@@ -205,7 +205,7 @@
                   </ul>
                 </li>
               </li>
-
+            {{--  --}}
             <!-- Misc -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Product Managment</span></li>
             <li class="menu-item">
@@ -250,7 +250,39 @@
                   </ul>
                 </li>
               </li>
+              {{-- Orders Management System --}}
+              <li class="menu-header small text-uppercase"><span class="menu-header-text">Orders  Management</span></li>
+              <!-- Forms -->
+              <li class="menu-item">
+                  <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                      <i class="menu-icon tf-icons bx bx-book"></i>
+                      <div data-i18n="Layouts">Orders</div>
+                    </a>
 
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                          <a href="{{ route('admin.order.index') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-plus"></i>
+                              <div data-i18n="Basic">All</div>
+                            </a>
+                          </li>
+                      <li class="menu-item">
+                          <a href="{{ route('subcategory.index') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-collection"></i>
+                              <div data-i18n="Basic">Pending</div>
+                            </a>
+                      </li>
+
+                      <li class="menu-item">
+                          <a href="{{ route('subcategory.trash') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-trash"></i>
+                              <div data-i18n="Basic">Trashed</div>
+                            </a>
+                      </li>
+                    </ul>
+                  </li>
+                </li>
 
               {{-- End of products managemnet --}}
 
@@ -369,13 +401,13 @@
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
-                  
+
                       <a class="dropdown-item" href="{{ route('admin.account.setting') }}">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
                       </a>
                     </li>
-                
+
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
