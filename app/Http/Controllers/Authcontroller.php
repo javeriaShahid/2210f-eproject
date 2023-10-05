@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\State;
 use App\Models\City;
+use App\Models\UserAddresses;
 use Illuminate\Support\Facades\Hash;
 
 class Authcontroller extends Controller
 {
-    public $parentModel = User::class;
-    public $countryModel = Country::class ;
-    public $cityModel   = City::class ;
-    public $stateModel  = State::class;
+    public $parentModel      = User::class;
+    public $countryModel     = Country::class ;
+    public $cityModel        = City::class ;
+    public $stateModel       = State::class;
+    public $addressModel     = UserAddresses::class;   
     public function login(Request $request){
         $email    = $request->email;
         $password = $request->password;
@@ -158,17 +160,109 @@ class Authcontroller extends Controller
         }
     }
 
-    public function get_state_and_city($id = null)
+    public function get_state($id = null)
     {
-        $state   = $this->stateModel::where('country_code' , $id)->get();
-        $city   = $this->cityModel::where('country_code' , $id)->get();
-        if($state != null && $city != null)
+        $state   = $this->stateModel::where('country_id' , $id)->get();
+
+      
+        if($state != null)
         {
-            return response()->json(['state' => $state , 'city' => $city]);
+          return response()->json($state);
+        }
+        
+    }
+    public function get_city($id = null)
+    {
+        $city   = $this->cityModel::where('state_id' , $id)->get();
+      
+        if($city != null)
+        {
+          return response()->json($city);
+        }
+        
+    }
+
+    public function store_user_address(Request $request)
+    {
+        if(session()->has('user'))
+        {
+            $userId             =  session()->get('user')['id'];
         }
         else
         {
-            return response()->json(['message'=>'error']);
+            $userId             =  session()->get('admin')['id'];
+        }
+        $address1           = $request->addressline1;
+        $address2           = $request->addressline2;
+        $phone1             = $request->phonenumber1;
+        $phone2             = $request->phonenumber2;
+        $country            = $request->country;
+        $city               = $request->city;
+        $state              = $request->state;
+        $postcode           = $request->postalcode;
+
+
+        $createAddress      = $this->addressModel::create([
+            
+            'user_id'       => $userId ,
+            'addressline1'  => $address1 ,
+            'addressline2'  => $address2 ,
+            'phone_number1' => $phone1 ,
+            'phone_number2' => $phone2,
+            'country'       => $country ,
+            'state'         => $state ,
+            'postalcode'    => $postcode ,
+            'city'          => $city    
+        
+        ]);
+
+        if($createAddress == true)
+        {
+            $data['user']       = $this->parentModel::where('id' , $createAddress->user_id)->with('address')->get();
+            return response()->json(['message' => 'success' , 'userdata' => $data['user']]);
+        }
+        else
+        {
+            return response()->json('message' , 'error');
+        }
+
+    }
+
+    public function address_get(Request $request)
+    {
+        
+        $email = $request->email_address;
+        $data['user'] = $this->parentModel::where('email', $email)->with('address')->first();
+        $data['address'] = $this->addressModel::where('user_id' , $data['user']->id)->with('country')->get();
+        if($data['address'] != null)
+        {
+            return response()->json($data['address']);
+        }
+
+    }
+    public function specific_address_get($id  = null)
+    {   
+        $data['address']     = $this->addressModel::where('id' , $id)->with('country' , 'state' , 'city')->first();
+        if($data['address'] == true)
+        {
+            return response()->json(['message' => 'success' , 'address' => $data['address']]);
+        }
+        else
+        {
+            return response()->json('message' , 'error');
+        }
+    }
+    public function address_delete($id = null)
+    {
+        $deleteAddress       = $this->addressModel::where('id' , $id)->forceDelete();
+
+        if($deleteAddress == true)
+        {
+            return response()->json(['message'  => 'success']);
+        }
+        else
+        {
+            return response()->json(['message'  => 'error']);
         }
     }
 }

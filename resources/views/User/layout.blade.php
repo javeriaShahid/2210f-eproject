@@ -15,7 +15,7 @@
 
 <link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
 
-<link href="{{ asset('assets/css/fontawesome.min.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="stylesheet" href="{{ asset('assets/css/boxicons.min.css') }}">
 
@@ -1204,12 +1204,12 @@ Setting Spray
     <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/slick.js') }}"></script>
-
     <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
 
     <!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/about_us by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:47 GMT -->

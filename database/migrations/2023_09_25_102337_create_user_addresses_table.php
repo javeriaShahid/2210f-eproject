@@ -20,9 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger('state');
             $table->unsignedBigInteger('city');
             $table->string('postalcode');
-            $table->integer('phone_number1')->nullable();
-            $table->integer('phone_number2')->nullable();
-            $table->integer('deleted_at')->nullable();
+            $table->string('phone_number1')->nullable();
+            $table->string('phone_number2')->nullable();
+            $table->string('deleted_at')->nullable();
             $table->timestamps();
         });
     }

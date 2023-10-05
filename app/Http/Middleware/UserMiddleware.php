@@ -19,13 +19,9 @@ class UserMiddleware
         {
 
         }
-        if(!session()->get('user')['role'] == 0)
-        {
-            return redirect(Route('admin.login.view'))->with('error' , 'You are not an admin please Loggin with your admin account');
-        }
         if(!session()->has('user'))
         {
-            return redirect(Route("admin.login.view"))->with('error' , 'You are not logged in login before accessing dashboard');
+            return redirect(Route("login.view"))->with("error" , "You are not logged can't access this page");
 
         }
         return $next($request);

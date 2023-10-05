@@ -36,8 +36,7 @@ Route::get('/contact', [usercontroller::class, "contact"])->name('contact');
 Route::get('/error', [usercontroller::class, "error"])->name('error');
 Route::get('/faq', [usercontroller::class, "faq"])->name('faq');
 Route::get('/gift_card', [usercontroller::class, "gift_card"])->name('gift_card');
-Route::get('/myaccount', [Authcontroller::class, "edit_user"])->name('myaccount');
-Route::get('/state_city/{id?}' , [Authcontroller::class , 'get_state_and_city'])->name("get.state.city");   
+Route::get('/state_city/{id?}' , [Authcontroller::class , 'get_state_and_city'])->name("get.state.city");
 Route::get('/our_brand', [usercontroller::class, "our_brand"])->name('our_brand');
 Route::get('/quick_view', [usercontroller::class, "quick_view"])->name('quick_view');
 Route::get('/slider', [usercontroller::class, "slider"])->name('slider');
@@ -51,6 +50,10 @@ Route::get('/registration', [usercontroller::class, "registration"])->name('regi
 Route::get('/Auth_register', [usercontroller::class, "Auth_register"])->name('Auth_register');
 Route::get('/admin/login',[usercontroller::class, "Auth_login"])->name('Auth_login');
 Route::get('/user/logout',[Authcontroller::class, "user_logout"])->name('user.logout');
+// States and City getting Routes
+Route::get('/state/{id?}' , [Authcontroller::class , 'get_state'])->name('state.get');
+Route::get('/city/{id?}' , [Authcontroller::class , 'get_city'])->name('city.get');
+// Address Get
 
 Route::post('/user/register',[Authcontroller::class, "registeration"])->name('user.register.post');
 Route::get('/Account_setting',[usercontroller::class, "Account_setting"])->name('Account_setting');
@@ -60,11 +63,16 @@ Route::post('/update/profile/{id?}' , [Authcontroller::class , 'update'])->name(
 Route::get('cartError' , [Cartcontroller::class , 'cart_error'])->name('cart.error');
 Route::middleware('user')->group(function(){
 Route::get('/checkout', [Checkoutcontroller::class, "index"])->name('checkout');
-
+Route::post('/checkout_store', [Checkoutcontroller::class, "store"])->name('checkout.store');
+Route::get('/myaccount', [Authcontroller::class, "edit_user"])->name('myaccount');
 Route::get('/addTocart/{id?}' , [Cartcontroller::class , 'store'])->name('cart.store');
 Route::get('/deleteCart/{id?}' , [Cartcontroller::class ,'delete'])->name('cart.delete');
 Route::get('/addQuantity/{id?}' , [Cartcontroller::class , 'increment'])->name('cart.plus');
 Route::get('/minusQuantity/{id?}' , [Cartcontroller::class , 'decrement'])->name('cart.minus');
+Route::post('/addAddress' , [Authcontroller::class , 'store_user_address'])->name('add.address');
+Route::post('/getAddress' , [Authcontroller::class , 'address_get'])->name('get.address');
+Route::get('/specificAddress/{id?}' , [Authcontroller::class , 'specific_address_get'])->name('specific.address');
+Route::get('/deleteAddress/{id?}' , [Authcontroller::class , 'address_delete'])->name('delete.address');
 });
 
 // End of user routes

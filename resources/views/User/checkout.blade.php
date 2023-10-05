@@ -43,11 +43,104 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+
+            {{-- Creating A New Address for user to select --}}
+            <div id="createAddressContainer" style="display: none">
+                <form action="" id="createAddressForm">
+                    @csrf
+                        <div class="form-inner">
+                            <label for="">Address Line 1</label>
+                            <input type="text" name="addressline1" placeholder="Enter Address Line 1">
+                        </div>
+
+                        <div class="form-inner">
+                            <label for="">Address Line 2 <small>(optional)</small></label>
+                            <input type="text" name="addressline2" placeholder="Enter Address Line 1">
+                        </div>
+
+                        <div class="form-inner">
+                            <label for="">Phone number 1 </label>
+                            <input type="text" name="phonenumber1" placeholder="Enter Address Line 1">
+                        </div>
+
+                        <div class="form-inner">
+                            <label for="">Phone number 2 (optional) </label>
+                            <input type="text" name="phonenumber2" placeholder="Enter Address Line 1">
+                        </div>
+                        <div class="form-inner">
+                            <label for="">Country</label>
+                           <select name="country" id="country">
+                            <option value="">Select Country</option>
+                            @foreach ($data['country'] as $country )
+                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                            @endforeach
+                           </select>
+                        </div>
+                        <div class="form-inner">
+                            <label for="">State</label>
+                           <select name="state" id="state">
+                            <option value="">Select Country First</option>
+                           </select>
+                        </div>
+                        <div class="form-inner">
+                            <label for="">City</label>
+                           <select name="city" id="city">
+                            <option value="">Select State First</option>
+                           </select>
+                        </div>
+
+                        <div class="form-inner">
+                            <label for="">Postal / Zipcode</label>
+                           <input type="text" name="postalcode" placeholder="Postal / Zip Code">
+                        </div>
+
+
+                </form>
+
+            </div>
+            {{-- Creating A new Address --}}
+            {{-- Search container for address check --}}
+            <div class="search-container" >
+
+                    <form id="searchAddress">
+                        @csrf
+                             <div class="form-inner">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                    <input type="email" name="email_address" placeholder="Your Email address">
+                                    </div>
+                                    <div class="col-md-2">
+                                    <button type="button" id="searchBtn" class="primary-btn1">Find</button>
+                                    </div>
+                                </div>
+                                </div>
+                    </form>
+                     </div>
+            {{-- Search container for address check --}}
+            {{-- Table container for address --}}
+            <div class="" id="table-container" style="display: none">
+                <table class="table table-responsive">
+                    <tr>
+                        <th>
+                            Sr.no
+                        </th>
+                        <th>
+                            Country Name
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                        
+                    </tr>
+                  <tbody id="tableData"></tbody>
+                  
+                </table>
+            </div>
+            {{-- Table container for address remove --}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="primary-btn1" data-bs-dismiss="modal">Create</button>
-          <button type="button" class="primary-btn1">Add Address</button>
+          <button type="button" class="primary-btn1" id="createAdButton">Create</button>
+          <button type="button" id="createAddressButton" style="display: none" class="primary-btn1">Add Address</button>
         </div>
       </div>
     </div>
@@ -55,94 +148,81 @@
         </div>
 
     </div>
-<form>
+<form action="{{ route('checkout.store') }}" method="post">
+    @csrf
 <div class="row">
 <div class="col-lg-6">
 <div class="form-inner">
-<label>First Name</label>
-<input type="text" name="fname" placeholder="Your first name">
+<label>Full Name</label>
+<input type="text" name="name" placeholder="Your Full name">
 </div>
 </div>
 <div class="col-lg-6">
 <div class="form-inner">
-<label>Last Name</label>
-<input type="text" name="fname" placeholder="Your last name">
+<label>Email Address</label>
+<input type="text" name="email" placeholder="Your Email address">
 </div>
 </div>
 <div class="col-12">
 <div class="form-inner">
-<label>Country / Region</label>
-<input type="text" name="fname" placeholder="Your country name">
-</div>
-</div>
-<div class="col-12">
-<div class="form-inner">
-<label>Street Address</label>
-<input type="text" name="fname" placeholder="House and street name">
-</div>
-</div>
-<div class="col-12">
-<div class="form-inner">
-<select>
-<option>Town / City</option>
-<option>Dhaka</option>
-<option>Saidpur</option>
-<option>Newyork</option>
+<label>Country</label>
+<select name="country" id="">
+    <option value="">Select Your Country</option>
+    @foreach ($data['country'] as $country )
+        <option value="{{ $country->id }}">{{ $country->name }}</option>
+    @endforeach
 </select>
 </div>
 </div>
 <div class="col-12">
 <div class="form-inner">
-<input type="text" name="fname" placeholder="Post Code">
+<label>State</label>
+<select name="state" id="">
+    <option value="">Select Country First</option>
+</select>
 </div>
 </div>
 <div class="col-12">
 <div class="form-inner">
-<label>Contact Number</label>
-<input type="text" name="fname" placeholder="Your Phone Number">
+<label>City</label>
+<select name="city" id="">
+    <option value="">Select State First</option>
+</select>
 </div>
 </div>
 <div class="col-12">
 <div class="form-inner">
-<input type="email" name="email" placeholder="Your Email Address">
+<input type="hidden" name="address_id">
+
+<label>Street Address Line 1</label>
+<input type="text" name="streetaddress1" placeholder="House and street name">
+</div>
+</div>
+<div class="col-12">
+    <div class="form-inner">
+    <label>Street Address Line 2 <small>(optional)</small></label>
+    <input type="text" name="streetaddress2" placeholder="House and street name">
+    </div>
+    </div>
+<div class="col-12">
+<div class="form-inner">
+ <label>Postal / Zip Code</label>
+<input type="text" name="postalcode" placeholder="Post Code / Zip Code">
 </div>
 </div>
 <div class="col-12">
 <div class="form-inner">
-<input type="text" name="postcode" placeholder="Post Code">
+<label>Contact Number 1</label>
+<input type="text" name="contactNumber1" placeholder="Your Phone Number">
 </div>
 </div>
 <div class="col-12">
-<div class="form-inner">
-<textarea name="message" placeholder="Order Notes (Optional)" rows="6"></textarea>
+    <div class="form-inner">
+    <label>Contact Number 2 <small>(optional)</small></label>
+    <input type="text" name="contactNumber2" placeholder="Your Phone Number">
+    </div>
+    </div>
 </div>
-</div>
-</div>
-</form>
-</div>
-<div class="form-wrap box--shadow">
-<h4>Ship to a Different Address?</h4>
-<form>
-<div class="row">
-<div class="col-md-6">
-<div class="form-inner">
-<label>First Name</label>
-<input type="text" name="fname" placeholder="Your first name">
-</div>
-</div>
-<div class="col-md-6">
-<div class="form-inner">
-<label>Last Name</label>
-<input type="text" name="fname" placeholder="Your last name">
-</div>
-</div>
-<div class="col-12">
-<div class="form-inner">
-<textarea name="message" placeholder="Order Notes (Optional)" rows="3"></textarea>
-</div>
-</div>
-</div>
-</form>
 </div>
 </div>
 <div class="col-lg-5">
@@ -167,12 +247,29 @@
 <div class="product-total">
 <div class="quantity-counter">
     <input name="cart_id" type="hidden"  value="{{$cart->id}}">
+    <input name="cart_ids[]" type="hidden"  value="{{$cart->id}}">
     <a href="#" class="quantity__minus minus-cart"><i class="bx bx-minus minus-cart"></i></a>
     <input name="quantity" type="text" class="quantity__input" value="{{$cart->quantity}}">
     <a href="#" class="quantity__plus plus-cart"><i class="bx bx-plus"></i></a>
 </div>
 
  @php
+$currentDate = \Carbon\Carbon::now();
+
+// Total delivery duration
+$totalDeliveryDuration = $cart->product->delivery_duration;
+
+// Ensure $currentDate is a Carbon instance
+if (!($currentDate instanceof Carbon)) {
+    $currentDate = \Carbon\Carbon::parse($currentDate);
+}
+
+// Calculate the last delivery date
+$lastDeliveryDate = $currentDate->addDays($totalDeliveryDuration);
+
+// Convert the last delivery date to a formatted string
+$lastDeliveryDateString = $lastDeliveryDate->toDateString();
+
  $price   =  0 ;
  if($cart->product->sale_status == 1)
  {
@@ -186,6 +283,7 @@
  $shippingFees += $cart->product->shipping_fees;
  @endphp
 <span class="product-price totalprice">Rs,{{$price}}</span>
+<input type="hidden" name="DeliveryDate[]" value="{{ $lastDeliveryDate }}">
 </strong>
 </div>
 </div>
@@ -223,108 +321,23 @@
 <tr>
 <th>Total</th>
 <th id="totalAmount">PKR,{{ $totalAmount + $shippingFees }}</th>
+<input type="hidden" name="total_price" value="{{ $totalAmount + $shippingFees }}">
 </tr>
 </thead>
 </table>
 </div>
-<form class="payment-form">
+
 <div class="payment-methods mb-30">
-<ul class="payment-list">
-<li class="check-payment">
-<div class="form-check payment-check">
-<h6>Check payments</h6>
-<p class="para">Please send a check to Store Name, Store Street, Store State / Country, Store Postcode.</p>
-</div>
-<div class="checked">
-</div>
-</li>
-<li class="cash-delivary">
-<div class="form-check payment-check">
-<h6>Cash on delivery</h6>
-<p class="para">Pay with cash upon delivery.</p>
-</div>
-<div class="checked">
-</div>
-</li>
-<li class="paypal">
-<div class="form-check payment-check paypal">
-<h6>Paypal</h6>
-<img src="assets/img/inner-page/payment.png" alt>
-<a href="#" class="about-paypal">What is PayPal?</a>
-</div>
-<div class="checked">
-</div>
-</li>
-<li class="stripe">
-<h6>Card</h6>
-<div class="checked">
-</div>
-</li>
-</ul>
-<div class="choose-payment-method pt-25 pb-25" id="strip-payment" style="display: none;">
-<h5>Select Your Payment Method</h5>
-<div class="row gy-4 g-4">
-<div class="col-md-12">
-<div class="input-area">
-<label>Card Number</label>
-<div class="input-field">
-<input type="text" placeholder="1234 1234 1234 1234">
-<img src="assets/img/inner-page/payment.png" alt>
-</div>
-</div>
-</div>
-<div class="col-xl-7">
-<div class="input-area">
-<label>Expiration Date</label>
-<div class="row gy-4">
-<div class="col-sm-6">
-<select>
-<option>Month</option>
-<option>January</option>
-<option>February</option>
-<option>March</option>
-<option>April</option>
-<option>May</option>
-<option>June</option>
-<option>July</option>
-<option>August</option>
-<option>September</option>
-<option>October</option>
-<option>November</option>
-<option>December</option>
-</select>
-</div>
-<div class="col-sm-6">
-<select>
-<option>Day</option>
-<option>01</option>
-<option>02</option>
-<option>03</option>
-<option>04</option>
-<option>05</option>
-<option>06</option>
-<option>07</option>
-</select>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-5">
-<div class="input-area">
-<label>CVC</label>
-<input type="text" placeholder="123">
-</div>
-</div>
-</div>
-</div>
-<div class="payment-form-bottom d-flex align-items-start">
-<input type="checkbox" class="custom-check-box" id="terms">
-<label for="terms">I have read and agree to the website <a href="#">Terms and
-conditions</a></label>
+<div class="form-group">
+    <label for="" class="mb-3 "><b>Select Payment Method</b></label>
+    <select name="payment_method" id="">
+        <option value="">Select Payment</option>
+        <option value="Cash on Delivery">Cash on Delivery</option>
+    </select>
 </div>
 </div>
 <div class="place-order-btn">
-<button type="submit" class="primary-btn1 hover-btn3">Place Order</button>
+<button type="submit" id="checkoutBtn" class="primary-btn1 hover-btn3">Place Order</button>
 </div>
 </form>
 </div>
@@ -336,10 +349,17 @@ conditions</a></label>
 <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
 <script src="{{ asset('assets/css/custom/cart.js') }}"></script>
+<script src="{{ asset('assets/css/custom/checkout.js') }}"></script>
 <script>
     let deleteCartRoute   = "{{ route('cart.delete') }}";
     let addQuantityRoute  = "{{ route('cart.plus') }}" ;
     let minusQuantityCart = "{{ route('cart.minus') }}" ;
+    let addAddressRoute   = "{{ route('add.address') }}" ;
+    let deleteAddress     = "{{ route('delete.address') }}";
+    let getAddress        = "{{ route('get.address') }}"  ;
+    let specificAddress   = "{{ route('specific.address') }}";
+    let FindState         = "{{ route('state.get') }}";
+    let FindCity          = "{{ route('city.get') }}";
 </script>
 
 @endsection

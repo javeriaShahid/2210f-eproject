@@ -10,8 +10,8 @@ class UserAddresses extends Model
     use HasFactory;
     protected $fillable = [
         'user_id' ,
-        'adressline1',
-        'adressline2',
+        'addressline1',
+        'addressline2',
         'country',
         'state',
         'city',
@@ -22,5 +22,17 @@ class UserAddresses extends Model
     public function user()
     {
         return $this->hasOne(User::class ,'id' , 'user_id');
+    }
+    public function country()
+    {
+        return $this->hasOne(Country::class ,'id' , 'country');
+    }
+    public function state()
+    {
+        return $this->hasOne(State::class ,'id' , 'state');
+    }
+    public function city()
+    {
+        return $this->hasOne(City::class ,'id' , 'city');
     }
 }
