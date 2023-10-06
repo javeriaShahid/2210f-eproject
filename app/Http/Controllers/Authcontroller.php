@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Checkout;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -16,7 +17,8 @@ class Authcontroller extends Controller
     public $countryModel     = Country::class ;
     public $cityModel        = City::class ;
     public $stateModel       = State::class;
-    public $addressModel     = UserAddresses::class;   
+    public $addressModel     = UserAddresses::class;
+    public $checkoutModel    = Checkout::class;
     public function login(Request $request){
         $email    = $request->email;
         $password = $request->password;
@@ -122,9 +124,10 @@ class Authcontroller extends Controller
     }
     public function edit_user()
     {
-        $id              = session()->get('user')['id'];
-        $data['user']    = $this->parentModel::where('id' , $id)->first();
-        $data['country'] = $this->countryModel::all();
+        $id                 = session()->get('user')['id'];
+        $data['user']       = $this->parentModel::where('id' , $id)->first();
+        $data['country']    = $this->countryModel::all();
+        $data['checkout']  = $this->checkoutModel::where('user_id' , session()->get('user')['id'])->get();
         return view('User.Account_setting')->with('data' , $data);
     }
     public function update($id = null , Request $request)
@@ -164,22 +167,22 @@ class Authcontroller extends Controller
     {
         $state   = $this->stateModel::where('country_id' , $id)->get();
 
-      
+
         if($state != null)
         {
           return response()->json($state);
         }
-        
+
     }
     public function get_city($id = null)
     {
         $city   = $this->cityModel::where('state_id' , $id)->get();
-      
+
         if($city != null)
         {
           return response()->json($city);
         }
-        
+
     }
 
     public function store_user_address(Request $request)
@@ -203,7 +206,7 @@ class Authcontroller extends Controller
 
 
         $createAddress      = $this->addressModel::create([
-            
+
             'user_id'       => $userId ,
             'addressline1'  => $address1 ,
             'addressline2'  => $address2 ,
@@ -212,8 +215,8 @@ class Authcontroller extends Controller
             'country'       => $country ,
             'state'         => $state ,
             'postalcode'    => $postcode ,
-            'city'          => $city    
-        
+            'city'          => $city
+
         ]);
 
         if($createAddress == true)
@@ -230,7 +233,7 @@ class Authcontroller extends Controller
 
     public function address_get(Request $request)
     {
-        
+
         $email = $request->email_address;
         $data['user'] = $this->parentModel::where('email', $email)->with('address')->first();
         $data['address'] = $this->addressModel::where('user_id' , $data['user']->id)->with('country')->get();
@@ -241,7 +244,7 @@ class Authcontroller extends Controller
 
     }
     public function specific_address_get($id  = null)
-    {   
+    {
         $data['address']     = $this->addressModel::where('id' , $id)->with('country' , 'state' , 'city')->first();
         if($data['address'] == true)
         {

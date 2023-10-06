@@ -19,11 +19,13 @@ class Checkout extends Model
         'delivery_date',
         'is_delivered',
         'product_id',
+        'shipping_fees',
+        'quantity'
 
       ];
     public function product()
     {
-        return $this->hasOne(Product::class ,'id' , 'product_id');
+        return $this->hasOne    (Product::class ,'id' , 'product_id');
     }
 
 }

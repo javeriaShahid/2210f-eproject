@@ -991,9 +991,11 @@ Setting Spray
 <li>
 <a href="contact">Contact Us</a>
 </li>
+@if(session()->has('user'))
 <li>
-<a href="Account_setting">My account</a>
-</li>
+    <a href="{{ route('myaccount') }}">My account</a>
+    </li>
+    @endif
 </ul>
 </li>
 </ul>
@@ -1200,7 +1202,7 @@ Setting Spray
     <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
     <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
-    
+
     <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/slick.js') }}"></script>

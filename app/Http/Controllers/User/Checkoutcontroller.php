@@ -39,6 +39,7 @@ class Checkoutcontroller extends Controller
    {
             $user_id          = session()->get('user')['id'] ;
             $cartId           = $request->cart_ids ;
+            $quantity         = $request->cart_quantity ;
             $payment_method   = $request->payment_method;
             // ADDRESS Variables
             $addressId        = $request->address_id;
@@ -54,7 +55,7 @@ class Checkoutcontroller extends Controller
             $OrderPlaceDate   = Carbon::now()->toDateString();
             $productIds       = [];
             $productId        = $this->cartData::whereIn('id' , $cartId)->with('product')->get();
-            $totalAmount      = 0;
+            $totalAmount      = [];
             $totalFeeDelivery = 0;
             $deliveryDate     = $request->DeliveryDate;
             $finalDate        = [] ;
@@ -67,23 +68,24 @@ class Checkoutcontroller extends Controller
             {
                 $productData   = $product->product->id;
                 $productIds[]  = $productData ;
+
             }
-            foreach($productId as $product)
-            {   if($product->product->sale_status == 1)
+            $shippingFees  = [];
+            foreach($productId as $key => $value)
+            {
+                if($productId[$key]->product->sale_status == 1)
                 {
-                    $price      =   $product->product->discounted_price ;
+                    $price         = $productId[$key]->product->discounted_price;
                 }
                 else
                 {
-                    $price      = $product->product->price ;
+                    $price         = $productId[$key]->product->price;
                 }
-
-                $totalFeeDelivery   = $product->product->shipping_fees ;
-                $cartTotal          =  $price * $product->quantity;
-                $totalAmount       += $cartTotal ;
-                $subtotal           = $totalAmount + $totalFeeDelivery ;
+                $subtotal      = $price * $quantity[$key];
+                $shippingFees[]  = $productId[$key]->product->shipping_fees;
+                $totalAmount[] = $subtotal ;
             }
-            // Getting Delivey Date
+                // Getting Delivey Date
 
             if($addressId == "" || $addressId == null)
             {
@@ -108,12 +110,14 @@ class Checkoutcontroller extends Controller
                     'cart_id'            => $cartId[$key] ,
                     'product_id'         => $productIds[$key] ,
                     'address_id'         => $addressId ,
-                    'quantity'           => $$quantity[$key] ,
+                    'quantity'           => $quantity[$key] ,
+                    'total_price'        => $totalAmount[$key],
                     'user_id'            => $user_id ,
                     'order_placed_date'  => $OrderPlaceDate ,
                     'delivery_date'      => $finalDate[$key],
                     'payment_method'     => $payment_method ,
-                    'tracking_id'        => $trackingId
+                    'tracking_id'        => $trackingId ,
+                    'shipping_fees'      => $shippingFees[$key]
 
                 ]);
 
@@ -124,11 +128,12 @@ class Checkoutcontroller extends Controller
                 {
                     $cartDelete     =  $this->cartData::where('id' , $cartId[$key])->forceDelete();
                 }
-                return response()->json(['message' => 'Data hase been Uploaded']);
+                return redirect()->back()->with('success' , 'Order has been Placed!');
             }
             else
             {
-                return response()->json(['message' => 'Failed to Insert Data']);
+                return redirect()->back()->with('error' , 'Failed to place order');
+
             }
 
 

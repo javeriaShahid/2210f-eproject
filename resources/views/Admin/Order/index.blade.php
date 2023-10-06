@@ -32,6 +32,8 @@ All Orders
                     <th>Product Image</th>
                     <th>Name of Product</th>
                     <th>Total Price</th>
+                    <th>Quantity</th>
+                    <th>Shipping Fees</th>
                     <th>Order Placed on</th>
                     <th>Date of Delivery</th>
                     <th>Payment Method</th>
@@ -48,6 +50,12 @@ All Orders
                             <td><img src="{{ asset('assets/Productimages/'.$checkout->product->image) }}" style="width: 40px; height:40px ; object-fit:contain" alt=""></td>
                             <td>{{ $checkout->product->name }}</td>
                             <td>PKR,{{ $checkout->total_price }}</td>
+                            <td>{{ $checkout->quantity }}</td>
+                            @if($checkout->shipping_fees < 1 )
+                            <td>Free Shipping</td>
+                            @else
+                            <td>PKR,{{ $checkout->shipping_fees }}</td>
+                            @endif
                             <td>{{ $checkout->order_placed_date}}</td>
                             <td>{{ $checkout->delivery_date}}</td>
                             <td>{{ $checkout->payment_method}}</td>
