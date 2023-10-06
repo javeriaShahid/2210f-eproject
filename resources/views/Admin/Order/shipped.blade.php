@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 @section('title')
-All Orders
+Shipped Orders
 @endsection
 
 @section('content')

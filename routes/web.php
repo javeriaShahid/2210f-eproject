@@ -169,11 +169,14 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::prefix('/orders')->group(function(){
         Route::get('/' , [OrderController::class , 'index'])->name('admin.order.index');
         Route::get('/delivered/{id?}' , [OrderController::class , 'delivered_product'])->name('delivered.order');
+        Route::get('/shipped/{id?}' , [OrderController::class , 'shipped_product'])->name('shipped.order');
+        Route::get('/sent/{id?}' , [OrderController::class , 'sent_delivery'])->name('sent.delivery.order');
         Route::get('/pending' , [OrderController::class , 'pending'])->name('admin.order.pending');
         Route::get('/delivered_orders' , [OrderController::class , 'delivered'])->name('admin.order.delivered');
         Route::get('/view_label/{id?}' , [OrderController::class , 'view_label'])->name('label.view');
         Route::get('/download_label/{id?}' , [OrderController::class , 'download_label'])->name('label.download');
         Route::get('/delete/{id?}' , [AdminUserController::class , 'delete'])->name('admin.user.delete');
+
     });
 
 });

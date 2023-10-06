@@ -28,7 +28,7 @@ class OrderController extends Controller
     public function delivered_product($id = null)
     {
         $update    = $this->parentModel::where('tracking_id' , $id)->update([
-            'is_delivered' => 1
+            'is_delivered' => 3
         ]);
 
         if($update == true)
@@ -38,6 +38,51 @@ class OrderController extends Controller
         else
         {
             return redirect()->back()->with('error' , 'Failed To Delivery Order');
+        }
+    }
+    public function shipped_product($id = null)
+    {
+        $update    = $this->parentModel::where('tracking_id' , $id)->update([
+            'is_delivered' => 1
+        ]);
+
+        if($update == true)
+        {
+            return redirect()->back()->with('success' , 'Order has been Shipped');
+        }
+        else
+        {
+            return redirect()->back()->with('error' , 'Failed To Delivery Order');
+        }
+    }
+    public function sent_delivery($id = null)
+    {
+        $update    = $this->parentModel::where('tracking_id' , $id)->update([
+            'is_delivered' => 2
+        ]);
+
+        if($update == true)
+        {
+            return redirect()->back()->with('success' , 'Order has been Sent for Delivery');
+        }
+        else
+        {
+            return redirect()->back()->with('error' , 'Failed To Delivery Order');
+        }
+    }
+    public function cancel_order($id = null)
+    {
+        $update    = $this->parentModel::where('tracking_id' , $id)->update([
+            'is_delivered' => 4
+        ]);
+
+        if($update == true)
+        {
+            return redirect()->back()->with('success' , 'Order has been Cancelled');
+        }
+        else
+        {
+            return redirect()->back()->with('error' , 'Failed To Cancel Order');
         }
     }
     public function delete($id =  null)

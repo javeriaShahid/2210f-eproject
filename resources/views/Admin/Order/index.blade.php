@@ -61,9 +61,15 @@ All Orders
                             <td>{{ $checkout->delivery_date}}</td>
                             <td>{{ $checkout->payment_method}}</td>
                             @if($checkout->is_delivered == 1)
-                            <td><button class="btn btn-success"><i class="bx bx-send"></i></button></td>
+                            <td><a href="{{ route('sent.delivery.order' , $checkout->tracking_id ) }}" class="btn btn-warning text-white" title="Parcel Shipped"><i class="bx bxs-ship"></i></a></td>
+                            @elseif ($checkout->is_delivered == 2)
+                            <td><a href="{{ route('delivered.order' , $checkout->tracking_id ) }}" class="btn btn-primary text-white" title="Sent for delivery"><i class="bx bxs-truck"></i></a></td>
+                            @elseif ($checkout->is_delivered == 3)
+                            <td><a class="btn btn-success text-white" title="Parcel Delivered"><i class="bx bxs-badge-check"></i></a></td>
+                            @elseif ($checkout->is_delivered == 4)
+                            <td><a class="btn btn-danger text-white" title="Parcel Cancelled"><i class="bx bxs-x-circle"></i></a></td>
                             @else
-                            <td><a href="{{ route('delivered.order' , $checkout->tracking_id ) }}" class="btn btn-danger"><i class="bx bx-mail-send"></i></a></td>
+                            <td><a href="{{ route('shipped.order' , $checkout->tracking_id ) }}" class="btn btn-danger" title="Shipping In Progree"><i class="bx bx-mail-send"></i></a></td>
                             @endif
                             <td>
                                 <a href="{{ route('label.view' , $checkout->id) }}" class="btn btn-warning"><i class='bx bxs-coupon'></i></a>
