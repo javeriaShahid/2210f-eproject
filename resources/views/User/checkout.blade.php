@@ -250,7 +250,7 @@
     <input name="cart_ids[]" type="hidden"  value="{{$cart->id}}">
 
     <a href="#" class="quantity__minus minus-cart"><i class="bx bx-minus minus-cart"></i></a>
-    <input type="text" name="cart_quantity[]" value="{{ $cart->quantity }}">
+    <input type="hidden" name="cart_quantity[]" value="{{ $cart->quantity }}">
     <input name="quantity" type="text" class="quantity__input" value="{{$cart->quantity}}">
     <a href="#" class="quantity__plus plus-cart"><i class="bx bx-plus"></i></a>
 </div>

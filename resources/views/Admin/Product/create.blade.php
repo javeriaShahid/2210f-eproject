@@ -43,7 +43,7 @@ if($action == "edit")
 
         <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-money"></div> Product Price</label>
         <input name="price" type="number" class="form-control" placeholder="Enter Product Price" aria-describedby="defaultFormControlHelp"/>
-     
+
         <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-money"></div> Shipping Fees <small>(optional)</small></label>
         <input name="shipping_fees" type="number" class="form-control" placeholder="Enter Shipping Fees" aria-describedby="defaultFormControlHelp"/>
 
@@ -95,10 +95,13 @@ if($action == "edit")
 </form>
 <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
+<script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dashboardassets/vendor/js/menu.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
 <script src={{ asset('dashboardassets/js/main.js') }}></script>
+<!-- endbuild -->
+
 
 <!-- endbuild -->
 

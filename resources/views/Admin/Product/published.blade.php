@@ -83,9 +83,9 @@ All Products
                             @else
                             <td><button readonly class="btn btn-danger">Out of Stock</button></td>
                             @endif
-                          
+
                             <td><button readonly class="btn btn-success"><div class="bx bx-check"></div></button></td>
-                          
+
                             <td><button class="btn" style="background-color:{{$product->color_code}}!important"></button></td>
                              <td>{{ $product->sku }}</td>
                             {{-- Modal button ends --}}
@@ -114,6 +114,7 @@ All Products
 <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
 <script src={{ asset('dashboardassets/js/main.js') }}></script>
+<!-- endbuild -->
 
 <!-- endbuild -->
 

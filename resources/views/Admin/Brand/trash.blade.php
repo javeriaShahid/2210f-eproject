@@ -42,7 +42,7 @@ Trashed Brands
                             <td><img src="{{ asset('assets/BrandImages/' . $brand->image) }}" style="height: 40px ; width:40px; object-fit:contain;" alt=""></td>
                             <td>{{ $brand->name }}</td>
                             <td>{{ $brand->product->count() }}</td>
-                            
+
 
                             {{-- Modal button ends --}}
                             <td><a href="{{ route('brand.restore' , $brand->id) }}" class="btn btn-success"><i class="bx bx-undo"></i></a></td>
@@ -66,9 +66,10 @@ Trashed Brands
 <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
 <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
+<script src="{{ asset('dashboardassets/vendor/js/menu.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-
-<script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+<script src={{ asset('dashboardassets/js/main.js') }}></script>
 <!-- endbuild -->
 
 <!-- Vendors JS -->

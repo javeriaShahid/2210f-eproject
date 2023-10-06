@@ -46,9 +46,11 @@ if($action == "edit")
 <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
 <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
+<script src="{{ asset('dashboardassets/vendor/js/menu.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-
-<script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+<script src={{ asset('dashboardassets/js/main.js') }}></script>
+<!-- endbuild -->
 <!-- endbuild -->
 
 <!-- Vendors JS -->
