@@ -268,16 +268,16 @@
                             </a>
                           </li>
                       <li class="menu-item">
-                          <a href="{{ route('subcategory.index') }}" class="menu-link">
-                              <i class="menu-icon tf-icons bx bx-collection"></i>
-                              <div data-i18n="Basic">Pending</div>
+                          <a href="{{ route('admin.order.delivered') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-mail-send"></i>
+                              <div data-i18n="Basic">Delivered</div>
                             </a>
                       </li>
 
                       <li class="menu-item">
-                          <a href="{{ route('subcategory.trash') }}" class="menu-link">
-                              <i class="menu-icon tf-icons bx bx-trash"></i>
-                              <div data-i18n="Basic">Trashed</div>
+                          <a href="{{ route('admin.order.pending') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-time"></i>
+                              <div data-i18n="Basic">Pending</div>
                             </a>
                       </li>
                     </ul>

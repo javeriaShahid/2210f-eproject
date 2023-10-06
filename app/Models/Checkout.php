@@ -25,7 +25,15 @@ class Checkout extends Model
       ];
     public function product()
     {
-        return $this->hasOne    (Product::class ,'id' , 'product_id');
+        return $this->hasOne(Product::class ,'id' , 'product_id');
+    }
+    public function user()
+    {
+        return $this->hasOne(User::class ,'id' , 'user_id');
+    }
+    public function address()
+    {
+        return $this->hasOne(UserAddresses::class ,'id' , 'address_id');
     }
 
 }

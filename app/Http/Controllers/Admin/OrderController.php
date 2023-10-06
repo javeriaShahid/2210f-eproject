@@ -5,24 +5,24 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
-
+use PDF;
 class OrderController extends Controller
 {
     public $parentModel  =  Checkout::class ;
     public $cartModel    =  Cart::class ;
     public function index()
     {
-        $data['checkout']   = $this->parentModel::with('product')->paginate(25);
+        $data['checkout']   = $this->parentModel::with('product' , 'user')->paginate(25);
         return view('Admin.Order.index')->with('data' , $data);
     }
     public function delivered()
     {
-        $data['checkout']   = $this->parentModel::where('is_delivered' , 1)->with('product')->paginate(25);
+        $data['checkout']   = $this->parentModel::where('is_delivered' , 1)->with('product' , 'user')->paginate(25);
         return view('Admin.Order.delivered')->with('data' , $data);
     }
     public function pending()
     {
-        $data['checkout']   = $this->parentModel::where('is_delivered' , 0)->with('product')->paginate(25);
+        $data['checkout']   = $this->parentModel::where('is_delivered' , 0)->with('product' , 'user')->paginate(25);
         return view('Admin.Order.pending')->with('data' , $data);
     }
     public function delivered_product($id = null)
@@ -54,5 +54,21 @@ class OrderController extends Controller
         {
             return redirect()->back()->with('error' , 'Failed To Delete Order');
         }
+    }
+    public function view_label($id = null)
+    {
+        $data['order']     = $this->parentModel::where('id' , $id)->with('product' , 'user' , 'address')->first();
+
+        $pdf = PDF::loadView('PdfTemplates.invoice', ['order' => $data['order']]);
+
+        return $pdf->stream('OrderLabel.pdf');
+    }
+    public function download_label($id = null)
+    {
+        $data['order']     = $this->parentModel::where('id' , $id)->with('product' , 'user' , 'address')->first();
+
+        $pdf = PDF::loadView('PdfTemplates.invoice', ['order' => $data['order']]);
+
+        return $pdf->download('OrderLabel'.$data['order']->tracking_id.'.pdf');
     }
 }

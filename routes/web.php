@@ -62,6 +62,7 @@ Route::get('loadPdf/{id?}' , [PDFController::class,'generatePdf'])->name('genera
 Route::post('/update/profile/{id?}' , [Authcontroller::class , 'update'])->name('profile.update');
 // User Routes For Cart and checkout
 Route::get('cartError' , [Cartcontroller::class , 'cart_error'])->name('cart.error');
+// User Middle Ware
 Route::middleware('user')->group(function(){
 Route::get('/checkout', [Checkoutcontroller::class, "index"])->name('checkout');
 Route::post('/checkout_store', [Checkoutcontroller::class, "store"])->name('checkout.store');
@@ -74,8 +75,9 @@ Route::post('/addAddress' , [Authcontroller::class , 'store_user_address'])->nam
 Route::post('/getAddress' , [Authcontroller::class , 'address_get'])->name('get.address');
 Route::get('/specificAddress/{id?}' , [Authcontroller::class , 'specific_address_get'])->name('specific.address');
 Route::get('/deleteAddress/{id?}' , [Authcontroller::class , 'address_delete'])->name('delete.address');
+Route::get('/last_order/{id?}' , [Authcontroller::class ,'last_order_filter'])->name('filter.last.order');
 });
-
+// End of User Middle Ware
 // End of user routes
 
 Route::prefix('admin')->middleware('admin')->group(function(){
@@ -167,10 +169,10 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     Route::prefix('/orders')->group(function(){
         Route::get('/' , [OrderController::class , 'index'])->name('admin.order.index');
         Route::get('/delivered/{id?}' , [OrderController::class , 'delivered_product'])->name('delivered.order');
-        Route::get('/pending' , [AdminUserController::class , 'active'])->name('admin.user.active');
-        Route::get('/deactive' , [AdminUserController::class , 'deactive'])->name('admin.user.deactive');
-        Route::get('/block/{id?}' , [AdminUserController::class , 'block_user'])->name('admin.user.blocked');
-        Route::get('/unblock/{id?}' , [AdminUserController::class , 'unblock_user'])->name('admin.user.unblock');
+        Route::get('/pending' , [OrderController::class , 'pending'])->name('admin.order.pending');
+        Route::get('/delivered_orders' , [OrderController::class , 'delivered'])->name('admin.order.delivered');
+        Route::get('/view_label/{id?}' , [OrderController::class , 'view_label'])->name('label.view');
+        Route::get('/download_label/{id?}' , [OrderController::class , 'download_label'])->name('label.download');
         Route::get('/delete/{id?}' , [AdminUserController::class , 'delete'])->name('admin.user.delete');
     });
 

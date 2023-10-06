@@ -38,7 +38,8 @@ All Orders
                     <th>Date of Delivery</th>
                     <th>Payment Method</th>
                     <th>Delivery Status</th>
-                    <th>View Label</th>
+                    <th>Generate Label</th>
+                    <th>Download Label</th>
                     <th>Delete Order</th>
                   </tr>
                 </thead>
@@ -65,7 +66,10 @@ All Orders
                             <td><a href="{{ route('delivered.order' , $checkout->tracking_id ) }}" class="btn btn-danger"><i class="bx bx-mail-send"></i></a></td>
                             @endif
                             <td>
-                                <a href="" class="btn btn-warning"><i class="bx bx-bookmarks"></i></a>
+                                <a href="{{ route('label.view' , $checkout->id) }}" class="btn btn-warning"><i class='bx bxs-coupon'></i></a>
+                            </td>
+                            <td>
+                                <a href="{{ route('label.download' , $checkout->id) }}" class="btn btn-primary"><i class="bx bx-cloud-download"></i></a>
                             </td>
                             <td>
                                 <a href="" class="btn btn-danger"><i class="bx bx-trash"></i></a>

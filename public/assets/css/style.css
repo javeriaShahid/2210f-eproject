@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*===========================
-     01.COMMON CSS 
+     01.COMMON CSS
 ===========================*/
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&amp;family=Kalam:wght@700&amp;display=swap");
 * {
@@ -22,7 +22,7 @@
   --bg-color: #f2f2f2;
 }
 select{
- border:1px solid black ; border-radius:0%; padding:13px ; outline:none; width:100%; 
+ border:1px solid black ; border-radius:0%; padding:13px ; outline:none; width:100%;
 }
 ul {
   padding: 0;
@@ -2414,7 +2414,7 @@ header.style-2 .nav-right::after {
   display: none;
 }
 
-/*........................ 
+/*........................
   Banner section
 ........................*/
 .banner-section {
@@ -2801,7 +2801,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
   Section Title
 ........................*/
 .section-title {
@@ -2971,7 +2971,7 @@ header.style-2 .nav-right::after {
   width: 100%;
 }
 
-/*........................ 
+/*........................
   Choose Product section
 ........................*/
 .choose-product-section .choose-product-card {
@@ -3251,7 +3251,7 @@ header.style-2 .nav-right::after {
   background-position: 0% 100%;
 }
 
-/*........................ 
+/*........................
   Product Card
 ........................*/
 .product-card {
@@ -4244,10 +4244,10 @@ header.style-2 .nav-right::after {
   transform: rotate(0deg);
 }
 
-/*........................ 
+/*........................
   Best Selling section
 ........................*/
-/*........................ 
+/*........................
   Just For You section
 ........................*/
 .just-for-section {
@@ -4382,7 +4382,7 @@ header.style-2 .nav-right::after {
   color: var(--white-color);
 }
 
-/*........................ 
+/*........................
   Offer Banner section
 ........................*/
 .buy-btn2 {
@@ -4677,7 +4677,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
   Newest Product section
 ........................*/
 .slider-btn {
@@ -4701,7 +4701,7 @@ header.style-2 .nav-right::after {
   color: var(--white-color);
 }
 
-/*........................ 
+/*........................
   Exclusive Product section
 ........................*/
 .exclusive-product-section {
@@ -4858,7 +4858,7 @@ header.style-2 .nav-right::after {
   left: 10px;
 }
 
-/*........................ 
+/*........................
   Special Offer section
 ........................*/
 .special-offer-section .special-offer-wrapper {
@@ -5125,7 +5125,7 @@ header.style-2 .nav-right::after {
   color: var(--white-color);
 }
 
-/*........................ 
+/*........................
   Best Brand section
 ........................*/
 .best-brand-section .best-brand-wrapper {
@@ -5155,7 +5155,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
   Makeup section
 ........................*/
 @media (max-width: 991px) {
@@ -5235,7 +5235,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
   Say About section
 ........................*/
 .say-about-section {
@@ -5403,7 +5403,7 @@ header.style-2 .nav-right::after {
   margin: 0;
 }
 
-/*........................ 
+/*........................
   Beauty Article section
 ........................*/
 .article-card {
@@ -5720,7 +5720,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
   Newsletter section
 ........................*/
 .newsletter-section .newsletter-banner {
@@ -5840,7 +5840,7 @@ header.style-2 .nav-right::after {
   color: var(--primary-color1);
 }
 
-/*........................ 
+/*........................
   Instagram section
 ........................*/
 .instagram-section .instagram-wrapper {
@@ -5850,7 +5850,7 @@ header.style-2 .nav-right::after {
   width: 100%;
 }
 
-/*........................ 
+/*........................
   Gift Card section
 ........................*/
 .gift-section {
@@ -5998,7 +5998,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
   Footer Home1 section
 ........................*/
 .footer-section {
@@ -6260,7 +6260,7 @@ header.style-2 .nav-right::after {
   fill: var(--primary-color1);
 }
 
-/*........................ 
+/*........................
  Breadcrumb section
 ........................*/
 .breadcrumb-section {
@@ -6302,7 +6302,7 @@ header.style-2 .nav-right::after {
   padding-top: 5px;
 }
 
-/*........................ 
+/*........................
  Slider section
 ........................*/
 @media (max-width: 576px) {
@@ -6311,7 +6311,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
  About Us Content section
 ........................*/
 .about-us-content .about-us-wrapper {
@@ -6366,7 +6366,7 @@ header.style-2 .nav-right::after {
   margin-bottom: 25px;
 }
 
-/*........................ 
+/*........................
  About Us Video section
 ........................*/
 .about-us-video .about-video-thumb {
@@ -6421,7 +6421,7 @@ header.style-2 .nav-right::after {
   color: var(--white-color);
 }
 
-/*........................ 
+/*........................
  Brands section
 ........................*/
 .brands-section .brands-section-title p {
@@ -6483,7 +6483,7 @@ header.style-2 .nav-right::after {
   padding: 60px 0;
 }
 
-/*........................ 
+/*........................
  Gift card section
 ........................*/
 .gift-card .gift-card-img {
@@ -6605,7 +6605,7 @@ header.style-2 .nav-right::after {
   line-height: normal;
 }
 
-/*........................ 
+/*........................
  Whistlist page section
 ........................*/
 .add-cart-btn {
@@ -6962,7 +6962,7 @@ header.style-2 .nav-right::after {
   line-height: 1.6;
 }
 
-/*........................ 
+/*........................
  Category page section
 ........................*/
 .category-card {
@@ -7114,7 +7114,7 @@ header.style-2 .nav-right::after {
   width: 45%;
 }
 
-/*........................ 
+/*........................
  Category on top section
 ........................*/
 .category-on-top-section {
@@ -7229,7 +7229,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
  Filter Sidebar Css
 ........................*/
 .filter-sidebar {
@@ -7262,7 +7262,7 @@ header.style-2 .nav-right::after {
   width: 0;
 }
 
-/*........................ 
+/*........................
  Shop column page section
 ........................*/
 .shop-columns-title-section {
@@ -7454,18 +7454,18 @@ header.style-2 .nav-right::after {
   }
 }
 
-.shop-pagination .pagination-list {
-  padding: 0;
-  margin: 0;
+.pagination-list {
+  padding: 0!important;
+  margin: 0!important;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.shop-pagination .pagination-list li {
+.pagination-list li {
   margin-right: 20px;
 }
-.shop-pagination .pagination-list li .shop-pagi-btn {
+.pagination-list li .page-link {
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -7474,18 +7474,20 @@ header.style-2 .nav-right::after {
   align-items: center;
   justify-content: center;
   transition: 0.5s;
+
 }
-.shop-pagination .pagination-list li .shop-pagi-btn i {
+.pagination-list li .page-link i {
   color: var(--primary-color1);
   transition: 0.5s;
 }
-.shop-pagination .pagination-list li .shop-pagi-btn:hover {
-  background-color: var(--primary-color1);
+.pagination-list li .page-link:hover {
+  background-color: black !important;
+  color: white!important;
 }
-.shop-pagination .pagination-list li .shop-pagi-btn:hover i {
-  color: var(--white-color);
+.pagination-list li .page-link:hover i {
+  color: var(--white-color)!important;
 }
-.shop-pagination .pagination-list li a {
+.pagination-list li a {
   color: rgba(34, 34, 34, 0.5);
   font-family: var(--font-Jost);
   font-size: 18px;
@@ -7493,13 +7495,20 @@ header.style-2 .nav-right::after {
   line-height: 1;
   text-transform: capitalize;
 }
-.shop-pagination .pagination-list li a.active {
+.pagination-list li .page-item.active {
   color: var(--text-color);
+  background: black!important;
 }
-.shop-pagination .pagination-list li:first-child {
+.page-item.active .page-link {
+    z-index: 3!important;
+    color: #fff!important;
+    background-color: #000000!important;
+    border-color: #000000!important;
+}
+.pagination-list li:first-child {
   margin-right: 30px;
 }
-.shop-pagination .pagination-list li:last-child {
+.pagination-list li:last-child {
   padding-left: 10px;
   margin-right: 0;
 }
@@ -7528,7 +7537,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
  Grid view Css
 ........................*/
 .list-grid-product-wrap.column-2-wrapper .item {
@@ -7556,7 +7565,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
  3-column right section
 ........................*/
 .column-sidebar-padding {
@@ -7573,7 +7582,7 @@ header.style-2 .nav-right::after {
   }
 }
 
-/*........................ 
+/*........................
  Shop Sidebar section
 ........................*/
 .sidebar-area .shop-widget-title {
@@ -7937,7 +7946,7 @@ header.style-2 .nav-right::after {
   transform: rotate(-135deg);
 }
 
-/*........................ 
+/*........................
  Shop Full Width css
 ........................*/
 .full-width-section {

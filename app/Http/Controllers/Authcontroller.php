@@ -98,7 +98,7 @@ class Authcontroller extends Controller
 
     public function admin_logout()
     {
-        $update_status      =  User::where('id' , session()->get('user')['id'])->update(['status' => 0]);
+        $update_status      =  User::where('id' , session()->get('admin')['id'])->update(['status' => 0]);
         if($update_status == true)
         {
             session()->forget('admin');
@@ -127,7 +127,7 @@ class Authcontroller extends Controller
         $id                 = session()->get('user')['id'];
         $data['user']       = $this->parentModel::where('id' , $id)->first();
         $data['country']    = $this->countryModel::all();
-        $data['checkout']  = $this->checkoutModel::where('user_id' , session()->get('user')['id'])->get();
+        $data['checkout']  =  $this->checkoutModel::where('user_id' , session()->get('user')['id'])->paginate(10);
         return view('User.Account_setting')->with('data' , $data);
     }
     public function update($id = null , Request $request)
@@ -266,6 +266,20 @@ class Authcontroller extends Controller
         else
         {
             return response()->json(['message'  => 'error']);
+        }
+    }
+    public function last_order_filter($id =  null)
+    {
+        $number_of_last   =  $id ;
+        $orders           =  $this->checkoutModel::where('user_id' , session()->get('user')['id'])->with('product')->orderBy('id' ,'desc')->limit($number_of_last)->get();
+
+        if($orders == true)
+        {
+            return response()->json(['orders' => $orders]);
+        }
+        else
+        {
+            return response()->json(['message'=>'error']);
         }
     }
 }

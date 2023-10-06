@@ -274,12 +274,14 @@ have received.</p>
 
 <div class="table-title-area">
 <h3>My Order</h3>
-<select>
-<option value="01">Show: Last 05 Order</option>
-<option value="02">Show: Last 03 Order</option>
-<option value="03">Show: Last 15 Order</option>
-<option value="04">Show: Last 20 Order</option>
-</select>
+
+    <select id="order_select" name="last_order_data">
+        <option value="5">Show:  Last 05 Order</option>
+        <option value="10">Show: Last 10 Order</option>
+        <option value="15">Show: Last 15 Order</option>
+        <option value="20">Show: Last 20 Order</option>
+    </select>
+
 </div>
 
 <div class="table-wrapper">
@@ -291,12 +293,15 @@ have received.</p>
 <th>Product Details</th>
 <th>price</th>
 <th>Status</th>
+<th>Generate Label</th>
+<th>Download Label</th>
+<th>Cancel Order</th>
 </tr>
 </thead>
-<tbody>
+<tbody id="checkoutTable">
 @foreach ($data['checkout'] as $checkout )
 <tr>
-    <td data-label="Image"><img alt="image" src="{{ asset('assets/Productimages/' . $checkout->product->image) }}" class="img-fluid">
+    <td data-label="Image"><img alt="image" style="width: 40px ; height:40px ; object-fit:contain" src="{{ asset('assets/Productimages/' . $checkout->product->image) }}" class="img-fluid">
     </td>
     <td data-label="Order ID">#{{ $checkout->tracking_id }}</td>
     <td data-label="Product Details">{{ $checkout->product->name }}</td>
@@ -306,6 +311,9 @@ have received.</p>
     @else
     <td data-label="Status" class="text-danger">Pending</td>
     @endif
+    <td><a href="{{ route('label.view' , $checkout->id) }}" class="btn btn-primary"><i class="bx bxs-coupon"></i></a></td>
+    <td><a href="{{ route('label.download' , $checkout->id) }}" class="btn btn-warning"><i class="bx bxs-cloud-download"></i></a></td>
+    <td><a href="" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
 </tr>
 @endforeach
 
@@ -315,30 +323,12 @@ have received.</p>
 </div>
 
 <div class="table-pagination">
-<p>Showing 10 to 20 of 1 entries</p>
+    <p class="text-center text-muted">
+        Showing Order from  {{ $data['checkout']->firstItem() }} to {{ $data['checkout']->lastItem() }} From Total Orders Of  {{ $data['checkout']->total() }} entries
+    </p>
 <nav class="shop-pagination">
 <ul class="pagination-list">
-<li>
-<a href="#" class="shop-pagi-btn"><i class="bi bi-chevron-left"></i></a>
-</li>
-<li>
-<a href="#">1</a>
-</li>
-<li>
-<a href="#" class="active">2</a>
-</li>
-<li>
-<a href="#">3</a>
-</li>
-<li>
-<a href="#"><i class="bi bi-three-dots"></i></a>
-</li>
-<li>
-<a href="#">6</a>
-</li>
-<li>
-<a href="#" class="shop-pagi-btn"><i class="bi bi-chevron-right"></i></a>
-</li>
+{{ $data['checkout']->links() }}
 </ul>
 </nav>
 </div>
@@ -348,12 +338,20 @@ have received.</p>
 </div>
 </div>
 </div>
-
+<script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
+<script src="{{ asset('assets/css/custom/checkout.js') }}"></script>
+<script src="{{ asset('assets/css/custom/accountsetting.js') }}"></script>
 <script>
 
-    let stateCityRoute   = "{{ route('get.state.city') }}";
-
+    let FindState             = "{{ route('state.get') }}";
+    let FindCity              = "{{ route('city.get') }}";
+    let last_order_route      = "{{ route('filter.last.order') }}";
+    let basePath              = "{{ asset('') }}";
+    let view_labelRoute       = "{{ route('label.view') }}";
+    let download_labelRoute   = "{{ route('label.download') }}";
 </script>
+
 
 
 
