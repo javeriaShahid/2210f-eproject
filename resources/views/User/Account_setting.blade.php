@@ -231,6 +231,12 @@ to view or edit information.</p>
 <div class="form-wrapper">
 <form action="#">
 <div class="row">
+    <div class="col-12 mb-25">
+        <div class="form-inner">
+            <label for="">Profile Image</label>
+        <input type="file" placeholder="">
+        </div>
+        </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
 <input type="text" placeholder="Enter your first name*" value="{{ $data['user']->name }}">
@@ -264,25 +270,44 @@ to view or edit information.</p>
 <input type="text" placeholder="Enter your email address*" value="{{ $data['user']->email }}">
 </div>
 </div>
-<div class="col-12 mb-25">
-<div class="form-inner">
-<input type="text" placeholder="Enter your present address">
-</div>
-</div>
-<div class="col-xl-6 col-lg-12 col-md-6 mb-25">
-{{-- <input type="text" list="country" id="countries"> --}}
-<div class="form-inner">
-    <select id="country" >
-        @foreach ($data['country'] as $country)
-            <option value="{{ $country->id }}">{{ $country->name }}</option>
-        @endforeach
-    </select>
-</div>
-</div>
+
+
+
 
 
 <div class="col-12">
 <div class="button-group">
+<!--reset Button trigger modal -->
+<button type="button" class="primary-btn3 black-bg  hover-btn5 hover-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Reset Password
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" style="margin-top: 10px;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Password reset form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+          <input type="email" placeholder="enter your email">&nbsp;
+          <input type="text" style="display:none;" placeholder="verification code">&nbsp;
+          <div class="container" style="display: none">
+          <input type="text" placeholder="new password">&nbsp;
+          <input type="text" placeholder="confirm password">
+          </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark">Get code</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <button type="submit" class="primary-btn3 black-bg  hover-btn5 hover-white">Update
 Profile</button>
 <button class="primary-btn3 hover-btn5">Cancel</button>
