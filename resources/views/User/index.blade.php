@@ -2,7 +2,9 @@
 
 @extends('User.layout')
 @section('content')
-
+@section('title')
+Home
+@endsection
 
 <div class="banner-section">
 <div class="container-fluid p-0">

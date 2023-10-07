@@ -1,6 +1,9 @@
 
 
 @extends('User.layout')
+@section('title')
+Checkout Products
+@endsection
 @section('content')
 
 

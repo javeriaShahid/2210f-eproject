@@ -1,6 +1,8 @@
 @extends('User.layout')
 @section('content')
-
+@section('title')
+User Registeration
+@endsection
 <style>
 
     .form-control{

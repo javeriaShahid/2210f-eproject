@@ -1,42 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-    <title>Hello, world!</title>
+@extends('User.layout')
+@section('title')
+Order tracking
+@endsection
+@section('content')
     <style>
-        body {
-            letter-spacing: 0.8px;
-            background-repeat: no-repeat;
-        }
-
-        .container-fluid {
-            margin-top: 80px !important;
-            margin-bottom: 80px !important;
-        }
-
-        p {
-            font-size: 14px;
-            margin-bottom: 7px;
-        }
-
-        .cursor-pointer {
-            cursor: pointer;
-        }
-
-        a {
-            text-decoration: none !important;
-            color: #651FFF !important;
-        }
 
         .bold {
             font-weight: 600;
@@ -111,8 +78,9 @@
             content: "4";
             color: #fff;
             width: 29px;
-            margin-right: 15px !important;
-            padding-right: 11px !important;
+            margin-right: 3px !important;
+            padding-right: 1px !important;
+
         }
 
         #progressbar li:before {
@@ -150,7 +118,7 @@
         }
 
         #progressbar li:nth-child(4):after {
-            left: 25% !important;
+            left: 30% !important;
             width: 50% !important;
         }
 
@@ -191,156 +159,158 @@
 
 <body>
 
-    <div class="container-fluid my-5 d-sm-flex justify-content-center" >
-        <div class="card px-2" style="width: 60%;">
-            <div class="card-header bg-white">
-                <div class="row justify-content-between">
-                    <div class="col">
-                        <p class="text-muted"> Order # <span class="font-weight-bold text-primary">1222528743</span></p>
-                        <div style="position: relative; bottom: 25px; margin-left: 200px;">
-                            <p class="text-muted"> Place On <span class="font-weight-bold text-dark">12,Oct 2023</span>
-                            </p>
-                        </div>
-                    </div>
-                  
+  @if ($data['checkout']->is_delivered == 0)
+  <div class="container-fluid my-5 d-sm-flex justify-content-center" >
+    <div class="card px-2" style="width: 100%;">
+        <div class="card-header bg-white">
+            <div class="row justify-content-between">
+                <div class="col-md-6">
+                    <p class="text-muted"> Order # <span class="font-weight-bold text-primary">{{ $data['checkout']->tracking_id }}</span></p>
+
+                        <p class="text-muted"> Place On <span class="font-weight-bold text-dark">{{ $data['checkout']->order_placed_date }}</span>
+                        </p>
+
                 </div>
+
             </div>
-            <div class="card-body">
-                <div class="media flex-column flex-sm-row">
-                    <div class="media-body ">
-                        <h5 class="bold">Blade High Heels Sandals</h5>
-                        <p class="text-muted"> Qt: 1 Pair</p>
-                        <h4 class="mt-3 mb-4 bold"> <span class="mt-5">Rs.</span> 5,500 <span
-                                class="small text-muted"> via (COD) </span></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row px-4">
-                <div class="col">
-                    <ul id="progressbar">
-                        <li class="step0 active " id="step1">PLACED</li>
-                        <li class="step0 text-muted text-center" id="step2">SHIPPED</li>
-                        <!-- <li class="step0 text-muted text-center" id="step3">ORDER EN ROUTE</li>
-                        <li class="step0  text-muted text-right" id="step4">DELIVERED</li> -->
-                    </ul>
+        </div>
+        <div class="card-body">
+            <div class="media flex-column flex-sm-row">
+                <div class="media-body ">
+                    <h5 class="bold">{{ $data['checkout']->product->name }}</h5>
+                    <p class="text-muted"> Qt: 1 Pair</p>
+                    <h4 class="mt-3 mb-4 bold"> <span class="mt-5">PKR,</span>{{ $data['checkout']->total_price + $data['checkout']->shipping_fees }} <span
+                            class="small text-muted"> via ({{ $data['checkout']->payment_method }}) </span></h4>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container-fluid my-5 d-sm-flex justify-content-center" >
-        <div class="card px-2" style="width: 60%;">
-            <div class="card-header bg-white">
-                <div class="row justify-content-between">
-                    <div class="col">
-                        <p class="text-muted"> Order # <span class="font-weight-bold text-primary">1222528743</span></p>
-                        <div style="position: relative; bottom: 25px; margin-left: 200px;">
-                            <p class="text-muted"> Place On <span class="font-weight-bold text-dark">12,Oct 2023</span>
-                            </p>
-                        </div>
-                    </div>
-                  
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="media flex-column flex-sm-row">
-                    <div class="media-body ">
-                        <h5 class="bold">Blade High Heels Sandals</h5>
-                        <p class="text-muted"> Qt: 1 Pair</p>
-                        <h4 class="mt-3 mb-4 bold"> <span class="mt-5">Rs.</span> 5,500 <span
-                                class="small text-muted"> via (COD) </span></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row px-4">
-                <div class="col">
-                    <ul id="progressbar">
-                        <li class="step0 active " id="step1">PLACED</li>
-                        <li class="step0 active text-center" id="step2">SHIPPED</li>
-                        <li class="step0 text-muted text-center" id="step3">ORDER EN ROUTE</li>
-                        <!-- <li class="step0  text-muted text-right" id="step4">DELIVERED</li> -->
-                    </ul>
-                </div>
+        <div class="row px-4">
+            <div class="col">
+                <ul id="progressbar">
+                    <li class="step0 active " id="step1">PLACED</li>
+                    <li class="step0 text-muted text-center" id="step2">SHIPPED</li>
+                    <li class="step0 text-muted text-center" id="step3">ORDER EN ROUTE</li>
+                    <li class="step0  text-muted text-center" id="step4">DELIVERED</li>
+                </ul>
             </div>
         </div>
     </div>
-
-    <div class="container-fluid my-5 d-sm-flex justify-content-center" >
-        <div class="card px-2" style="width: 60%;">
-            <div class="card-header bg-white">
-                <div class="row justify-content-between">
-                    <div class="col">
-                        <p class="text-muted"> Order # <span class="font-weight-bold text-primary">1222528743</span></p>
-                        <div style="position: relative; bottom: 25px; margin-left: 200px;">
-                            <p class="text-muted"> Place On <span class="font-weight-bold text-dark">12,Oct 2023</span>
-                            </p>
-                        </div>
-                    </div>
-                  
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="media flex-column flex-sm-row">
-                    <div class="media-body ">
-                        <h5 class="bold">Blade High Heels Sandals</h5>
-                        <p class="text-muted"> Qt: 1 Pair</p>
-                        <h4 class="mt-3 mb-4 bold"> <span class="mt-5">Rs.</span> 5,500 <span
-                                class="small text-muted"> via (COD) </span></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row px-4">
+</div>
+@elseif ($data['checkout']->is_delivered == 1)
+<div class="container-fluid my-5 d-sm-flex justify-content-center" >
+    <div class="card px-2" style="width: 60%;">
+        <div class="card-header bg-white">
+            <div class="row justify-content-between">
                 <div class="col">
-                    <ul id="progressbar">
-                        <li class="step0 active " id="step1">PLACED</li>
-                        <li class="step0 active text-center" id="step2">SHIPPED</li>
-                        <li class="step0 active text-center" id="step3">ORDER EN ROUTE</li>
-                        <li class="step0  text-muted text-right" id="step4">DELIVERED</li>
-                    </ul>
+                    <p class="text-muted"> Order # <span class="font-weight-bold text-primary">{{ $data['checkout']->tracking_id }}</span></p>
+                    <div style="position: relative; bottom: 25px; margin-left: 200px;">
+                        <p class="text-muted"> Place On <span class="font-weight-bold text-dark">{{ $data['checkout']->order_placed_date }}</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="media flex-column flex-sm-row">
+                <div class="media-body ">
+                    <h5 class="bold">{{ $data['checkout']->product->name }}</h5>
+                    <p class="text-muted"> Qt: 1 Pair</p>
+                    <h4 class="mt-3 mb-4 bold"> <span class="mt-5">PKR,</span> {{ $data['checkout']->total_price + $data['checkout']->shipping_fees }} <span
+                            class="small text-muted"> via ({{ $data['checkout']->payment_method }}) </span></h4>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container-fluid my-5 d-sm-flex justify-content-center" >
-        <div class="card px-2" style="width: 60%;">
-            <div class="card-header bg-white">
-                <div class="row justify-content-between">
-                    <div class="col">
-                        <p class="text-muted"> Order # <span class="font-weight-bold text-primary">1222528743</span></p>
-                        <div style="position: relative; bottom: 25px; margin-left: 200px;">
-                            <p class="text-muted"> Place On <span class="font-weight-bold text-dark">12,Oct 2023</span>
-                            </p>
-                        </div>
-                    </div>
-                  
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="media flex-column flex-sm-row">
-                    <div class="media-body ">
-                        <h5 class="bold">Blade High Heels Sandals</h5>
-                        <p class="text-muted"> Qt: 1 Pair</p>
-                        <h4 class="mt-3 mb-4 bold"> <span class="mt-5">Rs.</span> 5,500 <span
-                                class="small text-muted"> via (COD) </span></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row px-4">
-                <div class="col">
-                    <ul id="progressbar">
-                        <li class="step0 active " id="step1">PLACED</li>
-                        <li class="step0 active text-center" id="step2">SHIPPED</li>
-                        <li class="step0 active text-center" id="step3">ORDER EN ROUTE</li>
-                        <li class="step0  active text-right" id="step4">DELIVERED</li>
-                    </ul>
-                </div>
+        <div class="row px-4">
+            <div class="col">
+                <ul id="progressbar">
+                    <li class="step0 active " id="step1">PLACED</li>
+                    <li class="step0 active text-center" id="step2">SHIPPED</li>
+                    <li class="step0 text-muted text-center" id="step3">ORDER EN ROUTE</li>
+                    <li class="step0  text-muted text-center" id="step4">DELIVERED</li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
+@elseif ($data['checkout']->is_delivered == 2)
+<div class="container-fluid my-5 d-sm-flex justify-content-center" >
+    <div class="card px-2" style="width: 100%;">
+        <div class="card-header bg-white">
+            <div class="row justify-content-between">
+                <div class="col-md-6">
+                    <p class="text-muted"> Order # <span class="font-weight-bold text-primary">{{ $data['checkout']->tracking_id }}</span></p>
 
-</body>
+                        <p class="text-muted"> Place On <span class="font-weight-bold text-dark">{{ $data['checkout']->order_placed_date }}</span>
+                        </p>
 
-</html>
+                </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="media flex-column flex-sm-row">
+                <div class="media-body ">
+                    <h5 class="bold">{{ $data ['checkout']->product->name }}</h5>
+                    <p class="text-muted"> Qt: 1 Pair</p>
+                    <h4 class="mt-3 mb-4 bold"> <span class="mt-5">PKR,</span>{{ $data ['checkout']->total_price + $data['checkout']->shipping_fees }} <span
+                            class="small text-muted"> via ({{ $data ['checkout']->payment_method }}) </span></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row px-4">
+            <div class="col">
+                <ul id="progressbar">
+                    <li class="step0 active " id="step1">PLACED</li>
+                    <li class="step0 active text-center" id="step2">SHIPPED</li>
+                    <li class="step0 active text-center" id="step3">ORDER EN ROUTE</li>
+                    <li class="step0  text-muted text-center" id="step4">DELIVERED</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+@elseif ($data['checkout']->is_delivered == 3)
+<div class="container-fluid my-5 d-sm-flex justify-content-center" >
+    <div class="card px-2" style="width: 100%;">
+        <div class="card-header bg-white">
+            <div class="row justify-content-between">
+                <div class="col-md-6">
+                    <p class="text-muted"> Order # <span class="font-weight-bold text-primary">{{ $data['checkout']->tracking_id }}</span></p>
+
+                        <p class="text-muted"> Place On <span class="font-weight-bold text-dark">{{ $data['checkout']->order_placed_date }}</span>
+                        </p>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="media flex-column flex-sm-row">
+                <div class="media-body ">
+                    <h5 class="bold">{{ $data['checkout']->product->name }}</h5>
+                    <p class="text-muted"> Qt: {{ $data['checkout']->quantity }} Pair</p>
+                    <h4 class="mt-3 mb-4 bold"> <span class="mt-5">PKR,</span> {{ $data['checkout']->total_price + $data['checkout']->shipping_fees }} <span
+                            class="small text-muted"> via ({{ $data['checkout']->payment_method }}) </span></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row px-4">
+            <div class="col">
+                <ul id="progressbar">
+                    <li class="step0 active " id="step1">PLACED</li>
+                    <li class="step0 active text-center" id="step2">SHIPPED</li>
+                    <li class="step0 active text-center" id="step3">ORDER EN ROUTE</li>
+                    <li class="step0  active text-center" id="step4">DELIVERED</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+  @endif
+
+
+
+@endsection

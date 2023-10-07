@@ -77,6 +77,9 @@ Route::get('/specificAddress/{id?}' , [Authcontroller::class , 'specific_address
 Route::get('/deleteAddress/{id?}' , [Authcontroller::class , 'address_delete'])->name('delete.address');
 Route::get('/last_order/{id?}' , [Authcontroller::class ,'last_order_filter'])->name('filter.last.order');
 Route::get('/order_placed' , [Checkoutcontroller::class , 'order_placed_view'])->name('checkout.done');
+Route::post('/order_tracking' , [Authcontroller::class , 'order_tracking'])->name('order.track');
+Route::post('/address/store' , [Authcontroller::class , 'create_address'])->name('address.create');
+
 });
 // End of User Middle Ware
 // End of user routes

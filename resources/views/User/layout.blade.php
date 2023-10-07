@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
 
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-<title>Dazzle</title>
+<title>Dazzle | @yield('title')</title>
 <link rel="icon" href="{{ asset("assets/img/sm-logo.svg") }}" type="image/gif">
 <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.css') }}">
 </head>

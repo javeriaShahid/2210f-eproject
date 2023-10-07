@@ -60,5 +60,98 @@ $(document).ready(function()
                 $(checkoutTable).html(tableRow);
             }
         })
-    })
+    });
+    // Address Saving
+    let  addressline1          =  $('input[name="streetaddress1"]');
+    let  contactNumber1        =  $('input[name="contactNumber1"]');
+    let  country               =  $('select[name="country"]');
+    let  state                 =  $('select[name="state"]');
+    let  city                  =  $('select[name="city"]');
+    let  postalCode            =  $('input[name="postalcode"]');
+    let saveAddressForm        =  $('#saveAddress');
+    let tableBody              =  $('#tableContainer');
+    $(saveAddressForm).submit(function(e){
+        isValid   = true ;
+
+        if($(addressline1).val() == "")
+        {
+            e.preventDefault();
+            isValid = false ;
+            toastr['error']("Address Line 1 is required");
+        }
+        if($(contactNumber1).val() == "")
+        {
+            e.preventDefault();
+            isValid = false ;
+            toastr['error']("Personal Contact number is required");
+        }
+        if($(country).val() == "")
+        {
+            e.preventDefault();
+            isValid = false ;
+            toastr['error']("Country is required");
+        }
+        if($(city).val() == "")
+        {
+            e.preventDefault();
+            isValid = false ;
+            toastr['error']("City is required");
+        }
+        if($(state).val() == "")
+        {
+            e.preventDefault();
+            isValid = false ;
+            toastr['error']("State is required");
+        }
+        if($(postalCode).val() == "")
+        {
+            e.preventDefault();
+            isValid = false ;
+            toastr['error']("Postal Code is required");
+        }
+        if(isValid == true)
+        {
+            e.preventDefault();
+            $.ajax({
+                url:createAddress,
+                type:"post" ,
+                data:saveAddressForm.serialize() ,
+                success:function(response){
+                    if (response.message == "success"){
+                        e.preventDefault();
+                        toastr['success'] ("Your information has been saved");
+                        tableData  = "" ;
+                        $(response.address).each(function(index , value){
+                            tableData +=`
+                            <tr>
+                            <td>
+                                ${value.id}
+                            </td>
+                            <td>
+                              ${value.countries.name}
+                            </td>
+                            <td class="d-flex">
+                                <input type="hidden" name="addressId" value="${value.id}">
+                                <button class="btn plusButton text-white btn-warning"><i class="fa fa-plus"></i></button> |
+                                <button class="btn btn-danger removeButton"><i class="fa fa-trash"></i></button>
+                            </td>
+
+                        </tr>`
+                        });
+                        $(tableBody).html(tableData);
+                        $(saveAddressForm)[0].reset();
+                    }else{
+                        e.preventDefault();
+                        toastr['error'] ("Failed to save your address information");
+                    }
+                }
+            })
+        }
+
+    });
+
+
+
+
+
 });

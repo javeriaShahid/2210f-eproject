@@ -128,6 +128,7 @@ class Authcontroller extends Controller
         $data['user']       = $this->parentModel::where('id' , $id)->first();
         $data['country']    = $this->countryModel::all();
         $data['checkout']  =  $this->checkoutModel::where('user_id' , session()->get('user')['id'])->paginate(10);
+        $data['address']   =  $this->addressModel::where('user_id', $id )->get() ;
         return view('User.Account_setting')->with('data' , $data);
     }
     public function update($id = null , Request $request)
@@ -281,5 +282,52 @@ class Authcontroller extends Controller
         {
             return response()->json(['message'=>'error']);
         }
+
+    }
+    public function order_tracking(Request $request){
+        $tracking_number    =  $request->tracking_number;
+        $data['checkout']   =  $this->checkoutModel::where('tracking_id',$tracking_number)->first();
+        if($data ['checkout'] == true){
+            if($data['checkout'] ->is_delivered == 4 ){
+                return redirect()->back()->with('error','This order has been cancelled');
+            }
+            return view('User.ordertracking')->with('data',$data);
+        }else{
+            return redirect()->back()->with('error','No matching order found for this tracking id');
+
+        }
+
+    }
+    public function create_address(Request $request){
+        $address_id = $request->address_id;
+        $user_id    = session()->get('user')['id'];
+        $address1   = $request->streetaddress1;
+        $address2   = $request->streetaddress2;
+        $contact1   = $request->contactNumber1;
+        $contact2   = $request->contactNumber2;
+        $postalcode = $request->postalcode;
+        $city       = $request->city;
+        $country    = $request->country;
+        $state      = $request->state;
+
+        $saveAddress = $this->addressModel::updateOrcreate(['id' => $address_id],[
+            'user_id' => $user_id ,
+            'phone_number1' => $contact1 ,
+            'phone_number2' => $contact2 ,
+            'addressline1'  => $address1 ,
+            'addressline2'  => $address2 ,
+            'postalcode'    => $postalcode ,
+            'city'          => $city ,
+            'country'       => $country ,
+            'state'         => $state ,
+        ]);
+        if($saveAddress == true){
+            $data['address']     = $this->addressModel::where('user_id' , $user_id)->with('countries')->get();
+            return response()->json(['message' => 'success'  , 'address' => $data['address']]);
+        }else{
+            return response()->json(['message' => 'error']);
+        }
+
+
     }
 }

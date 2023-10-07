@@ -1,5 +1,8 @@
 @extends('User.layout')
 @section('content')
+@section('title')
+User Login
+@endsection
  <style>
 
     .form-control{

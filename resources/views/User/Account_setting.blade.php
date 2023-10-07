@@ -1,10 +1,25 @@
 
 
 @extends('User.layout')
+@section('title')
+Account Settings
+@endsection
 @section('content')
 
 
-
+<style>
+.modal-backdrop{
+    position: fixed!important;
+    top: 40px;
+    left: 0;
+    z-index: 1055;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    outline: 0;
+}
+</style>
 
 <div class="breadcrumb-section">
 <div class="container">
@@ -41,10 +56,13 @@
 <button class="nav-link nav-btn-style mx-auto" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true"><i class="lar la-user"></i><svg width="20" height="20" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
 <path d="M18.7782 14.2218C17.5801 13.0237 16.1541 12.1368 14.5982 11.5999C16.2646 10.4522 17.3594 8.53136 17.3594 6.35938C17.3594 2.85282 14.5066 0 11 0C7.49345 0 4.64062 2.85282 4.64062 6.35938C4.64062 8.53136 5.73543 10.4522 7.40188 11.5999C5.84598 12.1368 4.41994 13.0237 3.22184 14.2218C1.14421 16.2995 0 19.0618 0 22H1.71875C1.71875 16.8823 5.88229 12.7188 11 12.7188C16.1177 12.7188 20.2812 16.8823 20.2812 22H22C22 19.0618 20.8558 16.2995 18.7782 14.2218ZM11 11C8.44117 11 6.35938 8.91825 6.35938 6.35938C6.35938 3.8005 8.44117 1.71875 11 1.71875C13.5588 1.71875 15.6406 3.8005 15.6406 6.35938C15.6406 8.91825 13.5588 11 11 11Z" />
 </svg>My Profile</button>
+<button class="nav-link nav-btn-style mx-auto" id="v-pills-address-tab" data-bs-toggle="pill" data-bs-target="#v-pills-address" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true"><i class="lar la-user"></i><svg width="20" height="20" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.7782 14.2218C17.5801 13.0237 16.1541 12.1368 14.5982 11.5999C16.2646 10.4522 17.3594 8.53136 17.3594 6.35938C17.3594 2.85282 14.5066 0 11 0C7.49345 0 4.64062 2.85282 4.64062 6.35938C4.64062 8.53136 5.73543 10.4522 7.40188 11.5999C5.84598 12.1368 4.41994 13.0237 3.22184 14.2218C1.14421 16.2995 0 19.0618 0 22H1.71875C1.71875 16.8823 5.88229 12.7188 11 12.7188C16.1177 12.7188 20.2812 16.8823 20.2812 22H22C22 19.0618 20.8558 16.2995 18.7782 14.2218ZM11 11C8.44117 11 6.35938 8.91825 6.35938 6.35938C6.35938 3.8005 8.44117 1.71875 11 1.71875C13.5588 1.71875 15.6406 3.8005 15.6406 6.35938C15.6406 8.91825 13.5588 11 11 11Z" />
+</svg>Manage Addressess</button>
 <button class="nav-link nav-btn-style mx-auto" id="v-pills-order-tab" data-bs-toggle="pill" data-bs-target="#v-pills-order" type="button" role="tab" aria-controls="v-pills-order" aria-selected="true"><svg width="20" height="20" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
 <path d="M19.7115 18.1422L18.729 5.7622C18.6678 4.96461 17.9932 4.3398 17.1933 4.3398H15.2527V4.25257C15.2527 1.90768 13.345 0 11.0002 0C8.65527 0 6.74758 1.90768 6.74758 4.25257V4.3398H4.80703C4.00708 4.3398 3.33251 4.96457 3.2715 5.76052L2.28872 18.1439C2.21266 19.1354 2.55663 20.1225 3.23235 20.852C3.90808 21.5815 4.86598 22 5.86041 22H16.1399C17.1342 22 18.0922 21.5816 18.768 20.852C19.4437 20.1224 19.7876 19.1354 19.7115 18.1422ZM8.03622 4.25257C8.03622 2.61826 9.36588 1.28863 11.0002 1.28863C12.6344 1.28863 13.9641 2.6183 13.9641 4.25257V4.3398H8.03622V4.25257ZM17.8225 19.9764C17.3835 20.4503 16.7859 20.7114 16.1399 20.7114H5.86045C5.21437 20.7114 4.61685 20.4503 4.17779 19.9764C3.73878 19.5024 3.5242 18.8866 3.57352 18.2441L4.55622 5.86072C4.56619 5.73044 4.67636 5.62843 4.80703 5.62843H6.74758V7.21548C6.74758 7.57131 7.03607 7.8598 7.3919 7.8598C7.74772 7.8598 8.03622 7.57131 8.03622 7.21548V5.62843H13.9641V7.21548C13.9641 7.57131 14.2526 7.8598 14.6084 7.8598C14.9642 7.8598 15.2527 7.57131 15.2527 7.21548V5.62843H17.1933C17.324 5.62843 17.4341 5.73048 17.4443 5.86244L18.4267 18.2424C18.4762 18.8866 18.2615 19.5024 17.8225 19.9764Z" />
 <path d="M13.9035 10.9263C13.652 10.6746 13.244 10.6746 12.9924 10.9263L10.1154 13.8033L9.00909 12.697C8.75751 12.4454 8.34952 12.4454 8.0979 12.697C7.84627 12.9486 7.84627 13.3566 8.0979 13.6082L9.65977 15.1701C9.78558 15.2959 9.9505 15.3588 10.1153 15.3588C10.2802 15.3588 10.4451 15.2959 10.5709 15.1701L13.9034 11.8375C14.1551 11.5858 14.1551 11.1779 13.9035 10.9263Z" />
-</svg> Order Traking</button>
+</svg> Order Tracking</button>
 <button class="nav-link nav-btn-style mx-auto" id="v-pills-purchase-tab" data-bs-toggle="pill" data-bs-target="#v-pills-purchase" type="button" role="tab" aria-controls="v-pills-purchase" aria-selected="true">
 <svg width="20" height="20" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
 <path d="M7.41246 0.0859337C6.34254 0.356638 5.40152 1.12578 4.92027 2.11836C4.61519 2.75429 4.58941 2.90039 4.56793 4.00468L4.54644 4.98437H3.02535H1.50425L1.48707 5.0789C1.43121 5.36679 0.80816 16.6977 0.829644 17.0586C0.898394 18.266 1.66754 19.3402 2.80621 19.8215C3.39488 20.0664 3.38199 20.0664 7.73473 20.0664H11.7222L12.1218 20.466C12.9211 21.2523 13.875 21.7508 14.9535 21.9398C15.5636 22.043 16.6336 22.0043 17.1879 21.8582C19.13 21.334 20.5308 19.9203 21.0422 17.9695C21.1882 17.4066 21.2226 16.457 21.1238 15.834C20.707 13.3117 18.4769 11.3867 15.9589 11.3867H15.5593L15.5379 11.159C15.525 11.0387 15.4433 9.72812 15.3617 8.25C15.28 6.77187 15.1984 5.43554 15.1855 5.27226L15.1597 4.98437H13.6386H12.1175V4.19375C12.1175 3.32148 12.0574 2.87461 11.8726 2.40625C11.4429 1.31914 10.5793 0.511326 9.45348 0.150387C9.13121 0.0429649 9.0066 0.0300751 8.42223 0.0171852C7.86363 0.00429344 7.70035 0.0171852 7.41246 0.0859337ZM8.93785 1.39648C9.80582 1.62851 10.5148 2.35468 10.7211 3.22695C10.764 3.41601 10.7855 3.73398 10.7855 4.24101V4.98437H8.33629H5.88707V4.20664C5.88707 3.34726 5.93004 3.08515 6.14488 2.66836C6.45426 2.0625 7.05582 1.57265 7.70465 1.39648C8.00113 1.31914 8.64137 1.31914 8.93785 1.39648ZM4.55504 7.13281V7.94922H5.22105H5.88707V7.13281V6.3164H8.33629H10.7855V7.13281V7.94922H11.4515H12.1175V7.13281V6.3164H13.0199C13.8964 6.3164 13.9222 6.3207 13.9222 6.40234C13.9222 6.44961 13.991 7.64414 14.0726 9.05351C14.1586 10.4586 14.2187 11.6187 14.2144 11.623C14.2058 11.6273 14.0425 11.7004 13.8449 11.7863C12.3539 12.4223 11.2796 13.5867 10.8113 15.0734C10.4804 16.1219 10.489 17.368 10.8285 18.382L10.9488 18.7387L7.28785 18.7258L3.63121 18.7129L3.39488 18.6184C2.91363 18.4207 2.45386 17.9609 2.27769 17.5012C2.22183 17.3594 2.17027 17.1144 2.16168 16.9297C2.14449 16.6633 2.64293 7.66562 2.73316 6.62578L2.75894 6.3164H3.65699H4.55504V7.13281ZM16.9429 12.8648C18.0515 13.1914 18.9324 13.9262 19.4308 14.9316C19.7273 15.5246 19.8519 16.0531 19.8519 16.7105C19.8476 18.3519 18.8379 19.8172 17.2996 20.4145C16.8312 20.5949 16.4144 20.6723 15.8773 20.6723C14.9234 20.6723 14.1414 20.3973 13.3765 19.7914C12.7707 19.3102 12.2507 18.5195 12.0273 17.7461C11.8984 17.2863 11.8683 16.4227 11.9629 15.9371C12.255 14.5105 13.3379 13.3117 14.7257 12.8906C15.2027 12.7445 15.4089 12.723 16.0062 12.7402C16.4488 12.7488 16.6422 12.7789 16.9429 12.8648Z" />
@@ -68,7 +86,7 @@ Order</button>
 </div>
 <div class="col-lg-9">
 <div class="tab-content" id="v-pills-tabContent">
-<div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel" aria-labelledby="v-pills-dashboard-tab">
+<div class="tab-pane fade show active " id="v-pills-dashboard" role="tabpanel" aria-labelledby="v-pills-dashboard-tab">
 <div class="dashboard-area box--shadow">
 <p>Hello, <strong>{{ session()->get('user')['name'] }}</strong></p>
 <p>From your My Account Dashboard you have the ability to view a snapshot of your recent
@@ -82,7 +100,10 @@ edit information.</p>
 </div>
 <div class="body">
 <div class="counter-item">
-<h2>{{ $data['checkout']->count() }}</h2>
+    @php
+    $totalOrders  = \DB::table('checkouts')->where(['user_id'=>session()->get('user')['id']])->count();
+    @endphp
+<h2>{{ $totalOrders}}</h2>
 </div>
 <div class="icon">
     <img width="50" height="50" src="https://img.icons8.com/external-itim2101-lineal-itim2101/64/external-delivery-box-shopping-and-ecommerce-itim2101-lineal-itim2101.png" alt="external-delivery-box-shopping-and-ecommerce-itim2101-lineal-itim2101"/>
@@ -98,7 +119,7 @@ edit information.</p>
 <div class="body">
 <div class="counter-item">
     @php
-    $pendingProducts  = \DB::table('checkouts')->where('is_delivered' , 0)->count();
+    $pendingProducts  = \DB::table('checkouts')->where(['user_id'=>session()->get('user')['id'],'is_delivered' => 0])->count();
     @endphp
 <h2>{{ $pendingProducts }}</h2>
 </div>
@@ -119,7 +140,7 @@ edit information.</p>
 </div>
 <div class="body">
 @php
-    $deliveredProducts  = \DB::table('checkouts')->where('is_delivered' , 1)->count();
+    $deliveredProducts  = \DB::table('checkouts')->where(['user_id'=>session()->get('user')['id'],'is_delivered' => 1])->count();
 
 @endphp
 <div class="counter-item">
@@ -140,7 +161,7 @@ edit information.</p>
 </div>
 <div class="body">
 @php
-    $deliveredProducts  = \DB::table('checkouts')->where('is_delivered' , 2)->count();
+    $deliveredProducts  = \DB::table('checkouts')->where(['user_id'=>session()->get('user')['id'],'is_delivered' => 2])->count();
 
 @endphp
 <div class="counter-item">
@@ -161,7 +182,7 @@ edit information.</p>
 </div>
 <div class="body">
 @php
-    $deliveredProducts  = \DB::table('checkouts')->where('is_delivered' , 3)->count();
+    $deliveredProducts  = \DB::table('checkouts')->where(['user_id'=>session()->get('user')['id'],'is_delivered' => 3])->count();
 
 @endphp
 <div class="counter-item">
@@ -182,7 +203,7 @@ edit information.</p>
 </div>
 <div class="body">
 @php
-    $deliveredProducts  = \DB::table('checkouts')->where('is_delivered' , 4)->count();
+    $deliveredProducts  = \DB::table('checkouts')->where(['user_id'=>session()->get('user')['id'],'is_delivered' => 4])->count();
 
 @endphp
 <div class="counter-item">
@@ -258,33 +279,7 @@ to view or edit information.</p>
     </select>
 </div>
 </div>
-<div class="col-xl-6 col-lg-12 col-md-6 mb-25">
-<div class="form-inner">
-<select name="state" id="state">
-<option>State</option>
-<option>Dhaka</option>
-<option>Sylhet</option>
-<option>Chittagong</option>
-<option>Rajshahi</option>
-</select>
-</div>
-</div>
-<div class="col-xl-6 col-lg-12 col-md-6 mb-25">
-<div class="form-inner">
-<input type="text" placeholder="Zip Code">
-</div>
-</div>
-<div class="col-xl-6 col-lg-12 col-md-6 mb-25">
-<div class="form-inner">
-<select>
-<option>Country</option>
-<option>Bangladesh</option>
-<option>Afganistan</option>
-<option>India</option>
-<option>China</option>
-</select>
-</div>
-</div>
+
 
 <div class="col-12">
 <div class="button-group">
@@ -298,25 +293,158 @@ Profile</button>
 </div>
 </div>
 </div>
+{{-- Adress pane --}}
+<div class="tab-pane fade" id="v-pills-address" role="tabpanel" aria-labelledby="v-pills-address-tab">
+    <div class="dashboard-profile">
+    <div class="table-title-area">
+    <h3>Edit Your Address</h3>
+    <p>From your My Account Dashboard you have the ability to
+    update your account address information. </p>
+    </div>
+    <div class="form-wrapper">
+    <form id="saveAddress"  >
+     @csrf
+    <div class="row">
+    <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
+    <div class="form-inner">
+    <input type="hidden" name="address_id">
+    <input type="text" placeholder="Enter your Address line 1*" name="streetaddress1" >
+    </div>
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
+    <div class="form-inner">
+    <input type="text" placeholder="Enter your Address line 2" name="streetaddress2">
+    </div>
+    </div>
+
+    <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
+    <div class="form-inner">
+    <input type="text" placeholder="Enter your Personal Contact Number*" name="contactNumber1" >
+    </div>
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
+    <div class="form-inner">
+    <input type="text" placeholder="Enter your Professional Contact Number" name="contactNumber2">
+    </div>
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
+    {{-- <input type="text" list="country" id="countries"> --}}
+    <div class="form-inner">
+        <select name="country" id="country" >
+            <option value="">Select Country</option>
+            @foreach ($data['country'] as $country)
+                <option value="{{ $country->id }}">{{ $country->name }}</option>
+            @endforeach
+        </select>
+    </div>
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
+    <div class="form-inner">
+    <select name="state" id="state">
+    <option value="">Select Country First</option>
+
+    </select>
+    </div>
+    </div>
+
+    <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
+    <div class="form-inner">
+    <select name="city" id="city">
+    <option value="">Select State First </option>
+
+    </select>
+    </div>
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
+        <div class="form-inner">
+        <input type="text" placeholder="Zip Code" name="postalcode">
+        </div>
+        </div>
+    <div class="col-12">
+    <div class="button-group">
+
+ {{-- Start modal --}}
+ <!-- Button trigger modal -->
+<!-- Button trigger modal -->
+<button type="button" class="primary-btn3 black-bg  hover-btn5 hover-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Select Address
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Select Address</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="table-responsive">
+                <table class="table  w-100">
+                    <tr>
+                        <th>Id </th>
+                        <th>Country</th>
+                        <th>Action</th>
+                    </tr>
+               <tbody id="tableContainer">
+          @foreach ($data ['address'] as $address  )
+          <tr>
+            <td>
+            {{$address->id }}
+            </td>
+            <td>
+              {{ $address->countries->name }}
+            </td>
+            <td class="d-flex">
+                <input type="hidden" name="addressId" value="{{ $address ->id }}">
+                <button class="btn plusButton text-white btn-warning"><i class="fa fa-plus"></i></button> |
+                <button class="btn btn-danger removeButton"><i class="fa fa-trash"></i></button>
+            </td>
+
+        </tr>
+          @endforeach
+               </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ {{-- End modal --}}
+
+    <button type="submit" class="primary-btn3 black-bg  hover-btn5 hover-white">Save
+    Address</button>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>
+{{-- End of address pane --}}
 <div class="tab-pane fade" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab">
+{{-- Order Information --}}
+
+
+
+{{-- Order tracking --}}
 <div class="order-traking-area">
-<p>To track your order please enter your Order ID in the box below and press the "Track"
+<p>To track your order please enter your Order tracking ID in the box below and press the "Track"
 button. This given to you on your receipt and in the confirmation email you should
 have received.</p>
-<form>
+<form id="orderTracking" action="{{ route('order.track') }}" method="POST" >
+    @csrf
 <div class="row justify-content-center">
 <div class="col-md-8 mb-25">
 <div class="form-inner">
-<label>Order ID</label>
-<input type="text" placeholder="Enter your order ID">
+<label>Order tracking id</label>
+<input type="text" name="tracking_number" placeholder="Enter your order ID">
 </div>
 </div>
-<div class="col-md-8">
-<div class="form-inner">
-<label>Billing Email</label>
-<input type="text" placeholder="Enter your email">
-</div>
-</div>
+
 <div class="col-md-5 d-flex justify-content-center">
 <div class="button-group">
 <button type="submit" class="primary-btn3 black-bg  hover-btn5 hover-white">Track</button>
@@ -325,6 +453,7 @@ have received.</p>
 </div>
 </form>
 </div>
+{{-- Order Tracking Container --}}
 </div>
 <div class="tab-pane fade" id="v-pills-purchase" role="tabpanel" aria-labelledby="v-pills-purchase-tab">
 
@@ -413,9 +542,14 @@ have received.</p>
     let view_labelRoute       = "{{ route('label.view') }}";
     let download_labelRoute   = "{{ route('label.download') }}";
     let cancelOrderRoute      = "{{ route('order.cancel') }}";
+    let specificAddress   = "{{ route('specific.address') }}";
+    let deleteAddress     = "{{ route('delete.address') }}";
+    let createAddress     = "{{ route('address.create') }}";
+
 </script>
 
 
 
 
 @endsection
+

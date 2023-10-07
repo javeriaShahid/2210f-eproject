@@ -2,7 +2,9 @@
 
 @extends('User.layout')
 @section('content')
-
+@section('title')
+Carts
+@endsection
 <!DOCTYPE html>
 
 
@@ -41,15 +43,15 @@
      @endphp
     @if($data['cart']->count() < 1)
     <tr>
-     
+
      <td  colspan="6"><center><span class="text-danger">No Items Left</span></center></td>
-        
+
      </tr>
      @else
 @foreach ($data['cart'] as $cart )
 <tr id="cartContainer">
 <td>
-<input type="hidden" value="{{ $cart->id }}" name="cartId">   
+<input type="hidden" value="{{ $cart->id }}" name="cartId">
 <div class="delete-icon">
 <i class="bi bi-x-lg"></i>
 </div>
@@ -144,8 +146,8 @@ PKR ,{{ $productTotal }}
 <td>Subtotal</td>
 <td></td>
 @php
-    $subTotal  = $totalAmount + $shippingFees  ; 
-    
+    $subTotal  = $totalAmount + $shippingFees  ;
+
 @endphp
 <td id="totalAmount">PKR,{{ $subTotal }}</td>
 </tr>

@@ -87,7 +87,9 @@ All Orders
 
                     {{-- Modal ends --}}
                     @endforeach
-
+                        <tr>
+                            <td colspan="20">{{ $data['checkout']->links() }}</td>
+                        </tr>
                 </tbody>
               </table>
             </div>
