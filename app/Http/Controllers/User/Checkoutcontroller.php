@@ -9,32 +9,39 @@ use App\Models\Checkout;
 use App\Models\Country;
 use App\Models\UserAddresses;
 use Carbon\Carbon;
+use App\Models\Product;
 use Illuminate\Support\Str;
+
+use function GuzzleHttp\json_decode;
+
 class Checkoutcontroller extends Controller
 {
    public $parentModel   = Checkout::class;
    public $cartData      = Cart::class;
    public $countryModel  = Country::class;
    public $addressModel  = UserAddresses::class;
+   public $productModel  = Product::class ;
    public function index()
    {
-
-
-    // $deliveryDates = [];
-    // $deliveryDays  = [];
-    // // Get the current date
-    // $currentDate = Carbon::now();
-
-    // // Calculate delivery dates based on the number of delivery days
-    // for ($i = 0; $i <= $deliveryDays; $i++) {
-    //     $deliveryDates[] = $currentDate->copy()->addDays($i)->toDateString();
-    // }
-    //     $data['DeliveryDate'] = end($deliveryDates);
         $data['cart']   = $this->cartData::where('user_id' , session()->get("user")['id'])->get();
         $data['country'] = $this->countryModel::all();
         return view('User.checkout')->with('data' , $data);
    }
+   public function order_placed_view(Request $request)
+   {
+    $queryData = json_decode($request->query('data'), true);
 
+    // Assuming 'id' is an array of IDs in each sub-array
+    $checkoutIds = array_column($queryData, 'id');
+    $ids  = [];
+    // For demonstration, let's simply display the  IDs
+    foreach ($checkoutIds as $id) {
+        $ids[]= $id ;
+    }
+    
+    $data['checkout']   = $this->parentModel::whereIn('id', $ids)->with('product')->get();
+    return view('User.orderplaced')->with('data' , $data);
+   }
    public function store(Request $request)
    {
             $user_id          = session()->get('user')['id'] ;
@@ -103,6 +110,7 @@ class Checkoutcontroller extends Controller
                 $addressId       = $addressCreate->id;
             }
             // Create Checkout
+            $data['checkout']  = [];
             foreach($cartId as $key => $value)
             {
                 $trackingId       = rand(000000000000,999999999999) ;
@@ -120,15 +128,27 @@ class Checkoutcontroller extends Controller
                     'shipping_fees'      => $shippingFees[$key]
 
                 ]);
+                $data['checkout'][] = $createCheckout;
 
             }
             if($createCheckout == true)
-            {
+            {  
+                $Product        =  $this->cartData::whereIn('product_id' , $productIds)->get();
+                foreach($Product as $key => $value)
+                {
+                    
+                    $minusStock     = $Product[$key]->product->stock -  $Product[$key]->quantity ;
+                    $plusSales      = $Product[$key]->product->number_of_sales +  $Product[$key]->quantity ;
+                    $updateProduct  =    $this->productModel::where('id' , $Product[$key]->product->id)->update([
+                        'stock'           => $minusStock ,
+                        'number_of_sales' => $plusSales
+                    ]);
+                }
                 foreach($cartId as $key => $value)
                 {
                     $cartDelete     =  $this->cartData::where('id' , $cartId[$key])->forceDelete();
                 }
-                return redirect()->back()->with('success' , 'Order has been Placed!');
+                 return redirect(route('checkout.done' , ['data' => json_encode($data['checkout'])]));
             }
             else
             {

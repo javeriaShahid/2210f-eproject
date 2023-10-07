@@ -179,7 +179,7 @@ $(searchButton).on('click' , function(e){
                         ${value.id}
                     </td>
                     <td>
-                      ${value.country.name}
+                      ${value.countries.name}
                     </td>
                     <td class="d-flex">
                         <input type="hidden" name="addressId" value="${value.id}">
@@ -230,7 +230,7 @@ $(document).on('click' , '.plusButton' , function(e){
                 $(streetAddress2).val(response.address.addressline2);
                 $(state).html(`<option value="${response.address.state.id}">${response.address.state.name}</option>`);
                 $(city).html(`<option value="${response.address.city.id}">${response.address.city.name}</option>`);
-                $(country).val(response.address.country.id);
+                $(country).val(response.address.countries.id);
                 $(contactNumber1).val(response.address.phone_number1);
                 $(contactNumber2).val(response.address.phone_number2);
                 $(postalCode).val(response.address.postalcode);

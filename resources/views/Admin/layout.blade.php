@@ -280,6 +280,25 @@
                               <div data-i18n="Basic">Pending</div>
                             </a>
                       </li>
+
+                      <li class="menu-item">
+                          <a href="{{ route('admin.order.shipped') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bxs-ship"></i>
+                              <div data-i18n="Basic">Shipped</div>
+                            </a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="{{ route('admin.order.sent') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bxs-truck"></i>
+                              <div data-i18n="Basic">Sent</div>
+                            </a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="{{ route('admin.order.cancelled') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bxs-x-circle"></i>
+                              <div data-i18n="Basic">Cancelled</div>
+                            </a>
+                      </li>
                     </ul>
                   </li>
                 </li>

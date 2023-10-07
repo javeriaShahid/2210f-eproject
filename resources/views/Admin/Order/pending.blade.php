@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 @section('title')
-All Orders
+Pending Shippings
 @endsection
 
 @section('content')
@@ -16,12 +16,7 @@ All Orders
         <div class="card">
             <div class="row">
                 <div class="col-md-6">  <h5 class="card-header">Orders Management</h5></div>
-                <div class="col-md-6">
-                    <div class="row justify-content-end mt-3">
-                        <div class="col-md-3"><a class="btn btn-success" href="{{ route('category.create') }}"><i class="bx bx-plus"></i></a></div>
-                        <div class="col-md-3"><a class="btn btn-danger" href="{{ route('category.trash') }}"><i class="bx bx-trash"></i></a></div>
-                    </div>
-                </div>
+
             </div>
             <div class="table-responsive text-nowrap">
               <table class="table table-hover">
@@ -29,6 +24,8 @@ All Orders
                   <tr>
                     <th>S.no</th>
                     <th>Tracking Id</th>
+                    <th>Client Name</th>
+                    <th>Client Email</th>
                     <th>Product Image</th>
                     <th>Name of Product</th>
                     <th>Total Price</th>
@@ -48,6 +45,8 @@ All Orders
                     <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>#{{ $checkout->tracking_id }}</td>
+                            <td>{{ $checkout->user->name }}</td>
+                            <td>{{ $checkout->user->email }}</td>
                             <td><img src="{{ asset('assets/Productimages/'.$checkout->product->image) }}" style="width: 40px; height:40px ; object-fit:contain" alt=""></td>
                             <td>{{ $checkout->product->name }}</td>
                             <td>PKR,{{ $checkout->total_price }}</td>

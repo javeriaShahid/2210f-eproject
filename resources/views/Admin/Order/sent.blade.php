@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 @section('title')
-Delivered Orders
+Sent For Delivery
 @endsection
 
 @section('content')
@@ -59,9 +59,15 @@ Delivered Orders
                             <td>{{ $checkout->order_placed_date}}</td>
                             <td>{{ $checkout->delivery_date}}</td>
                             <td>{{ $checkout->payment_method}}</td>
-
+                            @if($checkout->is_delivered == 1)
+                            <td><a href="{{ route('sent.delivery.order' , $checkout->tracking_id ) }}" class="btn btn-warning text-white" title="Parcel Shipped"><i class="bx bxs-ship"></i></a></td>
+                            @elseif ($checkout->is_delivered == 2)
+                            <td><a href="{{ route('delivered.order' , $checkout->tracking_id ) }}" class="btn btn-primary text-white" title="Sent for delivery"><i class="bx bxs-truck"></i></a></td>
+                            @elseif ($checkout->is_delivered == 3)
                             <td><a class="btn btn-success text-white" title="Parcel Delivered"><i class="bx bxs-badge-check"></i></a></td>
-
+                            @else
+                            <td><a class="btn btn-danger text-white" title="Parcel Cancelled"><i class="bx bxs-x-circle"></i></a></td>
+                            @endif
                             <td>
                                 <a href="{{ route('label.view' , $checkout->id) }}" class="btn btn-warning"><i class='bx bxs-coupon'></i></a>
                             </td>

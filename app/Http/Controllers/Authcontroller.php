@@ -236,7 +236,7 @@ class Authcontroller extends Controller
 
         $email = $request->email_address;
         $data['user'] = $this->parentModel::where('email', $email)->with('address')->first();
-        $data['address'] = $this->addressModel::where('user_id' , $data['user']->id)->with('country')->get();
+        $data['address'] = $this->addressModel::where('user_id' , $data['user']->id)->with('countries')->get();
         if($data['address'] != null)
         {
             return response()->json($data['address']);
@@ -245,7 +245,7 @@ class Authcontroller extends Controller
     }
     public function specific_address_get($id  = null)
     {
-        $data['address']     = $this->addressModel::where('id' , $id)->with('country' , 'state' , 'city')->first();
+        $data['address']     = $this->addressModel::where('id' , $id)->with('countries' , 'state' , 'city')->first();
         if($data['address'] == true)
         {
             return response()->json(['message' => 'success' , 'address' => $data['address']]);

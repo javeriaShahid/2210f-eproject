@@ -15,15 +15,32 @@ $(document).ready(function()
                     let Status          =     `` ;
                     let viewLabel       = view_labelRoute + '/' + value.id ;
                     let downloadLabel   = download_labelRoute + '/' + value.id;
-                    if(value.is_delivered != 1){
+                    let cancelOrder     = cancelOrderRoute + '/' + value.id;
+                    if(value.is_delivered == 1){
                         Status = `
-                                <td data-label="Status" class="text-danger">Pending</td>
+                                <td data-label="Status" class="text-warning">Shipped</td>
                                 `;
                     }
-                    else
+                    else if(value.is_delivered == 2){
+                        Status = `
+                                <td data-label="Status" class="text-primary">Sent For Delivery</td>
+                                `;
+                    }
+                  else if(value.is_delivered == 3){
+                        Status = `
+                                <td data-label="Status" class="text-green">Delivered</td>
+                                `;
+                    }
+                  else if(value.is_delivered == 4){
+                        Status = `
+                        <td data-label="Status" class="text-danger">Cancelled</td>
+
+                                `;
+                    }
+                    else if (value.is_delivered == 0)
                     {
                         Status  = `
-                        <td data-label="Status" class="text-green">Delivered</td>
+                        <td data-label="Status" class="text-danger">Pending</td>
                         `
                     }
                     tableRow +=`
@@ -36,7 +53,7 @@ $(document).ready(function()
                  ${Status}
                 <td><a href="${viewLabel}" class="btn btn-primary"><i class="bx bxs-coupon"></i></a></td>
                 <td><a href="${downloadLabel}" class="btn btn-warning"><i class="bx bxs-cloud-download"></i></a></td>
-                <td><a href="" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
+                <td><a href="${cancelOrder}" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
                 </tr>
                     `;
                 });

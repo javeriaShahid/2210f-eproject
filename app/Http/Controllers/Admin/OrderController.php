@@ -17,8 +17,23 @@ class OrderController extends Controller
     }
     public function delivered()
     {
-        $data['checkout']   = $this->parentModel::where('is_delivered' , 1)->with('product' , 'user')->paginate(25);
+        $data['checkout']   = $this->parentModel::where('is_delivered' , 3)->with('product' , 'user')->paginate(25);
         return view('Admin.Order.delivered')->with('data' , $data);
+    }
+    public function shipped()
+    {
+        $data['checkout']   = $this->parentModel::where('is_delivered' , 1)->with('product' , 'user')->paginate(25);
+        return view('Admin.Order.shipped')->with('data' , $data);
+    }
+    public function sent()
+    {
+        $data['checkout']   = $this->parentModel::where('is_delivered' , 2)->with('product' , 'user')->paginate(25);
+        return view('Admin.Order.sent')->with('data' , $data);
+    }
+    public function cancelled()
+    {
+        $data['checkout']   = $this->parentModel::where('is_delivered' , 4)->with('product' , 'user')->paginate(25);
+        return view('Admin.Order.cancelled')->with('data' , $data);
     }
     public function pending()
     {
@@ -72,6 +87,7 @@ class OrderController extends Controller
     }
     public function cancel_order($id = null)
     {
+
         $update    = $this->parentModel::where('tracking_id' , $id)->update([
             'is_delivered' => 4
         ]);

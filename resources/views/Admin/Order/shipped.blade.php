@@ -16,12 +16,7 @@ Shipped Orders
         <div class="card">
             <div class="row">
                 <div class="col-md-6">  <h5 class="card-header">Orders Management</h5></div>
-                <div class="col-md-6">
-                    <div class="row justify-content-end mt-3">
-                        <div class="col-md-3"><a class="btn btn-success" href="{{ route('category.create') }}"><i class="bx bx-plus"></i></a></div>
-                        <div class="col-md-3"><a class="btn btn-danger" href="{{ route('category.trash') }}"><i class="bx bx-trash"></i></a></div>
-                    </div>
-                </div>
+
             </div>
             <div class="table-responsive text-nowrap">
               <table class="table table-hover">
@@ -29,6 +24,8 @@ Shipped Orders
                   <tr>
                     <th>S.no</th>
                     <th>Tracking Id</th>
+                    <th>Client Name</th>
+                    <th>Client Email</th>
                     <th>Product Image</th>
                     <th>Name of Product</th>
                     <th>Total Price</th>
@@ -48,6 +45,8 @@ Shipped Orders
                     <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>#{{ $checkout->tracking_id }}</td>
+                            <td>{{ $checkout->user->name }}</td>
+                            <td>{{ $checkout->user->email }}</td>
                             <td><img src="{{ asset('assets/Productimages/'.$checkout->product->image) }}" style="width: 40px; height:40px ; object-fit:contain" alt=""></td>
                             <td>{{ $checkout->product->name }}</td>
                             <td>PKR,{{ $checkout->total_price }}</td>
@@ -66,10 +65,8 @@ Shipped Orders
                             <td><a href="{{ route('delivered.order' , $checkout->tracking_id ) }}" class="btn btn-primary text-white" title="Sent for delivery"><i class="bx bxs-truck"></i></a></td>
                             @elseif ($checkout->is_delivered == 3)
                             <td><a class="btn btn-success text-white" title="Parcel Delivered"><i class="bx bxs-badge-check"></i></a></td>
-                            @elseif ($checkout->is_delivered == 4)
-                            <td><a class="btn btn-danger text-white" title="Parcel Cancelled"><i class="bx bxs-x-circle"></i></a></td>
                             @else
-                            <td><a href="{{ route('shipped.order' , $checkout->tracking_id ) }}" class="btn btn-danger" title="Shipping In Progree"><i class="bx bx-mail-send"></i></a></td>
+                            <td><a class="btn btn-danger text-white" title="Parcel Cancelled"><i class="bx bxs-x-circle"></i></a></td>
                             @endif
                             <td>
                                 <a href="{{ route('label.view' , $checkout->id) }}" class="btn btn-warning"><i class='bx bxs-coupon'></i></a>

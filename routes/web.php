@@ -76,6 +76,7 @@ Route::post('/getAddress' , [Authcontroller::class , 'address_get'])->name('get.
 Route::get('/specificAddress/{id?}' , [Authcontroller::class , 'specific_address_get'])->name('specific.address');
 Route::get('/deleteAddress/{id?}' , [Authcontroller::class , 'address_delete'])->name('delete.address');
 Route::get('/last_order/{id?}' , [Authcontroller::class ,'last_order_filter'])->name('filter.last.order');
+Route::get('/order_placed' , [Checkoutcontroller::class , 'order_placed_view'])->name('checkout.done');
 });
 // End of User Middle Ware
 // End of user routes
@@ -160,6 +161,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/block/{id?}' , [AdminUserController::class , 'block_user'])->name('admin.user.blocked');
         Route::get('/unblock/{id?}' , [AdminUserController::class , 'unblock_user'])->name('admin.user.unblock');
         Route::get('/delete/{id?}' , [AdminUserController::class , 'delete'])->name('admin.user.delete');
+        Route::get('/cancelorder/{id?}' , [OrderController::class , 'cancel_order'])->name('order.cancel');
     });
     // Admin Account Setting
     Route::prefix('account')->group(function(){
@@ -173,6 +175,9 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/sent/{id?}' , [OrderController::class , 'sent_delivery'])->name('sent.delivery.order');
         Route::get('/pending' , [OrderController::class , 'pending'])->name('admin.order.pending');
         Route::get('/delivered_orders' , [OrderController::class , 'delivered'])->name('admin.order.delivered');
+        Route::get('/shipped_orders' , [OrderController::class , 'shipped'])->name('admin.order.shipped');
+        Route::get('/sent_orders' , [OrderController::class , 'sent'])->name('admin.order.sent');
+        Route::get('/cancelled_orders' , [OrderController::class , 'cancelled'])->name('admin.order.cancelled');
         Route::get('/view_label/{id?}' , [OrderController::class , 'view_label'])->name('label.view');
         Route::get('/download_label/{id?}' , [OrderController::class , 'download_label'])->name('label.download');
         Route::get('/delete/{id?}' , [AdminUserController::class , 'delete'])->name('admin.user.delete');

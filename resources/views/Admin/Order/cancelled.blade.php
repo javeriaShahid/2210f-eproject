@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 @section('title')
-Delivered Orders
+Pending Shippings
 @endsection
 
 @section('content')
@@ -59,8 +59,7 @@ Delivered Orders
                             <td>{{ $checkout->order_placed_date}}</td>
                             <td>{{ $checkout->delivery_date}}</td>
                             <td>{{ $checkout->payment_method}}</td>
-
-                            <td><a class="btn btn-success text-white" title="Parcel Delivered"><i class="bx bxs-badge-check"></i></a></td>
+                           <td><a class="btn btn-danger text-white" title="Parcel Cancelled"><i class="bx bxs-x-circle"></i></a></td>
 
                             <td>
                                 <a href="{{ route('label.view' , $checkout->id) }}" class="btn btn-warning"><i class='bx bxs-coupon'></i></a>
