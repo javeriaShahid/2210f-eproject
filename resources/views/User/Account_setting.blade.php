@@ -398,12 +398,12 @@ Profile</button>
  {{-- Start modal --}}
  <!-- Button trigger modal -->
 <!-- Button trigger modal -->
-<button type="button" class="primary-btn3 black-bg  hover-btn5 hover-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="primary-btn3 black-bg  hover-btn5 hover-white" data-bs-toggle="modal" data-bs-target="#addressModal">
   Select Address
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
