@@ -93,7 +93,7 @@ class ProductController extends Controller
                 'subcategory_id'      => $subcategory ,
                 'image'               => $mainImage ,
                 'color_code'          => $color ,
-                'sku'                 => $sku ,  
+                'sku'                 => $sku ,
                 'description'         => $description  ,
                 'brand_id'            => $brand ,
                 'shipping_fees'       => $shippingFees ,
@@ -101,7 +101,7 @@ class ProductController extends Controller
             ]);
             if($createProduct == true)
             {
-                
+
                 foreach($request->file('subimage') as $key => $value)
                 {
                     $subImages = time().'.'.$request->file('subimage')[$key]->getClientOriginalExtension();
@@ -111,7 +111,7 @@ class ProductController extends Controller
                         'image'        =>  $subImages
                     ]);
                 }
-    
+
             }
             if($createProduct == true && $createImage == true)
             {
@@ -155,16 +155,16 @@ class ProductController extends Controller
                 'category_id'         => $category ,
                 'subcategory_id'      => $subcategory,
                 'color_code'          => $color ,
-                'sku'                 => $sku ,  
+                'sku'                 => $sku ,
                 'description'         => $description  ,
                 'brand_id'            => $brand ,
                 'shipping_fees'       => $shippingFees ,
                 'delivery_duration'   => $delivery_duration
-                
+
             ]);
             if($updateProduct == true && $request->hasFile('subimage'))
             {
-                
+
                 foreach($request->file('subimage') as $key => $value)
                 {
                     $subImages = time().'.'.$request->file('subimage')[$key]->getClientOriginalExtension();
@@ -174,7 +174,7 @@ class ProductController extends Controller
                         'image'        =>  $subImages
                     ]);
                 }
-    
+
             }
             if($updateProduct == true || $updateImage == true || $createImage = true)
             {
@@ -239,7 +239,7 @@ class ProductController extends Controller
             return redirect()->back()->with('error','Failed to publish product');
         }
     }
-   
+
     public function discount($id = null){
         $data['productId']     = $id ;
         return view('Admin.Product.sale_price')->with('data' , $data);
@@ -250,7 +250,7 @@ class ProductController extends Controller
             'discounted_price'  => null ,
             'discounted_start_time' => null ,
             'discounted_end_time' => null ,
-            'discount_percentage' => null 
+            'discount_percentage' => null
            ]);
         if($published)
         {
@@ -273,13 +273,13 @@ class ProductController extends Controller
 
        $startDate       =   $request->startDate;
        $endDate         =   $request->endDate;
-       
+
        $add_discount    = $this->parentModel::where('id' , $id)->update([
         'sale_status'       => 1 ,
         'discounted_price'  => $price ,
         'discounted_start_time' => $startDate ,
         'discounted_end_time' => $endDate ,
-        'discount_percentage' => $discountPercent 
+        'discount_percentage' => $discountPercent
        ]);
        if($add_discount == true){
        return redirect(Route('product.index'))->with('success' , "Product Added to discount");

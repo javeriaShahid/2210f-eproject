@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImageController;
+use App\Http\Controllers\Admin\ResetPasswordController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,11 @@ use App\Http\Controllers\User\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+// Email and Password Verifications
+Route::post('/get_verification_code' , [ResetPasswordController::class , 'get_verification_code'])->name('get.verification.code');
+Route::post('/verify_code' , [ResetPasswordController::class , 'verify_code'])->name('verify.code');
+Route::post('/password_reset' , [ResetPasswordController::class , 'reset_password'])->name('password.reset');
+// End Email And Password Verifications
 Route::get('/', [HomeController::class, "index"])->name('user.index');
 Route::get('/about_us', [usercontroller::class, "about_us"])->name('about_us');
 Route::get('/accordion', [usercontroller::class, "accordion"])->name('accordion');
@@ -79,7 +84,6 @@ Route::get('/last_order/{id?}' , [Authcontroller::class ,'last_order_filter'])->
 Route::get('/order_placed' , [Checkoutcontroller::class , 'order_placed_view'])->name('checkout.done');
 Route::post('/order_tracking' , [Authcontroller::class , 'order_tracking'])->name('order.track');
 Route::post('/address/store' , [Authcontroller::class , 'create_address'])->name('address.create');
-
 });
 // End of User Middle Ware
 // End of user routes

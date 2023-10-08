@@ -281,33 +281,6 @@ to view or edit information.</p>
 <button type="button" class="primary-btn3 black-bg  hover-btn5 hover-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Reset Password
   </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" style="margin-top: 10px;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Password reset form</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form action="">
-          <input type="email" placeholder="enter your email">&nbsp;
-          <input type="text" style="display:none;" placeholder="verification code">&nbsp;
-          <div class="container" style="display: none">
-          <input type="text" placeholder="new password">&nbsp;
-          <input type="text" placeholder="confirm password">
-          </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-dark">Get code</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
 <button type="submit" class="primary-btn3 black-bg  hover-btn5 hover-white">Update
 Profile</button>
 <button class="primary-btn3 hover-btn5">Cancel</button>
@@ -315,6 +288,39 @@ Profile</button>
 </div>
 </div>
 </form>
+{{-- Reset Password Form --}}
+<div class="modal fade" id="exampleModal" style="margin-top: 10px;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Password reset form</h5>
+          <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div id="passwordResetNotify" style="display:none">
+                <div class="container-logo">
+                    <h1 class="text-center text-success">Password Changed</h1>
+                </div>
+                <div class="text text-center">Your Password Has been Changed</div>
+            </div>
+          <form id="resetForm">
+            @csrf
+          <input type="email"  id="emailContainer" name="verification_email" class="mt-3 mb-3" placeholder="enter your email">&nbsp;
+          <input type="text"  name="verification_code" style="display:none;" id="verificationContainer" class="mt-3 mb-3" placeholder="verification code">&nbsp;
+          <div id="passwordContainer" class="mt-3 mb-3" style="display: none">
+          <input type="text" name="password" placeholder="new password">&nbsp;
+          <input type="text" name="confirm_password" placeholder="confirm password">
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" id="submitButton" class="btn btn-dark">Get code</button>
+        </div>
+    </div>
+</div>
+</div>
+</form>
+{{-- MOdal and form ends here for verification --}}
 </div>
 </div>
 </div>
@@ -558,6 +564,8 @@ have received.</p>
 <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
 <script src="{{ asset('assets/css/custom/checkout.js') }}"></script>
 <script src="{{ asset('assets/css/custom/accountsetting.js') }}"></script>
+<script src="{{ asset('assets/css/custom/resetpassword.js') }}"></script>
+
 <script>
 
     let FindState             = "{{ route('state.get') }}";
@@ -570,7 +578,9 @@ have received.</p>
     let specificAddress   = "{{ route('specific.address') }}";
     let deleteAddress     = "{{ route('delete.address') }}";
     let createAddress     = "{{ route('address.create') }}";
-
+    let getCodeRoute      = "{{ route('get.verification.code') }}";
+    let verifyRoute       = "{{ route('verify.code') }}";  
+    let resetRoute        = "{{ route('password.reset') }}";
 </script>
 
 
