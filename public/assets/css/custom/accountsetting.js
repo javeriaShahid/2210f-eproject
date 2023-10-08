@@ -149,8 +149,41 @@ $(document).ready(function()
         }
 
     });
+    // Profile Update Code
 
-
+    let UpdateForm                     = $('#updateForm');
+    let user_email                     = $('input[name="email"]');
+    let full_name                      = $('input[name="name"]');
+    let user_name                      = $('input[name="username"]');
+    let phonecode                      = $('select[name="phonecode"]');
+    let contact_number                 = $('input[name="contact_number"]');
+    $(UpdateForm).submit(function(e){
+        if(user_email.val() == "")
+        {
+            e.preventDefault();
+            toastr['error']("User email is Required");
+        }
+        if(full_name.val() == "")
+        {
+            e.preventDefault();
+            toastr['error']("Name is Required");
+        }
+        if(user_name.val() == "")
+        {
+            e.preventDefault();
+            toastr['error']("User name is Required");
+        }
+        if(phonecode.val() == "")
+        {
+            e.preventDefault();
+            toastr['error']("Phone code is Required");
+        }
+        if(contact_number.val() == "")
+        {
+            e.preventDefault();
+            toastr['error']("Contact number is Required");
+        }
+    });
 
 
 

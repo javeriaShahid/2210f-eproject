@@ -72,7 +72,7 @@ class ResetPasswordController extends Controller
    public function reset_password(Request $request)
    {
               $email              = $request->verification_email;
-              $password           = Hash::make($request->password);
+              $password           = Hash::make($request->new_password);
               $updatePassword     = $this->parentModel::where('email' , $email)->update([
                 'password'        => $password ,
               ]);

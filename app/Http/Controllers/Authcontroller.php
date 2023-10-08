@@ -155,6 +155,15 @@ class Authcontroller extends Controller
         ]);
         if($updateUser == true || $updateImage == true)
         {
+            $userData     = User::where('id' , $id )->first();
+            if($userData->role == 1)
+            {
+                session()->put('admin' , $userData);
+            }
+            if($userData->role == 0)
+            {
+                session()->put('user' , $userData);
+            }
             return redirect()->back()->with('success' , 'Profile info has been updated');
         }
         else

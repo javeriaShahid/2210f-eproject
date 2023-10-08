@@ -6,10 +6,11 @@ $(document).ready(function(){
     let passwordContainer            =  $('#passwordContainer');
     let submitBtn                    =  $('#submitButton');
     let verificationForm             =  $('#resetForm');
-    let password                     =  $('input[name="password"]');
+    let password                     =  $('input[name="new_password"]');
     let confirmpassword              =  $('input[name="confirm_password"]');
     let verificationCode             =  $('input[name="verification_code"]');
     let successContainer             =  $('#passwordResetNotify');
+    let CloseBtnReset                =  $('.resetClose');
     // Getting Verification Email
    $(submitBtn).on('click',function(e){
     isValid = true ;
@@ -124,7 +125,7 @@ $(document).ready(function(){
             DataValid = false; 
             toastr['error']("Confirm Password is required");
         }
-        if(!confirmpassword.val() == password.val() )
+        if(confirmpassword.val() != password.val() )
         {
             e.preventDefault();
             DataValid = false ;
@@ -163,6 +164,17 @@ $(document).ready(function(){
 
     }
     // Reset Password Ended Here
+    // reseting form
+    $(CloseBtnReset).on('click' , function(e){
+        e.preventDefault();
+        submitBtn.show();
+        submitBtn.text("Get code");
+        emailContainer.show();
+        successContainer.hide();
+        $(verificationForm)[0].reset();
+        submitBtn.prop('disabled' , false);
+        emailContainer.prop('readonly' , false);
+    })
     }
 
 

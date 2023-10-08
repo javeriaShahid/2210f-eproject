@@ -88,7 +88,7 @@ Order</button>
 <div class="tab-content" id="v-pills-tabContent">
 <div class="tab-pane fade show active " id="v-pills-dashboard" role="tabpanel" aria-labelledby="v-pills-dashboard-tab">
 <div class="dashboard-area box--shadow">
-<p>Hello, <strong>{{ session()->get('user')['name'] }}</strong></p>
+<p>Hello, <strong>{{ $data['user']->name }}</strong></p>
 <p>From your My Account Dashboard you have the ability to view a snapshot of your recent
 account activity and update your account information. Select a link below to view or
 edit information.</p>
@@ -229,37 +229,38 @@ recent account activity and update your account information. Select a link below
 to view or edit information.</p>
 </div>
 <div class="form-wrapper">
-<form action="#">
+<form action="{{ route('profile.update' , $data['user']->id) }}" method="post" enctype="multipart/form-data" id="updateForm">
+    @csrf
 <div class="row">
     <div class="col-12 mb-25">
         <div class="form-inner">
             <label for="">Profile Image</label>
-        <input type="file" placeholder="">
+        <input type="file" name="image" placeholder="">
         </div>
         </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
-<input type="text" placeholder="Enter your first name*" value="{{ $data['user']->name }}">
+<input type="text" name="name" placeholder="Enter your first name*" value="{{ $data['user']->name }}">
 </div>
 </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
-<input type="text" placeholder="Enter your User name*" value="{{ $data['user']->username }}">
+<input type="text" name="username" placeholder="Enter your User name*" value="{{ $data['user']->username }}">
 </div>
 </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
 <div class="row">
-    <div class="col-md-3">
-        <select id="country">
+    <div class="col-md-3 col-3">
+        <select name="phonecode">
             <option value="{{ $data['user']->phone_code }}">{{ $data['user']->phone_code }}</option>
             @foreach ($data['country'] as $country)
                 <option value="{{ $country->phonecode }}">{{$country->phonecode}}</option>
             @endforeach
         </select>
     </div>
-    <div class="col-md-9">
-<input type="text" placeholder="Enter yout contact number" value="{{ $data['user']->contact_number }}">
+    <div class="col-md-9 col-6">
+   <input type="text" name="contact_number" placeholder="Enter yout contact number" value="{{ $data['user']->contact_number }}">
 
     </div>
 </div>
@@ -267,7 +268,7 @@ to view or edit information.</p>
 </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
-<input type="text" placeholder="Enter your email address*" value="{{ $data['user']->email }}">
+<input type="text" name="email" placeholder="Enter your email address*" value="{{ $data['user']->email }}">
 </div>
 </div>
 
@@ -294,7 +295,7 @@ Profile</button>
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Password reset form</h5>
-          <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button"   class="btn-close resetClose" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div id="passwordResetNotify" style="display:none">
@@ -308,12 +309,12 @@ Profile</button>
           <input type="email"  id="emailContainer" name="verification_email" class="mt-3 mb-3" placeholder="enter your email">&nbsp;
           <input type="text"  name="verification_code" style="display:none;" id="verificationContainer" class="mt-3 mb-3" placeholder="verification code">&nbsp;
           <div id="passwordContainer" class="mt-3 mb-3" style="display: none">
-          <input type="text" name="password" placeholder="new password">&nbsp;
+          <input type="text" name="new_password" placeholder="new password">&nbsp;
           <input type="text" name="confirm_password" placeholder="confirm password">
           </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary resetClose" data-bs-dismiss="modal">Close</button>
             <button type="submit" id="submitButton" class="btn btn-dark">Get code</button>
         </div>
     </div>
