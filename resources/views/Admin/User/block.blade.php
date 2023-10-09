@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 @section('title')
-All Users
+Blocked Users
 @endsection
 
 @section('content')
@@ -65,7 +65,11 @@ All Users
 
                     {{-- Modal ends --}}
                     @endforeach
-
+                    <tr>
+                        <td colspan="10">
+                            {{ $data['user']->links() }}
+                        </td>
+                    </tr>
                 </tbody>
               </table>
             </div>

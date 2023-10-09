@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 @section('title')
-Trashed Sub Images 
+Trashed Sub Images
 @endsection
 
 @section('content')
@@ -50,7 +50,11 @@ Trashed Sub Images
 
                     {{-- Modal ends --}}
                     @endforeach
-
+                    <tr>
+                        <td colspan="10">
+                            {{ $data['product']->links() }}
+                        </td>
+                    </tr>
                 </tbody>
               </table>
             </div>

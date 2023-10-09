@@ -34,6 +34,9 @@ Route::post('/password_reset' , [ResetPasswordController::class , 'reset_passwor
 // End Email And Password Verifications
 Route::get('/', [HomeController::class, "index"])->name('user.index');
 Route::get('/about_us', [usercontroller::class, "about_us"])->name('about_us');
+Route::get('/search_category/{id?}', [usercontroller::class, "search_category"])->name('search.category');
+Route::get('/subcategory_Search/{id?}', [usercontroller::class, "search_subcategory"])->name('search.subcategory');
+Route::post('/search', [usercontroller::class, "search"])->name('search');
 Route::get('/accordion', [usercontroller::class, "accordion"])->name('accordion');
 Route::get('/blog_details', [usercontroller::class, "blog_details"])->name('blog_details');
 Route::get('/blog', [usercontroller::class, "blog"])->name('blog');
@@ -56,6 +59,8 @@ Route::get('/registration', [usercontroller::class, "registration"])->name('regi
 Route::get('/Auth_register', [usercontroller::class, "Auth_register"])->name('Auth_register');
 Route::get('/admin/login',[usercontroller::class, "Auth_login"])->name('Auth_login');
 Route::get('/user/logout',[Authcontroller::class, "user_logout"])->name('user.logout');
+Route::get('/deactivate_account/{id?}' , [Authcontroller::class , 'remove_account'])->name('account.deactive');
+Route::get('/verifyemail/{id?}' , [Authcontroller::class , 'verify_email_address'])->name('verify.email');
 // States and City getting Routes
 Route::get('/state/{id?}' , [Authcontroller::class , 'get_state'])->name('state.get');
 Route::get('/city/{id?}' , [Authcontroller::class , 'get_city'])->name('city.get');

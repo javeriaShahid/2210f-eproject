@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
 {
     public $parentModel   = Subcategory::class;
     public $categoryModel = Category::class;
+    public $productModel  = Product::class;
+
     public function index(){
 
         $data['subcategory'] = $this->parentModel::withoutTrashed()->with('product' , 'category')->paginate(25);
@@ -41,11 +44,11 @@ class SubCategoryController extends Controller
             ]);
         }
          if($create == true){
-            return redirect(Route('subcategory.index'))->with('success' , 'Category Has Been Added');
+            return redirect(Route('subcategory.index'))->with('success' , 'Subcategory Has Been Added');
          }
          else
          {
-            return redirect()->back()->with('error'  , 'Failed to add Category');
+            return redirect()->back()->with('error'  , 'Failed to add Subcategory');
          }
 
     }
@@ -59,22 +62,22 @@ class SubCategoryController extends Controller
         ]);
 
          if($create == true){
-            return redirect(Route('subcategory.index'))->with('success' , 'Category Has Been Added');
+            return redirect(Route('subcategory.index'))->with('success' , 'Subcategory Has Been Added');
          }
          else
          {
-            return redirect()->back()->with('error'  , 'Failed to add Category');
+            return redirect()->back()->with('error'  , 'Failed to add Subcategory');
          }$name   = $request->name ;
 
         $create = $this->parentModel::where('id' , $id)->update([
             'name' => $name ,
         ]);
          if($create == true){
-            return redirect(Route('subcategory.index'))->with('success' , 'Category Has Been Updated');
+            return redirect(Route('subcategory.index'))->with('success' , 'Subcategory Has Been Updated');
          }
          else
          {
-            return redirect()->back()->with('error'  , 'Failed to update Category');
+            return redirect()->back()->with('error'  , 'Failed to update Subcategory');
          }
     }
     public function trash(){
@@ -82,28 +85,41 @@ class SubCategoryController extends Controller
         return view('Admin.Subcategory.trash')->with('data' , $data);
     }
     public function delete($id = null){
+        $Product    = $this->productModel::where('subcategory_id' , $id)->count();
+        $trashed    = $this->productModel::onlyTrashed('subcategory_id' , $id)->count();
+        if($trashed >= 1)
+        {
+            return redirect()->back()->with('error' , 'This Subcategory has products in trash in products section delete them first');
+        }
+        if($Product < 1){
         $delete  = $this->parentModel::where('id' , $id)->delete();
 
         if($delete == true)
         {
-            return redirect()->back()->with('success' , 'Category has been Sent To Trash');
+            return redirect()->back()->with('success' , 'Subcategory has been Sent To Trash');
         }
         else
         {
-            return redirect()->back()->with('error' , 'Failed to Send  Category To Trash');
+            return redirect()->back()->with('error' , 'Failed to Send  Subcategory To Trash');
 
         }
+       }
+       else
+       {
+        return redirect()->back()->with("error" , 'This Subcategory Has products must delete them first to delete the Subcategory');
+       }
+
     }
     public function destroy($id = null){
         $delete  = $this->parentModel::where('id' , $id)->forceDelete();
 
         if($delete == true)
         {
-            return redirect()->back()->with('success' , 'Category has been Deleted To Trash');
+            return redirect()->back()->with('success' , 'Subcategory has been Deleted To Trash');
         }
         else
         {
-            return redirect()->back()->with('error' , 'Failed to Delete Category To Trash');
+            return redirect()->back()->with('error' , 'Failed to Delete Subcategory To Trash');
 
         }
     }
@@ -112,11 +128,11 @@ class SubCategoryController extends Controller
 
         if($restore == true)
         {
-            return redirect()->back()->with('success' , 'Category has been Restored To Trash');
+            return redirect()->back()->with('success' , 'Subcategory has been Restored To Trash');
         }
         else
         {
-            return redirect()->back()->with('error' , 'Failed to Restore Category To Trash');
+            return redirect()->back()->with('error' , 'Failed to Restore Subcategory To Trash');
 
         }
     }

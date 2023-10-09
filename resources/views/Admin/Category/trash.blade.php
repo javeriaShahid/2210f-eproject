@@ -58,7 +58,11 @@ Trash Category
 
                     {{-- Modal ends --}}
                     @endforeach
-
+                    <tr>
+                        <td colspan="10">
+                            {{ $data['category']->links() }}
+                        </td>
+                    </tr>
                 </tbody>
               </table>
             </div>

@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\Subcategory;
+
 class CategoryController extends Controller
 {
-    public $parentModel  = Category::class;
-
+    public $parentModel   = Category::class;
+    public $productModel  = Product::class;
+    public $subcategories = Subcategory::class;
     public function index(){
 
         $data['category'] = $this->parentModel::with('product','subcategory')->withoutTrashed()->paginate(25);
@@ -62,16 +66,35 @@ class CategoryController extends Controller
         return view('Admin.Category.trash')->with('data' , $data);
     }
     public function delete($id = null){
-        $delete  = $this->parentModel::where('id' , $id)->delete();
-
-        if($delete == true)
-        {
-            return redirect()->back()->with('success' , 'Category has been Sent To Trash');
+        $Product              = $this->productModel::where('category_id' , $id)->count();
+        $trashedPro           = $this->productModel::onlyTrashed('category_id' , $id)->count();
+        $SubCategory          = $this->subcategories::where('category_id' , $id)->count();
+        $SubCategoryTrash     = $this->subcategories::onlyTrashed('category_id' , $id)->count();
+        if($Product >= 1){
+            return redirect()->back()->with('error' , 'Category has Products Delete them first');
+        }
+       else if($trashedPro >= 1){
+            return redirect()->back()->with('error' , 'Category has Products in Products Trash section Delete them first');
+        }
+       else if($SubCategory >= 1){
+            return redirect()->back()->with('error' , 'Category has Subcategories Delete them first');
+        }
+        else if($SubCategoryTrash >= 1){
+            return redirect()->back()->with('error' , 'Category has Subcategories in Subcategories Trash section Delete them first');
         }
         else
         {
-            return redirect()->back()->with('error' , 'Failed to Send  Category To Trash');
+            $delete  = $this->parentModel::where('id' , $id)->delete();
 
+            if($delete == true)
+            {
+                return redirect()->back()->with('success' , 'Category has been Sent To Trash');
+            }
+            else
+            {
+                return redirect()->back()->with('error' , 'Failed to Send  Category To Trash');
+
+            }
         }
     }
     public function destroy($id = null){

@@ -9,9 +9,12 @@ use App\Models\Product;
 use App\Models\Productimages;
 use App\Models\Subcategory;
 use App\Models\Brand;
+use App\Models\Checkout;
+
 class ProductController extends Controller
 {
     public  $parentModel      = Product::class ;
+    public  $orderModel       = Checkout::class;
     public  $imagesModel      = Productimages::class ;
     public  $categoryModel    = Category::class;
     public  $subcategoryModel = Subcategory::class;
@@ -190,6 +193,12 @@ class ProductController extends Controller
 
     public function delete($id = null)
     {
+        $Orders       = $this->orderModel::where('product_id' , $id)->count();
+        if($Orders >= 1)
+        {
+            return redirect()->back()->with('error' , 'This Product has orders cancel them first to delete the Product');
+        }
+        else{
         $delete       = $this->parentModel::where('id' , $id)->delete();
         $deleteImg    = $this->imagesModel::where('product_id' , $id)->delete();
         if($delete)
@@ -199,7 +208,7 @@ class ProductController extends Controller
         else
         {
             return redirect()->back()->with('error','Failed to delete product');
-        }
+        }}
     }
     public function restore($id = null)
     {

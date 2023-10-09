@@ -26,14 +26,16 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-    <link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
+
+
+    <link rel="icon" href="{{asset('assets/img/sm-logo.svg')}}" type="image/gif">
 
     <title>Register</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ asset("assets/img/sm-logo.svg") }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -78,7 +80,7 @@
               <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
-                   
+
                   </span>
                   <span class="app-brand-text demo text-body fw-bolder">
                     <img src="assets/img/dazzle-logo.png" height="50px" alt="">

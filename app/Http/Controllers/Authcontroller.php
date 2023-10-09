@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Checkout;
 use App\Models\Country;
 use Illuminate\Http\Request;
@@ -9,6 +10,8 @@ use App\Models\User;
 use App\Models\State;
 use App\Models\City;
 use App\Models\UserAddresses;
+use Carbon\Carbon;
+use Mail ;
 use Illuminate\Support\Facades\Hash;
 
 class Authcontroller extends Controller
@@ -19,6 +22,8 @@ class Authcontroller extends Controller
     public $stateModel       = State::class;
     public $addressModel     = UserAddresses::class;
     public $checkoutModel    = Checkout::class;
+    public $cartModel        = Cart::class;
+    public $mailClass        = Mail::class;
     public function login(Request $request){
         $email    = $request->email;
         $password = $request->password;
@@ -47,7 +52,7 @@ class Authcontroller extends Controller
             }
             else // nhi to yahan hame error de ke apne email ko verify karo
             {
-                return redirect()->back()->with("Error" , 'Please Verify Your Account');
+                return redirect()->back()->with("error" , 'Please Verify Your Account');
             }
        }
        else // or yahan agr woh first wale if ki condition false ho to fir hame redirect kare login mai orbole data nahi hai
@@ -67,32 +72,55 @@ class Authcontroller extends Controller
         $contact      =  $request->contact_number;
         $country_code =  $request->country_code;
 
-        $user_create  = $this->parentModel::create([
-            'name'            => $name ,
-            'username'        => $username ,
-            'password'        => $password ,
-            'email'           => $email ,
-            'contact_number'  => $contact ,
-            'phone_code'      => $country_code ,
-            'role'            => 0
-        ]);
+        $userCount    = $this->parentModel::where('email' , $email)->count();
+        $nameCount    = $this->parentModel::where('username' , $username)->count();
+        if($userCount < 1 && $nameCount < 1)
+        {
+            $user_create  = $this->parentModel::create([
+                'name'            => $name ,
+                'username'        => $username ,
+                'password'        => $password ,
+                'email'           => $email ,
+                'contact_number'  => $contact ,
+                'phone_code'      => $country_code ,
+                'role'            => 0
+            ]);
 
-        if($user_create == true)
-        {
-            if($request->hasFile('image'))
+            if($user_create == true)
             {
-                $image     =  $request->file('image');
-                $fileName  = time().'.'.$image->getClientOriginalExtension();
-                $image->move('assets/UserImages/', $fileName);
-                $updateImage   = $this->parentModel::where('id' , $user_create->id)->update([
-                    'profile_image' => $fileName,
-                ]);
+                if($request->hasFile('image'))
+                {
+                    $image     =  $request->file('image');
+                    $fileName  = time().'.'.$image->getClientOriginalExtension();
+                    $image->move('assets/UserImages/', $fileName);
+                    $updateImage   = $this->parentModel::where('id' , $user_create->id)->update([
+                        'profile_image' => $fileName,
+                    ]);
+                }
+                $emailData  = [
+                    'from'  => env('MAIL_FROM_ADDRESS'),
+                    'to'    => $email,
+                    'subject' => "Email Verification"
+                ];
+                $verifyRoute   = Route('verify.email' , $user_create->id);
+                $routeforhome  = Route('user.index');
+                $sendEmail               = $this->mailClass::send('EmailTemplates.verifyemail' , ['routeforhome'=>$routeforhome , 'email_data' => $emailData ,'verifyRoute' => $verifyRoute] , function($message) use ($emailData){
+                    $message->from($emailData['from'])->to($emailData['to'])->subject($emailData['subject']);
+                });
+                return redirect(Route('login.view'))->with('success' , 'Your Account has been register please check your email to get verified');
             }
-            return redirect(Route('login.view'))->with('success' , 'Your Account has been register please check your email to get verified');
+            else
+            {
+                return redirect()->back()->with('error' , 'Failed to add Your credientals');
+            }
         }
-        else
+        else if($userCount >=1)
         {
-            return redirect()->back()->with('error' , 'Failed to add Your credientals');
+            return redirect()->back()->with('error' , 'Email Already Exists use a different one');
+        }
+        else if($nameCount >=1)
+        {
+            return redirect()->back()->with('error' , 'User Name Already Exists use a different one');
         }
     }
 
@@ -267,6 +295,13 @@ class Authcontroller extends Controller
     }
     public function address_delete($id = null)
     {
+       $checkoutAddress   =  $this->checkoutModel::where('address_id' , $id)->count();
+       if($checkoutAddress >=1 )
+       {
+        return response()->json(["message" => "delete"]);
+       }
+       else
+       {
         $deleteAddress       = $this->addressModel::where('id' , $id)->forceDelete();
 
         if($deleteAddress == true)
@@ -277,6 +312,7 @@ class Authcontroller extends Controller
         {
             return response()->json(['message'  => 'error']);
         }
+       }
     }
     public function last_order_filter($id =  null)
     {
@@ -338,5 +374,57 @@ class Authcontroller extends Controller
         }
 
 
+    }
+    public function remove_account($id = null)
+    {
+
+            if(session()->has('admin'))
+            {
+                $removeAccount   = $this->parentModel::where("id" , $id )->forceDelete();
+                if($removeAccount)
+                {
+                session()->forget('admin');
+                return redirect(Route('Auth_login'))->with('error' , 'Your Account Has been removed You have no access to your account anymore');
+                }
+                else
+                {
+                    return redirect()->back()->with('error' , 'Failed to Remove Your account');
+                }
+            }
+            if(session()->has('user'))
+            {
+                $orderDelete     = $this->checkoutModel::where('user_id'  , $id)->forceDelete();
+                $cartDelete      = $this->cartModel::where('user_id'  , $id)->forceDelete();
+                if($orderDelete == true && $cartDelete == true)
+                {
+                    $removeAccount   = $this->parentModel::where("id" , $id )->forceDelete();
+                    if($removeAccount)
+                    {
+                        session()->forget('user');
+                        return redirect(Route('login.view'))->with('error' , 'Your Account Has been removed You have no access to your account anymore');
+                    }
+                    else
+                    {
+                        return redirect()->back()->with('error' , 'Failed to Remove Your account');
+                    }
+                }
+
+            }
+
+    }
+    public function verify_email_address($id = null)
+    {
+        $verify   =  $this->parentModel::where('id' , $id)->update([
+            'email_verified_at' => Carbon::now()
+        ]);
+        if($verify == true)
+        {
+            return redirect(Route('login.view'))->with('success' , 'Your Email has been verified');
+        }
+        else
+        {
+            return redirect(Route('login.view'))->with('error' , 'Failed to Verify your Email');
+
+        }
     }
 }

@@ -100,7 +100,11 @@ All Products
 
                     {{-- Modal ends --}}
                     @endforeach
-
+                    <tr>
+                        <td colspan="10">
+                            {{ $data['product']->links() }}
+                        </td>
+                    </tr>
                 </tbody>
               </table>
             </div>

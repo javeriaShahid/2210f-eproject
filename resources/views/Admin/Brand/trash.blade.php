@@ -55,7 +55,11 @@ Trashed Brands
 
                     {{-- Modal ends --}}
                     @endforeach
-
+                    <tr>
+                        <td colspan="10">
+                            {{ $data['brand']->links() }}
+                        </td>
+                    </tr>
                 </tbody>
               </table>
             </div>

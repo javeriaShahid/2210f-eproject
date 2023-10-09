@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Country;
+use App\Models\Product;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Subcategory;
 
 class usercontroller extends Controller
 {
-   public $countryModel    = Country::class ;
+   public $countryModel     = Country::class ;
+   public $productModel     = Product::class;
+   public $categoryModel    = Category::class;
+   public $subCategoryModel    = Subcategory::class;
+   public $brandModel       = Brand::class;
    public function Auth_register(){
     return view("admin.Auth_register");
    }
@@ -29,7 +37,7 @@ class usercontroller extends Controller
    public function blog(){
       return view("user.blog");
      }
-   
+
    public function category(){
       return view("user.category");
      }
@@ -45,35 +53,55 @@ class usercontroller extends Controller
    public function gift_card(){
       return view("user.gift_card");
      }
-   public function myaccount(){
-      return view("user.myaccount");
-     }
+
    public function our_brand(){
-      return view("user.our_brand");
+      $data['brand']     = $this->brandModel::paginate(25);
+      return view("user.our_brand")->with('data' , $data);
      }
    public function quick_view(){
       return view("user.quick_view");
      }
    public function slider(){
-      return view("user.slider");
-     }
+      $data['product']   = $this->productModel::withoutTrashed()->where('is_published' , 1)->paginate(25);
+      $data['title']     = "All Products";
+      return view("user.slider")->with('data' , $data);
+   }
+   public function search_category($id = null){
+      $data['product']   = $this->productModel::withoutTrashed()->where(['category_id' => $id , 'is_published' => 1])->paginate(25);
+      $category          = $this->categoryModel::where('id' , $id)->first();
+      $data['title']     = $category->name;
+      return view("user.slider")->with('data' , $data);
+   }
+   public function search_subcategory($id = null){
+      $data['product']   = $this->productModel::withoutTrashed()->where(['subcategory_id' => $id , 'is_published' => 1])->paginate(25);
+      $category          = $this->subCategoryModel::where('id' , $id)->first();
+      $data['title']     = $category->name;
+      return view("user.slider")->with('data' , $data);
+   }
+   public function search(Request $request){
+    $searchInput     = $request->search;
+    $data['product'] = $this->productModel::withoutTrashed()
+    ->where('is_published', 1)
+    ->where('name', 'LIKE', '%' . $searchInput . '%')
+    ->paginate(25);
+      $data['title']     = "Searched Product";
+      return view("user.slider")->with('data' , $data);
+   }
    public function standard(){
       return view("user.standard");
      }
-   public function wishlist(){
+    public function wishlist(){
       return view("user.wishlist");
      }
-   public function registration(){
+     public function login()
+     {
+        return view('User.login');
+     }
+     public function registration(){
       $data['country']    = $this->countryModel::all();
       return view("user.registration")->with('data'  , $data);
      }
 
-   public function login(){
-      return view("user.login");
-   }
-   public function Account_setting(){
-      return view("user.Account_setting");
-   }
 }
 
 

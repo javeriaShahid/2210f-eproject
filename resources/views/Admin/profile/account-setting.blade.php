@@ -51,7 +51,7 @@ Account Setting
                     accept="image/png, image/jpeg"
                   />
                 </label>
-         
+
 
                 <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
               </div>
@@ -105,7 +105,7 @@ Account Setting
                 <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
               </div>
             </div>
-          
+
               <div class="form-check mb-3">
                 <input
                   class="form-check-input"
@@ -117,8 +117,8 @@ Account Setting
                   >I confirm my account deactivation</label
                 >
               </div>
-              <a href="{{ route('admin.user.delete' , session()->get('admin')['id']) }}" class="btn btn-danger deactivate-account">Deactivate Account</a>
-           
+              <a href="{{ route('account.deactive' , session()->get('admin')['id']) }}" class="btn btn-danger deactivate-account">Deactivate Account</a>
+
           </div>
         </div>
       </div>

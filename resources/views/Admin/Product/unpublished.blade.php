@@ -83,9 +83,9 @@ All Products
                             @else
                             <td><button readonly class="btn btn-danger">Out of Stock</button></td>
                             @endif
-                          
+
                             <td><a href="{{ route('product.published.done' , $product->id) }}" class="btn btn-danger"><div class="bx bx-upload"></div></button></td>
-                           
+
                             <td><button class="btn" style="background-color:{{$product->color_code}}!important"></button></td>
                              <td>{{ $product->sku }}</td>
                             {{-- Modal button ends --}}
@@ -99,7 +99,11 @@ All Products
 
                     {{-- Modal ends --}}
                     @endforeach
-
+                    <tr>
+                        <td colspan="10">
+                            {{ $data['product']->links() }}
+                        </td>
+                    </tr>
                 </tbody>
               </table>
             </div>

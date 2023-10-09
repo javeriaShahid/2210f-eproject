@@ -2,40 +2,9 @@
 
 @extends('user.Layout')
 @section('content')
-
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/our-brand.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:35:39 GMT -->
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-
-<link href="assets/css/all.min.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link href="assets/css/fontawesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/boxicons.min.css">
-
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Dazzle</title>
-<link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
-</head>
-<body>
-
+@section('title')
+Our Brands
+@endsection
 
 <div class="breadcrumb-section">
 <div class="container">
@@ -56,146 +25,16 @@
 <h1>Brands</h1>
 </div>
 <div class="row border-remove row-cols-xl-5 row-cols-lg-4 row-cols-sm-3 row-cols-1 g-0">
+@foreach ($data['brand'] as $brand )
+
 <div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo1.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo2.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo3.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo4.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo5.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo6.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo7.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo8.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo9.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo10.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo11.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo12.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo13.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo14.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo15.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo16.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo17.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo18.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo19.png" alt>
-</a>
-</div>
-</div>
-<div class="col">
-<div class="client-logo">
-<a href="shop-list.html">
-<img src="assets/img/inner-page/brnads-logo20.png" alt>
-</a>
-</div>
-</div>
+    <div class="client-logo">
+    <a href="shop-list.html">
+    <img src="{{ asset('assets/BrandImages/' . $brand->image) }}" style="height: 100px ;width:200px ; object-fit:Contain;" alt>
+    </a>
+    </div>
+    </div>
+@endforeach
 </div>
 </div>
 </div>

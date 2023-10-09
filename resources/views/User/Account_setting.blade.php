@@ -284,7 +284,7 @@ to view or edit information.</p>
   </button>
 <button type="submit" class="primary-btn3 black-bg  hover-btn5 hover-white">Update
 Profile</button>
-<button class="primary-btn3 hover-btn5">Cancel</button>
+<a href="{{ route('account.deactive' , session()->get('user')['id']) }}" class="primary-btn3 text-white btn bg-danger hover-btn5">Remove Account</a>
 </div>
 </div>
 </div>
@@ -580,7 +580,7 @@ have received.</p>
     let deleteAddress     = "{{ route('delete.address') }}";
     let createAddress     = "{{ route('address.create') }}";
     let getCodeRoute      = "{{ route('get.verification.code') }}";
-    let verifyRoute       = "{{ route('verify.code') }}";  
+    let verifyRoute       = "{{ route('verify.code') }}";
     let resetRoute        = "{{ route('password.reset') }}";
 </script>
 

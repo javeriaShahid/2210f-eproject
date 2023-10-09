@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 @section('title')
-All Sub Images 
+All Sub Images
 @endsection
 
 @section('content')
@@ -52,7 +52,11 @@ All Sub Images
 
                     {{-- Modal ends --}}
                     @endforeach
-
+                    <tr>
+                        <td colspan="10">
+                            {{ $data['product']->links() }}
+                        </td>
+                    </tr>
                 </tbody>
               </table>
             </div>

@@ -119,7 +119,7 @@ $(country).on('change' , function(e){
 
     $.ajax({
         url: FindState +'/' + id ,
-        type:"Get" , 
+        type:"Get" ,
         success:function(response){
            let  statesData = '<option value="">Select State</option>';
             $.each(response , function(index , value){
@@ -137,7 +137,7 @@ $(state).on('change' , function(e){
     let id  = $(this).val();
     $.ajax({
         url: FindCity +'/' + id ,
-        type:"Get" , 
+        type:"Get" ,
         success:function(response){
            let  CityData = '<option value="">Select City</option>';
             $.each(response , function(index , value){
@@ -183,11 +183,11 @@ $(searchButton).on('click' , function(e){
                     </td>
                     <td class="d-flex">
                         <input type="hidden" name="addressId" value="${value.id}">
-                        <button class="btn plusButton text-white btn-warning"><i class="fa fa-plus"></i></button> | 
-                        <button class="btn btn-success editButton"><i class="fa fa-pencil"></i></button> | 
+                        <button class="btn plusButton text-white btn-warning"><i class="fa fa-plus"></i></button> |
+                        <button class="btn btn-success editButton"><i class="fa fa-pencil"></i></button> |
                         <button class="btn btn-danger removeButton"><i class="fa fa-trash"></i></button>
                     </td>
-                    
+
                 </tr>`
                 });
                 $(tableBody).html(tableData);
@@ -198,7 +198,7 @@ $(searchButton).on('click' , function(e){
 
 $(document).on('click' , '.removeButton' , function(e){
     e.preventDefault();
-    $(this).closest('tr').remove();
+    let tr = $(this).closest('tr');
     id  = $(this).siblings('input[name="addressId"]').val();
     $.ajax({
         url : deleteAddress + '/' + id ,
@@ -206,11 +206,19 @@ $(document).on('click' , '.removeButton' , function(e){
         success:function(response){
             if(response.message == 'success')
             {
+                tr.remove();
                 toastr['success']("Address has been deleted");
+                return false ;
+            }
+            if(response.message == 'delete')
+            {
+                toastr['error']("You have Orders placed with this Address cancel them or remove them to delete the address");
+                return false ;
             }
             else
             {
                 toastr['error']("Failed to delete address");
+                return false ;
             }
         }
     })

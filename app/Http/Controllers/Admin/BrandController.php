@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Brand;
+use App\Models\Product;
 class BrandController extends Controller
 {
     public $parentModel  = Brand::class;
-
+    public $productModel = Product::class;
     public function index()
     {
         $data['brand']     = $this->parentModel::withoutTrashed()->with('product')->paginate(25);
@@ -51,7 +52,7 @@ class BrandController extends Controller
             }
         }
     }
-    
+
     public function update(Request $request , $id = null)
     {
         $name    = $request->name ;
@@ -78,18 +79,32 @@ class BrandController extends Controller
 
     public function delete($id = null)
     {
-        $delete   = $this->parentModel::where('id' , $id)->delete();
-        if($delete == true)
+        $Product    = $this->productModel::where('brand_id' , $id)->count();
+        $trashed    = $this->productModel::onlyTrashed('brand_id' , $id)->count();
+        if($trashed >= 1)
         {
-            return redirect(Route('brand.index'))->with('success' , 'Brand has been deleted check the trash');
+            return redirect()->back()->with('error' , 'This brand has products in trash in products section delete them first');
+        }
+        if($Product < 1)
+        {
+            $delete   = $this->parentModel::where('id' , $id)->delete();
+            if($delete == true)
+            {   $deleteProduct    = $this->productModel::where('brand_id' , $id)->forceDelete();
+                return redirect(Route('brand.index'))->with('success' , 'Brand has been deleted check the trash');
+            }
+            else
+            {
+                return redirect(Route('brand.index'))->with('error' , 'Failed to delete Brand');
+            }
         }
         else
         {
-            return redirect(Route('brand.index'))->with('error' , 'Failed to delete Brand');
+            return redirect()->back()->with("error" , 'This Brand Has products must delete them first to delete the Brand');
         }
     }
     public function restore($id = null)
     {
+
         $restore   = $this->parentModel::where('id' , $id)->restore();
         if($restore == true)
         {
@@ -102,6 +117,7 @@ class BrandController extends Controller
     }
     public function destroy($id = null)
     {
+
         $destroy   = $this->parentModel::where('id' , $id)->forceDelete();
         if($destroy == true)
         {

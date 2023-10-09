@@ -87,7 +87,11 @@ Pending Shippings
 
                     {{-- Modal ends --}}
                     @endforeach
-
+                    <tr>
+                        <td colspan="10">
+                            {{ $data['checkout']->links() }}
+                        </td>
+                    </tr>
                 </tbody>
               </table>
             </div>

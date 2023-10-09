@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 @section('title')
-All Users
+Offline Users
 @endsection
 
 @section('content')
@@ -54,8 +54,8 @@ All Users
                             <td><a href="{{ route('admin.user.unblock' , $user->id) }}" class="btn btn-danger">Un Block</a></td>
                             @else
                             <td><a href="{{ route('admin.user.blocked' , $user->id) }}" class="btn btn-warning">Block</a></td>
-                            @endif                         
-                            <td><button  class="btn btn-danger">Offline</button></td>                           
+                            @endif
+                            <td><button  class="btn btn-danger">Offline</button></td>
                             <td> <a href="{{ route('admin.user.delete'  ,$user->id) }}" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
                         </tr>
 
@@ -65,7 +65,11 @@ All Users
 
                     {{-- Modal ends --}}
                     @endforeach
-
+                    <tr>
+                        <td colspan="10">
+                            {{ $data['user']->links() }}
+                        </td>
+                    </tr>
                 </tbody>
               </table>
             </div>
