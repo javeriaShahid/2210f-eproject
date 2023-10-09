@@ -91,12 +91,7 @@ $(document).ready(function()
             isValid = false ;
             toastr['error']("Country is required");
         }
-        if($(city).val() == "")
-        {
-            e.preventDefault();
-            isValid = false ;
-            toastr['error']("City is required");
-        }
+      
         if($(state).val() == "")
         {
             e.preventDefault();
@@ -126,6 +121,9 @@ $(document).ready(function()
                             <tr>
                             <td>
                                 ${value.id}
+                            </td>
+                            <td>
+                                ${value.addressline1}
                             </td>
                             <td>
                               ${value.countries.name}

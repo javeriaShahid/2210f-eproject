@@ -45,8 +45,8 @@ All Orders
                     <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>#{{ $checkout->tracking_id }}</td>
-                            <td>{{ $checkout->user->name }}</td>
-                            <td>{{ $checkout->user->email }}</td>
+                            <td>{{ $checkout->customer_name }}</td>
+                            <td>{{ $checkout->customer_email }}</td>
                             <td><img src="{{ asset('assets/Productimages/'.$checkout->product->image) }}" style="width: 40px; height:40px ; object-fit:contain" alt=""></td>
                             <td>{{ $checkout->product->name }}</td>
                             <td>PKR,{{ $checkout->total_price }}</td>

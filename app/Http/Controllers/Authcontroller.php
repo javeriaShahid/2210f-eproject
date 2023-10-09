@@ -259,8 +259,9 @@ class Authcontroller extends Controller
 
         if($createAddress == true)
         {
-            $data['user']       = $this->parentModel::where('id' , $createAddress->user_id)->with('address')->get();
-            return response()->json(['message' => 'success' , 'userdata' => $data['user']]);
+            $data['user']          = $this->parentModel::where('id' , $createAddress->user_id)->with('address')->get();
+            $data['address']       = $this->addressModel::where('user_id' , $createAddress->user_id)->with('countries')->get();
+            return response()->json(['message' => 'success' , 'userdata' => $data['user'] , 'address' => $data['address']]);
         }
         else
         {

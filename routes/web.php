@@ -92,7 +92,10 @@ Route::post('/address/store' , [Authcontroller::class , 'create_address'])->name
 });
 // End of User Middle Ware
 // End of user routes
-
+// Label Controller
+Route::get('/view_label/{id?}' , [OrderController::class , 'view_label'])->name('label.view');
+Route::get('/download_label/{id?}' , [OrderController::class , 'download_label'])->name('label.download');
+// Label End Controller
 Route::prefix('admin')->middleware('admin')->group(function(){
 
     Route::get('/dashboard', [DashboardController::class, "index"])->name('admin.dashboard');
@@ -190,8 +193,6 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/shipped_orders' , [OrderController::class , 'shipped'])->name('admin.order.shipped');
         Route::get('/sent_orders' , [OrderController::class , 'sent'])->name('admin.order.sent');
         Route::get('/cancelled_orders' , [OrderController::class , 'cancelled'])->name('admin.order.cancelled');
-        Route::get('/view_label/{id?}' , [OrderController::class , 'view_label'])->name('label.view');
-        Route::get('/download_label/{id?}' , [OrderController::class , 'download_label'])->name('label.download');
         Route::get('/delete/{id?}' , [AdminUserController::class , 'delete'])->name('admin.user.delete');
 
     });

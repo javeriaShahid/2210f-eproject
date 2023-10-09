@@ -48,6 +48,8 @@ class Checkoutcontroller extends Controller
             $cartId           = $request->cart_ids ;
             $quantity         = $request->cart_quantity ;
             $payment_method   = $request->payment_method;
+            $customer_name    = $request->name;
+            $customer_email   = $request->email;
             // ADDRESS Variables
             $addressId        = $request->address_id;
             $streetAddress1   = $request->streetaddress1;
@@ -125,7 +127,9 @@ class Checkoutcontroller extends Controller
                     'delivery_date'      => $finalDate[$key],
                     'payment_method'     => $payment_method ,
                     'tracking_id'        => $trackingId ,
-                    'shipping_fees'      => $shippingFees[$key]
+                    'shipping_fees'      => $shippingFees[$key] ,
+                    'customer_name'      => $customer_name ,
+                    'customer_email'     => $customer_email
 
                 ]);
                 $data['checkout'][] = $createCheckout;

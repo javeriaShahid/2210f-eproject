@@ -17,8 +17,8 @@ return new class extends Migration
             $table->longText('addressline1')->nullable();
             $table->longText('addressline2')->nullable();
             $table->unsignedBigInteger('country');
-            $table->unsignedBigInteger('state');
-            $table->unsignedBigInteger('city');
+            $table->unsignedBigInteger('state')->nullable();
+            $table->unsignedBigInteger('city')->nullable();
             $table->string('postalcode');
             $table->string('phone_number1')->nullable();
             $table->string('phone_number2')->nullable();

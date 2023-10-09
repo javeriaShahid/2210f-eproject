@@ -415,6 +415,7 @@ Profile</button>
                 <table class="table  w-100">
                     <tr>
                         <th>Id </th>
+                        <th>Address line </th>
                         <th>Country</th>
                         <th>Action</th>
                     </tr>
@@ -423,6 +424,9 @@ Profile</button>
           <tr>
             <td>
             {{$address->id }}
+            </td>
+            <td>
+            {{$address->addressline1 }}
             </td>
             <td>
               {{ $address->countries->name }}

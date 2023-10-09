@@ -20,7 +20,9 @@ class Checkout extends Model
         'is_delivered',
         'product_id',
         'shipping_fees',
-        'quantity'
+        'quantity' ,
+        'customer_name' ,
+        'customer_email'
 
       ];
     public function product()

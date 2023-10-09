@@ -42,8 +42,8 @@ Checkout Products
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title" id="exampleModalLabel">Address Management</h5>
+          <button type="button" class="btn-close closeAddress" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
 
@@ -128,6 +128,9 @@ Checkout Products
                             Sr.no
                         </th>
                         <th>
+                            Address line
+                        </th>
+                        <th>
                             Country Name
                         </th>
                         <th>
@@ -157,19 +160,19 @@ Checkout Products
 <div class="col-lg-6">
 <div class="form-inner">
 <label>Full Name</label>
-<input type="text" name="name" placeholder="Your Full name">
+<input type="text" name="name" placeholder="Your Full name" value="{{ session()->get('user')['name'] }}">
 </div>
 </div>
 <div class="col-lg-6">
 <div class="form-inner">
 <label>Email Address</label>
-<input type="text" name="email" placeholder="Your Email address">
+<input type="text" name="email" placeholder="Your Email address"  value="{{ session()->get('user')['email'] }}">
 </div>
 </div>
 <div class="col-12">
 <div class="form-inner">
 <label>Country</label>
-<select name="country" id="">
+<select name="country" id="checkout_country">
     <option value="">Select Your Country</option>
     @foreach ($data['country'] as $country )
         <option value="{{ $country->id }}">{{ $country->name }}</option>
@@ -180,7 +183,7 @@ Checkout Products
 <div class="col-12">
 <div class="form-inner">
 <label>State</label>
-<select name="state" id="">
+<select name="state" id="checkout_state">
     <option value="">Select Country First</option>
 </select>
 </div>
@@ -188,7 +191,7 @@ Checkout Products
 <div class="col-12">
 <div class="form-inner">
 <label>City</label>
-<select name="city" id="">
+<select name="city" id="checkout_city">
     <option value="">Select State First</option>
 </select>
 </div>
@@ -365,6 +368,7 @@ $lastDeliveryDateString = $lastDeliveryDate->toDateString();
     let specificAddress   = "{{ route('specific.address') }}";
     let FindState         = "{{ route('state.get') }}";
     let FindCity          = "{{ route('city.get') }}";
+    let accountRoute      = "{{ route('myaccount') }}";
 </script>
 
 @endsection

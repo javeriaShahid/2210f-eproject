@@ -25,8 +25,8 @@
     <!-- float:left; position:relative ; bottom:90px  -->
     <ul style=" margin:10px; padding:0;" >
         <li><span style="font-weight: bold;position:relative; right:10px;"><u>Reciever's Details</u></span></li>
-        <li style="color: orangered;">Name: <span style="color: black;">{{ $order->user->name }}</span></li>
-        <li style="color: orangered;">Email: <span style="color: black;">{{ $order->user->email }}</span></li>
+        <li style="color: orangered;">Name: <span style="color: black;">{{ $order->customer_name }}</span></li>
+        <li style="color: orangered;">Email: <span style="color: black;">{{ $order->customer_email }}</span></li>
         <li  style="color: orangered;">Contact: <span style="color: black;">{{ $order->user->phone_code }}  {{ $order->user->contact_number }}</span></li>
         <li  style="color: orangered;">Address: <span style="color: black; font-size:13px;">{{ $order->address->addressline1 }}</span></li>
     </ul>

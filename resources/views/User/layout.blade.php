@@ -239,7 +239,10 @@ Log In
 <a href="contact">Contact Us</a>
 </li>
 @if(session()->has('user'))
-<li>
+    <li>
+    <a href="{{ route('checkout') }}">My Orders</a>
+    </li>
+    <li>
     <a href="{{ route('myaccount') }}">My account</a>
     </li>
     @endif
@@ -314,6 +317,7 @@ Log In
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         @if(session()->has('user'))
         <li><a class="dropdown-item" href="{{ route('myaccount')}}">My Account</a></li>
+        <li><a class="dropdown-item" href="{{ route('checkout')}}">My Orders</a></li>
         <li><a class="dropdown-item" href="{{ route('user.logout') }}">Logout</a></li>
         @else
         <li><a class="dropdown-item" href="{{ route('login.view') }}">Sign In</a></li>

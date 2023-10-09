@@ -50,7 +50,13 @@ $(createButton).on('click' , function(e){
 
     }
 });
-
+$('.closeAddress').on('click' , function(e){
+    e.preventDefault();
+    $(searchContainer).show();
+    $(createFormContainer).hide();
+    $(tableContainer).hide();
+    $(createButton).text("Create");
+});
 $(addAddressButton).on('click' , function(e){
     e.preventDefault();
     isValid  = true ;
@@ -78,12 +84,7 @@ $(addAddressButton).on('click' , function(e){
         isValid = false;
         toastr['error']("State is required ");
     }
-    if(city.val() == "")
-    {
-        e.preventDefault();
-        isValid = false;
-        toastr['error']("City is required ");
-    }
+ 
     if(postal.val() == "")
     {
         e.preventDefault();
@@ -101,6 +102,35 @@ $(addAddressButton).on('click' , function(e){
                     if(response.message == "success")
                     {
                         toastr['success']('Address has been added');
+                        $(createFormContainer).hide();
+                        $(createForm)[0].reset();
+                        $(tableContainer).show();
+                        $(addAddressButton).hide();
+                        $(createButton).text("Create");
+                        tableData  = "" ;
+                        $(response.address).each(function(index , value){
+                          
+                            tableData +=`
+                            <tr>
+                            <td>
+                                ${value.id}
+                            </td>
+                            <td>
+                            ${value.addressline1}
+                           </td>
+                            <td>
+                              ${value.countries.name}
+                            </td>
+                            <td class="d-flex">
+                                <input type="hidden" name="addressId" value="${value.id}">
+                                <button class="btn plusButton text-white btn-warning"><i class="fa fa-plus"></i></button> |
+                                <a href="${accountRoute}" class="btn btn-success editButton"><i class="fa fa-pencil"></i></a> |
+                                <button class="btn btn-danger removeButton"><i class="fa fa-trash"></i></button>
+                            </td>
+        
+                        </tr>`
+                        });
+                        $(tableBody).html(tableData);
                     }
                     else
                     {
@@ -179,12 +209,15 @@ $(searchButton).on('click' , function(e){
                         ${value.id}
                     </td>
                     <td>
+                        ${value.addressline1}
+                    </td>
+                    <td>
                       ${value.countries.name}
                     </td>
                     <td class="d-flex">
                         <input type="hidden" name="addressId" value="${value.id}">
                         <button class="btn plusButton text-white btn-warning"><i class="fa fa-plus"></i></button> |
-                        <button class="btn btn-success editButton"><i class="fa fa-pencil"></i></button> |
+                        <a href="${accountRoute}" class="btn btn-success editButton"><i class="fa fa-pencil"></i></a> |
                         <button class="btn btn-danger removeButton"><i class="fa fa-trash"></i></button>
                     </td>
 
@@ -253,7 +286,10 @@ $(document).on('click' , '.plusButton' , function(e){
 });
 
 // Checkout Form Validation
-let checkoutButton    = $('#checkoutBtn')
+let checkoutButton     = $('#checkoutBtn');
+let checkout_country   = $('#checkout_country');
+let checkout_state     = $('#checkout_state');
+let checkout_city      = $('#checkoutBtn');
 $(checkoutButton).on('click'  , function(e){
     if(name.val() == "")
     {
@@ -265,20 +301,15 @@ $(checkoutButton).on('click'  , function(e){
         e.preventDefault();
         toastr['error']("Email Field Is Required");
     }
-    if(country.val() == "")
+    if(checkout_country.val() == "")
     {
         e.preventDefault();
         toastr['error']("Country Field Is Required");
     }
-    if(state.val() == "")
+    if(checkout_state.val() == "")
     {
         e.preventDefault();
         toastr['error']("State Field Is Required");
-    }
-    if(city.val() == "")
-    {
-        e.preventDefault();
-        toastr['error']("City Field Is Required");
     }
     if(streetAddress1.val() == "")
     {
