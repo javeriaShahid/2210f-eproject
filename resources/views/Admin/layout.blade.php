@@ -347,6 +347,34 @@
                 </li>
               </li>
               {{-- End  --}}
+              <li class="menu-header small text-uppercase"><span class="menu-header-text">Carousel Management</span></li>
+              <!-- Forms -->
+              <li class="menu-item">
+                  <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                      <i class="menu-icon tf-icons bx bx-camera"></i>
+                      <div data-i18n="Layouts">Carousel Management</div>
+                    </a>
+
+                    <ul class="menu-sub">
+
+                      <li class="menu-item">
+                          <a href="{{ route('admin.carouselsetting.index') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-collection"></i>
+                              <div data-i18n="Basic">All</div>
+                            </a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="{{ route('admin.carouselsetting.create') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-plus"></i>
+                              <div data-i18n="Basic">Create</div>
+                            </a>
+                      </li>
+
+                    </ul>
+                  </li>
+                </li>
+                {{-- End  --}}
               {{-- Users Managment --}}
                  <!-- Forms & Tables -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">SMTP Mail Management</span></li>
@@ -355,7 +383,7 @@
                 <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-envelope"></i>
-                    <div data-i18n="Layouts">EMAILS</div>
+                    <div data-i18n="Layouts">Emails Management</div>
                   </a>
 
                   <ul class="menu-sub">

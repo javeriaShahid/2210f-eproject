@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImageController;
 use App\Http\Controllers\Admin\MailSettingController;
+use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\ResetPasswordController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -205,6 +206,15 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/edit/{id?}' , [MailSettingController::class , 'edit'])->name('admin.mailsetting.edit');
         Route::get('/delete/{id?}' , [MailSettingController::class , 'destroy'])->name('admin.mailsetting.delete');
         Route::get('/change_status' , [MailSettingController::class , 'change_status'])->name('admin.mailsetting.change_status');
+
+    });
+    Route::prefix('/carousel')->group(function(){
+        Route::get('/' , [CarouselController::class , 'index'])->name('admin.carouselsetting.index');
+        Route::get('/create' , [CarouselController::class , 'create'])->name('admin.carouselsetting.create');
+        Route::post('/store/{id?}' , [CarouselController::class , 'store'])->name('admin.carouselsetting.store');
+        Route::get('/edit/{id?}' , [CarouselController::class , 'edit'])->name('admin.carouselsetting.edit');
+        Route::get('/delete/{id?}' , [CarouselController::class , 'destroy'])->name('admin.carouselsetting.delete');
+        Route::get('/change_status' , [CarouselController::class , 'change_status'])->name('admin.carouselsetting.change_status');
 
     });
 
