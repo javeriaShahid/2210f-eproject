@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImageController;
+use App\Http\Controllers\Admin\MailSettingController;
 use App\Http\Controllers\Admin\ResetPasswordController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -194,6 +195,15 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/sent_orders' , [OrderController::class , 'sent'])->name('admin.order.sent');
         Route::get('/cancelled_orders' , [OrderController::class , 'cancelled'])->name('admin.order.cancelled');
         Route::get('/delete/{id?}' , [AdminUserController::class , 'delete'])->name('admin.user.delete');
+
+    });
+    // SMtp Mail Settings
+    Route::prefix('/mail')->group(function(){
+        Route::get('/' , [MailSettingController::class , 'index'])->name('admin.mailsetting.index');
+        Route::get('/create' , [MailSettingController::class , 'create'])->name('admin.mailsetting.create');
+        Route::post('/store/{id?}' , [MailSettingController::class , 'store'])->name('admin.mailsetting.store');
+        Route::get('/edit/{id?}' , [MailSettingController::class , 'edit'])->name('admin.mailsetting.edit');
+        Route::get('/delete/{id?}' , [MailSettingController::class , 'destroy'])->name('admin.mailsetting.delete');
 
     });
 
