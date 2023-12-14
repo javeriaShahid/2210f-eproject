@@ -98,7 +98,7 @@ class Authcontroller extends Controller
                     ]);
                 }
                 $emailData  = [
-                    'from'  => env('MAIL_FROM_ADDRESS'),
+                    'from'  => config('mail.mailers.smtp.username'),
                     'to'    => $email,
                     'subject' => "Email Verification"
                 ];

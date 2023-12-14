@@ -46,4 +46,5 @@ smtp_user.val(mail_settings.smtp_user);
 smtp_password.val(mail_settings.smtp_password);
 }
 
+
 });

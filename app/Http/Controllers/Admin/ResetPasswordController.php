@@ -23,7 +23,7 @@ class ResetPasswordController extends Controller
                 $verificationCode        = rand(000000 , 999999);
                 $routeForHome            = Route('user.index');
                 $emailData               = [
-                    'from'               => env('MAIL_FROM_ADDRESS'),
+                    'from'               => config('mail.mailers.smtp.username'),
                     'to'                 => $email ,
                     'subject'            => "Email Verification" ,
                 ];

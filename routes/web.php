@@ -204,6 +204,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::post('/store/{id?}' , [MailSettingController::class , 'store'])->name('admin.mailsetting.store');
         Route::get('/edit/{id?}' , [MailSettingController::class , 'edit'])->name('admin.mailsetting.edit');
         Route::get('/delete/{id?}' , [MailSettingController::class , 'destroy'])->name('admin.mailsetting.delete');
+        Route::get('/change_status' , [MailSettingController::class , 'change_status'])->name('admin.mailsetting.change_status');
 
     });
 

@@ -103,18 +103,12 @@ All SMTP Servers
                             <td>{{ $mail->smtp_email }}</td>
                             <td>{{ $mail->smtp_server }}</td>
                             <td>{{ $mail->smtp_port }}</td>
-                            @if($mail->status == "0")
                             <td><label class="switch">
-                                <input type="checkbox" >
-                                <span class="slider round"></span>
-                              </label></td>
-                            @else
-                            <td><label class="switch">
-                                <input type="checkbox" checked>
-                                <span class="slider round"></span>
-                              </label></td>
-                            @endif
 
+                                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                                <input type="checkbox" @if($mail->status == "0" ) @else checked @endif name="status" data-value = "{{$mail->id}}">
+                                <span class="slider round"></span>
+                              </label></td>
 
                             {{-- Modal button ends --}}
                             <td><a href="{{ route('admin.mailsetting.edit' , $mail->id) }}" class="btn btn-success"><i class="bx bx-pencil"></i></a> | <a href="{{ route('admin.mailsetting.delete' , $mail->id) }}" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
@@ -158,8 +152,48 @@ All SMTP Servers
 <!-- Page JS -->
 <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
 {{-- custom --}}
-<script src="{{ asset('assets/css/custom/mailsetting.js') }}"></script>
+
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script>
+   $(document).ready(function(){
+   let changeStatusUrl = "{{route('admin.mailsetting.change_status')}}" ;
+   let statusCheckBox  = $('input[name="status"]');
+   let csrfToken       = $('input[name="csrf_token"]');
+
+    // Changing Status
+    $(statusCheckBox).on('change' , function(e){
+    e.preventDefault()
+    let statusValue   = $(this).prop('checked') == true ? 1 : 0 ;
+    let idValue       = $(this).attr('data-value');
+    let currentStatus = $(this);
+        console.log(csrfToken.val());
+    $.ajax({
+        url : changeStatusUrl ,
+        type : 'Get' ,
+        data : { id : idValue , status : statusValue} ,
+
+        success:function(response){
+            if(response.status == true ){
+                e.preventDefault()
+                toastr['success']("Email has been Activated");
+                $(statusCheckBox).not(currentStatus).prop('checked', false);
+            }
+            if(response.status == false){
+                e.preventDefault()
+                toastr['error']("Failed to Activate Status");
+                currentStatus.prop('checked' , false);
+            }
+            if(response.status == "required"){
+                e.preventDefault()
+                toastr['error']("Failed to Change Status You Must Active Atleast 1 Email Server");
+                currentStatus.prop('checked' , true);
+            }
+        }
+    });
+
+    });
+   });
+</script>
 @endsection

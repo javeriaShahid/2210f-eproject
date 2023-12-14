@@ -27,7 +27,13 @@ class MailSettingController extends Controller
 
     public function store(Request $request , $id = null ){
         $data      = $request->all();
+        $checkAllStatus = $this->parentModel::where('status' , 1 )->count();
         $storeSmtp = $this->parentModel::updateOrCreate(['id' => $id ] , $data);
+        if($checkAllStatus < 1){
+            $unactiveOthers = $this->parentModel::where('id' , $storeSmtp['id'])->update([
+                'status' => 1
+            ]);
+        }
         if($storeSmtp){
             return redirect()->route($this->parentRoute.'.index')->with('success' , 'Smtp Server information has been saved');
         }
@@ -45,4 +51,28 @@ class MailSettingController extends Controller
         }
     }
 
+    public function change_status(Request $request){
+        $data         = $request->all();
+        $checkAllStatus = $this->parentModel::where('status' , 1 )->count();
+
+        $updateStatus = $this->parentModel::where('id' , $data['id'])->update([
+            'status' => $data['status']
+        ]);
+        $unactiveOthers = $this->parentModel::where('id' , '!=' , $data['id'])->update([
+            'status' => 0
+        ]);
+
+        if ($checkAllStatus <= 1 && $data['status'] == 0) {
+            return response()->json(['status' => 'required']);
+        }
+        else {
+            if ($updateStatus) {
+                return response()->json(['status' => true]);
+            }
+             else {
+                return response()->json(['status' => false]);
+            }
+        }
+
+    }
 }
