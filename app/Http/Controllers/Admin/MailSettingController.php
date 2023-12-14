@@ -63,6 +63,10 @@ class MailSettingController extends Controller
         ]);
 
         if ($checkAllStatus <= 1 && $data['status'] == 0) {
+
+            $updateStatus = $this->parentModel::where('id' , $data['id'])->update([
+                'status' =>1
+            ]);
             return response()->json(['status' => 'required']);
         }
         else {
