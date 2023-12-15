@@ -109,7 +109,7 @@ if($action == "edit")
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script>
     let action = '{{ $action }}' ;
-    let mail_settings = <?php echo isset($data['carousel']) && $data['carousel'] ? json_encode($data['carousel']) : 0 ?>
+    let carousel_settings = <?php echo isset($data['carousel']) && $data['carousel'] ? json_encode($data['carousel']) : 0 ?>
 
 </script>
 @endsection

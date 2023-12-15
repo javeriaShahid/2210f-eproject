@@ -32,6 +32,8 @@ class CarouselController extends Controller
 
     public function store(Request $request , $id = null ){
         $data = $request->all();
+        $checkAllStatus = $this->parentModel::where('status' , 1 )->count();
+
         if ($request->hasFile('image')) {
             $fileName = time().'.'.$data['image']->getClientOriginalExtension();
             $data['image']->move('carouselImages/', $fileName);
@@ -43,7 +45,7 @@ class CarouselController extends Controller
             $existingData->image = $data['image'];
             }
             $existingData->update($data);
-            if($storeData){
+            if($existingData){
                 return redirect()->route($this->parentRoute.'.index')->with('success' , 'Carousel Data has been updated');
             }
             else{
@@ -52,6 +54,13 @@ class CarouselController extends Controller
 
         } else {
             $storeData = $this->parentModel::create($data);
+
+            if($checkAllStatus < 1){
+                $unactiveOthers = $this->parentModel::where('id' , $storeData['id'])->update([
+                    'status' => 1
+                ]);
+            }
+
             if($storeData){
                 return redirect()->route($this->parentRoute.'.index')->with('success' , 'Carousel Data has been stored');
             }
@@ -61,5 +70,39 @@ class CarouselController extends Controller
         }
 
 
+    }
+    public function change_status(Request $request){
+        $data         = $request->all();
+        $checkAllStatus = $this->parentModel::where('status' , 1 )->count();
+
+        $updateStatus = $this->parentModel::where('id' , $data['id'])->update([
+            'status' => $data['status']
+        ]);
+    
+        if ($checkAllStatus <= 1 && $data['status'] == 0) {
+
+            $updateStatus = $this->parentModel::where('id' , $data['id'])->update([
+                'status' =>1
+            ]);
+            return response()->json(['status' => 'required']);
+        }
+        else {
+            if ($updateStatus) {
+                return response()->json(['status' => true]);
+            }
+             else {
+                return response()->json(['status' => false]);
+            }
+        }
+
+    }
+    public function destroy($id = null ){
+        $delete = $this->parentModel::where(['id' => $id ])->delete();
+        if($delete){
+            return redirect()->back()->with('success' , ' Carousel Information has been Deleted');
+        }
+        else{
+            return redirect()->back()->with('error' , 'Failed To Delete Carousel Information');
+        }
     }
 }

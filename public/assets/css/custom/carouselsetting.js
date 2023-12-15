@@ -51,13 +51,13 @@ $(document).ready(function(){
 
     });
 
-    // if(action == "edit"){
-    // smtp_email.val(mail_settings.smtp_email);
-    // smtp_server.val(mail_settings.smtp_server);
-    // smtp_port.val(mail_settings.smtp_port);
-    // smtp_user.val(mail_settings.smtp_user);
-    // smtp_password.val(mail_settings.smtp_password);
-    // }
+    if(action == "edit"){
+    title.val(carousel_settings.main_title);
+    tag_1.val(carousel_settings.tag_1);
+    tag_2.val(carousel_settings.tag_2);
+    category_id.val(carousel_settings.category_id);
+    $(description).val(carousel_settings.description);
+    }
 
 
     });

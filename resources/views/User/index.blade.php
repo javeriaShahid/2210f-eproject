@@ -5,106 +5,41 @@
 @section('title')
 Home
 @endsection
-
+@php
+$carousel  = \App\Models\CarouselSetting::where('status' , 1)->get();
+@endphp
 <div class="banner-section">
 <div class="container-fluid p-0">
 <div class="row">
 <div class="col-lg-12">
 <div class="swiper banner1-slider">
 <div class="swiper-wrapper">
+@foreach($carousel as $items)
 <div class="swiper-slide">
 <div class="banner-wrapper">
 <div class="banner-left">
 <img src="assets/img/home1/icon/banner-vector1.svg" alt class="banner-vector1">
 <img src="assets/img/home1/icon/banner-vector2.svg" alt class="banner-vector2">
 <img src="assets/img/home1/icon/banner-vector3.svg" alt class="banner-vector3">
+
 <div class="banner-content">
 <div class="discount">
 <img src="assets/img/home1/discount-bg.svg" alt>
-<p><strong>25% </strong>OFF</p>
+<p><strong>{{$items->tag_1}} </strong>{{$items->tag_2}} </p>
 </div>
-<h1>Healthy skin cannot be rushed.</h1>
-<p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.</p>
-<a href="slider" class="primary-btn1 hover-btn3">*Shop Now* </a>
+<h1>{{$items->main_title}} </h1>
+<p>{{$items->description}} </p>
+<a href="{{ route('search.category' , $items->category_id) }}" class="primary-btn1 hover-btn3">*Shop Now* </a>
 </div>
 </div>
 <div class="banner-right-wrapper">
 <div class="banner-right-img">
-<img src="assets/img/home1/banner-right-tag.png" alt class="discount-tag">
-<img src="assets/img/home1/banner-right-bg.png" alt class="banner-right-bg">
+<img src="{{asset('carouselImages/' . $items->image)}}" alt class="banner-right-bg" style="height:650px ; object-fit:cover">
 </div>
 </div>
 </div>
 </div>
-<div class="swiper-slide">
-<div class="banner-wrapper">
-<div class="banner-left">
-<img src="assets/img/home1/icon/banner-vector1.svg" alt class="banner-vector1">
-<img src="assets/img/home1/icon/banner-vector2.svg" alt class="banner-vector2">
-<img src="assets/img/home1/icon/banner-vector3.svg" alt class="banner-vector3">
-<div class="banner-content">
-<div class="discount">
-<img src="assets/img/home1/discount-bg.svg" alt>
-<p><strong>25% </strong>OFF</p>
-</div>
-<h1>Skin wellness takes gentle time.</h1>
-<p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.</p>
-<a href="slider" class="primary-btn1 hover-btn3">*Shop Now* </a>
-</div>
-</div>
-<div class="banner-right-wrapper">
-<div class="banner-right-img">
-<img src="assets/img/home1/banner-right-bg2.png" alt class="banner-right-bg">
-</div>
-</div>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="banner-wrapper">
-<div class="banner-left">
-<img src="assets/img/home1/icon/banner-vector1.svg" alt class="banner-vector1">
-<img src="assets/img/home1/icon/banner-vector2.svg" alt class="banner-vector2">
-<img src="assets/img/home1/icon/banner-vector3.svg" alt class="banner-vector3">
-<div class="banner-content">
-<div class="discount">
-<img src="assets/img/home1/discount-bg.svg" alt>
-<p><strong>25% </strong>OFF</p>
-</div>
-<h1>Glow requires gradual nurturing.</h1>
-<p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.</p>
-<a href="slider" class="primary-btn1 hover-btn3">*Shop Now* </a>
-</div>
-</div>
-<div class="banner-right-wrapper">
-<div class="banner-right-img">
-<img src="assets/img/home1/banner-right-bg3.png" alt class="banner-right-bg">
-</div>
-</div>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="banner-wrapper">
-<div class="banner-left">
-<img src="assets/img/home1/icon/banner-vector1.svg" alt class="banner-vector1">
-<img src="assets/img/home1/icon/banner-vector2.svg" alt class="banner-vector2">
-<img src="assets/img/home1/icon/banner-vector3.svg" alt class="banner-vector3">
-<div class="banner-content">
-<div class="discount">
-<img src="assets/img/home1/discount-bg.svg" alt>
-<p><strong>25% </strong>OFF</p>
-</div>
-<h1>Nurture skin for lasting health.</h1>
-<p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.</p>
-<a href="slider" class="primary-btn1 hover-btn3">*Shop Now* </a>
-</div>
-</div>
-<div class="banner-right-wrapper">
-<div class="banner-right-img">
-<img src="assets/img/home1/banner-right-bg4.png" alt class="banner-right-bg">
-</div>
-</div>
-</div>
-</div>
+@endforeach
 </div>
 <div class="swiper-pagination1"></div>
 </div>
