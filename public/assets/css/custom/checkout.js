@@ -270,12 +270,17 @@ $(document).on('click' , '.plusButton' , function(e){
                 $(streetAddress1).val(response.address.addressline1);
                 $(streetAddress2).val(response.address.addressline2);
                 $(state).html(`<option value="${response.address.state.id}">${response.address.state.name}</option>`);
-                $(city).html(`<option value="${response.address.city.id}">${response.address.city.name}</option>`);
-                $(country).val(response.address.countries.id);
+                $(country).val(response.address.country);
                 $(contactNumber1).val(response.address.phone_number1);
                 $(contactNumber2).val(response.address.phone_number2);
                 $(postalCode).val(response.address.postalcode);
                 $('input[name="address_id"]').val(response.address.id);
+                if(response.address.city != null){
+                    $(city).html(`<option value="${response.address.city.id}">${response.address.city.name}</option>`);
+                }
+                else{
+                    $(city).html('<option value="">Choose Country First</option>');
+                }
             }
             else
             {

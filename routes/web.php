@@ -31,6 +31,8 @@ use App\Http\Controllers\User\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Getting Dynamic Route
+
 // Email and Password Verifications
 Route::post('/get_verification_code' , [ResetPasswordController::class , 'get_verification_code'])->name('get.verification.code');
 Route::post('/verify_code' , [ResetPasswordController::class , 'verify_code'])->name('verify.code');
@@ -229,6 +231,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
 
     });
     Route::get('notifications' , [NotificationController::class ,'fetchNotification'])->name('notification.get');
+    Route::get('notificationsremove/{id?}' , [NotificationController::class ,'removeNotification'])->name('remove.notification');
 });
 
 

@@ -13,7 +13,7 @@ use App\Models\UserAddresses;
 use Carbon\Carbon;
 use Mail ;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\Notification;
 class Authcontroller extends Controller
 {
     public $parentModel      = User::class;
@@ -24,6 +24,7 @@ class Authcontroller extends Controller
     public $checkoutModel    = Checkout::class;
     public $cartModel        = Cart::class;
     public $mailClass        = Mail::class;
+    public $notification     = Notification::class;
     public function login(Request $request){
         $email    = $request->email;
         $password = $request->password;
@@ -107,6 +108,12 @@ class Authcontroller extends Controller
                 $sendEmail               = $this->mailClass::send('EmailTemplates.verifyemail' , ['routeforhome'=>$routeforhome , 'email_data' => $emailData ,'verifyRoute' => $verifyRoute] , function($message) use ($emailData){
                     $message->from($emailData['from'])->to($emailData['to'])->subject($emailData['subject']);
                 });
+                $currentTime    = Carbon::now();
+                $storeNotification = $this->notification::create([
+                    'subject' => 'User Has Registered',
+                    'route' => Route('admin.user.index'),
+                    'message' => "User $name Has Registered at $currentTime",
+                ]);
                 return redirect(Route('login.view'))->with('success' , 'Your Account has been register please check your email to get verified');
             }
             else
@@ -134,15 +141,7 @@ class Authcontroller extends Controller
         }
     }
 
-    public function user_logout()
-    {
-        $update_status      =  User::where('id' , session()->get('user')['id'])->update(['status' => 0]);
-        if($update_status == true)
-        {
-            session()->forget('user');
-            return redirect(Route('login.view'));
-        }
-    }
+
     //Admin Profile Edit
 
     public function edit_admin()
@@ -192,6 +191,12 @@ class Authcontroller extends Controller
             {
                 session()->put('user' , $userData);
             }
+            $currentTime    = Carbon::now();
+            $storeNotification = $this->notification::create([
+                'subject' => 'User Has Update Profile',
+                'route' => Route('admin.user.index'),
+                'message' => "$name Has Updated Profile at $currentTime",
+            ]);
             return redirect()->back()->with('success' , 'Profile info has been updated');
         }
         else
@@ -378,37 +383,54 @@ class Authcontroller extends Controller
     }
     public function remove_account($id = null)
     {
+            $userData            = $this->parentModel::where('id' , $id)->first();
 
-            if(session()->has('admin'))
+            if($userData->role = "1")
             {
+
+                $currentTime    = Carbon::now();
+
+                $storeNotification = $this->notification::create([
+                    'subject' => 'User Account Deleted',
+                    'route'   =>   Route('admin.user.index'),
+                    'message' => "$userData->name Has Deleted Profile at $currentTime",
+                ]);
+
                 $removeAccount   = $this->parentModel::where("id" , $id )->forceDelete();
                 if($removeAccount)
                 {
+
                 session()->forget('admin');
-                return redirect(Route('Auth_login'))->with('error' , 'Your Account Has been removed You have no access to your account anymore');
+                return redirect(Route('login.view'))->with('error' , 'Your Account Has been removed You have no access to your account anymore');
                 }
                 else
                 {
                     return redirect()->back()->with('error' , 'Failed to Remove Your account');
                 }
             }
-            if(session()->has('user'))
+           if($userData->role = "0")
             {
+
+                $currentTime    = Carbon::now();
+
+                $storeNotification = $this->notification::create([
+                    'subject' => 'User Account Deleted',
+                    'route'   =>   Route('admin.user.index'),
+                    'message' => "$userData->name Has Deleted Profile at $currentTime",
+                ]);
+
                 $orderDelete     = $this->checkoutModel::where('user_id'  , $id)->forceDelete();
                 $cartDelete      = $this->cartModel::where('user_id'  , $id)->forceDelete();
-                if($orderDelete == true && $cartDelete == true)
-                {
+
                     $removeAccount   = $this->parentModel::where("id" , $id )->forceDelete();
                     if($removeAccount)
                     {
-                        session()->forget('user');
-                        return redirect(Route('login.view'))->with('error' , 'Your Account Has been removed You have no access to your account anymore');
+                       $this->user_logout()->with('error' , 'Your Account Has been removed You have no access to your account anymore');
                     }
                     else
                     {
                         return redirect()->back()->with('error' , 'Failed to Remove Your account');
                     }
-                }
 
             }
 
@@ -418,14 +440,31 @@ class Authcontroller extends Controller
         $verify   =  $this->parentModel::where('id' , $id)->update([
             'email_verified_at' => Carbon::now()
         ]);
+        $userData        = $this->parentModel::where('id' , $id)->first();
+
         if($verify == true)
         {
+            $currentTime    = Carbon::now();
+            $storeNotification = $this->notification::create([
+                'subject' => 'Email Verified',
+                'route'   =>   Route('admin.user.index'),
+                'message' => "$userData->name Has Verified Email at $currentTime",
+            ]);
             return redirect(Route('login.view'))->with('success' , 'Your Email has been verified');
         }
         else
         {
             return redirect(Route('login.view'))->with('error' , 'Failed to Verify your Email');
 
+        }
+    }
+    public function user_logout()
+    {
+        $update_status      =  User::where('id' , session()->get('user')['id'])->update(['status' => 0]);
+        if($update_status == true)
+        {
+            session()->forget('user');
+            return redirect(Route('login.view'));
         }
     }
 }

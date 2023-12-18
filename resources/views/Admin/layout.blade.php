@@ -472,7 +472,7 @@
                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                         <button type="button" class="btn btn-primary position-relative">
                        <i class="bx bx-bell"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notificationCount">
 
 
                             </span>
@@ -600,23 +600,36 @@
         toastr['error']("{{ $error }}")
         @endforeach
       @endif
-      $(document).ready(function(){
-        $.ajax({
+        let removeNotification = "{{ route('remove.notification') }}";
+      setInterval(() => {
+        $(document).ready(function(){
+            $.ajax({
             url     : notificationUrl ,
             type    : 'get' ,
             success:function(response){
-                $("#totalNotification").html(response.count);
+                $("#notificationCount").html(response.count);
               table= "";
               $(response.data).each(function(index , value){
-                table +=`   </li>
-
-            <a class="dropdown-item" href="{{ route('admin.account.setting') }}">
-          <span><b>${value.subject}</b></span> <br>
-            <small class="align-middle">${value.message}</small>
-            </a>
-            </li>`
+                  table +=`   </li>
+                <input  type="hidden" name="notificationId" value='${value.id}'/>
+                <a class="dropdown-item removeNotification"  href='${value.route}'>
+                <span><b>${value.subject}</b></span> <br>
+                <small class="align-middle">${value.message}</small>
+                </a>
+                </li>`
               });
               $('#notificationData').html(table);
+            }
+        })
+        })
+      }, 1000);
+      $(document).on('click' , '.removeNotification' , function(){
+        let id = $(this).closest('li').find('input[name="notificationId"]').val();
+        $.ajax({
+            url : removeNotification + '/' + id ,
+            type: 'Get' ,
+            success:function(){
+
             }
         })
       })

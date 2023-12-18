@@ -32,6 +32,7 @@ All Users
                     <th>User Name</th>
                     <th>Email</th>
                     <th>Contact</th>
+                    <th>Verification</th>
                     <th>Block Status</th>
                     <th>Activity Status</th>
                     <th>Delete</th>
@@ -59,6 +60,11 @@ All Users
                             <td><button  class="btn btn-success">Online</button></td>
                             @else
                             <td><button  class="btn btn-danger">Offline</button></td>
+                            @endif
+                            @if($user->email_verified_at != null)
+                            <td><button  class="btn btn-success">Verified</button></td>
+                            @else
+                            <td><button  class="btn btn-danger">Un-Verified</button></td>
                             @endif
                             <td> <a href="{{ route('admin.user.delete'  ,$user->id) }}" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
                         </tr>

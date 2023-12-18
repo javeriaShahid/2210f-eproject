@@ -157,7 +157,7 @@ class Checkoutcontroller extends Controller
                 $currentTime = Carbon::now();
                 $storeNotification = $this->notification::create([
                     'subject' => 'Order Has Been Placed',
-                    'route' => 'admin.order.index',
+                    'route' => Route('admin.order.index'),
                     'message' => "$customer_name Has Placed Order at $currentTime",
                 ]);
                  return redirect(route('checkout.done' , ['data' => json_encode($data['checkout'])]));
