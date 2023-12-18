@@ -9,7 +9,9 @@ use App\Http\Controllers\Admin\ProductImageController;
 use App\Http\Controllers\Admin\MailSettingController;
 use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\ResetPasswordController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\CategoryBannerController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usercontroller;
@@ -217,7 +219,16 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/change_status' , [CarouselController::class , 'change_status'])->name('admin.carouselsetting.change_status');
 
     });
+    Route::prefix('/categorybanner')->group(function(){
+        Route::get('/' , [CategoryBannerController::class , 'index'])->name('admin.categorybanner.index');
+        Route::get('/create' , [CategoryBannerController::class , 'create'])->name('admin.categorybanner.create');
+        Route::post('/store/{id?}' , [CategoryBannerController::class , 'store'])->name('admin.categorybanner.store');
+        Route::get('/edit/{id?}' , [CategoryBannerController::class , 'edit'])->name('admin.categorybanner.edit');
+        Route::get('/delete/{id?}' , [CategoryBannerController::class , 'destroy'])->name('admin.categorybanner.delete');
+        Route::get('/change_status' , [CategoryBannerController::class , 'change_status'])->name('admin.categorybanner.change_status');
 
+    });
+    Route::get('notifications' , [NotificationController::class ,'fetchNotification'])->name('notification.get');
 });
 
 

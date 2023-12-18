@@ -64,7 +64,7 @@
         <li style="position: relative;background-color:rgb(228, 228, 228); width:100%;  padding:10px">{{ $order->payment_method }}</li>
 
     </ul>
-<p style="font-style: italic; text-align:center"> Note: Please send a remmittance advice by email to dazzle@gmail.com</p>
+<p style="font-style: italic; text-align:center"> Note: Please send a remmittance advice by email to dazzle.netgenius.pvt@gmail.com</p>
 </div>
 </div>
 

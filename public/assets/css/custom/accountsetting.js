@@ -91,7 +91,7 @@ $(document).ready(function()
             isValid = false ;
             toastr['error']("Country is required");
         }
-      
+
         if($(state).val() == "")
         {
             e.preventDefault();
@@ -150,7 +150,7 @@ $(document).ready(function()
     // Profile Update Code
 
     let UpdateForm                     = $('#updateForm');
-    let user_email                     = $('input[name="email"]');
+    let user_email                     = $('#userEmail');
     let full_name                      = $('input[name="name"]');
     let user_name                      = $('input[name="username"]');
     let phonecode                      = $('select[name="phonecode"]');

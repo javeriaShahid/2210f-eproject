@@ -7,6 +7,8 @@ Home
 @endsection
 @php
 $carousel  = \App\Models\CarouselSetting::where('status' , 1)->get();
+$c_banners =  \App\Models\CategoryBanner::where('status' , 1)->get();
+$category =  \App\Models\category::withoutTrashed()->get();
 @endphp
 <div class="banner-section">
 <div class="container-fluid p-0">
@@ -122,42 +124,19 @@ $carousel  = \App\Models\CarouselSetting::where('status' , 1)->get();
 <h3>Choose What You Want</h3>
 </div>
 <div class="row gy-4 justify-content-center">
-<div class="col-lg-4 col-md-6">
-<div class="choose-product-card hover-img style-2">
-<a href="slider">
-<img src="assets/img/home1/choose-product-card-img1.png" alt>
-</a>
-<div class="choose-product-card-content">
-<h2 class="first-text">Face</h2>
-<h2 class="second-text">Care</h2>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="choose-product-card hover-img style-2">
-<a href="slider">
-<img src="assets/img/home1/choose-product-card-img2.png" alt>
-</a>
-<div class="choose-product-card-content">
-<h2 class="first-text">Body</h2>
-<h2 class="second-text style-2">Health</h2>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6">
-<div class="choose-product-card hover-img style-2">
-<a href="slider">
-<img src="assets/img/home1/choose-product-card-img3.png" alt>
-</a>
-<div class="choose-product-card-content style-2">
-<h2 class="first-text style-2">Hair</h2>
-<h2 class="second-text style-3">Care</h2>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    @foreach($c_banners as $categoryBanners)
+    <div class="col-lg-4 col-md-6">
+        <div class="choose-product-card hover-img style-2">
+        <a href="{{route('search.category' , $items->category_id)}}">
+        <img src="{{asset('categoryBanners/'. $categoryBanners->image)}}" alt>
+        </a>
+        <div class="choose-product-card-content">
+        <h2 class="first-text" style="color:{{$categoryBanners->color_1}}">{{$categoryBanners->title_1}}</h2>
+        <h2 class="second-text" style="-webkit-text-stroke: 1px {{$categoryBanners->color_2}};" >{{$categoryBanners->title_2}}</h2>
+        </div>
+        </div>
+        </div>
+    @endforeach
 
 
 <div class="best-selling-section mb-110">
@@ -165,7 +144,7 @@ $carousel  = \App\Models\CarouselSetting::where('status' , 1)->get();
 <div class="section-title2">
     <h3>Best Selling Product</h3>
     <div class="all-product hover-underline">
-        <a href="slider">*View All Product
+        <a href="{{route('slider')}}">*View All Product
             <svg width="33" height="13" viewBox="0 0 33 13" xmlns="http://www.w3.org/2000/svg">
                 <path d="M25.5083 7.28L0.491206 7.25429C0.36093 7.25429 0.23599 7.18821 0.143871 7.0706C0.0517519 6.95299 0 6.79347 0 6.62714C0 6.46081 0.0517519 6.3013 0.143871 6.18369C0.23599 6.06607 0.36093 6 0.491206 6L25.5088 6.02571C25.6391 6.02571 25.764 6.09179 25.8561 6.2094C25.9482 6.32701 26 6.48653 26 6.65286C26 6.81919 25.9482 6.9787 25.8561 7.09631C25.764 7.21393 25.6386 7.28 25.5083 7.28Z" />
                 <path d="M33.0001 6.50854C29.2204 7.9435 24.5298 10.398 21.623 13L23.9157 6.50034L21.6317 0C24.5358 2.60547 29.2224 5.06539 33.0001 6.50854Z" />
@@ -439,42 +418,16 @@ Add to wishlist
 <div class="row gy-4 justify-content-center">
 <div class="col-lg-3">
 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-<button class="nav-link active" id="v-Korean-tab" data-bs-toggle="pill" data-bs-target="#v-Korean" type="button" role="tab" aria-controls="v-Korean" aria-selected="true">
-Korean Product
-<span>(30)</span>
+@foreach($category as $categoryDetails)
+    <button class="nav-link active" id="v-Korean-tab" data-bs-toggle="pill" data-bs-target="#v-Korean" type="button" role="tab" aria-controls="v-Korean" aria-selected="true">
+{{$categoryDetails->name}}
+@php
+$numberOfProducts = \App\Models\Product::where('category_id' , $categoryDetails->id)->count();
+@endphp
+<span>({{$numberOfProducts}})</span>
 </button>
-<button class="nav-link" id="v-makeup-tab" data-bs-toggle="pill" data-bs-target="#v-makeup" type="button" role="tab" aria-controls="v-makeup" aria-selected="false">
-Makeup
-<span>(40)</span>
-</button>
-<button class="nav-link" id="v-skin-care-tab" data-bs-toggle="pill" data-bs-target="#v-skin-care" type="button" role="tab" aria-controls="v-skin-care" aria-selected="false">
-Skin Care
-<span>(32)</span>
-</button>
-<button class="nav-link" id="v-personal-care-tab" data-bs-toggle="pill" data-bs-target="#v-personal-care" type="button" role="tab" aria-controls="v-personal-care" aria-selected="false">
-Personal Care
-<span>(28)</span>
-</button>
-<button class="nav-link" id="v-fragrance-tab" data-bs-toggle="pill" data-bs-target="#v-fragrance" type="button" role="tab" aria-controls="v-fragrance" aria-selected="false">
-Fragrance
-<span>(19)</span>
-</button>
-<button class="nav-link" id="v-health-tab" data-bs-toggle="pill" data-bs-target="#v-health" type="button" role="tab" aria-controls="v-health" aria-selected="false">
-Health & Care
-<span>(21)</span>
-</button>
-<button class="nav-link" id="v-accessories-tab" data-bs-toggle="pill" data-bs-target="#v-accessories" type="button" role="tab" aria-controls="v-accessories" aria-selected="false">
-Accessories
-<span>(36)</span>
-</button>
-<button class="nav-link" id="v-kids-tab" data-bs-toggle="pill" data-bs-target="#v-kids" type="button" role="tab" aria-controls="v-kids" aria-selected="false">
-Kids & Baby
-<span>(55)</span>
-</button>
-<button class="nav-link" id="v-skin-care2-tab" data-bs-toggle="pill" data-bs-target="#v-skin-care2" type="button" role="tab" aria-controls="v-skin-care2" aria-selected="false">
-Skin Care
-<span>(68)</span>
-</button>
+@endforeach
+
 </div>
 <div class="offer-img hover-img">
 <img src="assets/img/home1/offer-img.png" alt>
@@ -489,216 +442,61 @@ Skin Care
 </div>
 </div>
 </div>
+
 <div class="col-lg-9">
 <div class="tab-content" id="v-pills-tabContent">
 <div class="tab-pane fade show active" id="v-Korean" role="tabpanel" aria-labelledby="v-Korean-tab">
 <div class="row gy-4">
-<div class="col-xl-4 col-md-6">
-<div class="product-card style-2 hover-btn">
-<div class="product-card-img double-img">
-<a href="accordion">
-<img src="assets/img/home1/product-img-7.png" alt class="img1">
-<img src="assets/img/home1/product-img-22.png" alt class="img2">
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Youthful Renewal Formula</a></h6>
-<p><a href="#">Crystal Gleam</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
+@if($data['dealsProduct']->count() > 0 )
+@foreach($data['dealsProduct'] as $dealsProduct)
 <div class="col-xl-4 col-md-6">
 <div class="product-card style-2 hover-btn">
 <div class="product-card-img">
 <a href="accordion">
-<img src="assets/img/home1/product-img-8.png" alt>
+<img src="{{asset('assets/Productimages/' . $dealsProduct->image)}}" alt>
 <div class="batch">
-<span>-15%</span>
+<span>-{{$dealsProduct->discount_percentage}}%</span>
 </div>
 </a>
-<div class="out-of-stock">
-<span>Out Of Stock</span>
-</div>
-<div class="overlay">
-<div class="cart-area">
-<a href="#" class="hover-btn3 add-cart-btn ">Request Stock</a>
-</div>
-</div>
+@if ($dealsProduct->stock <= 0)
+    <div class="out-of-stock">
+    <span>Out Of Stock</span>
+    </div>
+    <div class="overlay">
+    <div class="cart-area">
+    <a href="#" class="hover-btn3 add-cart-btn ">Request Stock</a>
+    </div>
+    @else
+    <div class="overlay">
+        <div class="cart-area">
+            @if(session()->has('user'))
+<input type="hidden" name="productId" value="{{ $product->id }}">
+<button type="button"  class="hover-btn3 add-cart-btn addToCart"><i class="bi bi-bag-check"></i> Add To Cart</button>
+@else
+<a  href="{{ route('cart.error') }}" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+@endif
+          
+        </div>
+    </div>
+    @endif
+
 </div>
 <div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Vivid Eye Pencil</a></h6>
-<p><a href="#">REVLON</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
+<h6><a href="accordion" class="hover-underline">{{$dealsProduct->name}}</a></h6>
+<p><a href="#">{{$dealsProduct->brand->name}}</a></p>
+<p class="price">PKR , {{$dealsProduct->discounted_price}} <del>PKR ,{{$dealsProduct->price}}</del></p>
+
 </div>
 <span class="for-border"></span>
 </div>
 </div>
-<div class="col-xl-4 col-md-6">
-<div class="product-card style-2 hover-btn">
-<div class="product-card-img double-img">
-<a href="accordion">
-<img src="assets/img/home1/product-img-9.png" alt class="img1">
-<img src="assets/img/home1/product-img-21.png" alt class="img2">
-<div class="batch">
-<span>-15%</span>
+@endforeach
+@else
+<div class="col-md-6">
+    <h3 class="text-danger text-center">No Product available</h3>
 </div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Firming Night Cream</a></h6>
-<p><a href="#">Crystal</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-<div class="col-xl-4 col-md-6">
-<div class="product-card style-2 hover-btn">
-<div class="product-card-img">
-<a href="accordion">
-<img src="assets/img/home1/product-img-10.png" alt>
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Brightening Cream Complex</a></h6>
-<p><a href="#">Radiant</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-<div class="col-xl-4 col-md-6">
-<div class="product-card style-2 hover-btn">
-<div class="product-card-img double-img">
-<a href="accordion">
-<img src="assets/img/home1/product-img-11.png" alt class="img1">
-<img src="assets/img/home1/product-img-14.png" alt class="img2">
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Age-Defying Miracle</a></h6>
-<p><a href="#">Radiance</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-<div class="col-xl-4 col-md-6">
-<div class="product-card style-2 hover-btn">
-<div class="product-card-img">
-<a href="accordion">
-<img src="assets/img/home1/product-img-12.png" alt>
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="accordion" class="hover-underline">Oil-Control Pressed</a></h6>
-<p><a href="#">Whispering</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-</div>
-</div>
+@endif</div></div>
+
 <div class="tab-pane fade" id="v-makeup" role="tabpanel" aria-labelledby="v-makeup-tab">
 <div class="row gy-4">
 <div class="col-xl-4 col-md-6">
@@ -2344,7 +2142,7 @@ Skin Care
 </div>
 </div>
 </div>
-
+</div>
 
 <div class="offer-banner mb-110">
 <div class="container">

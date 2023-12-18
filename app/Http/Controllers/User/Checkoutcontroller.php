@@ -11,7 +11,7 @@ use App\Models\UserAddresses;
 use Carbon\Carbon;
 use App\Models\Product;
 use Illuminate\Support\Str;
-
+use App\Models\Notification;
 use function GuzzleHttp\json_decode;
 
 class Checkoutcontroller extends Controller
@@ -21,6 +21,7 @@ class Checkoutcontroller extends Controller
    public $countryModel  = Country::class;
    public $addressModel  = UserAddresses::class;
    public $productModel  = Product::class ;
+   public $notification  = Notification::class;
    public function index()
    {
         $data['cart']   = $this->cartData::where('user_id' , session()->get("user")['id'])->get();
@@ -38,7 +39,7 @@ class Checkoutcontroller extends Controller
     foreach ($checkoutIds as $id) {
         $ids[]= $id ;
     }
-    
+
     $data['checkout']   = $this->parentModel::whereIn('id', $ids)->with('product')->get();
     return view('User.orderplaced')->with('data' , $data);
    }
@@ -135,12 +136,13 @@ class Checkoutcontroller extends Controller
                 $data['checkout'][] = $createCheckout;
 
             }
+
             if($createCheckout == true)
-            {  
+            {
                 $Product        =  $this->cartData::whereIn('product_id' , $productIds)->get();
                 foreach($Product as $key => $value)
                 {
-                    
+
                     $minusStock     = $Product[$key]->product->stock -  $Product[$key]->quantity ;
                     $plusSales      = $Product[$key]->product->number_of_sales +  $Product[$key]->quantity ;
                     $updateProduct  =    $this->productModel::where('id' , $Product[$key]->product->id)->update([
@@ -152,6 +154,12 @@ class Checkoutcontroller extends Controller
                 {
                     $cartDelete     =  $this->cartData::where('id' , $cartId[$key])->forceDelete();
                 }
+                $currentTime = Carbon::now();
+                $storeNotification = $this->notification::create([
+                    'subject' => 'Order Has Been Placed',
+                    'route' => 'admin.order.index',
+                    'message' => "$customer_name Has Placed Order at $currentTime",
+                ]);
                  return redirect(route('checkout.done' , ['data' => json_encode($data['checkout'])]));
             }
             else

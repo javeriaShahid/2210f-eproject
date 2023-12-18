@@ -232,7 +232,10 @@ to view or edit information.</p>
 <form action="{{ route('profile.update' , $data['user']->id) }}" method="post" enctype="multipart/form-data" id="updateForm">
     @csrf
 <div class="row">
-    <div class="col-12 mb-25">
+    <div class="col-md-4 col-12 mb-3 mt-3">
+       <img src="{{asset("assets/UserImages/" . $data['user']->profile_image)}}" style="width:180px; height:180px ; object-fit:cover; border:2px solid black; border-radius:10px" alt="">
+    </div>
+    <div class="col-md-8 col-12 mb-25">
         <div class="form-inner">
             <label for="">Profile Image</label>
         <input type="file" name="image" placeholder="">
@@ -268,7 +271,7 @@ to view or edit information.</p>
 </div>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
-<input type="text" name="email" placeholder="Enter your email address*" value="{{ $data['user']->email }}">
+<input type="text" name="email" id="userEmail" placeholder="Enter your email address*" value="{{ $data['user']->email }}">
 </div>
 </div>
 

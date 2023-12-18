@@ -5,7 +5,7 @@ let phone1                    = $('input[name="phonenumber1"]');
 let country                   = $('select[name="country"]');
 let city                      = $('select[name="city"]');
 let state                     = $('select[name="state"]');
-let postal                    = $('input[name="postalcode"]');
+let postal                    = $('#address_postal');
 let email                     = $('input[name="email_address"]');
 // End of Variables
 let createButton              =  $('#createAdButton');
@@ -22,12 +22,12 @@ let tableBody        = $('#tableData');
 
 // Checkout Form Fields
 let name                      = $('input[name="name"]');
-let email_address             = $('input[name="email"]');
+let email_address             = $('#EmailAddress');
 let streetAddress1            = $('input[name="streetaddress1"]');
 let streetAddress2            = $('input[name="streetaddress2"]');
 let contactNumber1            = $('input[name="contactNumber1"]');
 let contactNumber2            = $('input[name="contactNumber2"]');
-let postalCode                = $('input[name="postalcode"]');
+let postalCode                = $('#mainPostal');
 let paymentMethod             = $('select[name="payment_method"]');
 // Forms
 $(createButton).on('click' , function(e){
@@ -84,7 +84,7 @@ $(addAddressButton).on('click' , function(e){
         isValid = false;
         toastr['error']("State is required ");
     }
- 
+
     if(postal.val() == "")
     {
         e.preventDefault();
@@ -109,7 +109,7 @@ $(addAddressButton).on('click' , function(e){
                         $(createButton).text("Create");
                         tableData  = "" ;
                         $(response.address).each(function(index , value){
-                          
+
                             tableData +=`
                             <tr>
                             <td>
@@ -127,7 +127,7 @@ $(addAddressButton).on('click' , function(e){
                                 <a href="${accountRoute}" class="btn btn-success editButton"><i class="fa fa-pencil"></i></a> |
                                 <button class="btn btn-danger removeButton"><i class="fa fa-trash"></i></button>
                             </td>
-        
+
                         </tr>`
                         });
                         $(tableBody).html(tableData);

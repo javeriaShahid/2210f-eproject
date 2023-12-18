@@ -2979,6 +2979,8 @@ header.style-2 .nav-right::after {
 }
 .choose-product-section .choose-product-card img {
   width: 100%;
+  height: 600px;
+  object-fit: cover;
 }
 .choose-product-section .choose-product-card .choose-product-card-content {
   position: absolute;
@@ -3007,12 +3009,12 @@ header.style-2 .nav-right::after {
 .choose-product-section .choose-product-card .choose-product-card-content .second-text {
   font-family: sans-serif;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 45px;
   line-height: 1;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  -webkit-text-stroke: 1px #353535;
+
   -webkit-text-fill-color: transparent;
 }
 .choose-product-section .choose-product-card .choose-product-card-content .second-text.style-2 {

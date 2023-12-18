@@ -375,6 +375,34 @@
                   </li>
                 </li>
                 {{-- End  --}}
+                {{-- Category Banner Setting --}}
+                <li class="menu-header small text-uppercase"><span class="menu-header-text">Category Banners </span></li>
+                <!-- Forms -->
+                <li class="menu-item">
+                    <li class="menu-item">
+                      <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons bx bx-camera"></i>
+                        <div data-i18n="Layouts">Category Banners  Management</div>
+                      </a>
+
+                      <ul class="menu-sub">
+
+                        <li class="menu-item">
+                            <a href="{{ route('admin.categorybanner.index') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-collection"></i>
+                                <div data-i18n="Basic">All</div>
+                              </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('admin.categorybanner.create') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-plus"></i>
+                                <div data-i18n="Basic">Create</div>
+                              </a>
+                        </li>
+
+                      </ul>
+                    </li>
+                  </li>
               {{-- Users Managment --}}
                  <!-- Forms & Tables -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">SMTP Mail Management</span></li>
@@ -440,23 +468,33 @@
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
-                <li class="nav-item lh-1 me-3">
-                  <a
-                    class="github-button"
-                    href="https://github.com/themeselection/sneat-html-admin-template-free"
-                    data-icon="octicon-star"
-                    data-size="large"
-                    data-show-count="true"
-                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
-                    >Star</a
-                  >
-                </li>
+                <li class="nav-item navbar-dropdown dropdown me-2 mt-1">
+                    <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                        <button type="button" class="btn btn-primary position-relative">
+                       <i class="bx bx-bell"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+
+                            </span>
+                          </button>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <div class="dropdown-header">Notifications</div>
+                        <div class="dropdown-divider"></div>
+                        <div id="notificationData">
+
+
+                        </div>
+
+
+                    </ul>
+                  </li>
 
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="{{ asset('assets/UserImages/'. session()->get('admin')['profile_image']) }}" alt class="w-px-40 h-auto rounded-circle" />
+                      <img style="height: 40px!important ; object-fit:cover" src="{{ asset('assets/UserImages/'. session()->get('admin')['profile_image']) }}" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -465,7 +503,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="{{ asset('assets/UserImages/'. session()->get('admin')['profile_image'])}}" alt class="w-px-40 h-auto rounded-circle" />
+                              <img style="height: 40px!important ; object-fit:cover"  src="{{ asset('assets/UserImages/'. session()->get('admin')['profile_image'])}}" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -547,6 +585,7 @@
         </body>
       </html>
       <script>
+        let notificationUrl = "{{route('notification.get')}}";
         // To show every error that occure
         @if( Session::has('success'))
       toastr['success']("{{ Session::get('success') }}")
@@ -561,5 +600,25 @@
         toastr['error']("{{ $error }}")
         @endforeach
       @endif
+      $(document).ready(function(){
+        $.ajax({
+            url     : notificationUrl ,
+            type    : 'get' ,
+            success:function(response){
+                $("#totalNotification").html(response.count);
+              table= "";
+              $(response.data).each(function(index , value){
+                table +=`   </li>
+
+            <a class="dropdown-item" href="{{ route('admin.account.setting') }}">
+          <span><b>${value.subject}</b></span> <br>
+            <small class="align-middle">${value.message}</small>
+            </a>
+            </li>`
+              });
+              $('#notificationData').html(table);
+            }
+        })
+      })
       // Redirected Error ends here
     </script>
