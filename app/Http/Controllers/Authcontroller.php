@@ -384,32 +384,29 @@ class Authcontroller extends Controller
     public function remove_account($id = null)
     {
             $userData            = $this->parentModel::where('id' , $id)->first();
-
-            if($userData->role = "1")
-            {
-
+            // To Remove Admin Account
+             if($userData->role == 1){
                 $currentTime    = Carbon::now();
 
                 $storeNotification = $this->notification::create([
-                    'subject' => 'User Account Deleted',
-                    'route'   =>   Route('admin.user.index'),
+                    'subject' => 'Admin Account Deleted',
+                    'route'   =>  Route('admin.user.index'),
                     'message' => "$userData->name Has Deleted Profile at $currentTime",
                 ]);
 
                 $removeAccount   = $this->parentModel::where("id" , $id )->forceDelete();
                 if($removeAccount)
                 {
-
                 session()->forget('admin');
-                return redirect(Route('login.view'))->with('error' , 'Your Account Has been removed You have no access to your account anymore');
+                return redirect(Route('Auth_login'))->with('error' , 'Your Account Has been removed You have no access to your account anymore');
                 }
                 else
                 {
                     return redirect()->back()->with('error' , 'Failed to Remove Your account');
                 }
             }
-           if($userData->role = "0")
-            {
+            // To Remove user Account
+            if($userData->role == 0){
 
                 $currentTime    = Carbon::now();
 
@@ -418,21 +415,23 @@ class Authcontroller extends Controller
                     'route'   =>   Route('admin.user.index'),
                     'message' => "$userData->name Has Deleted Profile at $currentTime",
                 ]);
-
                 $orderDelete     = $this->checkoutModel::where('user_id'  , $id)->forceDelete();
                 $cartDelete      = $this->cartModel::where('user_id'  , $id)->forceDelete();
 
-                    $removeAccount   = $this->parentModel::where("id" , $id )->forceDelete();
-                    if($removeAccount)
+                    $removeAccount   = $this->parentModel::where("id" , $id )->first();
+
+                    if($removeAccount != null )
                     {
-                       $this->user_logout()->with('error' , 'Your Account Has been removed You have no access to your account anymore');
+                      session()->forget('user');
+                      $removeAccount->delete();
+                      return redirect(route('login.view'))->with('error' , 'Your Account Has been removed You have no access to your account anymore');
                     }
                     else
                     {
-                        return redirect()->back()->with('error' , 'Failed to Remove Your account');
+                      return redirect()->back()->with('error' , 'Failed to Remove Your account');
                     }
-
             }
+
 
     }
     public function verify_email_address($id = null)

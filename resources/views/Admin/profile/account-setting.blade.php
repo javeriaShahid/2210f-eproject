@@ -117,7 +117,7 @@ Account Setting
                   >I confirm my account deactivation</label
                 >
               </div>
-              <a href="{{ route('account.deactive' , session()->get('admin')['id']) }}" class="btn btn-danger deactivate-account">Deactivate Account</a>
+              <a id="removeAcBtn" href="{{ route('account.deactive' , session()->get('admin')['id']) }}" class="btn btn-danger deactivate-account">Deactivate Account</a>
 
           </div>
         </div>
@@ -146,4 +146,16 @@ Account Setting
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#removeAcBtn').on('click' , function(e){
+           let confirmBtn =  $("#accountActivation");
+           if(confirmBtn.prop('checked') == false){
+            e.preventDefault();
+            toastr['error']("Please Confirm Account Deactivation!");
+            return false ;
+           }
+        })
+    })
+</script>
   @endsection
