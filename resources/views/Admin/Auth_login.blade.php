@@ -90,49 +90,85 @@
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Welcome to dazzle! 👋</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              <h4 class="mb-3 text-center ">Welcome to dazzle! 👋</h4>
+              <p class="mb-4 text-center" id="titleContainer">Please sign-in to your account and start the adventure</p>
 
               <form id="formAuthentication" class="mb-3" action="{{ route('auth.login') }}" method="POST">
                 @csrf
+               <div id="loginContainer" >
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email or Username</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email or username"
-                    autofocus
-                  />
-                </div>
-                <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
-                    <a href="auth-forgot-password-basic.html">
-                      <small>Forgot Password?</small>
-                    </a>
-                  </div>
-                  <div class="input-group input-group-merge">
+                    <label for="email" class="form-label">Email or Username</label>
                     <input
-                      type="password"
-                      id="password"
+                      type="text"
                       class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
+                      id="email"
+                      name="email"
+                      placeholder="Enter your email or username"
+                      autofocus
                     />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
-                </div>
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                  <div class="mb-3 form-password-toggle">
+                    <div class="d-flex justify-content-between">
+                      <label class="form-label" for="password">Password</label>
+                      <a id="forgetPassword" style="cursor: pointer">
+                        <small>Forgot Password?</small>
+                      </a>
+                    </div>
+                    <div class="input-group input-group-merge">
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        name="password"
+                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                        aria-describedby="password"
+                      />
+                      <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    </div>
                   </div>
-                </div>
+                  <div class="mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="remember-me" />
+                      <label class="form-check-label" for="remember-me"> Remember Me </label>
+                    </div>
+                  </div>
+               </div>
+               {{-- Verification Code --}}
+               <div id="verificationContainer" style="display: none">
                 <div class="mb-3">
-                  <button class="btn btn-dark d-grid w-100" type="submit">Sign in</button>
+                    <label for="email" class="form-label">Enter Email Address</label>
+                    <input
+                      type="text"
+                      class="form-control mb-3"
+                      id="verification_email"
+                      name="email"
+                      placeholder="Enter your email or username"
+                      autofocus
+                    />
+                  </div>
+                  <div class="mb-3 form-password-toggle" id="verificationInput" style="display:none">
+                    <div class="d-flex justify-content-between">
+                      <label class="form-label" for="password">Enter Verification Code</label>
+                    </div>
+                    <div class="input-group input-group-merge">
+                      <input
+                        type="number"
+                        id="verificationCode"
+                        class="form-control mb-3"
+                        name="verificationCode"
+                        placeholder="Enter Verification Code"
+                        aria-describedby="password"
+                      />
+
+                    </div>
+                  </div>
+               </div>
+               {{-- Reset Password Form --}}
+
+               {{-- End of password Reset --}}
+
+                <div class="mb-3">
+                  <button class="btn btn-dark d-grid w-100" type="submit" id="submitButton">Sign in</button>
                 </div>
               </form>
 
@@ -217,4 +253,46 @@
     @endforeach
   @endif
   // Redirected Error ends here
+  $(document).ready(function(){
+
+    let VerificationContainer = $('#verificationContainer');
+    let verificationInContainer = $("#verificationInput")
+    let loginContainer        = $('#loginContainer') ;
+    let submitButton          = $("#submitButton") ;
+    let forgetButton          = $("#forgetPassword");
+    let titleContainer        = $("#titleContainer");
+    let verification_email    = $("#verification_email")
+    $(forgetButton).on('click' , function(e){
+        e.preventDefault();
+        $(VerificationContainer).fadeIn();
+        $(loginContainer).fadeOut();
+        $(submitButton).text('Send Verification');
+        $(titleContainer).text('Enter Your Email To Get a Verification Code To Reset Your Password')
+    });
+
+    $(submitButton).on('click' , function(e){
+    if(submitButton.text()  ==  "Send Verification"){
+            if($(verification_email).val() == ""){
+                e.preventDefault();
+                toastr['error']("Please Enter Email Address");
+                return false;
+            }
+            else{
+            e.preventDefault();
+            verification_email.prop('readonly' , true);
+            $.ajax({
+                url  : getVerification ,
+                type : 'Post' ,
+                data : {email : verification_email},
+                success:function(response){
+                    if(response == "success"){
+                        verificationInContainer.fadeIn();
+                        verification_email.prop('readonly' , true);
+                    }
+                }
+            })
+            }
+    }
+    })
+  })
 </script>
