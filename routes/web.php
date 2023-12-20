@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\MailSettingController;
 use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\ResetPasswordController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\HomeLinkController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\CategoryBannerController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -228,6 +229,15 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/edit/{id?}' , [CategoryBannerController::class , 'edit'])->name('admin.categorybanner.edit');
         Route::get('/delete/{id?}' , [CategoryBannerController::class , 'destroy'])->name('admin.categorybanner.delete');
         Route::get('/change_status' , [CategoryBannerController::class , 'change_status'])->name('admin.categorybanner.change_status');
+
+    });
+    Route::prefix('/homelinks')->group(function(){
+        Route::get('/' , [HomeLinkController::class , 'index'])->name('admin.homelinks.index');
+        Route::get('/create' , [HomeLinkController::class , 'create'])->name('admin.homelinks.create');
+        Route::post('/store/{id?}' , [HomeLinkController::class , 'store'])->name('admin.homelinks.store');
+        Route::get('/edit/{id?}' , [HomeLinkController::class , 'edit'])->name('admin.homelinks.edit');
+        Route::get('/delete/{id?}' , [HomeLinkController::class , 'destroy'])->name('admin.homelinks.delete');
+        Route::get('/change_status' , [HomeLinkController::class , 'change_status'])->name('admin.homelinks.change_status');
 
     });
     Route::get('notifications' , [NotificationController::class ,'fetchNotification'])->name('notification.get');

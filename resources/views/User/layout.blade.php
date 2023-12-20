@@ -152,6 +152,8 @@ Log In
         @php
         $data['category']   = \App\Models\Category::withoutTrashed()->get();
         $data['latestcategory']   = \App\Models\Category::withoutTrashed()->orderBy('id' , "desc")->limit(5)->get();
+        $data['pagesLinks']       = \App\Models\HomeLinks::where('status' , 1)->where('title' , '!='  , 'Home')->get();
+        $data['homeLink']         = \App\Models\HomeLinks::where('status' , 1)->where('title' , 'Home')->first();
        @endphp
        @foreach ($data['category'] as $category )
         <li>
@@ -169,12 +171,15 @@ Log In
 </div>
 <ul class="menu-list">
 <li class="">
-<a href="/" class="drop-down">Home</a><i class=""></i>
+ @if($data['homeLink'] != null)
+<a href="{{ route($data['homeLink']->route)  }}" class="drop-down"> {{$data['homeLink']->title}} </a><i class=""></i>
+@endif
 {{-- <ul class="sub-menu">
 <li><a href="/">Home 1</a></li>
 <li><a href="index2.html">Home 2</a></li>
 </ul> --}}
 </li>
+
 @foreach ($data['latestcategory'] as $category)
 <li class="menu-item-has-children position-inherit">
 <a href="#" class="drop-down">{{ $category->name }}</a><i class="bi bi-plus dropdown-icon"></i>
@@ -211,10 +216,14 @@ Log In
 <li class="menu-item-has-children">
 <a href="#" class="drop-down">Pages</a><i class="bi bi-plus dropdown-icon"></i>
 <ul class="sub-menu">
+@if($data['latestcategory'] != null)
+@foreach($data['pagesLinks'] as $pages)
 <li>
-<a href="about_us">About Us</a>
+<a href="{{route($pages->route)}}">{{$pages->title}}</a>
 </li>
-<li>
+@endforeach
+@endif
+{{-- <li>
 <a href="our_brand">Our Brand</a>
 </li>
 <li>
@@ -237,7 +246,8 @@ Log In
 </li>
 <li>
 <a href="contact">Contact Us</a>
-</li>
+</li> --}}
+
 @if(session()->has('user'))
     <li>
     <a href="{{ route('checkout') }}">My Orders</a>

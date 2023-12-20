@@ -123,6 +123,7 @@
                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                         aria-describedby="password"
                       />
+                      <input type="hidden" value="{{csrf_token()}}" id="csrfToken">
                       <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                     </div>
                   </div>
@@ -141,7 +142,7 @@
                       type="text"
                       class="form-control mb-3"
                       id="verification_email"
-                      name="email"
+
                       placeholder="Enter your email or username"
                       autofocus
                     />
@@ -164,11 +165,39 @@
                   </div>
                </div>
                {{-- Reset Password Form --}}
+               <div id="passContainer"  style="display:none">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Enter New Password</label>
+                    <input
+                      type="text"
+                      class="form-control mb-3"
+                      id="new_password"
+                      name="new_password"
+                      placeholder="Enter your new password"
+                      autofocus
+                    />
+                  </div>
+                  <div class="mb-3 form-password-toggle">
+                    <div class="d-flex justify-content-between">
+                      <label class="form-label" for="password">Confirm Password</label>
+                    </div>
+                    <div class="input-group input-group-merge">
+                      <input
+                        type="text"
+                        id="confirm_password"
+                        class="form-control mb-3"
+                        name="confirm_pass"
+                        placeholder="Confirm Password"
+                        aria-describedby="password"
+                      />
 
+                    </div>
+                  </div>
+               </div>
                {{-- End of password Reset --}}
 
                 <div class="mb-3">
-                  <button class="btn btn-dark d-grid w-100" type="submit" id="submitButton">Sign in</button>
+                  <button class="btn btn-dark d-grid w-100" type="submit" id="submitButton">Login</button>
                 </div>
               </form>
 
@@ -236,7 +265,9 @@
           <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
           <!-- Page JS -->
           <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+
           {{-- custom --}}
+          <script src="{{asset('dashboardassets/js/custom/resetpasswordAdmin.js')}}"></script>
 <script>
     // To show every error that occure
 @if( Session::has('success'))
@@ -252,47 +283,9 @@
     toastr['error']("{{ $error }}")
     @endforeach
   @endif
-  // Redirected Error ends here
-  $(document).ready(function(){
 
-    let VerificationContainer = $('#verificationContainer');
-    let verificationInContainer = $("#verificationInput")
-    let loginContainer        = $('#loginContainer') ;
-    let submitButton          = $("#submitButton") ;
-    let forgetButton          = $("#forgetPassword");
-    let titleContainer        = $("#titleContainer");
-    let verification_email    = $("#verification_email")
-    $(forgetButton).on('click' , function(e){
-        e.preventDefault();
-        $(VerificationContainer).fadeIn();
-        $(loginContainer).fadeOut();
-        $(submitButton).text('Send Verification');
-        $(titleContainer).text('Enter Your Email To Get a Verification Code To Reset Your Password')
-    });
+      let getVerification       = "{{route('get.verification.code')}}" ;
+      let verifyCode            = "{{route('verify.code')}}" ;
+      let resetPassword         = "{{route('password.reset')}}";
 
-    $(submitButton).on('click' , function(e){
-    if(submitButton.text()  ==  "Send Verification"){
-            if($(verification_email).val() == ""){
-                e.preventDefault();
-                toastr['error']("Please Enter Email Address");
-                return false;
-            }
-            else{
-            e.preventDefault();
-            verification_email.prop('readonly' , true);
-            $.ajax({
-                url  : getVerification ,
-                type : 'Post' ,
-                data : {email : verification_email},
-                success:function(response){
-                    if(response == "success"){
-                        verificationInContainer.fadeIn();
-                        verification_email.prop('readonly' , true);
-                    }
-                }
-            })
-            }
-    }
-    })
-  })
 </script>

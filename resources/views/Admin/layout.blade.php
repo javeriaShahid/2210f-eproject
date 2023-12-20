@@ -100,6 +100,34 @@
               </a>
             </li>
             {{-- Product Brands --}}
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Home Links </span></li>
+            <!-- Forms -->
+            <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-home"></i>
+                    <div data-i18n="Layouts">Home Links </div>
+                  </a>
+
+                  <ul class="menu-sub">
+
+                    <li class="menu-item">
+                        <a href="{{ route('admin.homelinks.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.homelinks.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </li>
+              {{-- End  --}}
               <!-- Forms & Tables -->
               <li class="menu-header small text-uppercase"><span class="menu-header-text">Brands  Management</span></li>
               <!-- Forms -->
