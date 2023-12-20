@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductImageController;
 use App\Http\Controllers\Admin\MailSettingController;
 use App\Http\Controllers\Admin\CarouselController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ResetPasswordController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\HomeLinkController;
@@ -238,6 +239,15 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/edit/{id?}' , [HomeLinkController::class , 'edit'])->name('admin.homelinks.edit');
         Route::get('/delete/{id?}' , [HomeLinkController::class , 'destroy'])->name('admin.homelinks.delete');
         Route::get('/change_status' , [HomeLinkController::class , 'change_status'])->name('admin.homelinks.change_status');
+
+    });
+    Route::prefix('/settings')->group(function(){
+        Route::get('/' , [SettingController::class , 'index'])->name('admin.setting.index');
+        Route::get('/create' , [SettingController::class , 'create'])->name('admin.setting.create');
+        Route::post('/store/{id?}' , [SettingController::class , 'store'])->name('admin.setting.store');
+        Route::get('/edit/{id?}' , [SettingController::class , 'edit'])->name('admin.setting.edit');
+        Route::get('/delete/{id?}' , [SettingController::class , 'destroy'])->name('admin.setting.delete');
+        Route::get('/change_status' , [SettingController::class , 'change_status'])->name('admin.setting.change_status');
 
     });
     Route::get('notifications' , [NotificationController::class ,'fetchNotification'])->name('notification.get');

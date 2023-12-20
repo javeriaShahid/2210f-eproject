@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string('logo');
+            $table->string('x_icon');
+            $table->string('title');
+            $table->string('contact');
+            $table->string('email');
+            $table->string('designed_year');
+            $table->string('designed_by');
+            $table->longText('address');
+            $table->longText('map_link');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

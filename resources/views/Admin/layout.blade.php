@@ -460,6 +460,33 @@
                   </ul>
                 </li>
               </li>
+              <li class="menu-header small text-uppercase"><span class="menu-header-text">Settings</span></li>
+              <!-- Forms -->
+              <li class="menu-item">
+                  <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                      <i class="menu-icon tf-icons bx bx-cog"></i>
+                      <div data-i18n="Layouts">Settings</div>
+                    </a>
+
+                    <ul class="menu-sub">
+
+                      <li class="menu-item">
+                          <a href="{{ route('admin.setting.index') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-collection"></i>
+                              <div data-i18n="Basic">All</div>
+                            </a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="{{ route('admin.setting.create') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-plus"></i>
+                              <div data-i18n="Basic">Create</div>
+                            </a>
+                      </li>
+
+                    </ul>
+                  </li>
+                </li>
               {{-- End  --}}
           </ul>
         </aside>
@@ -586,7 +613,7 @@
                           document.write(new Date().getFullYear());
                         </script>
                         , made with ❤️ by
-                        <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Dazzle.</a>
+                        <a href="{{ route('user.index') }}" target="_blank" class="footer-link fw-bolder">Dazzle.</a>
                       </div>
                       <div>
 
