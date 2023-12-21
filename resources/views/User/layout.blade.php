@@ -41,10 +41,11 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
 <div class="top-bar">
 <div class="container">
 <div class="row">
-<div class="col-lg-12 d-flex align-items-center justify-content-between gap-3">
+    <div class="col-md-12"></div>
+<div class="col-lg-12 d-flex align-items-center  justify-content-between gap-3">
 
-<div class="company-logo">
-<a href="{{ route('user.index') }}"> @if($settings != null)
+<div class="company-logo" >
+<a  href="{{ route('user.index') }}"> @if($settings != null)
     <img src="{{ asset('settingsLogo/' . $settings->logo) }}" style="height: 50px" alt>
     @else
     <img src="{{ asset('assets/img/logo.png') }}" style="height: 50px" alt>
@@ -375,14 +376,22 @@ Log In
     <div class="col-lg-2 col-md-4 col-sm-6 d-flex justify-content-lg-start justify-content-sm-end">
     <div class="footer-widget">
     <div class="widget-title">
+    @php
+    $data['supportLinks'] = \App\Models\HomeLinks::whereIn('title', ['Contact Us', "Feed Back", 'All Products'])->get();
+    $data['companyLinks'] = \App\Models\HomeLinks::whereIn('title', ['About Us', "FAQ's", 'Blogs' , 'Testimonals'])->get();
+    $data['payments'] = \App\Models\PaymentMethod::where('status', 1)->paginate(5);
+    @endphp
     <h5>Support</h5>
     </div>
     <ul class="widget-list">
-    <li><a href="contact">Help & Contact Us</a></li>
-    <li><a href="#">Return & Refunds</a></li>
-    <li><a href="sliderxa">Online Stores</a></li>
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="myaccount">Profile</a></li>
+    @if($data['supportLinks'] != null)
+    @foreach($data['supportLinks'] as $supportLinks)
+    <li><a href="{{route($supportLinks->route)}}">{{$supportLinks->title}}</a></li>
+    @endforeach
+    @endif
+    @if(session()->has('user'))
+    <li><a href="{{ route('myaccount') }}">Profile</a></li>
+    @endif
     </ul>
     </div>
     </div>
@@ -391,12 +400,13 @@ Log In
     <div class="widget-title">
     <h5>Company</h5>
     </div>
+
     <ul class="widget-list">
-    <li><a href="about_us">What we do</a></li>
-    <li><a href="gift_card">Gift Offers</a></li>
-    <li><a href="blog">Latest Posts</a></li>
-    <li><a href="faq">F.A.Q</a></li>
-    <li><a href="our_brand">Our Brand</a></li>
+    @if($data['companyLinks'] != null)
+    @foreach($data['companyLinks'] as $companyLinks)
+    <li><a href="{{route($companyLinks->route)}}">{{$companyLinks->title}}</a></li>
+    @endforeach
+    @endif
     </ul>
     </div>
     </div>
@@ -406,35 +416,27 @@ Log In
     <h5>Category</h5>
     </div>
     <ul class="widget-list">
-    <li><a href="slider">Jewellery</a></li>
-    <li><a href="slider">Skin Care</a></li>
-    <li><a href="slider">Hair Care</a></li>
-    <li><a href="slider">MAkeup</a></li>
-    <li><a href="slider">Fragrance</a></li>
+    @if($data['latestcategory'] != null)
+    @foreach($data['latestcategory'] as $categories)
+    <li><a href="{{ route('search.category' , $categories->id) }}">{{$categories->name}}</a></li>
+    @endforeach
+    @endif
     </ul>
     </div>
     </div>
     <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-lg-end justify-content-md-center">
     <div class="footer-widget">
-    <div class="widget-title style-2">
-    <h5>Install app</h5>
-    </div>
-    <p>Form App Store or Google Play</p>
-    <div class="app-store">
-    <a href="#">
-    <img src="assets/img/home1/google-play.png" alt>
-    </a>
-    <a href="#">
-    <img src="assets/img/home1/app-store.png" alt>
-    </a>
-    </div>
+
     <div class="payment-gateway">
     <p>Secured Payment Gateways</p>
     <div class="icons">
-    <img src="assets/img/home1/icon/visa.png" alt>
-    <img src="assets/img/home1/icon/mastercard.png" alt>
-    <img src="assets/img/home1/icon/american-express.png" alt>
-    <img src="assets/img/home1/icon/maestro.png" alt>
+        @if($data['payments'] != null)
+        @foreach($data['payments'] as $payments)
+        <img src="{{asset('paymentImages/' . $payments->image)}}" style="width: 60px ; height:40px; object-fit:contain">
+        @endforeach
+        @else
+        <img src="assets/img/home1/icon/visa.png" alt>
+        @endif
     </div>
     </div>
     </div>
@@ -445,10 +447,18 @@ Log In
     <div class="row">
     <div class="col-lg-12 d-flex flex-md-row flex-column align-items-center justify-content-md-between justify-content-center flex-wrap gap-3">
     <div class="footer-left">
-    <p>©Copyright 2023 Dazzle | Design By <a href="#"> Javeria Shahid</a></p>
+        @if($settings != null)
+        <p>©Copyright {{$settings->designed_year}} {{$settings->title}} | Design By <a href="{{route('user.index')}}"> {{$settings->designed_by}}</a></p>
+        @else
+        <p>©Copyright 2023 Dazzle | Design By <a href="{{route('user.index')}}"> NetGenius</a></p>
+        @endif
     </div>
     <div class="footer-logo">
-    <a href="/"><img src="assets/img/logo.png" style="height: 50px" alt></a>
+    @if($settings != null)
+    <a href="{{route('user.index')}}"><img src="{{asset('settingsLogo/' . $settings->logo)}}" style="height: 50px" alt></a>
+    @else
+    <a href="{{route('user.index')}}"><img src="assets/img/logo.png" style="height: 50px" alt></a>
+    @endif
     </div>
     <div class="footer-contact">
     <div class="logo">
@@ -462,7 +472,11 @@ Log In
     </div>
     <div class="content">
     <p>For Inquiry</p>
-    <h6><a href="tel:29658718617">2-965-871-8617</a></h6>
+    <h6>
+        @if($settings != null)
+        <a href="tel:{{$settings->contact}}">{{$settings->contact}}</a>
+        @endif
+    </h6>
     </div>
     </div>
     </div>

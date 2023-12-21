@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('about_us', function (Blueprint $table) {
+        Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->string("short_title");
-            $table->string("title");
-            $table->string("description");
-            $table->string('side');
-            $table->integer('category');
-            $table->integer('status')->default(0);
+            $table->string('name');
+            $table->string('getway_type');
+            $table->longText('api_key');
+            $table->longText("secret_key");
+            $table->longText("callback_url");
+            $table->longText("additional_settings")->nullable();
+            $table->integer("status")->default(0);
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('about_us');
+        Schema::dropIfExists('payment_methods');
     }
 };

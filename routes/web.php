@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ResetPasswordController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\PaymentGetwaySettingsController;
+use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\HomeLinkController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\CategoryBannerController;
@@ -248,6 +250,24 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/edit/{id?}' , [SettingController::class , 'edit'])->name('admin.setting.edit');
         Route::get('/delete/{id?}' , [SettingController::class , 'destroy'])->name('admin.setting.delete');
         Route::get('/change_status' , [SettingController::class , 'change_status'])->name('admin.setting.change_status');
+
+    });
+    Route::prefix('/paymentsettings')->group(function(){
+        Route::get('/' , [PaymentGetwaySettingsController::class , 'index'])->name('admin.paymentsettings.index');
+        Route::get('/create' , [PaymentGetwaySettingsController::class , 'create'])->name('admin.paymentsettings.create');
+        Route::post('/store/{id?}' , [PaymentGetwaySettingsController::class , 'store'])->name('admin.paymentsettings.store');
+        Route::get('/edit/{id?}' , [PaymentGetwaySettingsController::class , 'edit'])->name('admin.paymentsettings.edit');
+        Route::get('/delete/{id?}' , [PaymentGetwaySettingsController::class , 'destroy'])->name('admin.paymentsettings.delete');
+        Route::get('/change_status' , [PaymentGetwaySettingsController::class , 'change_status'])->name('admin.paymentsettings.change_status');
+
+    });
+    Route::prefix('/aboutussettings')->group(function(){
+        Route::get('/' , [AboutUsController::class , 'index'])->name('admin.aboutussettings.index');
+        Route::get('/create' , [AboutUsController::class , 'create'])->name('admin.aboutussettings.create');
+        Route::post('/store/{id?}' , [AboutUsController::class , 'store'])->name('admin.aboutussettings.store');
+        Route::get('/edit/{id?}' , [AboutUsController::class , 'edit'])->name('admin.aboutussettings.edit');
+        Route::get('/delete/{id?}' , [AboutUsController::class , 'destroy'])->name('admin.aboutussettings.delete');
+        Route::get('/change_status' , [AboutUsController::class , 'change_status'])->name('admin.aboutussettings.change_status');
 
     });
     Route::get('notifications' , [NotificationController::class ,'fetchNotification'])->name('notification.get');

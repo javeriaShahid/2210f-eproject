@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('about_us', function (Blueprint $table) {
+        Schema::create('about_us_main_banners', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string("short_title");
-            $table->string("title");
-            $table->string("description");
-            $table->string('side');
-            $table->integer('category');
+            $table->string('main_banner');
+            $table->string('main_title');
+            $table->string('main_description');
             $table->integer('status')->default(0);
             $table->timestamps();
         });
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('about_us');
+        Schema::dropIfExists('about_us_main_banners');
     }
 };

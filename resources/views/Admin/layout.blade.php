@@ -136,6 +136,33 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                 </li>
               </li>
               {{-- End  --}}
+              <li class="menu-header small text-uppercase"><span class="menu-header-text">About Us </span></li>
+            <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-info-circle"></i>
+                    <div data-i18n="Layouts">About Us </div>
+                  </a>
+
+                  <ul class="menu-sub">
+
+                    <li class="menu-item">
+                        <a href="{{ route('admin.aboutussettings.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.aboutussettings.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </li>
+              {{-- End  --}}
               <!-- Forms & Tables -->
               <li class="menu-header small text-uppercase"><span class="menu-header-text">Brands  Management</span></li>
               <!-- Forms -->
@@ -496,6 +523,34 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </li>
                 </li>
               {{-- End  --}}
+              <li class="menu-header small text-uppercase"><span class="menu-header-text">Payment Management </span></li>
+              <!-- Forms -->
+              <li class="menu-item">
+                  <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                      <i class="menu-icon tf-icons bx bx-money"></i>
+                      <div data-i18n="Layouts">Payment Management </div>
+                    </a>
+
+                    <ul class="menu-sub">
+
+                      <li class="menu-item">
+                          <a href="{{ route('admin.paymentsettings.index') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-collection"></i>
+                              <div data-i18n="Basic">All</div>
+                            </a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="{{ route('admin.paymentsettings.create') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-plus"></i>
+                              <div data-i18n="Basic">Create</div>
+                            </a>
+                      </li>
+
+                    </ul>
+                  </li>
+                </li>
+                {{-- End  --}}
           </ul>
         </aside>
         <!-- / Menu -->
