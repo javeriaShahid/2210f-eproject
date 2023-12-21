@@ -42,12 +42,19 @@ class MailSettingController extends Controller
         }
     }
     public function destroy($id = null ){
+        $checkAllStatus = $this->parentModel::where('id' ,$id)->count();
+        if($checkAllStatus > 1){
+
         $delete = $this->parentModel::where(['id' => $id ])->delete();
         if($delete){
-            return redirect()->back()->with('success' , ' Smtp Server Information has been Deleted');
+            return redirect()->back()->with('success' , ' SMTP Server  Information has been Deleted');
         }
         else{
-            return redirect()->back()->with('error' , 'Failed To Delete Smtp Server Information');
+            return redirect()->back()->with('error' , 'Failed To Delete SMTP Server Information');
+        }
+        }
+        else{
+            return redirect()->back()->with('error' , 'Failed To Delete SMTP Server Information You Must have 1 setting Available For Website');
         }
     }
 

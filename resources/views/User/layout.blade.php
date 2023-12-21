@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+@php
+$settings = \App\Models\Setting::where('status' , 1)->first();
+@endphp
 <html lang="en">
 
 <!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/about_us by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:47 GMT -->
@@ -26,8 +29,12 @@
 <link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
 
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-<title>Dazzle | @yield('title')</title>
-<link rel="icon" href="{{ asset("assets/img/sm-logo.svg") }}" type="image/gif">
+<title>@if($settings != null){{ $settings->title }} @else Dazzle @endif | @yield('title')</title>
+@if($settings != null)
+<link rel="icon" href="{{asset('settings_x_Icons/' . $settings->x_icon)}}" type="image/gif">
+@else
+<link rel="icon" href="{{asset('assets/img/sm-logo.svg')}}" type="image/gif">
+@endif
 <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.css') }}">
 </head>
 <body>
@@ -35,11 +42,13 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-12 d-flex align-items-center justify-content-between gap-3">
-<div class="top-bar-left">
-<p>*New Winter Product 2023 <a href="slider">Shop Now*</a></p>
-</div>
+
 <div class="company-logo">
-<a href="/"><img src="{{asset('assets/img/logo.png')}}" style="height: 50px" alt></a>
+<a href="{{ route('user.index') }}"> @if($settings != null)
+    <img src="{{ asset('settingsLogo/' . $settings->logo) }}" style="height: 50px" alt>
+    @else
+    <img src="{{ asset('assets/img/logo.png') }}" style="height: 50px" alt>
+    @endif</a>
 </div>
 <div class="search-area">
 <form action="{{ route('search') }}" method="Post">

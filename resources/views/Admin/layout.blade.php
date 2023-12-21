@@ -12,6 +12,9 @@
 =========================================================
  -->
 <!-- beautify ignore:start -->
+@php
+$settings = \App\Models\Setting::where('status' , 1)->first();
+@endphp
 <html
   lang="en"
   class="light-style layout-menu-fixed"
@@ -26,15 +29,21 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
+    @if($settings != null)
+    <link rel="icon" href="{{asset('settings_x_Icons/' . $settings->x_icon)}}" type="image/gif">
+    @else
     <link rel="icon" href="{{asset('assets/img/sm-logo.svg')}}" type="image/gif">
-
-    <title>Admin | @yield('title')</title>
+    @endif
+    <title>@if($settings != null){{ $settings->title }} @endif  Admin | @yield('title')</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/sm-logo.svg') }}" />
-
+    @if($settings != null)
+    <link rel="icon" href="{{asset('settings_x_Icons/' . $settings->x_icon)}}" type="image/gif">
+    @else
+    <link rel="icon" href="{{asset('assets/img/sm-logo.svg')}}" type="image/gif">
+    @endif
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -75,13 +84,12 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" style="overflow-y: auto; overflow-x:hidden;">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
-              <span class="app-brand-logo demo">
-
-              </span>
-
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">
-                <img src="{{ asset('assets/img/logo.png') }}" style="height: 50px" alt>              </span>
+            <a href="{{ route('user.index') }}" class="app-brand-link" style="display: flex; justify-content:center">
+                @if($settings != null)
+                <img src="{{ asset('settingsLogo/' . $settings->logo) }}" style="height: 50px" alt>
+                @else
+                <img src="{{ asset('assets/img/logo.png') }}" style="height: 50px" alt>
+                @endif
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -610,10 +618,14 @@
                       <div class="mb-2 mb-md-0">
                         ©
                         <script>
+                         @if($settings != null)
+                           {{ $settings->designed_year }}
+                         @else
                           document.write(new Date().getFullYear());
+                         @endif
                         </script>
                         , made with ❤️ by
-                        <a href="{{ route('user.index') }}" target="_blank" class="footer-link fw-bolder">Dazzle.</a>
+                        <a href="{{ route('user.index') }}" target="_blank" class="footer-link fw-bolder">@if($settings != null){{ $settings->designed_by }}@else Dazzle. @endif</a>
                       </div>
                       <div>
 

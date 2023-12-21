@@ -74,12 +74,19 @@ class SettingController extends Controller
 
     }
     public function destroy($id = null ){
+        $checkAllStatus = $this->parentModel::where('id' ,$id)->count();
+        if($checkAllStatus > 1){
+
         $delete = $this->parentModel::where(['id' => $id ])->delete();
         if($delete){
             return redirect()->back()->with('success' , ' Settings Information has been Deleted');
         }
         else{
             return redirect()->back()->with('error' , 'Failed To Delete Settings Information');
+        }
+        }
+        else{
+            return redirect()->back()->with('error' , 'Failed To Delete Settings Information You Must have 1 setting Available For Website');
         }
     }
     public function change_status(Request $request){
