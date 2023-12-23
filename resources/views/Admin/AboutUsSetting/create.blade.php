@@ -24,7 +24,7 @@ if($action == "edit")
 }
 ?>
 {{-- If Condition --}}
-<form action="{{ $parentRoute }}" id="aboutUsForm" method="Post" enctype="multipart/form-data">
+<form action="{{ $parentRoute }}" id="aboutusForm" method="Post" enctype="multipart/form-data">
 @csrf
 <div class="row">
 <div class="col-md-12">
@@ -105,7 +105,7 @@ if($action == "edit")
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script>
     let action = '{{ $action }}' ;
-    let about = <?php echo isset($data['about']) && $data['about'] ? json_encode($data['about']) : 0 ?>
+    let aboutus = <?php echo isset($data['about']) && $data['about'] ? json_encode($data['about']) : 0 ?>
 
 </script>
 @endsection

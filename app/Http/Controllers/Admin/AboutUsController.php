@@ -13,7 +13,7 @@ class AboutUsController extends Controller
     public  $parentRoute   = 'admin.aboutussettings';
     public  $categoryModel = Category::class;
     public function index(){
-        $data['payments'] = $this->parentModel::paginate(10);
+        $data['about'] = $this->parentModel::paginate(10);
         return view($this->parentView .'.index')->with('data' , $data );
     }
 
@@ -24,7 +24,7 @@ class AboutUsController extends Controller
     }
     public function edit($id = null){
         $data['action']   = "edit" ;
-        $data['payments'] = $this->parentModel::where('id' , $id) ->first();
+        $data['about'] = $this->parentModel::where('id' , $id) ->first();
         $data['category'] = $this->categoryModel::withoutTrashed()->get();
         return view($this->parentView.'.create')->with('data' , $data );
     }

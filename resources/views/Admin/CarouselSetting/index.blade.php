@@ -183,7 +183,7 @@ All Carousel
             if(response.status == true ){
                 e.preventDefault()
                 toastr['success']("Carousel has been Activated");
-              
+
             }
             if(response.status == false){
                 e.preventDefault()

@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Subcategory;
-
+use App\Models\AboutUs ;
 class usercontroller extends Controller
 {
    public $countryModel     = Country::class ;
@@ -26,7 +26,9 @@ class usercontroller extends Controller
       return view("user.dashboard");
      }
    public function about_us(){
-      return view("user.about_us");
+     $data['aboutUs']  = AboutUs::where("status" , 1)->orderBy('id' , 'desc')->paginate(2);
+     $data['brands']  = $this->brandModel::withoutTrashed()->orderBy('id' , 'desc')->paginate(10);
+      return view("user.about_us")->with('data' , $data);
      }
    public function accordion(){
       return view("user.accordion");
