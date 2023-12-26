@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('about_us_main_banners', function (Blueprint $table) {
             $table->id();
-            $table->string('main_banner');
-            $table->string('main_title');
-            $table->string('main_description');
+            $table->string('image');
+            $table->string('video');
+            $table->string('video_banner');
+            $table->string('title');
+            $table->longText('description');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

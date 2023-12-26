@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class AboutUsMainBanners extends Model
 {
     use HasFactory;
+    protected $fillable = ['image' , 'video' , 'title' , 'description', 'status' ,'video_banner'];
 }

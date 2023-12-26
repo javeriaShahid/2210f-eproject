@@ -54,7 +54,7 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
     <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.css') }}">
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
-
+    <link rel="stylesheet" href="{{asset("dashboardassets/css/tag.css")}}">
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
@@ -135,9 +135,7 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </ul>
                 </li>
               </li>
-              {{-- End  --}}
-              <li class="menu-header small text-uppercase"><span class="menu-header-text">About Us </span></li>
-            <li class="menu-item">
+              <li class="menu-item">
                 <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-info-circle"></i>
@@ -162,9 +160,61 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </ul>
                 </li>
               </li>
-              {{-- End  --}}
-              <!-- Forms & Tables -->
-              <li class="menu-header small text-uppercase"><span class="menu-header-text">Brands  Management</span></li>
+              <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-image"></i>
+                    <div data-i18n="Layouts">About Us Banners </div>
+                  </a>
+
+                  <ul class="menu-sub">
+
+                    <li class="menu-item">
+                        <a href="{{ route('admin.aboutusbanner.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.aboutusbanner.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </li>
+              <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-camera"></i>
+                    <div data-i18n="Layouts">Blogs </div>
+                  </a>
+
+                  <ul class="menu-sub">
+
+                    <li class="menu-item">
+                        <a href="{{ route('admin.blogs.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.blogs.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </li>
+
+
+            <!-- Misc -->
+            <li class="menu-header small text-uppercase"><span class="menu-header-text">Product Managment</span></li>
+
               <!-- Forms -->
               <li class="menu-item">
                 <li class="menu-item">
@@ -196,49 +246,40 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </ul>
                 </li>
               </li>
+              {{-- categories --}}
+               <!-- Forms -->
+               <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-book"></i>
+                    <div data-i18n="Layouts">Category</div>
+                  </a>
 
+                  <ul class="menu-sub">
+                      <li class="menu-item">
+                        <a href="{{ route('category.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                        </li>
+                    <li class="menu-item">
+                        <a href="{{ route('category.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
 
-            <!-- Components -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Category Management</span></li>
-                         <!-- Forms -->
-                         <li class="menu-item">
-                            <li class="menu-item">
-                              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                                <i class="menu-icon tf-icons bx bx-book"></i>
-                                <div data-i18n="Layouts">Category</div>
-                              </a>
-
-                              <ul class="menu-sub">
-                                  <li class="menu-item">
-                                    <a href="{{ route('category.create') }}" class="menu-link">
-                                        <i class="menu-icon tf-icons bx bx-plus"></i>
-                                        <div data-i18n="Basic">Create</div>
-                                      </a>
-                                    </li>
-                                <li class="menu-item">
-                                    <a href="{{ route('category.index') }}" class="menu-link">
-                                        <i class="menu-icon tf-icons bx bx-collection"></i>
-                                        <div data-i18n="Basic">All</div>
-                                      </a>
-                                </li>
-
-                                <li class="menu-item">
-                                    <a href="{{ route('category.trash') }}" class="menu-link">
-                                        <i class="menu-icon tf-icons bx bx-trash"></i>
-                                        <div data-i18n="Basic">Trashed</div>
-                                      </a>
-                                </li>
-                              </ul>
-                            </li>
-                          </li>
-
-
-
-
-            <!-- Forms & Tables -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Sub Categories  Management</span></li>
-            <!-- Forms -->
-            <li class="menu-item">
+                    <li class="menu-item">
+                        <a href="{{ route('category.trash') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-trash"></i>
+                            <div data-i18n="Basic">Trashed</div>
+                          </a>
+                    </li>
+                  </ul>
+                </li>
+              </li>
+              {{-- subcategories --}}
+              <li class="menu-item">
                 <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-book"></i>
@@ -268,9 +309,7 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </ul>
                 </li>
               </li>
-            {{--  --}}
-            <!-- Misc -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Product Managment</span></li>
+              {{-- end of subcategories --}}
             <li class="menu-item">
                 <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -409,43 +448,44 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </ul>
                 </li>
               </li>
-              {{-- End  --}}
-              <li class="menu-header small text-uppercase"><span class="menu-header-text">Carousel Management</span></li>
-              <!-- Forms -->
+
+
+              {{-- Users Managment --}}
+
+              <li class="menu-header small text-uppercase"><span class="menu-header-text">Settings</span></li>
+              {{-- carousel --}}
               <li class="menu-item">
-                  <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                      <i class="menu-icon tf-icons bx bx-camera"></i>
-                      <div data-i18n="Layouts">Carousel Management</div>
-                    </a>
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-camera"></i>
+                    <div data-i18n="Layouts">Carousel Management</div>
+                  </a>
 
-                    <ul class="menu-sub">
+                  <ul class="menu-sub">
 
-                      <li class="menu-item">
-                          <a href="{{ route('admin.carouselsetting.index') }}" class="menu-link">
-                              <i class="menu-icon tf-icons bx bx-collection"></i>
-                              <div data-i18n="Basic">All</div>
-                            </a>
-                      </li>
-                      <li class="menu-item">
-                          <a href="{{ route('admin.carouselsetting.create') }}" class="menu-link">
-                              <i class="menu-icon tf-icons bx bx-plus"></i>
-                              <div data-i18n="Basic">Create</div>
-                            </a>
-                      </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.carouselsetting.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.carouselsetting.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                    </li>
 
-                    </ul>
-                  </li>
+                  </ul>
                 </li>
-                {{-- End  --}}
-                {{-- Category Banner Setting --}}
-                <li class="menu-header small text-uppercase"><span class="menu-header-text">Category Banners </span></li>
+              </li>
+              {{-- Category Banners --}}
                 <!-- Forms -->
                 <li class="menu-item">
                     <li class="menu-item">
                       <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-camera"></i>
-                        <div data-i18n="Layouts">Category Banners  Management</div>
+                        <div data-i18n="Layouts">Category Banners</div>
                       </a>
 
                       <ul class="menu-sub">
@@ -466,10 +506,8 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                       </ul>
                     </li>
                   </li>
-              {{-- Users Managment --}}
-                 <!-- Forms & Tables -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">SMTP Mail Management</span></li>
-            <!-- Forms -->
+              {{-- Email setting --}}
+                <!-- Forms -->
             <li class="menu-item">
                 <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -495,8 +533,7 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </ul>
                 </li>
               </li>
-              <li class="menu-header small text-uppercase"><span class="menu-header-text">Settings</span></li>
-              <!-- Forms -->
+             {{-- <!-- Forms --> --}}
               <li class="menu-item">
                   <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -706,6 +743,8 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
 
         </body>
       </html>
+
+
       <script>
         let notificationUrl = "{{route('notification.get')}}";
         // To show every error that occure

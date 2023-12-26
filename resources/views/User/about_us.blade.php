@@ -8,44 +8,12 @@ About Us
 @section('content')
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-    <!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:47 GMT -->
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-        <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-
-        <link href="assets/css/all.min.css" rel="stylesheet">
-        <link href="assets/css/nice-select.css" rel="stylesheet">
-
-        <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link href="assets/css/fontawesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/boxicons.min.css">
-
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Dazzle</title>
-<link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
-</head>
-
 
 <div class="breadcrumb-section">
     <div class="container">
 <nav aria-label="breadcrumb">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item"><a href="{{route('user.index')}}">Home</a></li>
 <li class="breadcrumb-item active" aria-current="page">About Us</li>
 </ol>
 </nav>
@@ -58,7 +26,9 @@ About Us
 <div class="row">
 <div class="col-12">
 <div class="about-us-thumb hover-img mb-60">
-<img src="assets/img/inner-page/about-us-banner-img.png" alt>
+@if($data['a_banners'] != null)
+<img src="{{asset('aboutusbannerImages/' .$data['a_banners']->image)}}" alt>
+|@endif
 </div>
 </div>
 </div>
@@ -69,9 +39,12 @@ About Us
 <div class="row justify-content-center">
 <div class="col-lg-8">
 <div class="about-us-wrapper">
-<h1>Ensure Superlative Support with Technology.</h1>
-<p>Donec accumsan justo eget porta pellentesque. Etiam vitae malesuada lorem, sed lobortis arcu. Aenean onegn vulputate ligula eu elit porttitor tempus. Suspendisse ultrices augue ac tempus hendrerit. Integer id cursusourc ligula, quis faucibus enim. Donec sit amet aliquam leo. Donec eget risus elementum, finibus elit vel, goutava condimentum sapien. In hac habitasse platea dictumst. Cras faucibus lacus scelerisque elementum aliquam. Ut porta efficitur metus sed varius.</p>
-<p>Donec accumsan justo eget porta pellentesque. Etiam vitae malesuada lorem, sed lobortis arcu. Aenean onegn vulputate ligula eu elit porttitor tempus. Suspendisse ultrices augue ac tempus hendrerit. Integer id cursusourc ligula, quis faucibus enim. Donec sit amet aliquam leo. Donec eget risus elementum, finibus elit vel, goutava </p>
+@if($data['a_banners'] != null)
+<h1>{{$data['a_banners']->title}}</h1>
+<p>{{$data['a_banners']->description}}</p>
+@endif
+
+
 </div>
 </div>
 </div>
@@ -86,8 +59,10 @@ About Us
 <div class="row">
 <div class="col-12">
 <div class="about-video-thumb">
-<img src="assets/img/inner-page/about-video-bg.png" alt>
-<a data-fancybox="popup-video" href="https://www.youtube.com/watch?v=u31qwQUeGuM"><i class="bi bi-play-fill"></i></a>
+@if($data['a_banners'] != null)
+<img src="{{asset('aboutUsBannerVideos/' . $data['a_banners']->video_banner)}}" alt style="width:100%">
+<a data-fancybox="popup-video" href="{{asset('aboutUsVideos/' . $data['a_banners']->video)}}"><i class="bi bi-play-fill"></i></a>
+@endif
 </div>
 </div>
 </div>
@@ -165,40 +140,7 @@ About Us
     </div>
     @endif
 @endforeach
-@else
 
-<div class="makeup-top-item">
-<div class="row align-items-center justify-content-center g-0 gy-4">
-<div class="col-lg-6">
-<div class="makeup-img hover-img">
-<img src="assets/img/home1/makeup-img1.png" alt>
-</div>
-</div>
-<div class="col-lg-6">
-<div class="makeup-content">
-<span>BROW BESTSELLERS</span>
-<h2>They’re kinda our Best thing!</h2>
-<p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.Pellentesque ipsum dui, laoreet vitae ex in, pellentesque aliquam leo.</p>
-<a href class="primary-btn1 style-2 hover-btn3">*Shop All Brows*</a>
-</div>
-</div>
-</div>
-</div>
-
-<div class="row align-items-center justify-content-center g-0 gy-4">
-<div class="col-lg-6 order-lg-1 order-2">
-<div class="makeup-content">
-<h2>Try on your perfect Best Makeup!</h2>
-<p>Whatever your summer looks like, bring your own heat with up to 25% off Lumin Brand.Pellentesque ipsum dui, laoreet vitae ex in, pellentesque aliquam leo.</p>
-<a href class="primary-btn1 style-2 hover-btn3">*Try It Now*</a>
-</div>
-</div>
-<div class="col-lg-6 order-lg-2 order-1">
-<div class="makeup-img hover-img">
-<img src="assets/img/home1/makeup-img2.png" alt>
-</div>
-</div>
-</div>
 @endif
 </div>
 </div>

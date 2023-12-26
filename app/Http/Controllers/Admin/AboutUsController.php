@@ -40,7 +40,11 @@ class AboutUsController extends Controller
         if ($id != null) {
             $existingData = $this->parentModel::find($id);
             if (isset($data['image'])) {
-            $existingData->image = $data['image'];
+                $filePath = public_path('aboutusImages/' . $existingData->image) ;
+                if (file_exists($filePath)) {
+                    unlink($filePath); // Delete the file
+                }
+                $existingData->image = $data['image'];
             }
             $existingData->update($data);
             if($existingData){

@@ -10,8 +10,10 @@ use App\Http\Controllers\Admin\MailSettingController;
 use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ResetPasswordController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\PaymentGetwaySettingsController;
+use App\Http\Controllers\Admin\AboutUsBannerController;
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\HomeLinkController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -268,6 +270,24 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/edit/{id?}' , [AboutUsController::class , 'edit'])->name('admin.aboutussettings.edit');
         Route::get('/delete/{id?}' , [AboutUsController::class , 'destroy'])->name('admin.aboutussettings.delete');
         Route::get('/change_status' , [AboutUsController::class , 'change_status'])->name('admin.aboutussettings.change_status');
+
+    });
+    Route::prefix('/aboutusbanner')->group(function(){
+        Route::get('/' , [AboutUsBannerController::class , 'index'])->name('admin.aboutusbanner.index');
+        Route::get('/create' , [AboutUsBannerController::class , 'create'])->name('admin.aboutusbanner.create');
+        Route::post('/store/{id?}' , [AboutUsBannerController::class , 'store'])->name('admin.aboutusbanner.store');
+        Route::get('/edit/{id?}' , [AboutUsBannerController::class , 'edit'])->name('admin.aboutusbanner.edit');
+        Route::get('/delete/{id?}' , [AboutUsBannerController::class , 'destroy'])->name('admin.aboutusbanner.delete');
+        Route::get('/change_status' , [AboutUsBannerController::class , 'change_status'])->name('admin.aboutusbanner.change_status');
+
+    });
+    Route::prefix('/blogs')->group(function(){
+        Route::get('/' , [BlogController::class , 'index'])->name('admin.blogs.index');
+        Route::get('/create' , [BlogController::class , 'create'])->name('admin.blogs.create');
+        Route::post('/store/{id?}' , [BlogController::class , 'store'])->name('admin.blogs.store');
+        Route::get('/edit/{id?}' , [BlogController::class , 'edit'])->name('admin.blogs.edit');
+        Route::get('/delete/{id?}' , [BlogController::class , 'destroy'])->name('admin.blogs.delete');
+        Route::get('/change_status' , [BlogController::class , 'change_status'])->name('admin.blogs.change_status');
 
     });
     Route::get('notifications' , [NotificationController::class ,'fetchNotification'])->name('notification.get');
