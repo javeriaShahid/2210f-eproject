@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Blogs;
 use App\Models\Subcategory;
 use App\Models\AboutUs ;
 use App\Models\AboutUsMainBanners ;
@@ -29,14 +30,16 @@ class usercontroller extends Controller
    public function about_us(){
      $data['aboutUs']    = AboutUs::where("status" , 1)->orderBy('id' , 'desc')->paginate(2);
      $data['a_banners']  = AboutUsMainBanners::where('status' , 1)->first();
+     $data['blogs']      = Blogs::where('status' , 1)->orderBy('id' , 'desc')->paginate(3);
      $data['brands']     = $this->brandModel::withoutTrashed()->orderBy('id' , 'desc')->paginate(10);
       return view("user.about_us")->with('data' , $data);
      }
    public function accordion(){
       return view("user.accordion");
      }
-   public function blog_details(){
-      return view("user.blog_details");
+   public function blog_details($id= null){
+      $data['blogs'] = Blogs::where('id' , $id)->first();
+      return view("user.blog_details")->with('data' , $data);
      }
    public function blog(){
       return view("user.blog");

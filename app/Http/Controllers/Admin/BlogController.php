@@ -12,7 +12,7 @@ class BlogController extends Controller{
      public  $parentView    = 'Admin.Blog';
      public  $parentRoute   = 'admin.blogs';
     public function index(){
-        $data['about'] = $this->parentModel::paginate(10);
+        $data['blog'] = $this->parentModel::paginate(10);
         return view($this->parentView .'.index')->with('data' , $data );
     }
 
@@ -24,7 +24,7 @@ class BlogController extends Controller{
     public function edit($id = null){
         $data['action']   = "edit" ;
         $data['category'] = $this->childModel::all();
-        $data['about']    = $this->parentModel::where('id' , $id) ->first();
+        $data['blog']    = $this->parentModel::where('id' , $id) ->first();
         return view($this->parentView.'.create')->with('data' , $data );
     }
     public function store(Request $request , $id = null ){

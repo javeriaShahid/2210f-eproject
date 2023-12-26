@@ -68,7 +68,7 @@ if($action == "edit")
             </div>
 
             <div class="col-md-12">
-                <button type="submit" class="btn-primary btn mt-3"> {{ $parentButton }}</button>
+                <button type="submit" id="submitButton" class="btn-primary btn mt-3"> {{ $parentButton }}</button>
             </div>
         </div>
         </div>

@@ -18,8 +18,8 @@ if($action == "create")
 }
 if($action == "edit")
 {
- $about           =  $data['about'] ;
- $parentRoute               =  Route('admin.blogs.store' , $about->id);
+ $blog                      =  $data['blog'] ;
+ $parentRoute               =  Route('admin.blogs.store' , $blog->id);
  $parentButton              =  "Update" ;
 }
 ?>
@@ -56,11 +56,15 @@ if($action == "edit")
             </div>
             <div class="col-md-12 mb-3">
                 <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Blog Description | <small> ( Must be of 100 - 1000 characters  )</small></label>
-                <textarea name="description"  class="form-control" placeholder="Description" aria-describedby="defaultFormControlHelp" ></textarea>
+                <textarea name="blockqoute" id="qoute"  class="form-control texteditor1" placeholder="Description" aria-describedby="defaultFormControlHelp" ></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Blog Description | <small> ( Must be of 100 - 1000 characters  )</small></label>
+                <textarea name="description" id="description" class="form-control texteditor2" placeholder="Description" aria-describedby="defaultFormControlHelp" ></textarea>
             </div>
 
             <div class="col-md-12">
-                <button type="submit" class="btn-primary btn mt-3"> {{ $parentButton }}</button>
+                <button type="submit" id="submitButton" class="btn-primary btn mt-3"> {{ $parentButton }}</button>
             </div>
         </div>
         </div>
@@ -85,20 +89,25 @@ if($action == "edit")
 
 <!-- Vendors JS -->
 <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
-
+<script src="{{asset('dashboardassets/js/jquery.richtext.js')}}"></script>
 <!-- Main JS -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
 <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
 <!-- Page JS -->
 <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
 {{-- custom --}}
-<script src="{{ asset('assets/css/custom/blogs.js') }}"></script>
+<script src="{{ asset('assets/css/custom/blog.js') }}"></script>
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script>
+    $(document).ready(function(){
+        $('#description').richText();
+
+    })
     let action = '{{ $action }}' ;
-    let aboutus = <?php echo isset($data['about']) && $data['about'] ? json_encode($data['about']) : 0 ?>
+    let blog = <?php echo isset($data['blog']) && $data['blog'] ? json_encode($data['blog']) : 0 ?>
+
 
 </script>
 @endsection

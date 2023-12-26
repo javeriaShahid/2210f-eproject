@@ -283,69 +283,48 @@ About Us
 <div class="row gy-4">
 <div class="col-lg-7">
 <div class="row gy-4">
+@foreach($data['blogs'] as $blogs)
 <div class="col-sm-6">
-<div class="article-card">
+<div class="article-card" style="min-height: 500px!important; max-height:500px!important">
 <div class="article-image">
-<div class="blog-date">
-<a href="blog-grid.html">20 July, 2023</a>
-</div>
-<a href="blog-details.html" class="article-card-img hover-img">
-<img src="assets/img/home1/article-img1.png" alt>
-</a>
-</div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="blog-grid.html">Beauty</a>
-</li>
-<li>
-<a href="blog-grid.html">Makeup </a>
-</li>
-<li>
-<a href="blog-grid.html">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog-details.html" class="hover-underline">Vestibulum leo ex posueret eu lobortis ut.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog-details.html">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<a href="blog-details.html" class="article-card-img hover-img">
-<img src="assets/img/home1/article-img2.png" alt>
+<a href="{{route('blog_details' , $blogs->id)}}" class="article-card-img hover-img">
+<img src="{{asset('blogImages/' . $blogs->image )}}" >
 </a>
 <div class="blog-date">
-<a href="blog-grid.html">25 July, 2023</a>
+<a href="blog-grid.html">
+    @php
+    $date = \Carbon\Carbon::parse($blogs->created_at);
+    $formatedDate = $date->format('d,M Y');
+    @endphp
+    {{$formatedDate}}
+</a>
 </div>
 </div>
 <div class="article-card-content">
 <div class="tag">
 <ul>
-<li>
-<a href="blog-grid.html">Beauty</a>
-</li>
-<li>
-<a href="blog-grid.html">Makeup </a>
-</li>
-<li>
-<a href="blog-grid.html">Health</a>
-</li>
+    @php
+
+    $tagsId =  json_decode($blogs->tags);
+    $tags   = \App\Models\Category::whereIn('id' ,$tagsId)->paginate(4);
+    @endphp
+    @foreach ($tags as $tag )
+    <li ><a href="{{route('search.category' , $tag->id)}}"> {{$tag->name}} </a></li>
+    @endforeach
 </ul>
 </div>
-<h5><a href="blog-details.html" class="hover-underline">Duis justo orci consecteturi et convallis.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog-details.html">Read More</a>
+<h5><a href="blog-details.html" class="hover-underline">{{$blogs->title}}</a></h5>
+<p>{{$blogs->description}}</p>
+<a href="{{route('blog_details' , $blogs->id)}}">Read More</a>
 </div>
 </div>
 </div>
+@endforeach
+
 </div>
 </div>
-<div class="col-lg-5">
+
+{{-- <div class="col-lg-5">
 <div class="article-card">
 <div class="article-image">
 <a href="blog-details.html" class="article-card-img hover-img">
@@ -374,7 +353,9 @@ About Us
 <a href="blog-details.html">Read More</a>
 </div>
 </div>
-</div>
+</div> --}}
+
+
 </div>
 </div>
 </div>

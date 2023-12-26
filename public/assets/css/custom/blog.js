@@ -2,12 +2,11 @@ $(document).ready(function(){
 
     let settingForm      = $("#aboutusForm");
     let image            = $("input[name='image']");
-    let short_title      = $("input[name='short_title']");
     let title            = $("input[name='title']");
-    let category         = $("select[name='category']");
-    let sideOfImage      = $("select[name='side']");
+    let tags             = $("#tags");
     let description      = $("textarea[name='description']");
-    let submitButton     = $('#submitButton')
+    let blockqoute       = $("#qoute");
+    let submitButton     = $('#submitButton');
 
     $(image).on('change' , function(e){
         e.preventDefault()
@@ -35,34 +34,34 @@ $(document).ready(function(){
         }
     });
     $(settingForm).submit(function(e){
-
+        console.log(blockqoute.val());
        if(action == 'create'){
         if($(image).val() == ""){
             e.preventDefault();
-            toastr['error']("About us Image is required");
+            toastr['error']("Blog Image is required");
             return false ;
         }
     }
-        if($(short_title).val() == ""){
-            e.preventDefault();
-            toastr['error']("Short Title is required");
-            return false ;
-        }
+
         if($(title).val() == ""){
             e.preventDefault();
             toastr['error']("Title is required");
             return false ;
         }
-        if($(category).val() == ""){
+        if($(tags).val() == ""){
             e.preventDefault();
-            toastr['error']("Product Category is required");
+            toastr['error']("Atleast 1 Tag is required");
             return false ;
         }
 
-
-        if($(sideOfImage).val() == ""){
+        if($(blockqoute).val() == ""){
             e.preventDefault();
-            toastr['error']("Image Side is required");
+            toastr['error']("Blockqoute is required");
+            return false ;
+        }
+        if($(blockqoute).val().length < 100 && $(blockqoute).val().length > 1000 && $(blockqoute).val() != ""){
+            e.preventDefault();
+            toastr['warning']("Blockqoute must be greater then 100 and less then 1000");
             return false ;
         }
         if($(description).val() == ""){
@@ -81,14 +80,7 @@ $(document).ready(function(){
     });
 
     if(action == "edit"){
-    title.val(aboutus.title);
-    short_title.val(aboutus.short_title);
-    category.val(aboutus.category);
-    sideOfImage.val(aboutus.side);
-    description.val(aboutus.description);
-
-
+    title.val(blog.title);
+    description.val(blog.description);
     }
-
-
     });

@@ -1,45 +1,17 @@
 
 
 @extends('user.Layout')
+@section('title')
+Blogs Details
+@endsection
 @section('content')
-
-<html lang="en">
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:47 GMT -->
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-
-<link href="assets/css/all.min.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link href="assets/css/fontawesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/boxicons.min.css">
-
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Dazzle</title>
-<link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
-</head>
 
 
 <div class="breadcrumb-section">
 <div class="container">
 <nav aria-label="breadcrumb">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item"><a href="{{route('user.index')}}">Home</a></li>
 <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
 </ol>
 </nav>
@@ -54,26 +26,27 @@
 <div class="blog-author-meta">
 <div class="author-area">
 <div class="author-img">
-<img src="assets/img/inner-page/blog-author-img1.png" alt>
+@if($data['blogs']->user != null)
+<img src="{{asset('assets/UserImages/' . $data['blogs']->user->profile_image)}}" alt>
 </div>
 <div class="author-content">
-<p>
-By, <a href="#">Cooper Jogan</a>
-</p>
+    <p>
+        By, <a href="#">{{$data['blogs']->user->name}}</a>
+    </p>
+    @endif
 </div>
 </div>
 <div class="blog-meta">
 <div class="tag">
 <ul>
-<li>
-<a href="slider">Beauty</a>
-</li>
-<li>
-<a href="slider">Makeup </a>
-</li>
-<li>
-<a href="slider">Health</a>
-</li>
+    @php
+
+    $tagsId =  json_decode($data['blogs']->tags);
+    $tags   = \App\Models\Category::whereIn('id' ,$tagsId)->paginate(4);
+    @endphp
+    @foreach ($tags as $tag )
+    <li ><a href="{{route('search.category' , $tag->id)}}"> {{$tag->name}} </a></li>
+    @endforeach
 </ul>
 </div>
 <div class="meta">
@@ -100,20 +73,22 @@ By, <a href="#">Cooper Jogan</a>
 </div>
 </div>
 <div class="blog-thumb">
-<img src="assets/img/inner-page/blog-thumb-img.png" alt>
-<a href="#">20 July, 2023</a>
+    <img src="{{asset('blogImages/' . $data['blogs']->image )}}" >
+<a href="#">
+    @php
+    $date = \Carbon\Carbon::parse($data['blogs']->created_at);
+    $formatedDate = $date->format('d,M Y');
+    @endphp
+    {{$formatedDate}}
+</a>
 </div>
 <div class="blog-content">
-<h1>Vestibulum leo ex posueret eurot lobortis utoo beauty.</h1>
-<p>Mauris et enim magna. Quisque ornare vitae nibh eget tincidunt. In purus orci, iaculis iaculis turpis europeat, molestie rhoncus turpis. Nullam at urna bibendum, vulputate purus non, facilisis turpis. Mauris sit amet semle vitae neque condimentum viverra ut sed massa. Phasellus tortor arcu, placerat vel odio quis, commodo offert pellentesque leo. Cras mollis tempus risus sit amet pellentesque. Nam et augue faucibus, consequat turpison eget, tristique velit.</p>
-<p>Mauris et enim magna. Quisque ornare vitae nibh eget tincidunt. In purus orci, iaculis iaculis turpis europeat, molestie rhoncus turpis. Nullam at urna bibendum, vulputate purus non, facilisis turpis. Mauris sit amet semle vitae neque condimentum viverra ut sed massa.</p>
-<h3>Vestibulum leo ex posueret</h3>
-<p>Mauris et enim magna. Quisque ornare vitae nibh eget tincidunt. In purus orci, iaculis iaculis turpis europeat, molestie rhoncus turpis. Nullam at urna bibendum, vulputate purus non, facilisis turpis. Mauris sit amet semle vitae neque condimentum viverra ut sed massa. Phasellus tortor arcu, placerat vel odio quis, commodo offert pellentesque leo. Cras mollis tempus risus sit amet pellentesque. Nam et augue faucibus, consequat turpison eget, tristique velit.</p>
+<h1>{{$data['blogs']->title}}</h1>
+<p>{{$data['blogs']->description}}</p>
 <blockquote>
-<p>Mauris et enim magna quisque ornaret vitae nibbah egeto tincidunt. In purus orci, iaculis iaculis turpis european nori wordless more than work.</p>
+<p>{{$data['blogs']->blockQoute}}</p>
 </blockquote>
-<h3>Donec blandit fermentum.</h3>
-<p>Mauris et enim magna. Quisque ornare vitae nibh eget tincidunt. In purus orci, iaculis iaculis turpis europeat, molestie rhoncus turpis. Nullam at urna bibendum, vulputate purus non, facilisis turpis. Mauris sit amet semle vitae neque condimentum viverra ut sed massa.</p>
+
 <div class="blog-details-img-group">
 <div class="row g-4">
 <div class="col-lg-6">
@@ -242,18 +217,14 @@ By, <a href="#">Cooper Jogan</a>
 <div class="tag">
 <h6>Tag: </h6>
 <ul class="tag-list">
-<li>
-<a href="slider"> Makeup</a>
-</li>
-<li>
-<a href="slider"> Organic</a>
-</li>
-<li>
-<a href="slider"> Skin Care</a>
-</li>
-<li>
-<a href="slider"> Beauty Care</a>
-</li>
+    @php
+
+    $tagsId =  json_decode($data['blogs']->tags);
+    $tags   = \App\Models\Category::whereIn('id' ,$tagsId)->paginate(4);
+    @endphp
+    @foreach ($tags as $tag )
+    <li ><a href="{{route('search.category' , $tag->id)}}"> {{$tag->name}} </a></li>
+    @endforeach
 </ul>
 </div>
 <div class="social">

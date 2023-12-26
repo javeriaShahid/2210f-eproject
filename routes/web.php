@@ -50,7 +50,7 @@ Route::get('/search_category/{id?}', [usercontroller::class, "search_category"])
 Route::get('/subcategory_Search/{id?}', [usercontroller::class, "search_subcategory"])->name('search.subcategory');
 Route::post('/search', [usercontroller::class, "search"])->name('search');
 Route::get('/accordion', [usercontroller::class, "accordion"])->name('accordion');
-Route::get('/blog_details', [usercontroller::class, "blog_details"])->name('blog_details');
+Route::get('/blog_details/{id?}', [usercontroller::class, "blog_details"])->name('blog_details');
 Route::get('/blog', [usercontroller::class, "blog"])->name('blog');
 Route::get('/category', [usercontroller::class, "category"])->name('category');
 Route::get('/contact', [usercontroller::class, "contact"])->name('contact');
