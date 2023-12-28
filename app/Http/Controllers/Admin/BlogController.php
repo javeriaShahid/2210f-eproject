@@ -5,17 +5,26 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blogs;
+use App\Models\BlogComments;
 use App\Models\Category;
 class BlogController extends Controller{
-     public  $parentModel   =  Blogs::class;
-     public  $childModel    =  Category::class;
-     public  $parentView    = 'Admin.Blog';
-     public  $parentRoute   = 'admin.blogs';
+     public  $parentModel    =  Blogs::class;
+     public  $commentModel   =  BlogComments::class;
+     public  $childModel     =  Category::class;
+     public  $parentView     = 'Admin.Blog';
+     public  $parentRoute    = 'admin.blogs';
     public function index(){
         $data['blog'] = $this->parentModel::paginate(10);
         return view($this->parentView .'.index')->with('data' , $data );
     }
-
+    public function comments(){
+        $data['comment'] = $this->commentModel::paginate(10);
+        return view($this->parentView .'.comment')->with('data' , $data );
+    }
+    public function view_comments($id = null){
+        $data['comment'] = $this->commentModel::where('id' , $id)->first();
+        return view($this->parentView .'.view_comment')->with('data' , $data );
+    }
     public function create(){
         $data['action']   = "create" ;
         $data['category'] = $this->childModel::all();
@@ -106,6 +115,15 @@ class BlogController extends Controller{
         }
         else{
             return redirect()->back()->with('error' , 'Failed To Delete  Blog  Information');
+        }
+    }
+    public function destroy_comment($id = null ){
+        $delete = $this->commentModel::where(['id' => $id ])->delete();
+        if($delete){
+            return redirect()->back()->with('success' , ' Blog Comment  has been Deleted');
+        }
+        else{
+            return redirect()->back()->with('error' , 'Failed To Delete  Blog  Comment');
         }
     }
 }

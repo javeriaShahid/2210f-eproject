@@ -1,39 +1,10 @@
 
 
 @extends('user.Layout')
+@section("title")
+Blogs
+@endsection
 @section('content')
-
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/blog-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:49 GMT -->
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-
-<link href="assets/css/all.min.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link href="assets/css/fontawesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/boxicons.min.css">
-
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Dazzle
-</title>
-<link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
-</head>
-<body>
 
 
 <div class="breadcrumb-section">
@@ -51,302 +22,55 @@
 <div class="blog-grid-section mt-110 mb-110">
 <div class="container-md container-fluid">
 <div class="row g-4 mb-80 justify-content-center">
+@if($data['blogs'] != null)
+@foreach($data['blogs'] as $blogs)
 <div class="col-lg-4 col-sm-6">
-<div class="article-card">
+<div class="article-card" style="min-height: 500px!important; max-height:500px!important">
 <div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/inner-page/blog-grid-img1.png" alt>
+<a href="{{route('blog_details' , $blogs->id)}}" class="article-card-img hover-img">
+<img src="{{asset('blogImages/' . $blogs->image )}}" alt>
 </a>
 <div class="blog-date">
-<a href="#">20 July, 2023</a>
+<a href="{{route('blog_details' , $blogs->id)}}"> @php
+    $date = \Carbon\Carbon::parse($blogs->created_at);
+    $formatedDate = $date->format('d,M Y');
+    @endphp
+    {{$formatedDate}}</a>
 </div>
 </div>
 <div class="article-card-content">
 <div class="tag">
 <ul>
-<li>
-<a href="slider">Beauty</a>
-</li>
-<li>
-<a href="standard">Makeup</a>
-</li>
-<li>
-<a href="slider">Health</a>
-</li>
+    @php
+
+    $tagsId =  json_decode($blogs->tags);
+    $tags   = \App\Models\Category::whereIn('id' ,$tagsId)->paginate(4);
+    @endphp
+    @foreach ($tags as $tag )
+    <li ><a href="{{route('search.blog' , $tag->id)}}"> {{$tag->name}} </a></li>
+    @endforeach
 </ul>
 </div>
-<h5><a href="blog_details" class="hover-underline">Vestibulum leo ex posueret eu lobortis ut.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
+<h5><a href="{{route('blog_details' , $blogs->id)}}" class="hover-underline">{{$blogs->title}}</a></h5>
+
+<p>{!! $blogs->blog_qoute !!}</p>
+
+<a href="{{route('blog_details' , $blogs->id)}}">Read More</a>
+
 </div>
 </div>
 </div>
-<div class="col-lg-4 col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/inner-page/blog-grid-img2.png" alt>
-</a>
-<div class="blog-date">
-<a href="slider">10 July, 2023</a>
+@endforeach
+@endif
+
 </div>
 </div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="slider">Beauty</a>
-</li>
-<li>
-<a href="standard">Makeup</a>
-</li>
-<li>
-<a href="slider">Health</a>
-</li>
-</ul>
+<div class="shop-pagination">
+<center>
+    {{$data['blogs']->links()}}
+</center>
 </div>
-<h5><a href="blog_details" class="hover-underline">Donec pretium sodales arcu int ultricies Curabitur.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/inner-page/blog-grid-img3.png" alt>
-</a>
-<div class="blog-date">
-<a href="#">2 July, 2023</a>
-</div>
-</div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="slider">Beauty</a>
-</li>
-<li>
-<a href="standard">Makeup</a>
-</li>
-<li>
-<a href="slider">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog_details" class="hover-underline">Fusce tempus tellus met luctusi sapien viverra.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/inner-page/blog-grid-img4.png" alt>
-</a>
-<div class="blog-date">
-<a href="#">25 July, 2023</a>
-</div>
-</div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="slider">Beauty</a>
-</li>
-<li>
-<a href="standard">Makeup</a>
-</li>
-<li>
-<a href="slider">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog_details" class="hover-underline">tempor sem malesua Phasellust pharetra sit amet.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/inner-page/blog-grid-img5.png" alt>
-</a>
-<div class="blog-date">
-<a href="#">10 July, 2023</a>
-</div>
-</div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="slider">Beauty</a>
-</li>
-<li>
-<a href="standard">Makeup</a>
-</li>
-<li>
-<a href="slider">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog_details" class="hover-underline">nunc eget accumsan Duis finib urna sed turpis.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/inner-page/blog-grid-img6.png" alt>
-</a>
-<div class="blog-date">
-<a href="#">28 July, 2023</a>
-</div>
-</div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="slider">Beauty</a>
-</li>
-<li>
-<a href="standard">Makeup</a>
-</li>
-<li>
-<a href="slider">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog_details" class="hover-underline">Curabitur quis tincidunt metust Nam iaculis.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/inner-page/blog-grid-img7.png" alt>
-</a>
-<div class="blog-date">
-<a href="#">5 July, 2023</a>
-</div>
-</div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="slider">Beauty</a>
-</li>
-<li>
-<a href="standard">Makeup</a>
-</li>
-<li>
-<a href="slider">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog_details" class="hover-underline">erat, eu sollicitudin est portavit Phasellus non.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/inner-page/blog-grid-img8.png" alt>
-</a>
-<div class="blog-date">
-<a href="#">22 July, 2023</a>
-</div>
-</div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="slider">Beauty</a>
-</li>
-<li>
-<a href="standard">Makeup</a>
-</li>
-<li>
-<a href="slider">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog_details" class="hover-underline">accumsan quis viverra utorren fringilla porttitor.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/inner-page/blog-grid-img9.png" alt>
-</a>
-<div class="blog-date">
-<a href="#">01 May, 2023</a>
-</div>
-</div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="slider">Beauty</a>
-</li>
-<li>
-<a href="standard">Makeup</a>
-</li>
-<li>
-<a href="slider">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog_details" class="hover-underline">Proin porttitor turpis vitae velit congue pulvinar.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-</div>
-<nav class="shop-pagination">
-<ul class="pagination-list">
-<li>
-<a href="#" class="shop-pagi-btn"><i class="bi bi-chevron-left"></i></a>
-</li>
-<li>
-<a href="#">1</a>
-</li>
-<li>
-<a href="#" class="active">2</a>
-</li>
-<li>
-<a href="#">3</a>
-</li>
-<li>
-<a href="#"><i class="bi bi-three-dots"></i></a>
-</li>
-<li>
-<a href="#">6</a>
-</li>
-<li>
-<a href="#" class="shop-pagi-btn"><i class="bi bi-chevron-right"></i></a>
-</li>
-</ul>
-</nav>
+
 </div>
 </div>
 

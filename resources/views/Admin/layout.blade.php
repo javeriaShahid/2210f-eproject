@@ -207,6 +207,12 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                             <div data-i18n="Basic">Create</div>
                           </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.blogs.comments') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-message"></i>
+                            <div data-i18n="Basic">Comments</div>
+                          </a>
+                    </li>
 
                   </ul>
                 </li>
@@ -745,7 +751,6 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
         </body>
       </html>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
       <script>
         let notificationUrl = "{{route('notification.get')}}";

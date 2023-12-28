@@ -8,6 +8,9 @@ use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Blogs;
+use App\Models\BlogComments;
+use App\Models\BlogViews;
+use DB;
 use App\Models\Subcategory;
 use App\Models\AboutUs ;
 use App\Models\AboutUsMainBanners ;
@@ -16,7 +19,7 @@ class usercontroller extends Controller
    public $countryModel     = Country::class ;
    public $productModel     = Product::class;
    public $categoryModel    = Category::class;
-   public $subCategoryModel    = Subcategory::class;
+   public $subCategoryModel = Subcategory::class;
    public $brandModel       = Brand::class;
    public function Auth_register(){
     return view("admin.Auth_register");
@@ -38,13 +41,28 @@ class usercontroller extends Controller
       return view("user.accordion");
      }
    public function blog_details($id= null){
-      $data['blogs'] = Blogs::where('id' , $id)->first();
+      $data['blogs']         = Blogs::where('id' , $id)->first();
+      $data['category']      = Category::all();
+      $data['recentBlogs']   = Blogs::orderBy('id' , 'desc')->limit(5)->get();
+      $data['blogscomments'] = BlogComments::where('blog_id' , $id)->orderBy('id' , 'desc')->limit(5)->get();
+      $countViews = BlogViews::where('blog_id', $id)->first();
+      if ($countViews) {
+        $countViews->count += 1;
+        $countViews->save();
+       } else {
+       BlogViews::create(['blog_id' => $id, 'count' => 1]);
+      }
+
       return view("user.blog_details")->with('data' , $data);
      }
    public function blog(){
-      return view("user.blog");
+      $data['blogs'] = Blogs::orderBy('id' , 'desc')->paginate(10);
+      return view("user.blog")->with('data' , $data);
      }
-
+    public function blog_comments ($id = null){
+        $data['blogscomments'] = BlogComments::where('blog_id' , $id)->orderBy('id' , 'desc')->paginate(1);
+        return view("user.blog_comments")->with('data' , $data);
+    }
    public function category(){
       return view("user.category");
      }
@@ -108,7 +126,10 @@ class usercontroller extends Controller
       $data['country']    = $this->countryModel::all();
       return view("user.registration")->with('data'  , $data);
      }
-
+     public function blog_search($tagId = null){
+        $data['blogs']     = Blogs::whereJsonContains('tags' , $tagId)->paginate(10);
+        return redirect()->route('blog')->with('data' , $data);
+     }
 }
 
 

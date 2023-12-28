@@ -291,7 +291,7 @@ About Us
 <img src="{{asset('blogImages/' . $blogs->image )}}" >
 </a>
 <div class="blog-date">
-<a href="blog-grid.html">
+<a href="{{route('blog_details' , $blogs->id)}}">
     @php
     $date = \Carbon\Carbon::parse($blogs->created_at);
     $formatedDate = $date->format('d,M Y');
@@ -309,12 +309,13 @@ About Us
     $tags   = \App\Models\Category::whereIn('id' ,$tagsId)->paginate(4);
     @endphp
     @foreach ($tags as $tag )
-    <li ><a href="{{route('search.category' , $tag->id)}}"> {{$tag->name}} </a></li>
+    <li ><a href="{{route('search.blog' , $tag->id)}}"> {{$tag->name}} </a></li>
     @endforeach
 </ul>
 </div>
-<h5><a href="blog-details.html" class="hover-underline">{{$blogs->title}}</a></h5>
-<p>{{$blogs->description}}</p>
+<h5><a href="{{route('blog_details' , $blogs->id)}}" class="hover-underline">{{$blogs->title}}</a></h5>
+<p>{!! $blogs->blog_qoute !!}</p>
+
 <a href="{{route('blog_details' , $blogs->id)}}">Read More</a>
 </div>
 </div>
@@ -324,36 +325,6 @@ About Us
 </div>
 </div>
 
-{{-- <div class="col-lg-5">
-<div class="article-card">
-<div class="article-image">
-<a href="blog-details.html" class="article-card-img hover-img">
-<img src="assets/img/home1/article-img3.png" alt>
-</a>
-<div class="blog-date">
-<a href="blog-grid.html">10 June, 2023</a>
-</div>
-</div>
-<div class="article-card-content style-2">
-<div class="tag">
-<ul>
-<li>
-<a href="blog-grid.html">Beauty</a>
-</li>
-<li>
-<a href="blog-grid.html">Makeup </a>
-</li>
-<li>
-<a href="blog-grid.html">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog-details.html" class="hover-underline">Fusce vel auctor leo, a tempus sapieno Nunc ut purus.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks and its helps user to complete tasks in easy way.......</p>
-<a href="blog-details.html">Read More</a>
-</div>
-</div>
-</div> --}}
 
 
 </div>

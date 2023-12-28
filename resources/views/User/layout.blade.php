@@ -150,7 +150,11 @@ Log In
 <header class="header-area">
     <div class="container-xxl container-fluid position-relative  d-flex flex-nowrap align-items-center justify-content-between">
     <div class="header-logo d-lg-none d-flex">
-    <a href="{{ route('user.index') }}"><img alt="image" class="img-fluid" src="assets/img/logo.png" style="height: 50px"></a>
+    <a href="{{ route('user.index') }}">@if($settings != null)
+        <img src="{{ asset('settingsLogo/' . $settings->logo) }}" style="height: 50px" alt>
+        @else
+        <img src="{{ asset('assets/img/logo.png') }}" style="height: 50px" alt>
+        @endif</a>
     </div>
     <div class="category-dropdown">
     <div class="category-button">
@@ -176,7 +180,11 @@ Log In
 <div class="main-menu">
 <div class="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
 <div class="mobile-logo-wrap">
-<a href="/"><img alt="image" src="assets/img/logo.png" style="height: 50px"></a>
+<a href="{{ route($data['homeLink']->route)  }}"> @if($settings != null)
+    <img src="{{ asset('settingsLogo/' . $settings->logo) }}" style="height: 50px" alt>
+    @else
+    <img src="{{ asset('assets/img/logo.png') }}" style="height: 50px" alt>
+    @endif</a>
 </div>
 </div>
 <ul class="menu-list">

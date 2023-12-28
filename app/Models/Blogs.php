@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blogs extends Model
 {
     use HasFactory;
-    protected $fillable = ['image' , 'tags' , 'title' , 'description' ,'status' , 'user_id' , 'blockqoute'];
+    protected $fillable = ['image' , 'tags' , 'title' , 'description' ,'status' , 'user_id' , 'blog_qoute'];
     public function blogComments(){
         return $this->hasMany(BlogComments::class , 'blog_id' , 'id');
     }

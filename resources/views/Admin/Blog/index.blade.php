@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 @section('title')
-blog us Settings
+Blog's Settings
 @endsection
 
 @section('content')
@@ -82,7 +82,7 @@ blog us Settings
         <!-- Hoverable Table rows -->
         <div class="card">
             <div class="row">
-                <div class="col-md-6">  <h5 class="card-header">blog us Management</h5></div>
+                <div class="col-md-6">  <h5 class="card-header">Blog's Management</h5></div>
                 <div class="col-md-6">
                     <div class="row justify-content-end mt-3">
                         <div class="col-md-3"><a class="btn btn-success" href="{{ route('admin.blogs.create') }}"><i class="bx bx-plus"></i></a></div>
@@ -97,6 +97,7 @@ blog us Settings
                     <th>Created By</th>
                     <th>Image of blog</th>
                     <th>Title of blog </th>
+                    <th>Views </th>
                     <th>Tags</th>
                     <th>Created At</th>
                     <th>Status</th>
@@ -112,7 +113,28 @@ blog us Settings
                             @endif</td>
                             <td><img src="{{asset('blogImages/'. $blog->image )}}" alt="{{$blog->image}}" style="width: 50px; height:50px; object-fit:cover;"></td>
                             <td>{{ $blog->title }}</td>
+                                <td>
+                                    @php
+                                    $views = \App\Models\BlogViews::where("blog_id" , $blog->id)->first();
+                                    $totalViews = 0 ;
 
+                                    if ($views) {
+                                        $viewCount = $views->count;
+
+                                        if ($viewCount >= 1000 && $viewCount < 1000000) {
+                                            $totalViews = number_format($viewCount / 1000, 1) . 'K Views';
+                                        } elseif ($viewCount >= 1000000 && $viewCount < 1000000000) {
+                                            $totalViews = number_format($viewCount / 1000000, 1) . 'M Views';
+                                        } elseif ($viewCount >= 1000000000) {
+                                            $totalViews = number_format($viewCount / 1000000000, 1) . 'B Views';
+                                        } else {
+                                            $totalViews = $viewCount . "Views";
+                                        }
+                                    }
+
+                                    @endphp
+                                    {{$totalViews}}
+                                </td>
                             <td>
                                 @php
 
@@ -139,7 +161,7 @@ blog us Settings
                               </label></td>
 
                             {{-- Modal button ends --}}
-                            <td><a href="{{ route('admin.blogs.edit' , $blog->id) }}" class="btn btn-success"><i class="bx bx-pencil"></i></a> | <a href="{{ route('admin.blogs.delete' , $blog->id) }}" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
+                            <td><a href="{{ route('admin.blogs.delete' , $blog->id) }}" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
 
                         </tr>
 

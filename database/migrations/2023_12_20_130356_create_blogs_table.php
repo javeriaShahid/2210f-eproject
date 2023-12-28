@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('tags');
             $table->longText('description');
-            $table->longText('blockqoute');
+            $table->longText('blog_qoute');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

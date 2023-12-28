@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\HomeLinkController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\CategoryBannerController;
+use App\Http\Controllers\User\BlogCommentController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usercontroller;
@@ -51,7 +52,10 @@ Route::get('/subcategory_Search/{id?}', [usercontroller::class, "search_subcateg
 Route::post('/search', [usercontroller::class, "search"])->name('search');
 Route::get('/accordion', [usercontroller::class, "accordion"])->name('accordion');
 Route::get('/blog_details/{id?}', [usercontroller::class, "blog_details"])->name('blog_details');
+Route::get('/blog_comments/{id?}', [usercontroller::class, "blog_comments"])->name('blog_comments');
+Route::post('/add_comment', [BlogCommentController::class, "store"])->name('blog.add.comment');
 Route::get('/blog', [usercontroller::class, "blog"])->name('blog');
+Route::get('/blog_search/{id?}', [usercontroller::class, "blog_search"])->name('search.blog');
 Route::get('/category', [usercontroller::class, "category"])->name('category');
 Route::get('/contact', [usercontroller::class, "contact"])->name('contact');
 Route::get('/error', [usercontroller::class, "error"])->name('error');
@@ -285,9 +289,12 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/' , [BlogController::class , 'index'])->name('admin.blogs.index');
         Route::get('/create' , [BlogController::class , 'create'])->name('admin.blogs.create');
         Route::post('/store/{id?}' , [BlogController::class , 'store'])->name('admin.blogs.store');
-        Route::get('/edit/{id?}' , [BlogController::class , 'edit'])->name('admin.blogs.edit');
-        Route::get('/delete/{id?}' , [BlogController::class , 'destroy'])->name('admin.blogs.delete');
+        Route::get('/edit/{id?}' ,    [BlogController::class , 'edit'])->name('admin.blogs.edit');
+        Route::get('/delete/{id?}' ,  [BlogController::class , 'destroy'])->name('admin.blogs.delete');
+        Route::get('/comment/delete/{id?}' ,  [BlogController::class , 'destroy_comment'])->name('admin.blogs.delete.comment');
         Route::get('/change_status' , [BlogController::class , 'change_status'])->name('admin.blogs.change_status');
+        Route::get('/comments' ,      [BlogController::class , 'comments'])->name('admin.blogs.comments');
+        Route::get('/view_comments/{id?}' ,      [BlogController::class , 'view_comments'])->name('admin.blogs.view.comment');
 
     });
     Route::get('notifications' , [NotificationController::class ,'fetchNotification'])->name('notification.get');

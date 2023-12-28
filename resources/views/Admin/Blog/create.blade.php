@@ -38,11 +38,21 @@ if($action == "edit")
                 <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Image </label>
                 <input name="image" type="file" class="form-control" placeholder="Second title" aria-describedby="defaultFormControlHelp"/>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-book"></div> Main Title </label>
                 <input name="title" type="text" class="form-control mb-2" placeholder="Enter Main title" aria-describedby="defaultFormControlHelp"/>
             </div>
-            <div class="col-md-6">
+
+         
+            <div class="col-md-12 mb-3">
+                <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Blog Qoute | <small> ( Must be of 100 - 1000 characters  )</small></label>
+                <textarea name="blockqoute" id="qoute"  class="form-control" placeholder="Description"></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Blog Description | <small> ( Must be of 100 - 1000 characters  )</small></label>
+               <textarea name="description"  cols="30" rows="10"></textarea>
+            </div>
+            <div class="col-md-12">
                 <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-collection"></div> Select Tags Category</label>
                 <select name="tags[]" data-placeholder="Select Tags" multiple id="tags" type="text" placeholder="Select Blog Tag" aria-describedby="defaultFormControlHelp">
 
@@ -51,18 +61,6 @@ if($action == "edit")
                     @endforeach
                 </select>
             </div>
-            <div class="col-md-6">
-
-            </div>
-            <div class="col-md-12 mb-3">
-                <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Blog Description | <small> ( Must be of 100 - 1000 characters  )</small></label>
-                <textarea name="blockqoute" id="qoute"  class="form-control texteditor1" placeholder="Description" aria-describedby="defaultFormControlHelp" ></textarea>
-            </div>
-            <div class="col-md-12 mb-3">
-                <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Blog Description | <small> ( Must be of 100 - 1000 characters  )</small></label>
-                <textarea name="description" id="description" class="form-control texteditor2" placeholder="Description" aria-describedby="defaultFormControlHelp" ></textarea>
-            </div>
-
             <div class="col-md-12">
                 <button type="submit" id="submitButton" class="btn-primary btn mt-3"> {{ $parentButton }}</button>
             </div>
@@ -84,14 +82,16 @@ if($action == "edit")
 <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
 <script src={{ asset('dashboardassets/js/main.js') }}></script>
+
 <!-- endbuild -->
 <!-- endbuild -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!-- Vendors JS -->
 <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 <script src="{{asset('dashboardassets/js/jquery.richtext.js')}}"></script>
 <!-- Main JS -->
-<script src="{{ asset('assets/js/main.js') }}"></script>
+
 <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
 <!-- Page JS -->
 <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
@@ -101,10 +101,7 @@ if($action == "edit")
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script>
-    $(document).ready(function(){
-        $('#description').richText();
 
-    })
     let action = '{{ $action }}' ;
     let blog = <?php echo isset($data['blog']) && $data['blog'] ? json_encode($data['blog']) : 0 ?>
 

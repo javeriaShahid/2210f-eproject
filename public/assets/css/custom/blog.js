@@ -7,6 +7,8 @@ $(document).ready(function(){
     let description      = $("textarea[name='description']");
     let blockqoute       = $("#qoute");
     let submitButton     = $('#submitButton');
+    $(description).richText();
+    $(blockqoute).richText();
 
     $(image).on('change' , function(e){
         e.preventDefault()
@@ -34,14 +36,15 @@ $(document).ready(function(){
         }
     });
     $(settingForm).submit(function(e){
-        console.log(blockqoute.val());
+       
+
        if(action == 'create'){
         if($(image).val() == ""){
             e.preventDefault();
             toastr['error']("Blog Image is required");
             return false ;
         }
-    }
+         }
 
         if($(title).val() == ""){
             e.preventDefault();
@@ -54,26 +57,7 @@ $(document).ready(function(){
             return false ;
         }
 
-        if($(blockqoute).val() == ""){
-            e.preventDefault();
-            toastr['error']("Blockqoute is required");
-            return false ;
-        }
-        if($(blockqoute).val().length < 100 && $(blockqoute).val().length > 1000 && $(blockqoute).val() != ""){
-            e.preventDefault();
-            toastr['warning']("Blockqoute must be greater then 100 and less then 1000");
-            return false ;
-        }
-        if($(description).val() == ""){
-            e.preventDefault();
-            toastr['error']("Description is required");
-            return false ;
-        }
-        if($(description).val().length < 100 && $(description).val().length > 1000 && $(description).val() != ""){
-            e.preventDefault();
-            toastr['warning']("Description must be greater then 100 and less then 1000");
-            return false ;
-        }
+
 
 
 
