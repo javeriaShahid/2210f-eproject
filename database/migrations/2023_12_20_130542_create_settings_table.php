@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('designed_year');
             $table->string('designed_by');
+            $table->string('country_city');
+            $table->string('i_frame_link');
             $table->longText('address');
             $table->longText('map_link');
             $table->integer('status')->default(0);

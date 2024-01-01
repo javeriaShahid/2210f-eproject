@@ -25,7 +25,7 @@ Blogs
 @if($data['blogs'] != null)
 @foreach($data['blogs'] as $blogs)
 <div class="col-lg-4 col-sm-6">
-<div class="article-card" style="min-height: 500px!important; max-height:500px!important">
+<div class="article-card" style="min-height: 500px!important; max-height:700px!important">
 <div class="article-image">
 <a href="{{route('blog_details' , $blogs->id)}}" class="article-card-img hover-img">
 <img src="{{asset('blogImages/' . $blogs->image )}}" alt>
@@ -74,25 +74,5 @@ Blogs
 </div>
 </div>
 
-
-
-
-<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
-
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
-
-<script src="assets/js/jquery.fancybox.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/slick.js"></script>
-
-<script src="assets/js/swiper-bundle.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-
-<script src="assets/js/main.js"></script>
-</body>
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/blog-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:58 GMT -->
-</html>
 
 @endsection

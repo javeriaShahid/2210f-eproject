@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\PaymentGetwaySettingsController;
 use App\Http\Controllers\Admin\AboutUsBannerController;
+use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\HomeLinkController;
 use App\Http\Controllers\Admin\SubCategoryController;
@@ -58,6 +59,7 @@ Route::get('/blog', [usercontroller::class, "blog"])->name('blog');
 Route::get('/blog_search/{id?}', [usercontroller::class, "blog_search"])->name('search.blog');
 Route::get('/category', [usercontroller::class, "category"])->name('category');
 Route::get('/contact', [usercontroller::class, "contact"])->name('contact');
+Route::post('/storeContact', [ContactController::class, "store"])->name('store.contact');
 Route::get('/error', [usercontroller::class, "error"])->name('error');
 Route::get('/faq', [usercontroller::class, "faq"])->name('faq');
 Route::get('/gift_card', [usercontroller::class, "gift_card"])->name('gift_card');
@@ -295,6 +297,14 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/change_status' , [BlogController::class , 'change_status'])->name('admin.blogs.change_status');
         Route::get('/comments' ,      [BlogController::class , 'comments'])->name('admin.blogs.comments');
         Route::get('/view_comments/{id?}' ,      [BlogController::class , 'view_comments'])->name('admin.blogs.view.comment');
+
+    });
+    Route::prefix('/user-contacts')->group(function(){
+        Route::get('/' , [ContactController::class , 'index'])->name('admin.contact.messages.index');
+        Route::get('/create/{id?}' , [ContactController::class , 'create'])->name('admin.contact.messages.create');
+        Route::POST('/reply/{id?}' , [ContactController::class , 'reply'])->name('admin.message.reply.post');
+        Route::get('/delete/{id?}' ,  [ContactController::class , 'destroy'])->name('admin.contact.messages.delete');
+        Route::get('/view_message/{id?}' ,      [ContactController::class , 'view_message'])->name('admin.contact.messages.view.message');
 
     });
     Route::get('notifications' , [NotificationController::class ,'fetchNotification'])->name('notification.get');

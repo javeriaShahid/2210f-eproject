@@ -78,7 +78,7 @@ if ($views) {
 {{$totalViews}}
 </li>
 <li>
-<a href="#comment">
+<a href="{{route('blog_comments',$data['blogs']->id)}}">
 <svg width="13" height="13" viewBox="0 0 13 13" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_713_23)">
 <path d="M11.8341 12.1565C11.8541 12.2467 11.8537 12.3401 11.833 12.4301C11.8123 12.5201 11.7718 12.6043 11.7145 12.6767C11.6572 12.7491 11.5845 12.8078 11.5016 12.8486C11.4188 12.8894 11.3279 12.9112 11.2356 12.9124C11.1403 12.9119 11.0464 12.8898 10.961 12.8476L9.86878 12.3139C8.84811 12.6866 7.7304 12.6975 6.70263 12.3448C5.67486 11.9921 4.79938 11.2972 4.22266 10.3763C4.99538 10.4765 5.78053 10.4129 6.52709 10.1898C7.27365 9.96668 7.9649 9.58894 8.5559 9.08116C9.14691 8.57337 9.62445 7.94691 9.95749 7.24247C10.2905 6.53804 10.4716 5.77141 10.4889 4.99242C10.4892 4.63894 10.4531 4.28637 10.3809 3.94032C11.1197 4.29865 11.7479 4.8499 12.1992 5.53581C12.6505 6.22173 12.9081 7.01683 12.9448 7.83708C12.9693 8.45902 12.8639 9.07923 12.6355 9.65823C12.4071 10.2372 12.0606 10.7623 11.6182 11.2001L11.8341 12.1565Z" />
@@ -179,7 +179,7 @@ if ($views) {
     $tags   = \App\Models\Category::whereIn('id' ,$tagsId)->paginate(4);
     @endphp
     @foreach ($tags as $tag )
-    <li ><a href="{{route('search.category' , $tag->id)}}"> {{$tag->name}} </a></li>
+    <li ><a href="{{route('search.blog' , $tag->id)}}"> {{$tag->name}} </a></li>
     @endforeach
 </ul>
 </div>
@@ -201,29 +201,36 @@ if ($views) {
 </ul>
 </div>
 </div>
+@php
+$id = $data['blogs']->id;
+$previous = \App\Models\Blogs::where('id' , '<' ,  $id)->first();
+$next     = \App\Models\Blogs::where('id' , '>' , $id)->first();
+@endphp
 <div class="row mb-110">
 <div class="col-lg-12">
 <div class="blog-details-navigation">
 <div class="single-navigation">
 <div class="content">
-<a href="#">Previous</a>
-<h4><a href="#">Nam condimentum ante at</a></h4>
+
+
+<a  @if($previous !=null )href="{{route('blog_details' , $previous->id)}}" @else disabled @endif>Previous</a>
+<h4><a @if($previous !=null )href="{{route('blog_details' , $previous->id)}}">{{$previous->title}}</a></h4>@endif
 </div>
-<a href="#" class="nav-icon">
+<a  @if($previous !=null )href="{{route('blog_details' , $previous->id)}}" @else disabled @endif class="nav-icon">
 <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
 <path d="M10 17.4854L1.51472 9.00007M1.51472 9.00007L10 0.514789M1.51472 9.00007L17.4246 9.35362" />
 </svg>
 </a>
 </div>
 <div class="single-navigation two">
-<a href="#" class="nav-icon">
+<a @if($next !=null ) href="{{route('blog_details' , $next->id)}} " @else disabled @endif class="nav-icon">
 <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 0.514648L16.4853 8.99993M16.4853 8.99993L8 17.4852M16.4853 8.99993L0.575379 8.64638" />
 </svg>
 </a>
 <div class="content">
-<a href="#">NEXT </a>
-<h4><a href="#">Vestibulum eu sapien velit</a></h4>
+    <a @if($next !=null ) href="{{route('blog_details' , $next->id)}} " @else disabled @endif>Next</a>
+    <h4><a @if($next !=null ) href="{{route('blog_details' , $next->id)}}">{{$next->title}}</a></h4>@endif
 </div>
 </div>
 </div>

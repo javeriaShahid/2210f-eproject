@@ -43,10 +43,10 @@ if($action == "edit")
                 <input name="title" type="text" class="form-control mb-2" placeholder="Enter Main title" aria-describedby="defaultFormControlHelp"/>
             </div>
 
-         
+
             <div class="col-md-12 mb-3">
                 <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Blog Qoute | <small> ( Must be of 100 - 1000 characters  )</small></label>
-                <textarea name="blockqoute" id="qoute"  class="form-control" placeholder="Description"></textarea>
+                <textarea name="blog_qoute" id="qoute"  class="form-control" placeholder="Description"></textarea>
             </div>
             <div class="col-md-12 mb-3">
                 <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Blog Description | <small> ( Must be of 100 - 1000 characters  )</small></label>

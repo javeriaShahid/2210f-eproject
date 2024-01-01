@@ -69,10 +69,22 @@ if($action == "edit")
                     <input name="address" type="text" class="form-control" placeholder="Enter Contact Address" aria-describedby="defaultFormControlHelp"/>
                 </div>
             </div>
-            <div class="col-md-12 mt-2">
+            <div class="col-md-6 mt-2">
+                <div class="form-group">
+                    <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-globe"></div> IFrame Map Link </label>
+                    <input name="i_frame_link" type="text" class="form-control" placeholder="Enter Contact Address" aria-describedby="defaultFormControlHelp"/>
+                </div>
+            </div>
+            <div class="col-md-6 mt-2">
                 <div class="form-group">
                     <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-globe"></div> Map Link</label>
                     <input name="map_link" type="text" class="form-control" placeholder="Enter Website Map Link" aria-describedby="defaultFormControlHelp"/>
+                </div>
+            </div>
+            <div class="col-md-12 mt-2">
+                <div class="form-group">
+                    <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-globe"></div> City And Country</label>
+                    <input name="country_city" type="text" class="form-control" placeholder="Enter Website Map Link" aria-describedby="defaultFormControlHelp"/>
                 </div>
             </div>
             <div class="col-md-6 mt-2">

@@ -9,6 +9,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Blogs;
 use App\Models\BlogComments;
+use App\Models\Setting;
 use App\Models\BlogViews;
 use DB;
 use App\Models\Subcategory;
@@ -67,7 +68,8 @@ class usercontroller extends Controller
       return view("user.category");
      }
    public function contact(){
-      return view("user.contact");
+     $data['settings'] = Setting::where('status'  , 1)->first();
+      return view("user.contact")->with('data' , $data);
      }
    public function error(){
       return view("user.error");
