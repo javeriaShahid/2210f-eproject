@@ -1,12 +1,15 @@
 $(document)
 .ready(function(){
-  
+    let quantityInput  = $('input[name="quantity"]');
+    let   inputColor = $('.colorCode');
+
     $(document).on('click' ,'.addToCart',function(e){
         e.preventDefault();
         let id  = $(this).siblings('input[name="productId"]').val();
         $.ajax({
             url : addToCartRoute + '/' + id ,
             type : 'Get' ,
+            data : {quantity : quantityInput.val() , color : inputColor.val()},
             success:function(response)
             {
                 if(response.message == 'success')
@@ -24,7 +27,7 @@ $(document)
             }
         })
     });
-    // Deleting 
+    // Deleting
     $(document).on('click' , '.delete-icon' , function(e){
         e.preventDefault();
         let id = $(this).siblings('input[name="cartId"]').val();

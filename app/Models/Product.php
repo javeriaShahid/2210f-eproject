@@ -12,7 +12,7 @@ class Product extends Model
     protected $fillable = [
         'name' ,
         'brand_id' ,
-        'category_id',  
+        'category_id',
         'subcategory_id' ,
         'description' ,
         'price' ,
@@ -23,13 +23,16 @@ class Product extends Model
         'sku' ,
         'deleted_at' ,
         'shipping_fees' ,
+        'weight',
+        'short_description',
+        'weight_type',
         'delivery_duration'
       ];
       public function category()
       {
           return $this->hasOne(Category::class , 'id' , 'category_id');
       }
-    
+
       public function subcategory()
       {
           return $this->hasOne(Subcategory::class , 'id' , 'subcategory_id');

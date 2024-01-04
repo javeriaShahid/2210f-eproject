@@ -46,11 +46,11 @@ if($action == "edit")
 
             <div class="col-md-12 mb-3">
                 <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Blog Qoute | <small> ( Must be of 100 - 1000 characters  )</small></label>
-                <textarea name="blog_qoute" id="qoute"  class="form-control" placeholder="Description"></textarea>
+                <textarea  name="blog_qoute" id="qoute"  class="form-control" placeholder="Description"  required></textarea>
             </div>
             <div class="col-md-12 mb-3">
                 <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-camera"></div> Blog Description | <small> ( Must be of 100 - 1000 characters  )</small></label>
-               <textarea name="description"  cols="30" rows="10"></textarea>
+               <textarea  name="description"  cols="30" rows="10" required></textarea>
             </div>
             <div class="col-md-12">
                 <label for="defaultFormControlInput" class="form-label mb-3"><div class="bx bx-collection"></div> Select Tags Category</label>

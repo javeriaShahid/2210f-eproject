@@ -5,23 +5,37 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use Illuminate\Http\Request;
-
+use App\Models\Product;
 class Cartcontroller extends Controller
 {   public $parentModel   = Cart::class;
+    public $productmodel  = Product::class;
     public function index()
     {
         $data['cart']              =  $this->parentModel::where('user_id' , session()->get('user')['id'])->with('product')->paginate(5);
-    
+
         return view("User.cart")->with('data' , $data);
     }
-    public function store($id = null )
+    public function store($id = null ,Request  $request)
     {
-        $cartdata    = $this->parentModel::where('product_id' , $id)->count();
-        $Quantity    = $this->parentModel::where('product_id' , $id)->first();
+        $cartdata     = $this->parentModel::where('product_id' , $id)->count();
+        $cartData     = $this->parentModel::where('product_id' , $id)->first();
+        $Quantity     = $this->parentModel::where('product_id' , $id)->first();
+        $productData  = $this->productmodel::where('id' , $id)->first();
+        $colorData    = json_decode($productData->color_code);
+        $QuantityData = $request->quantity != null ? $request->quantity : 1 ;
+        $color        = $request->color    != null ?    $request->color : $colorData[0] ;
+        $arrayColor   = [$color];
+
         if($cartdata >= 1)
-        {   $incrementedQuantity  = $Quantity->quantity + 1;
-            $addToCart    = $this->parentModel::where('product_id' , $id)->update([
+        {
+
+            $incrementedQuantity  = $Quantity->quantity + 1;
+            $existingColors       = json_decode($cartData->color);
+            $newColors            = array_diff($arrayColor, $existingColors);
+            $updatedColors        = array_merge($existingColors, $newColors);
+            $addToCart      = $this->parentModel::where('product_id' , $id)->update([
                 'quantity'  => $incrementedQuantity,
+                'color' => $updatedColors ,
             ]);
             $cart_count    = $this->parentModel::where('user_id' , session()->get('user')['id'])->count();
             if($addToCart == true)
@@ -39,7 +53,8 @@ class Cartcontroller extends Controller
             $addToCart    = $this->parentModel::create([
                 'product_id'   => $id,
                 'user_id'      => $userId ,
-                'quantity'     => 1
+                'quantity'     => $QuantityData ,
+                'color'        => json_encode($arrayColor) ,
             ]);
             if($addToCart == true)
             {
@@ -70,7 +85,7 @@ class Cartcontroller extends Controller
         {
             if($cartAllData->count() >= 1)
             {
-              
+
         foreach($cartAllData as $cart){
             $fees  += $cart->product->shipping_fees ;
             $price   = 0 ;
@@ -86,8 +101,8 @@ class Cartcontroller extends Controller
             $cart_count    = $this->parentModel::where('user_id' , session()->get('user')['id'])->count();
             return response(['message' => 'success' , 'fees' => $fees , 'total' => $totalPrice , 'total_cart' => $cart_count]);
           }
-          
-      
+
+
         }
         // if cart is empty
         else
@@ -100,7 +115,7 @@ class Cartcontroller extends Controller
         {
             echo "error";
         }
-      
+
     }
 
     public function increment($id = null)
@@ -114,7 +129,7 @@ class Cartcontroller extends Controller
        if($updateCart == true)
        {
         $newcartData   =  $this->parentModel::where('id' , $id)->with('product')->first();
-         
+
         $productPrice  = 0 ;
         if($newcartData->product->sale_status  == 1)
         {
@@ -144,14 +159,14 @@ class Cartcontroller extends Controller
             $subTotal += $price ;
         }
         return response()->json(['subTotal'=>$subTotal , 'fees'=>$fees ,'message' => 'success' , 'quantity' => $updatedQuantity , 'total' => $totalPrice ]);
-        
+
     }
-      
-        
+
+
     }
 
     //Decrement Quantit
-    
+
     public function decrement($id = null)
     {
         $cartData   =  $this->parentModel::where('id' , $id)->with('product')->first();
@@ -165,7 +180,7 @@ class Cartcontroller extends Controller
            if($updateCart == true)
            {
             $newcartData   =  $this->parentModel::where('id' , $id)->with('product')->first();
-             
+
             $productPrice  = 0 ;
             if($newcartData->product->sale_status  == 1)
             {
@@ -195,14 +210,14 @@ class Cartcontroller extends Controller
                 $subTotal += $price ;
             }
             return response()->json(['subTotal'=>$subTotal , 'fees'=>$fees ,'message' => 'success' , 'quantity' => $updatedQuantity , 'total' => $totalPrice ]);
-            
+
         }
     }
-      
+
         else
         {
             return response()->json(['message' => 'error']);
         }
-        
+
     }
 }

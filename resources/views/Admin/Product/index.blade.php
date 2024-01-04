@@ -45,7 +45,7 @@ All Products
                     <th>Sale End</th>
                     <th>Stock Status</th>
                     <th>Publish Status</th>
-                    <th>Color</th>
+                    <th>Weight</th>
                     <th>Sku</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -88,7 +88,7 @@ All Products
                             @else
                             <td><a href="{{ route('product.published.done' , $product->id) }}" class="btn btn-danger"><div class="bx bx-upload"></div></button></td>
                             @endif
-                            <td><button class="btn" style="background-color:{{$product->color_code}}!important"></button></td>
+                            <td>{{$product->weight}}&nbsp;{{$product->weight_type}}</td>
                              <td>{{ $product->sku }}</td>
                             {{-- Modal button ends --}}
                             <td><a href="{{ route('product.edit' , $product->id) }}" class="btn btn-success"><i class="bx bx-pencil"></i></a></td>

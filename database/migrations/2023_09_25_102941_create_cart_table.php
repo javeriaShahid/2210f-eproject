@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedinteger('product_id');
             $table->unsignedinteger('user_id');
             $table->integer('quantity');
+            $table->string('color');
             $table->timestamps();
         });
     }

@@ -77,9 +77,12 @@ class ProductController extends Controller
         $quantity           = $request->quantity;
         $price              = $request->price ;
         $sku                = $request->sku;
-        $color              = $request->color;
+        $color              = json_encode($request->color);
         $category           = $request->category;
         $subcategory        = $request->subcategory;
+        $weight             = $request->weight;
+        $short_description  = $request->short_description;
+        $weight_type        = $request->weight_type;
         $description        = $request->description;
         $shippingFees       = $request->shipping_fees;
         $delivery_duration  = $request->delivery_duration;
@@ -100,7 +103,11 @@ class ProductController extends Controller
                 'description'         => $description  ,
                 'brand_id'            => $brand ,
                 'shipping_fees'       => $shippingFees ,
-                'delivery_duration'   => $delivery_duration
+                'weight'              => $weight ,
+                'weight_type'         => $weight_type ,
+                'delivery_duration'   => $delivery_duration ,
+                'short_description'   => $short_description  ,
+
             ]);
             if($createProduct == true)
             {
@@ -132,17 +139,20 @@ class ProductController extends Controller
 
     public function update(Request $request  , $id = null)
     {
-        $name                = $request->name ;
-        $brand               = $request->brand;
-        $quantity            = $request->quantity;
-        $price               = $request->price ;
-        $sku                 = $request->sku;
-        $color               = $request->color;
-        $category            = $request->category;
-        $subcategory         = $request->subcategory;
-        $description         = $request->description;
-        $shippingFees        = $request->shipping_fees;
-        $delivery_duration   = $request->delivery_duration;
+        $name               = $request->name ;
+        $brand              = $request->brand ;
+        $quantity           = $request->quantity;
+        $price              = $request->price ;
+        $sku                = $request->sku;
+        $color              = json_encode($request->color);
+        $category           = $request->category;
+        $subcategory        = $request->subcategory;
+        $weight             = $request->weight;
+        $weight_type        = $request->weight_type;
+        $description        = $request->description;
+        $short_description  = $request->short_description;
+        $shippingFees       = $request->shipping_fees;
+        $delivery_duration  = $request->delivery_duration;
         if($request->hasFile('image'))
         {
             $mainImage           = rand().'.'.$request->file('image')->getClientOriginalExtension();
@@ -159,10 +169,13 @@ class ProductController extends Controller
                 'subcategory_id'      => $subcategory,
                 'color_code'          => $color ,
                 'sku'                 => $sku ,
+                'short_description'   => $short_description  ,
                 'description'         => $description  ,
                 'brand_id'            => $brand ,
                 'shipping_fees'       => $shippingFees ,
-                'delivery_duration'   => $delivery_duration
+                'delivery_duration'   => $delivery_duration,
+                'weight'              => $weight ,
+                'weight_type'         => $weight_type ,
 
             ]);
             if($updateProduct == true && $request->hasFile('subimage'))

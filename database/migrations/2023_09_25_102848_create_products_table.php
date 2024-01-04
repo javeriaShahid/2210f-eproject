@@ -17,9 +17,12 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('name');
             $table->longText('description');
+            $table->longText('short_description');
             $table->integer('price');
             $table->integer('stock');
             $table->string('image');
+            $table->integer('weight');
+            $table->string('weight_type');
             $table->integer('is_published')->default(0);
             $table->string('color_code');
             $table->string('sku');

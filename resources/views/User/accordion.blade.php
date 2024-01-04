@@ -1,40 +1,10 @@
 
 
 @extends('user.Layout')
+@section('title')
+Product detail
+@endsection
 @section('content')
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/about-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:47 GMT -->
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-
-<link href="assets/css/all.min.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link href="assets/css/fontawesome.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/boxicons.min.css">
-
-<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-<link rel="stylesheet" href="assets/css/slick-theme.css">
-<link rel="stylesheet" href="assets/css/slick.css">
-
-<link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
-
-<link rel="stylesheet" href="assets/css/style.css">
-<title>Dazzle</title>
-<link rel="icon" href="assets/img/sm-logo.svg" type="image/gif">
-</head>
 
 
 
@@ -96,7 +66,7 @@
 </div>
 <div class="col-lg-6">
 <div class="shop-details-content">
-<h1>Poutsicle Hydrating Lip Stain.</h1>
+<h1>{{$data['product']->name}}</h1>
 <div class="rating-review">
 <div class="rating">
 <div class="star">
@@ -109,11 +79,13 @@
 <p><a href="#reviews">(50 customer review)</a></p>
 </div>
 </div>
-<p>Aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos only
-placerat felis non aliquam.Mauris nec justo vitae ante auctor tol euismod sit amet
-Praesent commodo at massa eget suscipit. Utani vitae enim velit.</p>
+<p>{{$data['product']->short_description}}</p>
 <div class="price-area">
-<p class="price">$150.00 <del>$200.00</del></p>
+@if($data['product']->sale_status == 1)
+<p class="price">PKR,{{$data['product']->discounted_price}} <del>PKR,{{$data['product']->price}}</del></p>
+@else
+<p class="price">PKR,{{$data['product']->price}}</p>
+@endif
 </div>
 <div class="quantity-color-area">
 <div class="quantity-color">
@@ -126,37 +98,49 @@ Praesent commodo at massa eget suscipit. Utani vitae enim velit.</p>
 </div>
 <div class="quantity-color">
 <h6 class="widget-title">Color</h6>
-<ul class="color-list">
-<li class="select-wrap selected"><span></span></li>
-<li class="select-wrap"><span></span></li>
-<li class="select-wrap"><span></span></li>
-<li class="select-wrap"><span></span></li>
-<li class="select-wrap"><span></span></li>
-<li class="select-wrap"><span></span></li>
-</ul>
+<input type="hidden"  class="colorCode">
+    <div class="btn-group row " role="group" aria-label="Basic radio toggle button group">
+        @php
+            $colors = json_decode($data['product']->color_code);
+        @endphp
+        @foreach($colors as $index => $color )
+        <div class="col-md-3 g-3">
+
+            <input type="radio" class="btn-check" name="product_color" id="btnradio{{$index}}"autocomplete="off"  @if($index === 0) checked @endif>
+            <label class="btn btn-sm" id="selectedValue" for="btnradio{{$index}}"  style="background-color: {{$color}}!important ; outline:none ;" ><span style="opacity: 0">{{$color}}</span></label>
+        </div>
+        @endforeach
+      </div>
+
 </div>
 </div>
 <div class="shop-details-btn">
-<a href="#" class="primary-btn1 hover-btn3">*Add to Cart*</a>
+@if($data['product']->stock > 0)
+@if(session()->has('user'))
+<input type="hidden" name="productId" value="{{ $data['product']->id }}">
+<button type="button"  class="primary-btn1 style-3 hover-btn4 add-cart-btn addToCart">* Add To Cart *</button>
+@else
+<a  href="{{ route('cart.error') }}" class="primary-btn1 style-3 hover-btn4 add-cart-btn">* Add To Cart *</a>
+@endif
+
 <a href="checkout.html" class="primary-btn1 style-3 hover-btn4">*Buy Now*</a>
+@else
+<a href="#" class="primary-btn1 hover-btn3">*Request For Re-stock*</a>
+@endif
 </div>
 <div class="product-info">
 <ul class="product-info-list">
-<li> <span>SKU:</span> 9852410</li>
-<li> <span>Brand:</span> <a href="shop-4-columns.html">Chanel</a></li>
-<li> <span>Category:</span> <a href="shop-slider.html">Body</a>, <a href="shop-slider.html">Face</a></li>
+<li> <span>SKU:</span> {{$data['product']->sku}}</li>
+<li> <span>Brand:</span> <a href="shop-4-columns.html">@if($data['product']->brand != null) {{$data['product']->brand->name}} @endif</a></li>
+<li> <span>Category:</span> <a href="">@if($data['product']->category != null) {{$data['product']->category->name}} @endif</a></li>
 </ul>
 </div>
 <div class="payment-method">
 <h6>Guaranted Safe Checkout</h6>
 <ul class="payment-card-list">
-<li><img src="assets/img/inner-page/payment-img1.svg" alt></li>
-<li><img src="assets/img/inner-page/payment-img2.svg" alt></li>
-<li><img src="assets/img/inner-page/payment-img3.svg" alt></li>
-<li><img src="assets/img/inner-page/payment-img4.svg" alt></li>
-<li><img src="assets/img/inner-page/payment-img5.svg" alt></li>
-<li><img src="assets/img/inner-page/payment-img6.svg" alt></li>
-<li><img src="assets/img/inner-page/payment-img7.svg" alt></li>
+@foreach($data['payment'] as $payment)
+<li><img src="{{asset('paymentImages/' . $payment->image)}}" style="padding:5px; width:60px; height:40px; object-fit:contain" alt></li>
+@endforeach
 </ul>
 </div>
 <ul class="product-shipping-delivers">
@@ -176,7 +160,7 @@ Free worldwide shipping on all orders over $100
 <path d="M14 28L5.99996 28.1234C5.29929 28.136 5.30263 29.1974 5.99996 29.21L14 29.3334C14.8913 29.33 14.8873 28.0027 14 28ZM30 18.0874C24.9653 18.154 22.438 24.4747 26.0413 27.9587C29.572 31.4994 35.838 29.0654 35.93 24C36.1166 20.7847 33.1946 17.9287 30 18.0874ZM26.4166 27.584C23.32 24.4854 25.6406 19.09 30 19.2467C32.5386 19.2854 34.67 21.5054 34.7366 24.0007C34.918 28.3327 29.4726 30.7434 26.4166 27.584Z"></path>
 </g>
 </svg>
-<p>Delivers in: 3-7 Working Days <a href="#">Shipping &amp; Return</a></p>
+<p>Delivers in: {{$data['product']->delivery_duration}} Working Days.</p>
 </li>
 </ul>
 <div class="compare-wishlist-area">
@@ -205,19 +189,10 @@ Description
 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 <div class="accordion-body">
 <div class="product-description">
-<p> The Radiant Luxe Lipstick is the epitome of elegance and sophistication, designed to empower you with confidence and allure. This luxurious lipstick collection offers an array of shades that range from bold and vibrant to subtle and timeless, ensuring there's a perfect hue for every occasion and mood.</p>
-<h6>Key Features:</h6>
-<ul>
-<li>
-<span>Rich Pigmentation:</span> Our lipstick formula boasts intense color payoff with a single stroke, delivering a bold statement that lasts all day.
-</li>
-<li>
-<span>Hydrating Formula:</span> Infused with nourishing botanical extracts and oils, the formula keeps your lips hydrated and supple, preventing any dryness or flakiness.
-</li>
-<li>
-<span>Long-lasting:</span> Experience the confidence of a long-lasting lip color that stays put even through your busiest moments.
-</li>
-</ul>
+<p>
+    {!! $data['product']->description !!}
+</p>
+
 </div>
 </div>
 </div>
@@ -235,27 +210,21 @@ Additional Information
 <tbody>
 <tr>
 <td>SKU</td>
-<td>123ABC</td>
+<td>{{$data['product']->sku}}</td>
 </tr>
 <tr>
 <td>Category</td>
-<td>Nail Polish</td>
+<td>@if($data['product']->category !=null) {{$data['product']->category->name}} @endif</td>
 </tr>
-<tr>
-<td>Tags</td>
-<td>Nail Care, Nail Art</td>
-</tr>
+
 <tr>
 <td>Weight</td>
-<td>20 gm</td>
+<td>{{$data['product']->weight}}&nbsp; {{$data['product']->weight_type}}</td>
 </tr>
-<tr>
-<td>Dimensions</td>
-<td>2 × 4 × 5 cm</td>
-</tr>
+
 <tr>
 <td>Brand</td>
-<td>Revlon </td>
+<td>@if($data['product']->brand !=null){{$data['product']->brand->name}} @endif</td>
 </tr>
 </tbody>
 </table>
@@ -795,26 +764,22 @@ Add to wishlist
 </div>
 </div>
 
+<script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
+<script src="{{ asset('assets/css/custom/cart.js') }}"></script>
+<script>
+let addToCartRoute  = "{{ route('cart.store') }}";
+const radioButtons = document.querySelectorAll('.btn-check');
+const inputField = document.getElementById('selectedValue');
+let   colorData = $('.colorCode');
+radioButtons.forEach((radio) => {
+    radio.addEventListener('change', function() {
 
-
-
-<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
-
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
-
-<script src="assets/js/jquery.fancybox.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/slick.js"></script>
-
-<script src="assets/js/swiper-bundle.min.js"></script>
-<script src="assets/js/waypoints.min.js"></script>
-
-<script src="assets/js/main.js"></script>
-</body>
-
-<!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/accordion.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:26 GMT -->
-</html>
-
+        if (this.checked) {
+            colorData.val(this.nextElementSibling.textContent.trim());
+        }
+    });
+});
+</script>
 
 @endsection

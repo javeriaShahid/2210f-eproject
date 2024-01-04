@@ -9,13 +9,14 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Blogs;
 use App\Models\BlogComments;
+use App\Models\PaymentMethod;
 use App\Models\Setting;
 use App\Models\BlogViews;
 use DB;
 use App\Models\Subcategory;
 use App\Models\AboutUs ;
 use App\Models\AboutUsMainBanners ;
-class usercontroller extends Controller
+class UserController extends Controller
 {
    public $countryModel     = Country::class ;
    public $productModel     = Product::class;
@@ -38,8 +39,10 @@ class usercontroller extends Controller
      $data['brands']     = $this->brandModel::withoutTrashed()->orderBy('id' , 'desc')->paginate(10);
       return view("user.about_us")->with('data' , $data);
      }
-   public function accordion(){
-      return view("user.accordion");
+   public function accordion($id = null){
+      $data['product']  = Product::where('id' , $id)->first();
+      $data['payment']  = PaymentMethod::where('status' , 1)->get();
+      return view("user.accordion")->with('data' , $data);
      }
    public function blog_details($id= null){
       $data['blogs']         = Blogs::where('id' , $id)->first();
@@ -95,6 +98,12 @@ class usercontroller extends Controller
    }
    public function search_category($id = null){
       $data['product']   = $this->productModel::withoutTrashed()->where(['category_id' => $id , 'is_published' => 1])->paginate(25);
+      $category          = $this->categoryModel::where('id' , $id)->first();
+      $data['title']     = $category->name;
+      return view("user.slider")->with('data' , $data);
+   }
+   public function search_brand($id = null){
+      $data['product']   = $this->productModel::withoutTrashed()->where(['brand_id' => $id , 'is_published' => 1])->paginate(25);
       $category          = $this->categoryModel::where('id' , $id)->first();
       $data['title']     = $category->name;
       return view("user.slider")->with('data' , $data);
