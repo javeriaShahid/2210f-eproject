@@ -28,25 +28,17 @@ Product detail
 <div class="shop-details-img sticky">
 <div class="tab-content" id="v-pills-tabContent">
 <div class="tab-pane fade show active" id="v-pills-img1" role="tabpanel">
-<div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="assets/img/inner-page/shop-details-tab-img1.png">
-<img src="assets/img/inner-page/shop-details-tab-img1.png" alt>
+<div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="{{asset('assets/Productimages/' . $data['product']->image)}}">
+<img src="{{asset('assets/Productimages/' . $data['product']->image)}}" alt>
 </div>
 </div>
+@foreach($data['product']->productimages as $subimage)
 <div class="tab-pane fade" id="v-pills-img2" role="tabpanel">
 <div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="assets/img/inner-page/shop-details-tab-img2.png">
-<img src="assets/img/inner-page/shop-details-tab-img2.png" alt>
+<img src="{{asset('assets/subImages/' . $subimage->image)}}" alt>
 </div>
 </div>
-<div class="tab-pane fade" id="v-pills-img3" role="tabpanel" aria-labelledby="v-pills-img3-tab">
-<div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="assets/img/inner-page/shop-details-tab-img3.png">
-<img src="assets/img/inner-page/shop-details-tab-img3.png" alt>
-</div>
-</div>
-<div class="tab-pane fade" id="v-pills-img4" role="tabpanel" aria-labelledby="v-pills-img4-tab">
-<div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="assets/img/inner-page/shop-details-tab-img4.png">
-<img src="assets/img/inner-page/shop-details-tab-img4.png" alt>
-</div>
-</div>
+@endforeach
 </div>
 <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 <button class="nav-link active" id="v-pills-img1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-img1" type="button" role="tab" aria-controls="v-pills-img1" aria-selected="true">
