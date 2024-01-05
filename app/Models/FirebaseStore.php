@@ -19,6 +19,7 @@ class FirebaseStore extends Model
                             ->withServiceAccount($fireBaseCredentials)
                             ->withDefaultStorageBucket("dazzle-123.appspot.com")
                             ->createStorage();
+            // For Deleting Existing Image Before Updating
             if($existingFile != null){
                  $objectPath = parse_url($existingFile, PHP_URL_PATH);
                  $urlParts = explode('/', $objectPath);
@@ -28,6 +29,7 @@ class FirebaseStore extends Model
                  $folderPath = urldecode($folderPath);
                  $firebase->getBucket()->object($folderPath)->delete();
             }
+            //Updating Image Code ends Here
             $imageName = $file->getClientOriginalName();
             $imagePath = $folderName . $imageName;
 

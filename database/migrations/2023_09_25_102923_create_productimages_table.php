@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('productimages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-            $table->string('image');
+            $table->longText('image');
             $table->string('deleted_at')->nullable();
             $table->timestamps();
         });

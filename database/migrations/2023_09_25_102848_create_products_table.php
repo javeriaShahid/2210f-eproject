@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('short_description');
             $table->integer('price');
             $table->integer('stock');
-            $table->string('image');
+            $table->longText('image');
             $table->integer('weight');
             $table->string('weight_type');
             $table->integer('is_published')->default(0);

@@ -171,8 +171,8 @@ class Authcontroller extends Controller
 
         if($request->hasFile('image'))
         {
-            $image         =  $request->file('image');
-            $folderName    =  "UserImages/";
+            $image         =   $request->file('image');
+            $folderName    =   "UserImages/";
             $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName , $userData->profile_image);
             $updateImage   =   $this->parentModel::where('id' , $id)->update([
                 'profile_image' => $imagePath,

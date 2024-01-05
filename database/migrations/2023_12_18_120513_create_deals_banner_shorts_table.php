@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title_2');
             $table->string('color_2');
             $table->string('color_1');
-            $table->string('image');
+            $table->longText('image');
             $table->integer('status')->default(0);
             $table->integer('sort_by')->default(0);
             $table->timestamps();

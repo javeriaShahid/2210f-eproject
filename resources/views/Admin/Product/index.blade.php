@@ -55,7 +55,7 @@ All Products
                     @foreach ($data['product'] as $product )
                         <tr>
                             <td>{{ $loop->iteration  }}</td>
-                            <td><img src="{{ asset('assets/Productimages/'.$product->image) }}" style="width:40px; height:40px; object-fit:cover;" alt=""></td>
+                            <td><img src="{{ $product->image }}" style="width:40px; height:40px; object-fit:cover;" alt=""></td>
                             <td><a href="{{ route('subimage.index' , $product->id) }}" class="btn btn-warning"><div class="bx bx-undo"></div></a></td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->brand->name }}</td>

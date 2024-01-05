@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Productimages;
+use App\Models\FirebaseStore;
 
 class ProductImageController extends Controller
 {
     public $parentModel   =  Productimages::class ;
-   
+    public $firebaseStore    = FirebaseStore::class;
     public function index($id = null)
     {
         $data['id']          = $id;
@@ -31,11 +32,12 @@ class ProductImageController extends Controller
     }
     public function store($id = null , Request $request)
     {
-        $subImages = time().'.'.$request->file('subimage')->getClientOriginalExtension();
-        $request->file('subimage')->move('assets/subImages/' , $subImages);
-        $createImage       = $this->parentModel::create([
-            'product_id'   => $id ,     
-            'image'        =>  $subImages
+        $image             =  $request->file('subimage');
+        $folderName        =  "SubImages/";
+        $subimagePath      =  $this->firebaseStore::storeFiles($image , $folderName );
+        $createImage       =  $this->parentModel::create([
+            'product_id'   => $id ,
+            'image'        =>  $subimagePath
         ]);
         if($createImage == true)
         {
@@ -48,10 +50,13 @@ class ProductImageController extends Controller
     }
     public function update($id = null , Request $request)
     {
-        $subImages = time().'.'.$request->file('subimage')->getClientOriginalExtension();
-        $request->file('subimage')->move('assets/subImages/' , $subImages);
+        $subImageData      = $this->parentModel::where('id' , $id)->first();
+        $image             =  $request->file('subimage');
+        $folderName        =  "SubImages/";
+        $subimagePath      =   $this->firebaseStore::storeFiles($image , $folderName , $subImageData->image);
+
         $updateImage       = $this->parentModel::where('id' ,$id)->update([
-            'image'        =>  $subImages
+            'image'        =>  $subimagePath
         ]);
         $subimageData      = $this->parentModel::where('id' , $id)->first();
         if($updateImage == true)
@@ -64,7 +69,7 @@ class ProductImageController extends Controller
         }
     }
     public function trash($id = null)
-    {   
+    {
         $data['id']          = $id;
         $data['product']     = $this->parentModel::where('product_id' , $id)->onlyTrashed()->paginate(25);
         return view('Admin.Subimages.trash')->with('data' , $data);

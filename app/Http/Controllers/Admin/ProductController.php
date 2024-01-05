@@ -10,6 +10,7 @@ use App\Models\Productimages;
 use App\Models\Subcategory;
 use App\Models\Brand;
 use App\Models\Checkout;
+use App\Models\FirebaseStore;
 
 class ProductController extends Controller
 {
@@ -19,6 +20,7 @@ class ProductController extends Controller
     public  $categoryModel    = Category::class;
     public  $subcategoryModel = Subcategory::class;
     public  $brandModel       = Brand::class;
+    public $firebaseStore    = FirebaseStore::class;
     public function index()
     {
         $data['product']   = $this->parentModel::with('subcategory' ,'category','brand')->withoutTrashed()->paginate(25);
@@ -88,8 +90,10 @@ class ProductController extends Controller
         $delivery_duration  = $request->delivery_duration;
         if($request->hasFile('image') && $request->hasFile('subimage'))
         {
-            $mainImage           = rand().'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move('assets/Productimages' , $mainImage);
+
+            $image         =  $request->file('image');
+            $folderName    =  "ProductImages/";
+            $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName);
 
             $createProduct     =  $this->parentModel::create([
                 'name'                => $name ,
@@ -97,7 +101,7 @@ class ProductController extends Controller
                 'stock'               => $quantity ,
                 'category_id'         => $category ,
                 'subcategory_id'      => $subcategory ,
-                'image'               => $mainImage ,
+                'image'               => $imagePath ,
                 'color_code'          => $color ,
                 'sku'                 => $sku ,
                 'description'         => $description  ,
@@ -114,11 +118,13 @@ class ProductController extends Controller
 
                 foreach($request->file('subimage') as $key => $value)
                 {
-                    $subImages = time().'.'.$request->file('subimage')[$key]->getClientOriginalExtension();
-                    $request->file('subimage')[$key]->move('assets/subImages/' , $subImages);
+                    $image         =  $request->file('subimage')[$key];
+                    $folderName    =  "SubImages/";
+                    $subimagePath  =   $this->firebaseStore::storeFiles($image , $folderName);
+
                     $createImage   = $this->imagesModel::create([
                         'product_id'    => $createProduct->id ,
-                        'image'        =>  $subImages
+                        'image'        =>  $subimagePath
                     ]);
                 }
 
@@ -155,10 +161,13 @@ class ProductController extends Controller
         $delivery_duration  = $request->delivery_duration;
         if($request->hasFile('image'))
         {
-            $mainImage           = rand().'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move('assets/Productimages' , $mainImage);
+            $productData   =   $this->parentModel::where('id' ,$id)->first();
+            $image         =   $request->file('image');
+            $folderName    =  "ProductImages/";
+            $imagepath     =   $this->firebaseStore::storeFiles($image , $folderName , $productData->image);
+
             $updateImage       = $this->parentModel::where('id' , $id)->update([
-                'image'        => $mainImage
+                'image'        => $imagepath
             ]);
         }
             $updateProduct     =  $this->parentModel::where('id' , $id)->update([
@@ -178,21 +187,24 @@ class ProductController extends Controller
                 'weight_type'         => $weight_type ,
 
             ]);
-            if($updateProduct == true && $request->hasFile('subimage'))
+            if($request->hasFile('subimage'))
             {
 
+                $subImageData      = $this->imagesModel::where('product_id' , $id)->first();
                 foreach($request->file('subimage') as $key => $value)
                 {
-                    $subImages = time().'.'.$request->file('subimage')[$key]->getClientOriginalExtension();
-                    $request->file('subimage')[$key]->move('assets/subImages/' , $subImages);
-                    $createImage   = $this->imagesModel::create([
+                    $image         =  $request->file('subimage')[$key];
+                    $folderName    =  "SubImages/";
+                    $subimagePath  =   $this->firebaseStore::storeFiles($image , $folderName , $subImageData->image);
+
+                    $createImage   = $this->imagesModel::update([
                         'product_id'    => $id ,
-                        'image'        =>  $subImages
+                        'image'        =>  $subimagePath
                     ]);
                 }
 
             }
-            if($updateProduct == true || $updateImage == true || $createImage = true)
+            if($updateProduct == true)
             {
                 return redirect(Route('product.index'))->with('success' , 'Product Has Been updated');
             }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('logo');
-            $table->string('x_icon');
+            $table->longText('logo');
+            $table->longText('x_icon');
             $table->string('title');
             $table->string('contact');
             $table->string('email');

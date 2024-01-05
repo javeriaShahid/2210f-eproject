@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Brand;
+use App\Models\FirebaseStore;
 use App\Models\Product;
 class BrandController extends Controller
 {
-    public $parentModel  = Brand::class;
-    public $productModel = Product::class;
+    public $parentModel      = Brand::class;
+    public $productModel     = Product::class;
+    public $firebaseStore    = FirebaseStore::class;
+
     public function index()
     {
         $data['brand']     = $this->parentModel::withoutTrashed()->with('product')->paginate(25);
@@ -36,11 +39,12 @@ class BrandController extends Controller
         $name    = $request->name ;
         if($request->hasFile('image'))
         {
-            $fileName   = time().'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move('assets/BrandImages/' , $fileName);
+            $image         =  $request->file('image');
+            $folderName    =  "Brandimages/";
+            $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName);
             $addBrand     = $this->parentModel::create([
                 'name'    => $name ,
-                'image'   => $fileName
+                'image'   => $imagePath
             ]);
             if($addBrand == true)
             {
@@ -56,12 +60,14 @@ class BrandController extends Controller
     public function update(Request $request , $id = null)
     {
         $name    = $request->name ;
+        $brands  = $this->parentModel::where('id' , $id)->first();
         if($request->hasFile('image'))
         {
-            $fileName   = time().'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move('assets/BrandImages/' , $fileName);
+            $image         =   $request->file('image');
+            $folderName    =   "Brandimages/";
+            $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName , $brands->image);
             $updateImage   = $this->parentModel::where('id' , $id)->update([
-            'image'   => $fileName
+            'image'        => $imagePath
             ]);
         }
         $addBrand     = $this->parentModel::where('id' , $id)->update([
