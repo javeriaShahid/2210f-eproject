@@ -11,6 +11,7 @@ use App\Models\State;
 use App\Models\City;
 use App\Models\UserAddresses;
 use Carbon\Carbon;
+use App\Models\FirebaseStore;
 use Mail ;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Notification;
@@ -25,12 +26,13 @@ class Authcontroller extends Controller
     public $cartModel        = Cart::class;
     public $mailClass        = Mail::class;
     public $notification     = Notification::class;
+    public $firebaseStore    = FirebaseStore::class;
     public function login(Request $request){
         $email    = $request->email;
         $password = $request->password;
         //Or Middleware jo hai woh Sessions ke names ko  check karega put('admin') jo lekha hai line number 22 mai get karo ya jo bhi session()->ke bad jo function ho get put ya has ka('yahan par session ka name hoga');
         $login    = User::where('email', $email)->first();
-   
+
        if($login ==true && Hash::check($password , $login->password) ) // Yahan humne pehle kaha check kro keya login ke variable mai data true hai fir humne Hash class ka use keya or check keya ke jo user password de rha hai keya woh data ke password jo hashed hain Hash:check hashed paswords ko check krta hai ke same hai ya nhi
        {
             if($login->is_blocked == 1)
@@ -91,11 +93,11 @@ class Authcontroller extends Controller
             {
                 if($request->hasFile('image'))
                 {
-                    $image     =  $request->file('image');
-                    $fileName  = time().'.'.$image->getClientOriginalExtension();
-                    $image->move('assets/UserImages/', $fileName);
+                    $image         =  $request->file('image');
+                    $folderName    =  "UserImages/";
+                    $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName);
                     $updateImage   = $this->parentModel::where('id' , $user_create->id)->update([
-                        'profile_image' => $fileName,
+                        'profile_image' => $imagePath,
                     ]);
                 }
                 $emailData  = [
