@@ -31,12 +31,13 @@ Account Setting
                 @csrf
             <div class="d-flex align-items-start align-items-sm-center gap-4">
               <img
-                src="{{ asset('assets/UserImages/'. $data['user']->profile_image)}}"
+                src="{{$data['user']->profile_image}}"
                 alt="user-avatar"
                 class="d-block rounded"
                 height="100"
                 width="100"
                 id="uploadedAvatar"
+                style="object-fit: cover"
               />
               <div class="button-wrapper">
                 <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
