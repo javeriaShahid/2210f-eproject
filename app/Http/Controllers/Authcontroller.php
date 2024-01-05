@@ -167,12 +167,14 @@ class Authcontroller extends Controller
         $email            = $request->email ;
         $phonecode        = $request->phonecode ;
         $contact_number   = $request->contact_number ;
+        $userData = User::where('id', $id)->first();
+
         if($request->hasFile('image'))
         {
             $image         =  $request->file('image');
             $folderName    =  "UserImages/";
-            $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName);
-            $updateImage   = $this->parentModel::where('id' , $id)->update([
+            $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName , $userData->profile_image);
+            $updateImage   =   $this->parentModel::where('id' , $id)->update([
                 'profile_image' => $imagePath,
             ]);
         }

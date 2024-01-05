@@ -10,7 +10,7 @@ class FirebaseStore extends Model
 {
     use HasFactory;
 
-    public static function storeFiles( $file  , $folder ){
+    public static function storeFiles( $file  , $folder , $existingFile = null){
 
             $folderName  = $folder;
             $fireBaseCredentials = public_path('FirebaseCredientals\dazzle-firebase.json');
@@ -19,7 +19,15 @@ class FirebaseStore extends Model
                             ->withServiceAccount($fireBaseCredentials)
                             ->withDefaultStorageBucket("dazzle-123.appspot.com")
                             ->createStorage();
-
+            if($existingFile != null){
+                 $objectPath = parse_url($existingFile, PHP_URL_PATH);
+                 $urlParts = explode('/', $objectPath);
+                 $fileName = end($urlParts);
+                 $folderPathParts = array_slice($urlParts, 2, 3);
+                 $folderPath = implode('/', $folderPathParts);
+                 $folderPath = urldecode($folderPath);
+                 $firebase->getBucket()->object($folderPath)->delete();
+            }
             $imageName = $file->getClientOriginalName();
             $imagePath = $folderName . $imageName;
 
@@ -34,4 +42,7 @@ class FirebaseStore extends Model
             return $publicUrl ;
 
     }
+
+
+
 }
