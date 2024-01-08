@@ -32,12 +32,13 @@ class ProductImageController extends Controller
     }
     public function store($id = null , Request $request)
     {
-        $image             =  $request->file('subimage');
-        $folderName        =  "SubImages/";
-        $subimagePath      =  $this->firebaseStore::storeFiles($image , $folderName );
+        $image         =  $request->file('subimage');
+        $subFile  = time().".".$image->getClientOriginalExtension();
+        $image->move('ProductSubImages/' , $subFile);
+
         $createImage       =  $this->parentModel::create([
             'product_id'   => $id ,
-            'image'        =>  $subimagePath
+            'image'        =>  $subFile
         ]);
         if($createImage == true)
         {
@@ -51,12 +52,12 @@ class ProductImageController extends Controller
     public function update($id = null , Request $request)
     {
         $subImageData      = $this->parentModel::where('id' , $id)->first();
-        $image             =  $request->file('subimage');
-        $folderName        =  "SubImages/";
-        $subimagePath      =   $this->firebaseStore::storeFiles($image , $folderName , $subImageData->image);
+        $image         =  $request->file('subimage');
+        $subFile  = time().".".$image->getClientOriginalExtension();
+        $image->move('ProductSubImages/' , $subFile);
 
         $updateImage       = $this->parentModel::where('id' ,$id)->update([
-            'image'        =>  $subimagePath
+            'image'        =>  $subFile
         ]);
         $subimageData      = $this->parentModel::where('id' , $id)->first();
         if($updateImage == true)

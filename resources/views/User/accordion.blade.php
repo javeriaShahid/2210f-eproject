@@ -28,14 +28,14 @@ Product detail
 <div class="shop-details-img sticky">
 <div class="tab-content" id="v-pills-tabContent">
 <div class="tab-pane fade show active" id="v-pills-img1" role="tabpanel">
-<div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="{{asset('assets/Productimages/' . $data['product']->image)}}">
-<img src="{{asset('assets/Productimages/' . $data['product']->image)}}" alt>
+<div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="{{asset('Productimages/' . $data['product']->image)}}">
+<img src="{{asset('Productimages/' . $data['product']->image)}}" alt>
 </div>
 </div>
 @foreach($data['product']->productimages as $subimage)
 <div class="tab-pane fade" id="v-pills-img2" role="tabpanel">
-<div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="assets/img/inner-page/shop-details-tab-img2.png">
-<img src="{{asset('assets/subImages/' . $subimage->image)}}" alt>
+<div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="{{asset('ProductSubImages/' . $subimage->image)}}">
+<img src="{{asset('ProductSubImages/' . $subimage->image)}}" alt>
 </div>
 </div>
 @endforeach

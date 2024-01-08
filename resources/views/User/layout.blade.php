@@ -332,7 +332,7 @@ Log In
 <button type="button"   class="bg-transparent dropdown-toggle user-btn" style="width: max-content" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 
     @if (session()->has('user'))
-    <img src="{{session()->get('user')['profile_image']}}" style="width:30px; height:30px; object-fit:contain ; border-radius:10px ; border:1px solid grey ; box-shadow: 0 0 10px grey;" alt="">
+    <img src="{{asset("UserImages/" . session()->get('user')['profile_image'])}}" style="width:30px; height:30px; object-fit:contain ; border-radius:10px ; border:1px solid grey ; box-shadow: 0 0 10px grey;" alt="">
     @else
     <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0_122_313)">

@@ -27,7 +27,7 @@ Blogs Details
 <div class="author-area">
 <div class="author-img">
 @if($data['blogs']->user != null)
-<img src="{{asset('assets/UserImages/' . $data['blogs']->user->profile_image)}}" alt>
+<img src="{{asset('UserImages/' . $data['blogs']->user->profile_image)}}" alt>
 </div>
 <div class="author-content">
     <p>
@@ -248,7 +248,7 @@ $next     = \App\Models\Blogs::where('id' , '>' , $id)->first();
 @foreach($data['blogscomments'] as $comments)
 <li>
 <div class="author-img">
-<img src="{{asset("assets/UserImages/" . $comments->userdata->profile_image)}}" style="object-fit:cover" alt>
+<img src="{{asset("UserImages/" . $comments->userdata->profile_image)}}" style="object-fit:cover" alt>
 </div>
 <div class="comment-content">
 <div class="author-post">

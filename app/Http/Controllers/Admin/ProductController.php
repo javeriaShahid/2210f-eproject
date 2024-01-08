@@ -90,10 +90,8 @@ class ProductController extends Controller
         $delivery_duration  = $request->delivery_duration;
         if($request->hasFile('image') && $request->hasFile('subimage'))
         {
-
-            $image         =  $request->file('image');
-            $folderName    =  "ProductImages/";
-            $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName);
+            $fileName  = time().".".$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move('ProductImages/' , $fileName);
 
             $createProduct     =  $this->parentModel::create([
                 'name'                => $name ,
@@ -101,7 +99,7 @@ class ProductController extends Controller
                 'stock'               => $quantity ,
                 'category_id'         => $category ,
                 'subcategory_id'      => $subcategory ,
-                'image'               => $imagePath ,
+                'image'               => $fileName ,
                 'color_code'          => $color ,
                 'sku'                 => $sku ,
                 'description'         => $description  ,
@@ -119,12 +117,11 @@ class ProductController extends Controller
                 foreach($request->file('subimage') as $key => $value)
                 {
                     $image         =  $request->file('subimage')[$key];
-                    $folderName    =  "SubImages/";
-                    $subimagePath  =   $this->firebaseStore::storeFiles($image , $folderName);
-
+                    $subFile  = time().".".$image->getClientOriginalExtension();
+                    $image->move('ProductSubImages/' , $subFile);
                     $createImage   = $this->imagesModel::create([
                         'product_id'    => $createProduct->id ,
-                        'image'        =>  $subimagePath
+                        'image'        =>  $subFile
                     ]);
                 }
 
@@ -161,13 +158,11 @@ class ProductController extends Controller
         $delivery_duration  = $request->delivery_duration;
         if($request->hasFile('image'))
         {
-            $productData   =   $this->parentModel::where('id' ,$id)->first();
-            $image         =   $request->file('image');
-            $folderName    =  "ProductImages/";
-            $imagepath     =   $this->firebaseStore::storeFiles($image , $folderName , $productData->image);
+            $fileName  = time().".".$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move('ProductImages/' , $fileName);
 
             $updateImage       = $this->parentModel::where('id' , $id)->update([
-                'image'        => $imagepath
+                'image'        => $fileName
             ]);
         }
             $updateProduct     =  $this->parentModel::where('id' , $id)->update([
@@ -194,12 +189,12 @@ class ProductController extends Controller
                 foreach($request->file('subimage') as $key => $value)
                 {
                     $image         =  $request->file('subimage')[$key];
-                    $folderName    =  "SubImages/";
-                    $subimagePath  =   $this->firebaseStore::storeFiles($image , $folderName , $subImageData->image);
+                    $subFile  = time().".".$image->getClientOriginalExtension();
+                    $image->move('ProductSubImages/' , $subFile);
 
                     $createImage   = $this->imagesModel::update([
                         'product_id'    => $id ,
-                        'image'        =>  $subimagePath
+                        'image'        =>  $subFile
                     ]);
                 }
 

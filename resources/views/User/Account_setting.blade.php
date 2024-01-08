@@ -233,7 +233,7 @@ to view or edit information.</p>
     @csrf
 <div class="row">
     <div class="col-md-4 col-12 mb-3 mt-3">
-       <img src="{{asset("assets/UserImages/" . $data['user']->profile_image)}}" style="width:180px; height:180px ; object-fit:cover; border:2px solid black; border-radius:10px" alt="">
+       <img src="{{asset("UserImages/" . $data['user']->profile_image)}}" style="width:180px; height:180px ; object-fit:cover; border:2px solid black; border-radius:10px" alt="">
     </div>
     <div class="col-md-8 col-12 mb-25">
         <div class="form-inner">
@@ -254,15 +254,8 @@ to view or edit information.</p>
 <div class="col-xl-6 col-lg-12 col-md-6 mb-25">
 <div class="form-inner">
 <div class="row">
-    <div class="col-md-3 col-3">
-        <select name="phonecode">
-            <option value="{{ $data['user']->phone_code }}">{{ $data['user']->phone_code }}</option>
-            @foreach ($data['country'] as $country)
-                <option value="{{ $country->phonecode }}">{{$country->phonecode}}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="col-md-9 col-6">
+
+    <div class="col-md-12 col-6">
    <input type="text" name="contact_number" placeholder="Enter yout contact number" value="{{ $data['user']->contact_number }}">
 
     </div>

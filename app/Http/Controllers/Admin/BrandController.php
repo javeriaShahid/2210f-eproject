@@ -40,11 +40,11 @@ class BrandController extends Controller
         if($request->hasFile('image'))
         {
             $image         =  $request->file('image');
-            $folderName    =  "Brandimages/";
-            $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName);
+            $fileName      =  time().".".$image->getClientOriginalExtension();
+            $image->move("BrandImages/" , $fileName);
             $addBrand     = $this->parentModel::create([
                 'name'    => $name ,
-                'image'   => $imagePath
+                'image'   => $fileName
             ]);
             if($addBrand == true)
             {
@@ -63,11 +63,11 @@ class BrandController extends Controller
         $brands  = $this->parentModel::where('id' , $id)->first();
         if($request->hasFile('image'))
         {
-            $image         =   $request->file('image');
-            $folderName    =   "Brandimages/";
-            $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName , $brands->image);
+            $image         =  $request->file('image');
+            $fileName      =  time().".".$image->getClientOriginalExtension();
+            $image->move("BrandImages/" , $fileName);
             $updateImage   = $this->parentModel::where('id' , $id)->update([
-            'image'        => $imagePath
+            'image'        => $fileName
             ]);
         }
         $addBrand     = $this->parentModel::where('id' , $id)->update([

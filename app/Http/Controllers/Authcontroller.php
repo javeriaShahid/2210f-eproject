@@ -73,7 +73,7 @@ class Authcontroller extends Controller
         $password     =  Hash::make($request->password);
         $username     =  $request->username ;
         $contact      =  $request->contact_number;
-        $country_code =  $request->country_code;
+
 
         $userCount    = $this->parentModel::where('email' , $email)->count();
         $nameCount    = $this->parentModel::where('username' , $username)->count();
@@ -85,7 +85,6 @@ class Authcontroller extends Controller
                 'password'        => $password ,
                 'email'           => $email ,
                 'contact_number'  => $contact ,
-                'phone_code'      => $country_code ,
                 'role'            => 0
             ]);
 
@@ -93,11 +92,11 @@ class Authcontroller extends Controller
             {
                 if($request->hasFile('image'))
                 {
-                    $image         =  $request->file('image');
-                    $folderName    =  "UserImages/";
-                    $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName);
+                    $image         =   $request->file('image');
+                    $filePath      =   time().".".$image->getClientOriginalExtension();
+                    $image->move("UserImages/" , $filePath);
                     $updateImage   = $this->parentModel::where('id' , $user_create->id)->update([
-                        'profile_image' => $imagePath,
+                        'profile_image' => $filePath,
                     ]);
                 }
                 $emailData  = [
@@ -165,24 +164,23 @@ class Authcontroller extends Controller
         $name             = $request->name ;
         $username         = $request->username ;
         $email            = $request->email ;
-        $phonecode        = $request->phonecode ;
+
         $contact_number   = $request->contact_number ;
         $userData = User::where('id', $id)->first();
 
         if($request->hasFile('image'))
         {
             $image         =   $request->file('image');
-            $folderName    =   "UserImages/";
-            $imagePath     =   $this->firebaseStore::storeFiles($image , $folderName , $userData->profile_image);
+            $filePath      =   time().".".$image->getClientOriginalExtension();
+            $image->move("UserImages/" , $filePath);
             $updateImage   =   $this->parentModel::where('id' , $id)->update([
-                'profile_image' => $imagePath,
+                'profile_image' => $filePath,
             ]);
         }
         $updateUser       = User::where('id' , $id)->update([
             'name'             => $name  ,
             'username'         => $username ,
             'email'            => $email ,
-            'phone_code'       => $phonecode ,
             'contact_number'   => $contact_number
         ]);
         if($updateUser == true || $updateImage == true)

@@ -31,7 +31,7 @@ Account Setting
                 @csrf
             <div class="d-flex align-items-start align-items-sm-center gap-4">
               <img
-                src="{{$data['user']->profile_image}}"
+                src="{{asset('UserImages/' . $data['user']->profile_image)}}"
                 alt="user-avatar"
                 class="d-block rounded"
                 height="100"
@@ -79,10 +79,8 @@ Account Setting
                 <div class="col-md-6 mt-3 mb-3">
                     <label for="">Phone Number</label>
                     <div class="row">
-                        <div class="col-md-3">
-                            <input type="text" name="phonecode" placeholder="Your Email Address .." value="{{ $data['user']->phone_code }}" class="form-control">
-                        </div>
-                        <div class="col-md-9">
+
+                        <div class="col-md-12">
                             <input type="text" name="contact_number" placeholder="Your Email Address .." value="{{ $data['user']->contact_number }}" class="form-control">
                         </div>
                     </div>

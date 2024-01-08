@@ -39,7 +39,7 @@ All Brands
                     @foreach ($data['brand'] as $brand )
                         <tr>
                             <td>{{ $loop->iteration  }}</td>
-                            <td><img src="{{ $brand->image }}" style="height: 40px ; width:40px; object-fit:cover;" alt=""></td>
+                            <td><img src="{{asset("BrandImages/" .$brand->image ) }}" style="height: 40px ; width:40px; object-fit:cover;" alt=""></td>
                             <td>{{ $brand->name }}</td>
                             <td>{{ $brand->product->count() }}</td>
 

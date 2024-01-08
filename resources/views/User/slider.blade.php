@@ -40,13 +40,13 @@ Products
     <div class="product-card hover-btn">
     <div class="product-card-img double-img">
     <a href="{{route('accordion' , $product->id)}}">
-    <img src="{{ asset('assets/Productimages/' . $product->image) }}" style="height:280px!important;object-fit:contain" alt class="img1">
+    <img src="{{ asset('Productimages/' . $product->image) }}" style="height:280px!important;object-fit:contain" alt class="img1">
     <?php
         $subimage   = \DB::table('productimages')->where('product_id' , $product->id)->first();
 
         ?>
 
-    <img src="{{ asset('assets/subImages/' . $subimage->image) }}" style="height:280px!important;object-fit:contain" alt class="img2">
+    <img src="{{ asset('ProductSubImages/' . $subimage->image) }}" style="height:280px!important;object-fit:contain" alt class="img2">
     @if($product->sale_status == 1)
     <div class="countdown-timer">
         <ul data-countdown="{{ $product->discounted_end_time }} 00:00:00">

@@ -37,7 +37,7 @@ Trashed Sub Images
                     @foreach ($data['product'] as $product )
                         <tr>
                             <td>{{ $loop->iteration  }}</td>
-                            <td><img src="{{ $product->image }}" style="width:40px; height:40px; object-fit:cover;" alt=""></td>
+                            <td><img src="{{ asset("ProductSubImages/" . $product->image) }}" style="width:40px; height:40px; object-fit:cover;" alt=""></td>
                             <td>{{ $product->product->name }}</td>
                             {{-- Modal button ends --}}
                             <td><a href="{{ route('subimage.restore' , $product->id) }}" class="btn btn-success"><i class="bx bx-undo"></i></a></td>

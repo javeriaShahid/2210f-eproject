@@ -40,15 +40,8 @@ User Registeration
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example1cg">Contact Here</label>
                     <div class="row">
-                        <div class="col-2">
 
-                          <select name="country_code" id="" class="  form-control form-control-lg">
-                            @foreach ($data['country'] as $country )
-                            <option value="{{ $country->phonecode }}">{{ $country->phonecode }}</option>
-                            @endforeach
-                          </select>
-                        </div>
-                        <div class="col-10">
+                        <div class="col-12 col-md-12">
                             <input type="number" id="form3Example1cg" name="contact_number" class="form-control form-control-lg" placeholder="Contact Here" />
 
                         </div>

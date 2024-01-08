@@ -13,7 +13,7 @@ Blog's Comments
     @foreach($data['blogscomments'] as $comments)
     <li>
     <div class="author-img">
-    <img src="{{asset("assets/UserImages/" . $comments->userdata->profile_image)}}" style="object-fit:cover" alt>
+    <img src="{{asset("UserImages/" . $comments->userdata->profile_image)}}" style="object-fit:cover" alt>
     </div>
     <div class="comment-content">
     <div class="author-post">
