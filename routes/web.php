@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\HomeLinkController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\CategoryBannerController;
 use App\Http\Controllers\User\BlogCommentController;
+use App\Http\Controllers\User\FeedBackController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -83,7 +84,8 @@ Route::get('/verifyemail/{id?}' , [Authcontroller::class , 'verify_email_address
 Route::get('/state/{id?}' , [Authcontroller::class , 'get_state'])->name('state.get');
 Route::get('/city/{id?}' , [Authcontroller::class , 'get_city'])->name('city.get');
 // Address Get
-
+// Feedback Store
+Route::post("store/feeback" , [FeedBackController::class , 'store'])->name('feedback.store');
 Route::post('/user/register',[Authcontroller::class, "registeration"])->name('user.register.post');
 Route::get('/Account_setting',[UserController::class, "Account_setting"])->name('Account_setting');
 Route::get('loadPdf/{id?}' , [PDFController::class,'generatePdf'])->name('generate.label');

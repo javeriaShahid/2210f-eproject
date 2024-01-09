@@ -6,8 +6,22 @@ Product detail
 @endsection
 @section('content')
 
-
-
+<style>
+    .dataImage{
+        cursor: pointer!important;
+    }
+    #mainImage{
+        height: 500px!important;
+        object-fit: cover!important;
+        overflow: hidden;
+    }
+    .nav-link{
+        overflow: hidden;
+        border: 1px solid black!important;
+        background: white!important;
+        box-shadow: 0 0 10px rgba(128, 128, 128, 0.316)!important;
+    }
+</style>
 <div class="breadcrumb-section">
 <div class="container">
 <nav aria-label="breadcrumb">
@@ -24,38 +38,29 @@ Product detail
 <div class="shop-details-top-section mt-110 mb-110">
 <div class="container-xl container-fluid-lg container">
 <div class="row gy-5">
-<div class="col-lg-6">
-<div class="shop-details-img sticky">
-<div class="tab-content" id="v-pills-tabContent">
-<div class="tab-pane fade show active" id="v-pills-img1" role="tabpanel">
-<div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="{{asset('Productimages/' . $data['product']->image)}}">
-<img src="{{asset('Productimages/' . $data['product']->image)}}" alt>
-</div>
-</div>
-@foreach($data['product']->productimages as $subimage)
-<div class="tab-pane fade" id="v-pills-img2" role="tabpanel">
-<div class="shop-details-tab-img product-img--main" data-scale="1.4" data-image="{{asset('ProductSubImages/' . $subimage->image)}}">
-<img src="{{asset('ProductSubImages/' . $subimage->image)}}" alt>
-</div>
-</div>
-@endforeach
-</div>
-<div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-<button class="nav-link active" id="v-pills-img1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-img1" type="button" role="tab" aria-controls="v-pills-img1" aria-selected="true">
-<img src="assets/img/inner-page/shop-details-nav-img1.png" alt>
-</button>
-<button class="nav-link" id="v-pills-img2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-img2" type="button" role="tab" aria-controls="v-pills-img2" aria-selected="false">
-<img src="assets/img/inner-page/shop-details-nav-img2.png" alt>
-</button>
-<button class="nav-link" id="v-pills-img3-tab" data-bs-toggle="pill" data-bs-target="#v-pills-img3" type="button" role="tab" aria-controls="v-pills-img3" aria-selected="false">
-<img src="assets/img/inner-page/shop-details-nav-img3.png" alt>
-</button>
-<button class="nav-link" id="v-pills-img4-tab" data-bs-toggle="pill" data-bs-target="#v-pills-img4" type="button" role="tab" aria-controls="v-pills-img4" aria-selected="false">
-<img src="assets/img/inner-page/shop-details-nav-img4.png" alt>
-</button>
-</div>
-</div>
-</div>
+    <div class="col-lg-6">
+        <div class="shop-details-img sticky">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" role="tabpanel">
+                    <div class="shop-details-tab-img product-img--main dataImage"  data-scale="1.4" >
+                        <img src="{{ asset('Productimages/' . $data['product']->image) }}" id="mainImage" data-scale="1.4" alt >
+                    </div>
+                </div>
+
+            </div>
+            <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link"  data-bs-toggle="pill"  type="button" role="tab" >
+                    <img src="{{ asset('Productimages/' . $data['product']->image) }}" alt style="z-index: 1000">
+                </button>
+                @foreach($data['product']->productimages as $index => $value)
+                    <button class="nav-link"  data-bs-toggle="pill"  type="button" role="tab" aria-controls="v-pills-img{{$index}}" aria-selected="{{ $index === 0 ? 'true' : 'false' }}">
+                        <img src="{{ asset('ProductSubImages/' . $value->image) }}" alt style="z-index: 1000">
+                    </button>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
 <div class="col-lg-6">
 <div class="shop-details-content">
 <h1>{{$data['product']->name}}</h1>
@@ -142,7 +147,11 @@ Product detail
 <path d="M44.7142 32C41.5645 32 39 29.4377 39 26.2857C39 23.1337 41.5645 20.5714 44.7142 20.5714C47.864 20.5714 50.4285 23.1337 50.4285 26.2857C50.4285 29.4377 47.864 32 44.7142 32ZM44.7142 22.8572C42.824 22.8572 41.2857 24.3954 41.2857 26.2857C41.2857 28.176 42.824 29.7143 44.7142 29.7143C46.6045 29.7143 48.1428 28.176 48.1428 26.2857C48.1428 24.3954 46.6045 22.8572 44.7142 22.8572ZM19.5714 32C16.4217 32 13.8571 29.4377 13.8571 26.2857C13.8571 23.1337 16.4217 20.5714 19.5714 20.5714C22.7211 20.5714 25.2857 23.1337 25.2857 26.2857C25.2857 29.4377 22.7211 32 19.5714 32ZM19.5714 22.8572C17.6811 22.8572 16.1428 24.3954 16.1428 26.2857C16.1428 28.176 17.6811 29.7143 19.5714 29.7143C21.4617 29.7143 23 28.176 23 26.2857C23 24.3954 21.4617 22.8572 19.5714 22.8572ZM15 6.85716H5.85711C5.554 6.85716 5.26331 6.73675 5.04899 6.52242C4.83466 6.30809 4.71425 6.0174 4.71425 5.7143C4.71425 5.41119 4.83466 5.1205 5.04899 4.90618C5.26331 4.69185 5.554 4.57144 5.85711 4.57144H15C15.3031 4.57144 15.5938 4.69185 15.8081 4.90618C16.0224 5.1205 16.1428 5.41119 16.1428 5.7143C16.1428 6.0174 16.0224 6.30809 15.8081 6.52242C15.5938 6.73675 15.3031 6.85716 15 6.85716ZM15 13.7143H3.57139C3.26829 13.7143 2.9776 13.5939 2.76327 13.3796C2.54894 13.1652 2.42854 12.8745 2.42854 12.5714C2.42854 12.2683 2.54894 11.9776 2.76327 11.7633C2.9776 11.549 3.26829 11.4286 3.57139 11.4286H15C15.3031 11.4286 15.5938 11.549 15.8081 11.7633C16.0224 11.9776 16.1428 12.2683 16.1428 12.5714C16.1428 12.8745 16.0224 13.1652 15.8081 13.3796C15.5938 13.5939 15.3031 13.7143 15 13.7143ZM15 20.5714H1.28568C0.982575 20.5714 0.691885 20.451 0.477557 20.2367C0.26323 20.0224 0.142822 19.7317 0.142822 19.4286C0.142822 19.1255 0.26323 18.8348 0.477557 18.6205C0.691885 18.4061 0.982575 18.2857 1.28568 18.2857H15C15.3031 18.2857 15.5938 18.4061 15.8081 18.6205C16.0224 18.8348 16.1428 19.1255 16.1428 19.4286C16.1428 19.7317 16.0224 20.0224 15.8081 20.2367C15.5938 20.451 15.3031 20.5714 15 20.5714Z"></path>
 <path d="M32.1428 27.4286H24.1428C23.8397 27.4286 23.549 27.3082 23.3347 27.0938C23.1203 26.8795 22.9999 26.5888 22.9999 26.2857C22.9999 25.9826 23.1203 25.6919 23.3347 25.4776C23.549 25.2633 23.8397 25.1429 24.1428 25.1429H31.2308L36.4239 2.28571H10.4285C10.1254 2.28571 9.83471 2.16531 9.62038 1.95098C9.40605 1.73665 9.28564 1.44596 9.28564 1.14286C9.28564 0.839753 9.40605 0.549063 9.62038 0.334735C9.83471 0.120408 10.1254 1.4297e-07 10.4285 1.4297e-07H37.8571C38.0286 -8.56294e-05 38.1979 0.0384228 38.3525 0.112672C38.507 0.186921 38.6429 0.295008 38.7501 0.42892C38.8572 0.562832 38.9328 0.719137 38.9713 0.886249C39.0098 1.05336 39.0102 1.227 38.9725 1.39429L33.2582 26.5371C33.2011 26.7903 33.0596 27.0165 32.8569 27.1785C32.6541 27.3405 32.4023 27.4287 32.1428 27.4286Z"></path>
 </svg>
-Free worldwide shipping on all orders over $100
+@if($data['product']->shipping_fees > 0)
+Shipping Fees <b>PKR,{{$data['product']->shipping_fees}}</b>
+@else
+Free Shipping.
+@endif
 </li>
 <li class="product-delivers">
 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 40 40">
@@ -224,7 +233,7 @@ Additional Information
 </div>
 </div>
 </div>
-<div class="accordion-item" id="reviews">
+<div class="accordion-item" id="reviews" style="overflow-x: hidden!important;overflow-y:hidden!important;">
 <h2 class="accordion-header" id="headingThree">
 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 Reviews (15)
@@ -237,32 +246,8 @@ Reviews (15)
 <div class="col-lg-12">
 <div class="comment-section style-2">
 <ul class="author-comment mb-60">
-<li>
-<div class="author-img">
-<img src="assets/img/inner-page/comment-author1.png" alt>
-</div>
-<div class="comment-content">
-<div class="author-post style-2">
-<div class="author-info">
-<h5>Polard Girdet, <span> 02 June,2023</span></h5>
-</div>
-<ul class="rating">
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-</div>
-<p>Odio tellus, dignissim fermentumara purus nec, consequat dapibus metus.Vivamusut urna world classo mauris, faucibus at egestas quis, fermentum egetonav neque.</p>
-<a href="#" class="replay-btn">
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11">
-<path d="M8.55126 1.11188C8.52766 1.10118 8.50182 1.09676 8.47612 1.09903C8.45042 1.1013 8.42569 1.11018 8.40419 1.12486C8.3827 1.13954 8.36513 1.15954 8.35311 1.18304C8.34109 1.20653 8.335 1.23276 8.33539 1.25932V2.52797C8.33539 2.67388 8.2791 2.81381 8.17889 2.91698C8.07868 3.02016 7.94277 3.07812 7.80106 3.07812C7.08826 3.07812 5.64984 3.08362 4.27447 3.98257C3.2229 4.66916 2.14783 5.9191 1.50129 8.24735C2.59132 7.16575 3.83632 6.57929 4.92635 6.2679C5.59636 6.07737 6.28492 5.96444 6.97926 5.93121C7.26347 5.91835 7.54815 5.92129 7.83205 5.94001H7.84594L7.85129 5.94111L7.80106 6.48906L7.85449 5.94111C7.98638 5.95476 8.10864 6.01839 8.19751 6.11966C8.28638 6.22092 8.33553 6.35258 8.33539 6.48906V7.75771C8.33539 7.87654 8.45294 7.95136 8.55126 7.90515L12.8088 4.67796C12.8233 4.66692 12.8383 4.65664 12.8537 4.64715C12.8769 4.63278 12.8962 4.61245 12.9095 4.58816C12.9229 4.56386 12.9299 4.53643 12.9299 4.50851C12.9299 4.4806 12.9229 4.45316 12.9095 4.42887C12.8962 4.40458 12.8769 4.38425 12.8537 4.36988C12.8382 4.36039 12.8233 4.35011 12.8088 4.33907L8.55126 1.11188ZM7.26673 7.02381C7.19406 7.02381 7.11391 7.02711 7.02842 7.03041C6.56462 7.05242 5.92342 7.12504 5.21169 7.32859C3.79464 7.7335 2.11684 8.65116 1.00115 10.7175C0.940817 10.8291 0.844683 10.9155 0.729224 10.9621C0.613765 11.0087 0.486168 11.0124 0.368304 10.9728C0.250441 10.9331 0.149648 10.8525 0.0831985 10.7447C0.0167484 10.6369 -0.011219 10.5086 0.0040884 10.3819C0.499949 6.29981 2.01959 4.15202 3.70167 3.05391C5.03215 2.18467 6.40218 2.01743 7.26673 1.98552V1.25932C7.26663 1.03273 7.32593 0.810317 7.43839 0.615545C7.55084 0.420773 7.71227 0.260866 7.90565 0.152696C8.09902 0.0445258 8.31717 -0.00789584 8.53707 0.000962485C8.75698 0.00982081 8.97048 0.0796305 9.15506 0.203025L13.4233 3.43792C13.5998 3.55133 13.7453 3.7091 13.8462 3.8964C13.9471 4.08369 14 4.29434 14 4.50851C14 4.72269 13.9471 4.93333 13.8462 5.12063C13.7453 5.30792 13.5998 5.4657 13.4233 5.57911L9.15506 8.814C8.97048 8.9374 8.75698 9.00721 8.53707 9.01607C8.31717 9.02492 8.09902 8.9725 7.90565 8.86433C7.71227 8.75616 7.55084 8.59626 7.43839 8.40148C7.32593 8.20671 7.26663 7.9843 7.26673 7.75771V7.02381Z"></path>
-</svg>
-Reply (02)
-</a>
-</div>
-</li>
+@if($data['feedback'] != null)
+@foreach($data['feedback'] as $feedback)
 <li>
 <div class="author-img">
 <img src="assets/img/inner-page/comment-author2.png" alt>
@@ -270,17 +255,19 @@ Reply (02)
 <div class="comment-content">
 <div class="author-post style-2">
 <div class="author-info">
-<h5>James Jordan, <span> 04 June,2023</span></h5>
+<h5>@if($feedback->user !=null){{$feedback->user->name}}, @endif  <span> 04 June,2023</span></h5>
 </div>
 <ul class="rating">
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star"></i></li>
+    @for($i = 1; $i <= 5; $i++)
+    @if($i <= $feedback->rating)
+        <li><i class="bi bi-star-fill"></i></li>
+    @else
+        <li><i class="bi bi-star"></i></li>
+    @endif
+@endfor
 </ul>
 </div>
-<p>Odio tellus, dignissim fermentumara purus nec, consequat dapibus metus.Vivamusut urna world classo mauris, faucibus at egestas quis.</p>
+<p> {{$feedback->message}}</p>
 <a href="#" class="replay-btn">
 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11">
 <path d="M8.55126 1.11188C8.52766 1.10118 8.50182 1.09676 8.47612 1.09903C8.45042 1.1013 8.42569 1.11018 8.40419 1.12486C8.3827 1.13954 8.36513 1.15954 8.35311 1.18304C8.34109 1.20653 8.335 1.23276 8.33539 1.25932V2.52797C8.33539 2.67388 8.2791 2.81381 8.17889 2.91698C8.07868 3.02016 7.94277 3.07812 7.80106 3.07812C7.08826 3.07812 5.64984 3.08362 4.27447 3.98257C3.2229 4.66916 2.14783 5.9191 1.50129 8.24735C2.59132 7.16575 3.83632 6.57929 4.92635 6.2679C5.59636 6.07737 6.28492 5.96444 6.97926 5.93121C7.26347 5.91835 7.54815 5.92129 7.83205 5.94001H7.84594L7.85129 5.94111L7.80106 6.48906L7.85449 5.94111C7.98638 5.95476 8.10864 6.01839 8.19751 6.11966C8.28638 6.22092 8.33553 6.35258 8.33539 6.48906V7.75771C8.33539 7.87654 8.45294 7.95136 8.55126 7.90515L12.8088 4.67796C12.8233 4.66692 12.8383 4.65664 12.8537 4.64715C12.8769 4.63278 12.8962 4.61245 12.9095 4.58816C12.9229 4.56386 12.9299 4.53643 12.9299 4.50851C12.9299 4.4806 12.9229 4.45316 12.9095 4.42887C12.8962 4.40458 12.8769 4.38425 12.8537 4.36988C12.8382 4.36039 12.8233 4.35011 12.8088 4.33907L8.55126 1.11188ZM7.26673 7.02381C7.19406 7.02381 7.11391 7.02711 7.02842 7.03041C6.56462 7.05242 5.92342 7.12504 5.21169 7.32859C3.79464 7.7335 2.11684 8.65116 1.00115 10.7175C0.940817 10.8291 0.844683 10.9155 0.729224 10.9621C0.613765 11.0087 0.486168 11.0124 0.368304 10.9728C0.250441 10.9331 0.149648 10.8525 0.0831985 10.7447C0.0167484 10.6369 -0.011219 10.5086 0.0040884 10.3819C0.499949 6.29981 2.01959 4.15202 3.70167 3.05391C5.03215 2.18467 6.40218 2.01743 7.26673 1.98552V1.25932C7.26663 1.03273 7.32593 0.810317 7.43839 0.615545C7.55084 0.420773 7.71227 0.260866 7.90565 0.152696C8.09902 0.0445258 8.31717 -0.00789584 8.53707 0.000962485C8.75698 0.00982081 8.97048 0.0796305 9.15506 0.203025L13.4233 3.43792C13.5998 3.55133 13.7453 3.7091 13.8462 3.8964C13.9471 4.08369 14 4.29434 14 4.50851C14 4.72269 13.9471 4.93333 13.8462 5.12063C13.7453 5.30792 13.5998 5.4657 13.4233 5.57911L9.15506 8.814C8.97048 8.9374 8.75698 9.00721 8.53707 9.01607C8.31717 9.02492 8.09902 8.9725 7.90565 8.86433C7.71227 8.75616 7.55084 8.59626 7.43839 8.40148C7.32593 8.20671 7.26663 7.9843 7.26673 7.75771V7.02381Z"></path>
@@ -289,54 +276,58 @@ Reply (02)
 </a>
 </div>
 </li>
+@endforeach
+@endif
 </ul>
 </div>
 <div class="comment-section style-3">
-<div class="comment-title">
-<h3>Leave A Reply</h3>
-</div>
-<form class="contact-form">
-<div class="row">
-<div class="col-lg-12 mb-20">
-<div class="form-inner2 mb-30">
-<div class="review-rate-area">
-<p>Your Rating</p>
-<div class="rate">
-<input type="radio" id="star5" name="rate" value="5">
-<label for="star5" title="text">5 stars</label>
-<input type="radio" id="star4" name="rate" value="4">
-<label for="star4" title="text">4 stars</label>
-<input type="radio" id="star3" name="rate" value="3">
-<label for="star3" title="text">3 stars</label>
-<input type="radio" id="star2" name="rate" value="2">
-<label for="star2" title="text">2 stars</label>
-<input type="radio" id="star1" name="rate" value="1">
-<label for="star1" title="text">1 star</label>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-12">
-<div class="form-inner mb-20">
-<textarea rows="5" placeholder="Your Reviews *"></textarea>
-</div>
-</div>
-<div class="col-md-12">
-<div class="form-inner mb-20">
-<input type="text" placeholder="Enter Your Name">
-</div>
-</div>
-<div class="col-md-12">
-<div class="form-inner mb-20">
-<input type="email" placeholder="Enter your email">
-</div>
-</div>
-<div class="col-md-12 pt-30">
-<button type="submit" class="primary-btn1 hover-btn3">Submit</button>
-</div>
-</div>
+    <div class="comment-title">
+    <h3>Leave A Reply</h3>
+    </div>
+    <form action="{{route('feedback.store')}}" method="Post" id="feedBackForm">
+        @csrf
+    <div class="row">
+        {{-- Rating --}}
+        <div class="col-lg-12 mb-20">
+        <div class="form-inner2 mb-30">
+        <div class="review-rate-area">
+        <p>Your Rating</p>
+        <div class="rate">
+        <input type="radio" id="star5" name="rating" value="5">
+        <label for="star5" title="text">5 stars</label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4" title="text">4 stars</label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3" title="text">3 stars</label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2" title="text">2 stars</label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1" title="text">1 star</label>
+        </div>
+        </div>
+        </div>
+         </div>
+         {{-- Rating --}}
+         {{-- Message --}}
+         <div class="col-md-12">
+            <div class="form-inner mb-20">
+            <textarea rows="5" name="message" placeholder="Your Reviews *"></textarea>
+            </div>
+            </div>
+
+            </div>
+            {{-- Button to submit --}}
+            <div class="col-md-12 pt-30">
+                <button type="submit" class="primary-btn1 hover-btn3">Submit</button>
+            </div>
+    </div>
+    {{-- Row --}}
 </form>
 </div>
+
+
+
+
 </div>
 </div>
 </div>
@@ -368,224 +359,90 @@ Reply (02)
 <div class="col-12">
 <div class="swiper newest-slider">
 <div class="swiper-wrapper">
+@foreach($data['random'] as $product)
 <div class="swiper-slide">
-<div class="product-card hover-btn">
-<div class="product-card-img double-img">
-<a href="product-default.html">
-<img src="assets/img/home1/product-img-13.png" alt class="img1">
-<img src="assets/img/home1/product-img-12.png" alt class="img2">
-<div class="batch">
-<span>-15%</span>
+    <div class="product-card hover-btn">
+        <div class="product-card-img double-img">
+        <a href="{{route('accordion' , $product->id)}}">
+        <img src="{{ asset("ProductImages/" . $product->image) }}" style="height:280px!important;object-fit:contain" alt class="img1">
+        <?php
+            $subimage   = \DB::table('productimages')->where('product_id' , $product->id)->first();
+
+            ?>
+
+        <img src="{{ asset("ProductSubImages/" . $subimage->image) }}" style="height:280px!important;object-fit:contain" alt class="img2">
+        @if($product->sale_status == 1)
+        <div class="countdown-timer">
+            <ul data-countdown="{{ $product->discounted_end_time }} 00:00:00">
+            <li class="times" data-days="00">00</li>
+            <li>
+            :
+            </li>
+            <li class="times" data-hours="00">00</li>
+            <li>
+            :
+            </li>
+            <li class="times" data-minutes="00">00</li>
+            <li>
+            :
+            </li>
+            <li class="times" data-seconds="00">00</li>
+            </ul>
+            </div>
+            <div class="batch">
+            <span class="new">Deal</span>
+            <span>- {{$product->discount_percentage}}%</span>
+            </div>
+            @endif
+        </a>
+        <div class="overlay">
+        <div class="cart-area">
+            @if(session()->has('user'))
+        <input type="hidden" name="productId" value="{{ $product->id }}">
+        <button type="button"  class="hover-btn3 add-cart-btn addToCart"><i class="bi bi-bag-check"></i> Add To Cart</button>
+        @else
+        <a  href="{{ route('cart.error') }}" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
+        @endif
+        </div>
+        </div>
+        <div class="view-and-favorite-area">
+        <ul>
+        <li>
+        <a href="wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+        <g clip-path="url(#clip0_168_378)">
+        <path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
+        </g>
+        </svg>
+        </a>
+        </li>
+        <li>
+        <a href="{{route('accordion' , $product->id)}}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+        <path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
+        <path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
+        </svg>
+        </a>
+        </li>
+        </ul>
+        </div>
+        </div>
+        <div class="product-card-content">
+        <h6><a href="{{route('accordion' , $product->id)}}" class="hover-underline">{{ $product->name}}</a></h6>
+        <p><a href="#">{{$product->brand->name}}</a></p>
+        @if($product->sale_status == 1)
+        <p class="price">Rs,{{$product->discounted_price}} <del class="text-danger">Rs,{{ $product->price }}</del></p>
+        @else
+        <p class="price">Rs,{{$product->price}}</p>
+        @endif
+        </div>
+        <span class="for-border"></span>
+        </div>
 </div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-<div class="view-and-favorite-area">
-<ul>
-<li>
-<a href="whistlist.html">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-<g clip-path="url(#clip0_168_378)">
-<path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-</g>
-</svg>
-</a>
-</li>
-<li>
-<a data-bs-toggle="modal" data-bs-target="#product-view">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-<path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-<path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-</svg>
-</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Soothing Aloe Bliss</a></h6>
-<p><a href="shop-list.html">Radiant Glow</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="product-card hover-btn">
-<div class="product-card-img">
-<a href="product-default.html">
-<img src="assets/img/home1/product-img-14.png" alt>
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-<div class="view-and-favorite-area">
-<ul>
-<li>
-<a href="whistlist.html">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-<g clip-path="url(#clip0_168_378)">
-<path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-</g>
-</svg>
-</a>
-</li>
-<li>
-<a data-bs-toggle="modal" data-bs-target="#product-view">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-<path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-<path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-</svg>
-</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Calming Skin Relief</a></h6>
-<p><a href="shop-list.html">Silk Glow</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="product-card hover-btn">
-<div class="product-card-img double-img">
-<a href="product-default.html">
-<img src="assets/img/home1/product-img-15.png" alt class="img1">
-<img src="assets/img/home1/product-img-18.png" alt class="img2">
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-<div class="view-and-favorite-area">
-<ul>
-<li>
-<a href="whistlist.html">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-<g clip-path="url(#clip0_168_378)">
-<path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-</g>
-</svg>
-</a>
-</li>
-<li>
-<a data-bs-toggle="modal" data-bs-target="#product-view">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-<path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-<path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-</svg>
-</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Timeless Amber Essence</a></h6>
-<p><a href="shop-list.html">Lash Luxe</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="product-card hover-btn">
-<div class="product-card-img">
-<a href="product-default.html">
-<img src="assets/img/home1/product-img-16.png" alt>
-<div class="batch">
-<span>-15%</span>
-</div>
-</a>
-<div class="overlay">
-<div class="cart-area">
-<a href="cart.html" class="hover-btn3 add-cart-btn"><i class="bi bi-bag-check"></i> Add To Cart</a>
-</div>
-</div>
-<div class="view-and-favorite-area">
-<ul>
-<li>
-<a href="whistlist.html">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-<g clip-path="url(#clip0_168_378)">
-<path d="M16.528 2.20919C16.0674 1.71411 15.5099 1.31906 14.8902 1.04859C14.2704 0.778112 13.6017 0.637996 12.9255 0.636946C12.2487 0.637725 11.5794 0.777639 10.959 1.048C10.3386 1.31835 9.78042 1.71338 9.31911 2.20854L9.00132 2.54436L8.68352 2.20854C6.83326 0.217151 3.71893 0.102789 1.72758 1.95306C1.63932 2.03507 1.5541 2.12029 1.47209 2.20854C-0.490696 4.32565 -0.490696 7.59753 1.47209 9.71463L8.5343 17.1622C8.77862 17.4201 9.18579 17.4312 9.44373 17.1868C9.45217 17.1788 9.46039 17.1706 9.46838 17.1622L16.528 9.71463C18.4907 7.59776 18.4907 4.32606 16.528 2.20919ZM15.5971 8.82879H15.5965L9.00132 15.7849L2.40553 8.82879C0.90608 7.21113 0.90608 4.7114 2.40553 3.09374C3.76722 1.61789 6.06755 1.52535 7.5434 2.88703C7.61505 2.95314 7.68401 3.0221 7.75012 3.09374L8.5343 3.92104C8.79272 4.17781 9.20995 4.17781 9.46838 3.92104L10.2526 3.09438C11.6142 1.61853 13.9146 1.52599 15.3904 2.88767C15.4621 2.95378 15.531 3.02274 15.5971 3.09438C17.1096 4.71461 17.1207 7.2189 15.5971 8.82879Z" />
-</g>
-</svg>
-</a>
-</li>
-<li>
-<a data-bs-toggle="modal" data-bs-target="#product-view">
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-<path d="M21.8601 10.5721C21.6636 10.3032 16.9807 3.98901 10.9999 3.98901C5.019 3.98901 0.335925 10.3032 0.139601 10.5718C0.0488852 10.6961 0 10.846 0 10.9999C0 11.1537 0.0488852 11.3036 0.139601 11.4279C0.335925 11.6967 5.019 18.011 10.9999 18.011C16.9807 18.011 21.6636 11.6967 21.8601 11.4281C21.951 11.3039 21.9999 11.154 21.9999 11.0001C21.9999 10.8462 21.951 10.6963 21.8601 10.5721ZM10.9999 16.5604C6.59432 16.5604 2.77866 12.3696 1.64914 10.9995C2.77719 9.62823 6.58487 5.43955 10.9999 5.43955C15.4052 5.43955 19.2206 9.62969 20.3506 11.0005C19.2225 12.3717 15.4149 16.5604 10.9999 16.5604Z" />
-<path d="M10.9999 6.64832C8.60039 6.64832 6.64819 8.60051 6.64819 11C6.64819 13.3994 8.60039 15.3516 10.9999 15.3516C13.3993 15.3516 15.3515 13.3994 15.3515 11C15.3515 8.60051 13.3993 6.64832 10.9999 6.64832ZM10.9999 13.9011C9.40013 13.9011 8.09878 12.5997 8.09878 11C8.09878 9.40029 9.40017 8.0989 10.9999 8.0989C12.5995 8.0989 13.9009 9.40029 13.9009 11C13.9009 12.5997 12.5996 13.9011 10.9999 13.9011Z" />
-</svg>
-</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="product-card-content">
-<h6><a href="product-default.html" class="hover-underline">Crimson Dreamy Hue</a></h6>
-<p><a href="shop-list.html">Crystal Clear</a></p>
-<p class="price">$150.00 <del>$200.00</del></p>
-<div class="rating">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-<span>(50)</span>
-</div>
-</div>
-<span class="for-border"></span>
-</div>
-</div>
+@endforeach
+{{-- End of slider --}}
+
+
 </div>
 </div>
 </div>
@@ -772,6 +629,24 @@ radioButtons.forEach((radio) => {
         }
     });
 });
+
+// Changing Image Src
+$(document).ready(function(){
+
+    let  navTabs   = document.querySelectorAll('.nav-link');
+    let   mainImage = document.querySelector('.product-img--main img');
+    $(navTabs).on('click', function(e){
+        e.preventDefault();
+        const closestImage = $(this).find('img').attr('src');
+        // alert(closestImage);
+        $('#mainImage').attr('src', closestImage); // Set main image src
+        $('#mainImage').attr('data-image', closestImage); // Set main image src
+
+
+    });
+    })
+
+
 </script>
 
 @endsection

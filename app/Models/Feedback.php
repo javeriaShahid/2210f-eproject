@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Feedback extends Model
 {
     use HasFactory;
+    protected $fillable = ['user_id' , 'message'  , 'rating'];
+    public function user()
+    {
+        return $this->hasOne(User::class , 'id' , 'user_id');
+    }
 }

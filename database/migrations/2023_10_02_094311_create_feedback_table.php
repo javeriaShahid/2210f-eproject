@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->integer("rating")->default(0);
+            $table->integer('view_status')->default(0);
             $table->longText('message');
             $table->timestamps();
         });

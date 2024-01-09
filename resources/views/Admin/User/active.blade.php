@@ -42,7 +42,7 @@ Online Users
                         <tr>
                             <td>{{ $loop->iteration  }}</td>
                             @if($user->profile_image != null)
-                            <td><img src="{{ asset('assets/UserImages/'. $user->profile_image) }}" style="width:40px; height:40px; object-fit:contain;" alt=""></td>
+                            <td><img src="{{ asset('UserImages/'. $user->profile_image) }}" style="width:40px; height:40px; object-fit:contain;" alt=""></td>
                             @else
                             <td class="text-danger">No Profile</td>
                             @endif
