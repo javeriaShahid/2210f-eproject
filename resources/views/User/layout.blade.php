@@ -378,7 +378,7 @@ Log In
     <div class="col-lg-3 col-md-4 col-sm-6">
     <div class="footer-widget">
     <h3>Want <span>to Take <br></span> Beauty Product <span>off our Shop</span>?</h3>
-    <a href="slider" class="primary-btn1 hover-btn3">*Shop Now*</a>
+    <a href="{{route('slider')}}" class="primary-btn1 hover-btn3">*Shop Now*</a>
     </div>
     </div>
     <div class="col-lg-2 col-md-4 col-sm-6 d-flex justify-content-lg-start justify-content-sm-end">
