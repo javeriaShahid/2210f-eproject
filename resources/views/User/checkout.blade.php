@@ -249,7 +249,7 @@ $cartdata = \App\Models\Cart::where(["user_id" => session()->get('user')['id']])
     <li class="single-product">
     <div class="product-area">
     <div class="product-img">
-    <img src="{{ asset('assets/Productimages/'.$cart->product->image)}}" alt>
+    <img src="{{ asset('Productimages/'.$cart->product->image)}}" alt style="object-fit:cover;">
     </div>
     <div class="product-info">
     <h5><a href="#">{{ $cart->product->name }}</a></h5>
@@ -343,7 +343,12 @@ $cartdata = \App\Models\Cart::where(["user_id" => session()->get('user')['id']])
         <label for="" class="mb-3 "><b>Select Payment Method</b></label>
         <select name="payment_method" id="">
             <option value="">Select Payment</option>
-            <option value="Cash on Delivery">Cash on Delivery</option>
+            @php
+              $paymentMethods  = \App\Models\PaymentMethod::where('status' , 1)->get();
+            @endphp
+            @foreach ($paymentMethods as $payment )
+            <option value="{{$payment->name}}">{{$payment->name}}</option>
+            @endforeach
         </select>
     </div>
     </div>

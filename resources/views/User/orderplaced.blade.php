@@ -35,7 +35,7 @@ Order Placed
             <tbody>
                 @foreach ($data['checkout'] as $checkout )
                 <tr>
-                    <td data-label="Image"><img alt="image" style="height: 40px ; width:40px; object-fit:contain" src="{{ asset('assets/Productimages/' . $checkout->product->image) }}"
+                    <td data-label="Image"><img alt="image" style="height: 40px ; width:40px; object-fit:contain" src="{{ asset('Productimages/' . $checkout->product->image) }}"
                             class="img-fluid">
                     </td>
                     <td data-label="Order ID">#{{ $checkout->tracking_id }}</td>

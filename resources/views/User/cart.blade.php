@@ -12,7 +12,7 @@ Carts
 <div class="container">
 <nav aria-label="breadcrumb">
 <ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+<li class="breadcrumb-item"><a href="{{route('user.index')}}">Home</a></li>
 <li class="breadcrumb-item active" aria-current="page">Shop</li>
 <li class="breadcrumb-item active" aria-current="page">Cart</li>
 </ol>
@@ -58,7 +58,7 @@ Carts
 </td>
 <td data-label="Product" class="table-product">
 <div class="product-img">
-<img src="{{ asset('assets/Productimages/'. $cart->product->image) }}" alt>
+<img src="{{ asset('Productimages/'. $cart->product->image) }}" alt style="object-fit: cover">
 </div>
 <div class="product-content">
 <h6><a href="#">{{ $cart->product->name }}</a></h6>
