@@ -22,7 +22,7 @@ class FeedBackController extends Controller
                 $currentTime  = Carbon::now();
                 $this->notification::create([
                     'subject' => "Feed Back recieved From $username ",
-                    'route' => Route('admin.order.index'),
+                    'route' => Route('admin.feedback.messages.view.message' , $storeFeedBack->id),
                     'message' => "$username Has given Feed back at  $currentTime",
                 ]);
                 return redirect()->back()->with('success' , 'Thanks For Your Feed back it means alot for us.');

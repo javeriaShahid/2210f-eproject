@@ -327,8 +327,7 @@ Reviews ({{$data['feedback']->count()}})
           <button type="button" class="btn-close closeAddress" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" id="reply-body">
-
-
+        {{-- Data will be appended from controller ajax is in at the last of the blade --}}
         </div>
         <div class="modal-footer">
 
