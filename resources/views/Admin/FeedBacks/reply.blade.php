@@ -10,7 +10,7 @@ $parentRoute = Route('admin.message.feedback.reply.post' , $data['feedback']->id
 @section('content')
 
 {{-- If Condition --}}
-<form action="{{ $parentRoute }}" id="feedbackForm" method="Post">
+<form action="{{ $parentRoute }}" id="replyMessage" method="Post">
 @csrf
 <div class="row">
 <div class="col-md-12">
@@ -35,7 +35,7 @@ $parentRoute = Route('admin.message.feedback.reply.post' , $data['feedback']->id
                 <div class="d-flex justify-content-between">
                     <label for="defaultFormControlInput" class="form-label mt-3"><div class="bx bx-chat"></div> Reply Message</label> <button id="plus" class="btn btn-success mt-2 mb-3"><i class="bx bx-plus"></i></button>
                 </div>
-                <textarea name="message[]" placeholder="Enter Message" id="" cols="30" rows="10" class="form-control"></textarea>
+                <textarea name="message[]"  placeholder="Enter Message" id="" cols="30" rows="10" class="form-control message"></textarea>
             </div>
             </div>
         </div>
