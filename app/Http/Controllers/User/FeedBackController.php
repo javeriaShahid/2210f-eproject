@@ -4,17 +4,18 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{User,Feedback , Notification};
+use App\Models\{User,Feedback , Notification , ReplyFeedback};
 use Carbon\Carbon ;
 class FeedBackController extends Controller
 {
     public $parentModel   = FeedBack::class;
     public $childModel    = User::class;
+    public $replyModel    = ReplyFeedback::class;
     public $notification  = Notification::class;
     public function store(Request $request){
         $data = $request->except('_token');
-        $data['user_id'] =  session()->get('user')['id'];
         if($request->session()->has('user')){
+            $data['user_id'] =  session()->get('user')['id'];
             $storeFeedBack = $this->parentModel::create($data);
             $username          = session()->get('user')['name'];
             if($storeFeedBack){
@@ -33,6 +34,12 @@ class FeedBackController extends Controller
         }
         else{
             return redirect()->route('login.view')->with("error" , "Please Login Before Giving Products Feedbacks");
+        }
+    }
+    public function searchReplies($id = null){
+        $data  = $this->replyModel::where('feedback_id'  , $id)->get();
+        if($data !=null){
+            return response()->json($data);
         }
     }
 }

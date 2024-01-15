@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\CategoryBannerController;
 use App\Http\Controllers\User\BlogCommentController;
 use App\Http\Controllers\User\FeedBackController;
+use App\Http\Controllers\Admin\AdminFeedBackController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -86,6 +87,7 @@ Route::get('/city/{id?}' , [Authcontroller::class , 'get_city'])->name('city.get
 // Address Get
 // Feedback Store
 Route::post("store/feeback" , [FeedBackController::class , 'store'])->name('feedback.store');
+Route::get("search/replies/feeback/{id?}" , [FeedBackController::class , 'searchReplies'])->name('search.replies');
 Route::post('/user/register',[Authcontroller::class, "registeration"])->name('user.register.post');
 Route::get('/Account_setting',[UserController::class, "Account_setting"])->name('Account_setting');
 Route::get('loadPdf/{id?}' , [PDFController::class,'generatePdf'])->name('generate.label');
@@ -307,6 +309,15 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::POST('/reply/{id?}' , [ContactController::class , 'reply'])->name('admin.message.reply.post');
         Route::get('/delete/{id?}' ,  [ContactController::class , 'destroy'])->name('admin.contact.messages.delete');
         Route::get('/view_message/{id?}' ,      [ContactController::class , 'view_message'])->name('admin.contact.messages.view.message');
+
+    });
+    Route::prefix('/user-feedback')->group(function(){
+        Route::get('/' , [AdminFeedBackController::class , 'index'])->name('admin.feedback.messages.index');
+        Route::get('/create/{id?}' , [AdminFeedBackController::class , 'create'])->name('admin.feedback.messages.create');
+        Route::POST('/reply/{id?}' , [AdminFeedBackController::class , 'store'])->name('admin.message.feedback.reply.post');
+        Route::get('/delete/{id?}' ,  [AdminFeedBackController::class , 'destroy'])->name('admin.feedback.messages.delete');
+        Route::get('/delete/reply/{id?}' ,  [AdminFeedBackController::class , 'destroy_replied'])->name('admin.feedback.messages.delete.reply');
+        Route::get('/view_message/{id?}' ,      [AdminFeedBackController::class , 'view_message'])->name('admin.feedback.messages.view.message');
 
     });
     Route::get('notifications' , [NotificationController::class ,'fetchNotification'])->name('notification.get');

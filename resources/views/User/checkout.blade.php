@@ -40,8 +40,7 @@ $cartdata = \App\Models\Cart::where(["user_id" => session()->get('user')['id']])
         Select Address
       </button>
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -153,7 +152,8 @@ $cartdata = \App\Models\Cart::where(["user_id" => session()->get('user')['id']])
             </div>
           </div>
         </div>
-      </div>
+      </div>  <!-- Modal -->
+
             </div>
 
         </div>

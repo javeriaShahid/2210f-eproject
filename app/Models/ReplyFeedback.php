@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ReplyFeedback extends Model
 {
     use HasFactory;
-    protected $fillable = ['message' , 'user_id' , 'admin_id'];
+    protected $fillable = ['message' , 'admin_id' , 'feedback_id'];
     public function users(){
            return $this->hasOne(User::class , 'id' , 'user_id');
     }
+
     public function admins(){
         return $this->hasOne(User::class , 'id' , 'admin_id');
     }
