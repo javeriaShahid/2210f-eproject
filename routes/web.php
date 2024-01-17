@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\PaymentGetwaySettingsController;
 use App\Http\Controllers\Admin\AboutUsBannerController;
+use App\Http\Controllers\Admin\DealsBannersController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\HomeLinkController;
@@ -289,6 +290,15 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/edit/{id?}' , [AboutUsBannerController::class , 'edit'])->name('admin.aboutusbanner.edit');
         Route::get('/delete/{id?}' , [AboutUsBannerController::class , 'destroy'])->name('admin.aboutusbanner.delete');
         Route::get('/change_status' , [AboutUsBannerController::class , 'change_status'])->name('admin.aboutusbanner.change_status');
+
+    });
+    Route::prefix('/dealsbanners')->group(function(){
+        Route::get('/' , [DealsBannersController::class , 'index'])->name('admin.dealsbanners.index');
+        Route::get('/create' , [DealsBannersController::class , 'create'])->name('admin.dealsbanners.create');
+        Route::post('/store/{id?}' , [DealsBannersController::class , 'store'])->name('admin.dealsbanners.store');
+        Route::get('/edit/{id?}' , [DealsBannersController::class , 'edit'])->name('admin.dealsbanners.edit');
+        Route::get('/delete/{id?}' , [DealsBannersController::class , 'destroy'])->name('admin.dealsbanners.delete');
+        Route::get('/change_status' , [DealsBannersController::class , 'change_status'])->name('admin.dealsbanners.change_status');
 
     });
     Route::prefix('/blogs')->group(function(){

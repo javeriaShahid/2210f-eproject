@@ -359,6 +359,30 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </ul>
                 </li>
               </li>
+              <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-image"></i>
+                    <div data-i18n="Layouts">Deal's Banners</div>
+                  </a>
+
+                  <ul class="menu-sub">
+                      <li class="menu-item">
+                        <a href="{{ route('admin.dealsbanners.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                        </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.dealsbanners.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </li>
               {{-- Orders Management System --}}
               <li class="menu-header small text-uppercase"><span class="menu-header-text">Orders  Management</span></li>
               <!-- Forms -->
