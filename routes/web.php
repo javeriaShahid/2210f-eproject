@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\PaymentGetwaySettingsController;
 use App\Http\Controllers\Admin\AboutUsBannerController;
 use App\Http\Controllers\Admin\DealsBannersController;
+use App\Http\Controllers\Admin\FAQController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\HomeLinkController;
@@ -299,6 +300,15 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/edit/{id?}' , [DealsBannersController::class , 'edit'])->name('admin.dealsbanners.edit');
         Route::get('/delete/{id?}' , [DealsBannersController::class , 'destroy'])->name('admin.dealsbanners.delete');
         Route::get('/change_status' , [DealsBannersController::class , 'change_status'])->name('admin.dealsbanners.change_status');
+
+    });
+    Route::prefix('/faqs')->group(function(){
+        Route::get('/' , [FAQController::class , 'index'])->name('admin.faqs.index');
+        Route::get('/create' , [FAQController::class , 'create'])->name('admin.faqs.create');
+        Route::post('/store/{id?}' , [FAQController::class , 'store'])->name('admin.faqs.store');
+        Route::get('/edit/{id?}' , [FAQController::class , 'edit'])->name('admin.faqs.edit');
+        Route::get('/delete/{id?}' , [FAQController::class , 'destroy'])->name('admin.faqs.delete');
+        Route::get('/change_status' , [FAQController::class , 'change_status'])->name('admin.faqs.change_status');
 
     });
     Route::prefix('/blogs')->group(function(){

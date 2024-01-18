@@ -11,6 +11,8 @@ $c_banners =  \App\Models\CategoryBanner::where('status' , 1)->get();
 $data['aboutUs']  = \App\Models\AboutUs::where("status" , 1)->orderBy('id' , 'desc')->paginate(2);
 $data['newProducts'] = \App\Models\Product::where("is_published" , 1)->orderBy("id" , "desc")->get();
 $data['dealsBanners'] = \App\Models\DealsBanner::where("status" , 1)->orderBy("id" , "desc")->limit(2)->get();
+$data['testimonals'] = \App\Models\Feedback::orderBy("id" , "desc")->paginate(5);
+$data['blogs'] = \App\Models\Blogs::where('status' , 1)->orderBy('id' , 'desc')->paginate(3);
 $category =  \App\Models\category::withoutTrashed()->get();
 @endphp
 <div class="banner-section">
@@ -2951,105 +2953,49 @@ To Cart</a>
 <div class="col-lg-12">
 <div class="swiper say-about-slider">
 <div class="swiper-wrapper">
+@if($data['testimonals'] != null)
+@foreach ($data['testimonals'] as  $testimonals)
 <div class="swiper-slide">
-<div class="say-about-card">
-<div class="say-about-card-top">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-</div>
-<p>“I was recommended snaga from a dear friendest onest Gives energy, strength & mostly youm motivationt goint and WOW!!! Gives energy, strength & mostlydat youm motivation”</p>
-<div class="say-about-card-bottom">
-<div class="author-area">
-<div class="author-img">
-<img src="assets/img/home2/testimonial-author-img1.png" alt>
-</div>
-<div class="author">
-<h5>Jayden Carter</h5>
-<p>Manager at Global Business</p>
-</div>
-</div>
-<div class="quote">
-<svg width="59" height="41" viewBox="0 0 59 41" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.05">
-<path d="M27.8217 13.4959C27.7944 13.2156 27.7396 12.9284 27.6712 12.6481C27.062 5.56517 21.1144 0 13.8664 0C6.2077 0 0 6.20099 0 13.8514C0 21.283 5.85865 27.3268 13.2093 27.6686C11.4367 30.4649 8.58264 32.7278 5.09894 33.7944L4.98259 33.8286C3.36735 34.3208 2.25175 35.8933 2.40232 37.6435C2.57342 39.6604 4.34608 41.1576 6.37196 40.9867C12.3333 40.4808 18.2946 37.4384 22.3464 32.4954C24.3791 30.0341 25.9533 27.1353 26.9114 23.9767C27.8765 20.8249 28.205 17.4202 27.8765 14.0633L27.8217 13.4959Z" />
-<path d="M58.8217 13.4959C58.7944 13.2156 58.7396 12.9284 58.6712 12.6481C58.062 5.56517 52.1144 0 44.8664 0C37.2077 0 31 6.20099 31 13.8514C31 21.283 36.8586 27.3268 44.2093 27.6686C42.4367 30.4649 39.5826 32.7278 36.0989 33.7944L35.9826 33.8286C34.3674 34.3208 33.2517 35.8933 33.4023 37.6435C33.5734 39.6604 35.3461 41.1576 37.372 40.9867C43.3333 40.4808 49.2946 37.4384 53.3464 32.4954C55.3791 30.0341 56.9533 27.1353 57.9114 23.9767C58.8765 20.8249 59.205 17.4202 58.8765 14.0633L58.8217 13.4959Z" />
-</g>
-</svg>
-</div>
-</div>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="say-about-card">
-<div class="say-about-card-top">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-</div>
-<p>“I was recommended snaga from a dear friendest onest Gives energy, strength & mostly youm motivationt goint and WOW!!! Gives energy, strength & mostlydat youm motivation”</p>
-<div class="say-about-card-bottom">
-<div class="author-area">
-<div class="author-img">
-<img src="assets/img/home2/testimonial-author-img2.png" alt>
-</div>
-<div class="author">
-<h5>Colton Roman</h5>
-<p>Ceo at Global Business</p>
+    <div class="say-about-card">
+    <div class="say-about-card-top">
+    <ul>
+        @for($i = 0 ; $i <= $testimonals->rating ; $i ++)
+        <li><i class="bi bi-star-fill"></i></li>
+        @endfor
+    </ul>
+    </div>
+    <p>“{{@$testimonals->message}}”</p>
+    <div class="say-about-card-bottom">
+    <div class="author-area">
+    <div class="author-img">
+    <img src="{{asset("UserImages/". @$testimonals->user->profile_image)}}" alt>
+    </div>
+    <div class="author">
+    <h5>{{@$testimonals->user->name}}</h5>
+    @php
+        if($testimonals->user->role == 1){
+            $role = 'Admin at Dazzle.';
+        }
+        else{
+            $role = 'Customer at Dazzle.';
+        }
+    @endphp
+    <p>{{@$role}}</p>
+    </div>
+    </div>
+    <div class="quote">
+    <svg width="59" height="41" viewBox="0 0 59 41" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.05">
+    <path d="M27.8217 13.4959C27.7944 13.2156 27.7396 12.9284 27.6712 12.6481C27.062 5.56517 21.1144 0 13.8664 0C6.2077 0 0 6.20099 0 13.8514C0 21.283 5.85865 27.3268 13.2093 27.6686C11.4367 30.4649 8.58264 32.7278 5.09894 33.7944L4.98259 33.8286C3.36735 34.3208 2.25175 35.8933 2.40232 37.6435C2.57342 39.6604 4.34608 41.1576 6.37196 40.9867C12.3333 40.4808 18.2946 37.4384 22.3464 32.4954C24.3791 30.0341 25.9533 27.1353 26.9114 23.9767C27.8765 20.8249 28.205 17.4202 27.8765 14.0633L27.8217 13.4959Z" />
+    <path d="M58.8217 13.4959C58.7944 13.2156 58.7396 12.9284 58.6712 12.6481C58.062 5.56517 52.1144 0 44.8664 0C37.2077 0 31 6.20099 31 13.8514C31 21.283 36.8586 27.3268 44.2093 27.6686C42.4367 30.4649 39.5826 32.7278 36.0989 33.7944L35.9826 33.8286C34.3674 34.3208 33.2517 35.8933 33.4023 37.6435C33.5734 39.6604 35.3461 41.1576 37.372 40.9867C43.3333 40.4808 49.2946 37.4384 53.3464 32.4954C55.3791 30.0341 56.9533 27.1353 57.9114 23.9767C58.8765 20.8249 59.205 17.4202 58.8765 14.0633L58.8217 13.4959Z" />
+    </g>
+    </svg>
+    </div>
+    </div>
 </div>
 </div>
-<div class="quote">
-<svg width="59" height="41" viewBox="0 0 59 41" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.05">
-<path d="M27.8217 13.4959C27.7944 13.2156 27.7396 12.9284 27.6712 12.6481C27.062 5.56517 21.1144 0 13.8664 0C6.2077 0 0 6.20099 0 13.8514C0 21.283 5.85865 27.3268 13.2093 27.6686C11.4367 30.4649 8.58264 32.7278 5.09894 33.7944L4.98259 33.8286C3.36735 34.3208 2.25175 35.8933 2.40232 37.6435C2.57342 39.6604 4.34608 41.1576 6.37196 40.9867C12.3333 40.4808 18.2946 37.4384 22.3464 32.4954C24.3791 30.0341 25.9533 27.1353 26.9114 23.9767C27.8765 20.8249 28.205 17.4202 27.8765 14.0633L27.8217 13.4959Z" />
-<path d="M58.8217 13.4959C58.7944 13.2156 58.7396 12.9284 58.6712 12.6481C58.062 5.56517 52.1144 0 44.8664 0C37.2077 0 31 6.20099 31 13.8514C31 21.283 36.8586 27.3268 44.2093 27.6686C42.4367 30.4649 39.5826 32.7278 36.0989 33.7944L35.9826 33.8286C34.3674 34.3208 33.2517 35.8933 33.4023 37.6435C33.5734 39.6604 35.3461 41.1576 37.372 40.9867C43.3333 40.4808 49.2946 37.4384 53.3464 32.4954C55.3791 30.0341 56.9533 27.1353 57.9114 23.9767C58.8765 20.8249 59.205 17.4202 58.8765 14.0633L58.8217 13.4959Z" />
-</g>
-</svg>
-</div>
-</div>
-</div>
-</div>
-<div class="swiper-slide">
-<div class="say-about-card">
-<div class="say-about-card-top">
-<ul>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-<li><i class="bi bi-star-fill"></i></li>
-</ul>
-</div>
-<p>“I was recommended snaga from a dear friendest onest Gives energy, strength & mostly youm motivationt goint and WOW!!! Gives energy, strength & mostlydat youm motivation”</p>
-<div class="say-about-card-bottom">
-<div class="author-area">
-<div class="author-img">
-<img src="assets/img/home2/testimonial-author-img3.png" alt>
-</div>
-<div class="author">
-<h5>Lincoln Miles</h5>
-<p>Director at Global Business</p>
-</div>
-</div>
-<div class="quote">
-<svg width="59" height="41" viewBox="0 0 59 41" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.05">
-<path d="M27.8217 13.4959C27.7944 13.2156 27.7396 12.9284 27.6712 12.6481C27.062 5.56517 21.1144 0 13.8664 0C6.2077 0 0 6.20099 0 13.8514C0 21.283 5.85865 27.3268 13.2093 27.6686C11.4367 30.4649 8.58264 32.7278 5.09894 33.7944L4.98259 33.8286C3.36735 34.3208 2.25175 35.8933 2.40232 37.6435C2.57342 39.6604 4.34608 41.1576 6.37196 40.9867C12.3333 40.4808 18.2946 37.4384 22.3464 32.4954C24.3791 30.0341 25.9533 27.1353 26.9114 23.9767C27.8765 20.8249 28.205 17.4202 27.8765 14.0633L27.8217 13.4959Z" />
-<path d="M58.8217 13.4959C58.7944 13.2156 58.7396 12.9284 58.6712 12.6481C58.062 5.56517 52.1144 0 44.8664 0C37.2077 0 31 6.20099 31 13.8514C31 21.283 36.8586 27.3268 44.2093 27.6686C42.4367 30.4649 39.5826 32.7278 36.0989 33.7944L35.9826 33.8286C34.3674 34.3208 33.2517 35.8933 33.4023 37.6435C33.5734 39.6604 35.3461 41.1576 37.372 40.9867C43.3333 40.4808 49.2946 37.4384 53.3464 32.4954C55.3791 30.0341 56.9533 27.1353 57.9114 23.9767C58.8765 20.8249 59.205 17.4202 58.8765 14.0633L58.8217 13.4959Z" />
-</g>
-</svg>
-</div>
-</div>
-</div>
-</div>
+@endforeach
+@endif
 </div>
 </div>
 </div>
@@ -3058,111 +3004,64 @@ To Cart</a>
 </div>
 </div>
 </div>
-
+</div>
+</div>
 
 <div class="beauty-article-section mb-110">
-<div class="container-md container-fluid">
-<div class="section-title style-2 text-center">
-<h3>Our Beauty Article</h3>
-</div>
-<div class="row gy-4">
-<div class="col-lg-7">
-<div class="row gy-4">
-<div class="col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<div class="blog-date">
-<a href="#">20 July, 2023</a>
-</div>
-<a href="#" class="article-card-img hover-img">
-<img src="assets/img/home1/article-img1.png" alt>
-</a>
-</div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="#">Beauty</a>
-</li>
-<li>
-<a href="#">Makeup </a>
-</li>
-<li>
-<a href="#">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog_details" class="hover-underline">Vestibulum leo ex posueret eu lobortis ut.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="article-card">
-<div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/home1/article-img2.png" alt>
-</a>
-<div class="blog-date">
-<a href="#">25 July, 2023</a>
-</div>
-</div>
-<div class="article-card-content">
-<div class="tag">
-<ul>
-<li>
-<a href="#">Beauty</a>
-</li>
-<li>
-<a href="#">Makeup </a>
-</li>
-<li>
-<a href="#">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog_details" class="hover-underline">Duis justo orci consecteturi et convallis.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-lg-5">
-<div class="article-card">
-<div class="article-image">
-<a href="blog_details" class="article-card-img hover-img">
-<img src="assets/img/home1/article-img3.png" alt>
-</a>
-<div class="blog-date">
-<a href="#">10 June, 2023</a>
-</div>
-</div>
-<div class="article-card-content style-2">
-<div class="tag">
-<ul>
-<li>
-<a href="#">Beauty</a>
-</li>
-<li>
-<a href="#">Makeup </a>
-</li>
-<li>
-<a href="#">Health</a>
-</li>
-</ul>
-</div>
-<h5><a href="blog_details" class="hover-underline">Fusce vel auctor leo, a tempus sapieno Nunc ut purus.</a></h5>
-<p>Software development is the process offer creatain onet computer software programs that perform specific tasks and its helps user to complete tasks in easy way.......</p>
-<a href="blog_details">Read More</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <div class="container-md container-fluid">
+    <div class="section-title style-2 text-center">
+    <h3>Our Beauty Article</h3>
+    </div>
+    <div class="row gy-4">
+    <div class="col-lg-7">
+    <div class="row gy-4">
+    @foreach($data['blogs'] as $blogs)
+    <div class="col-sm-6">
+    <div class="article-card" style="min-height: 500px!important; max-height:500px!important">
+    <div class="article-image">
+    <a href="{{route('blog_details' , $blogs->id)}}" class="article-card-img hover-img">
+    <img src="{{asset('blogImages/' . $blogs->image )}}" >
+    </a>
+    <div class="blog-date">
+    <a href="{{route('blog_details' , $blogs->id)}}">
+        @php
+        $date = \Carbon\Carbon::parse($blogs->created_at);
+        $formatedDate = $date->format('d,M Y');
+        @endphp
+        {{$formatedDate}}
+    </a>
+    </div>
+    </div>
+    <div class="article-card-content">
+    <div class="tag">
+    <ul>
+        @php
+
+        $tagsId =  json_decode($blogs->tags);
+        $tags   = \App\Models\Category::whereIn('id' ,$tagsId)->paginate(4);
+        @endphp
+        @foreach ($tags as $tag )
+        <li ><a href="{{route('search.blog' , $tag->id)}}"> {{$tag->name}} </a></li>
+        @endforeach
+    </ul>
+    </div>
+    <h5><a href="{{route('blog_details' , $blogs->id)}}" class="hover-underline">{{$blogs->title}}</a></h5>
+    <p>{!! $blogs->blog_qoute !!}</p>
+
+    <a href="{{route('blog_details' , $blogs->id)}}">Read More</a>
+    </div>
+    </div>
+    </div>
+    @endforeach
+
+    </div>
+    </div>
+
+
+
+    </div>
+    </div>
+    </div>
 
 
 <div class="newsletter-section mb-110">

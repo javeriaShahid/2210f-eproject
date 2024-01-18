@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('f_a_q_s', function (Blueprint $table) {
             $table->id();
+            $table->string("title");
+            $table->longText("answer");
+            $table->integer("status")->default(0);
             $table->timestamps();
         });
     }
