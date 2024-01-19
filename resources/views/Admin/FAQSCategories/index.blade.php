@@ -79,7 +79,7 @@ All FAQ's
                 <div class="col-md-6">  <h5 class="card-header">FAQ's Management</h5></div>
                 <div class="col-md-6">
                     <div class="row justify-content-end mt-3">
-                        <div class="col-md-3"><a class="btn btn-success" href="{{ route('admin.faqs.create') }}"><i class="bx bx-plus"></i></a></div>
+                        <div class="col-md-3"><a class="btn btn-success" href="{{ route('admin.faqscategories.create') }}"><i class="bx bx-plus"></i></a></div>
 
                     </div>
                 </div>
@@ -89,8 +89,7 @@ All FAQ's
                 <thead>
                   <tr>
                     <th>S.no</th>
-                    <th>Categpry</th>
-                    <th>Question</th>
+                    <th>Name</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -99,8 +98,7 @@ All FAQ's
                     @foreach ($data['faqs'] as $faqs )
                         <tr>
                             <td>{{ $loop->iteration  }}</td>
-                            <td>{{ @$faqs->categories->name }}</td>
-                            <td>{{ $faqs->title }}</td>
+                            <td>{{ $faqs->name }}</td>
 
                             <td><label class="switch">
 
@@ -110,7 +108,7 @@ All FAQ's
                               </label></td>
 
                             {{-- Modal button ends --}}
-                            <td><a href="{{ route('admin.faqs.edit' , $faqs->id) }}" class="btn btn-success"><i class="bx bx-pencil"></i></a> | <a href="{{ route('admin.faqs.delete' , $faqs->id) }}" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
+                            <td><a href="{{ route('admin.faqscategories.edit' , $faqs->id) }}" class="btn btn-success"><i class="bx bx-pencil"></i></a> | <a href="{{ route('admin.faqscategories.delete' , $faqs->id) }}" class="btn btn-danger"><i class="bx bx-trash"></i></a></td>
 
                         </tr>
 
@@ -157,7 +155,7 @@ All FAQ's
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script>
    $(document).ready(function(){
-   let changeStatusUrl = "{{route('admin.faqs.change_status')}}" ;
+   let changeStatusUrl = "{{route('admin.faqscategories.change_status')}}" ;
    let statusCheckBox  = $('input[name="status"]');
    let csrfToken       = $('input[name="csrf_token"]');
 

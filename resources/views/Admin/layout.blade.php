@@ -554,6 +554,30 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
               <li class="menu-item">
                 <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-collection"></i>
+                    <div data-i18n="Layouts">Faq's Categories</div>
+                  </a>
+
+                  <ul class="menu-sub">
+                      <li class="menu-item">
+                        <a href="{{ route('admin.faqscategories.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                        </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.faqscategories.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </li>
+              <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-question-mark"></i>
                     <div data-i18n="Layouts">Faq's Managment</div>
                   </a>

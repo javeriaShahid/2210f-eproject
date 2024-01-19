@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\PaymentGetwaySettingsController;
 use App\Http\Controllers\Admin\AboutUsBannerController;
 use App\Http\Controllers\Admin\DealsBannersController;
 use App\Http\Controllers\Admin\FAQController;
+use App\Http\Controllers\Admin\FaqsCategoryController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\HomeLinkController;
@@ -309,6 +310,15 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/edit/{id?}' , [FAQController::class , 'edit'])->name('admin.faqs.edit');
         Route::get('/delete/{id?}' , [FAQController::class , 'destroy'])->name('admin.faqs.delete');
         Route::get('/change_status' , [FAQController::class , 'change_status'])->name('admin.faqs.change_status');
+
+    });
+    Route::prefix('/faqs/categories')->group(function(){
+        Route::get('/' , [FaqsCategoryController::class , 'index'])->name('admin.faqscategories.index');
+        Route::get('/create' , [FaqsCategoryController::class , 'create'])->name('admin.faqscategories.create');
+        Route::post('/store/{id?}' , [FaqsCategoryController::class , 'store'])->name('admin.faqscategories.store');
+        Route::get('/edit/{id?}' , [FaqsCategoryController::class , 'edit'])->name('admin.faqscategories.edit');
+        Route::get('/delete/{id?}' , [FaqsCategoryController::class , 'destroy'])->name('admin.faqscategories.delete');
+        Route::get('/change_status' , [FaqsCategoryController::class , 'change_status'])->name('admin.faqscategories.change_status');
 
     });
     Route::prefix('/blogs')->group(function(){
