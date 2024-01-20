@@ -94,7 +94,9 @@ class UserController extends Controller
       return view("user.our_brand")->with('data' , $data);
      }
    public function quick_view(){
-      return view("user.quick_view");
+    $data['product']   = $this->productModel::withoutTrashed()->where('is_published' , 1)->paginate(25);
+    $data['title']     = "All Products";
+      return view("user.quick_view")->with('data',$data);
      }
    public function slider(){
       $data['product']   = $this->productModel::withoutTrashed()->where('is_published' , 1)->paginate(25);
