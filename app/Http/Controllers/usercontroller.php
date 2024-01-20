@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Blogs;
 use App\Models\BlogComments;
 use App\Models\PaymentMethod;
+use App\Models\FeedBack;
 use App\Models\Setting;
 use App\Models\BlogViews;
 use DB;
@@ -42,6 +43,8 @@ class UserController extends Controller
    public function accordion($id = null){
       $data['product']  = Product::where('id' , $id)->first();
       $data['payment']  = PaymentMethod::where('status' , 1)->get();
+      $data['feedback'] = FeedBack::where('product_id' , $id)->get();
+      $data['random']   = Product::where('id','!=' , $id)->inRandomOrder()->take(10)->get();
       return view("user.accordion")->with('data' , $data);
      }
    public function blog_details($id= null){

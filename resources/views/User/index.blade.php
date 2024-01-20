@@ -9,7 +9,6 @@ Home
 $carousel  = \App\Models\CarouselSetting::where('status' , 1)->get();
 $c_banners =  \App\Models\CategoryBanner::where('status' , 1)->get();
 $data['aboutUs']  = \App\Models\AboutUs::where("status" , 1)->orderBy('id' , 'desc')->paginate(2);
-
 $category =  \App\Models\category::withoutTrashed()->get();
 @endphp
 <div class="banner-section">
