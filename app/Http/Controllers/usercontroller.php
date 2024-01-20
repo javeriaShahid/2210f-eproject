@@ -15,7 +15,7 @@ use App\Models\Setting;
 use App\Models\BlogViews;
 use DB;
 use App\Models\Subcategory;
-use App\Models\FAQS;
+use App\Models\FaqsCategories;
 use App\Models\AboutUs ;
 use App\Models\AboutUsMainBanners ;
 class UserController extends Controller
@@ -82,7 +82,7 @@ class UserController extends Controller
       return view("user.error");
      }
    public function faq(){
-      $data['faqs'] = FAQS::all();
+      $data['faqs'] = FaqsCategories::where('status' , 1)->paginate(5);
       return view("user.faq")->with('data' , $data);
      }
    public function gift_card(){

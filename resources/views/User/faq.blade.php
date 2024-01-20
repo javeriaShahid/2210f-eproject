@@ -27,7 +27,9 @@ FAQ's
 <span>Asked Questions</span>
 </h1>
 </div>
+
 @foreach ($data['faqs'] as  $faqdata)
+
 <div class="row g-4 mb-110">
 <div class="col-lg-4 ">
 <div class="faq-item">
