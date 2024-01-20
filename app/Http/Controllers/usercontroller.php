@@ -15,7 +15,7 @@ use App\Models\Setting;
 use App\Models\BlogViews;
 use DB;
 use App\Models\Subcategory;
-use App\Models\FeedBack;
+use App\Models\FAQS;
 use App\Models\AboutUs ;
 use App\Models\AboutUsMainBanners ;
 class UserController extends Controller
@@ -82,7 +82,8 @@ class UserController extends Controller
       return view("user.error");
      }
    public function faq(){
-      return view("user.faq");
+      $data['faqs'] = FAQS::all();
+      return view("user.faq")->with('data' , $data);
      }
    public function gift_card(){
       return view("user.gift_card");
@@ -122,8 +123,20 @@ class UserController extends Controller
     $searchInput     = $request->search;
     $data['product'] = $this->productModel::withoutTrashed()
     ->where('is_published', 1)
-    ->where('name', 'LIKE', '%' . $searchInput . '%')
+    ->where(function ($query) use ($searchInput) {
+        $query->where('name', 'LIKE', '%' . $searchInput . '%')
+            ->orWhereHas('brand', function ($subquery) use ($searchInput) {
+                $subquery->where('name', 'LIKE', '%' . $searchInput . '%');
+            })
+            ->orWhereHas('category', function ($subquery) use ($searchInput) {
+                $subquery->where('name', 'LIKE', '%' . $searchInput . '%');
+            })
+            ->orWhereHas('subcategory', function ($subquery) use ($searchInput) {
+                $subquery->where('name', 'LIKE', '%' . $searchInput . '%');
+            });
+    })
     ->paginate(25);
+
       $data['title']     = "Searched Product";
       return view("user.slider")->with('data' , $data);
    }

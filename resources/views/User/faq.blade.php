@@ -17,7 +17,9 @@ FAQ's
 </div>
 </div>
 
-
+@php
+    dd($data);
+@endphp
 <div class="faq-section mt-110 mb-110">
 <div class="container">
 <div class="faq-title">
