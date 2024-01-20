@@ -14,6 +14,9 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\PaymentGetwaySettingsController;
 use App\Http\Controllers\Admin\AboutUsBannerController;
+use App\Http\Controllers\Admin\DealsBannersController;
+use App\Http\Controllers\Admin\FAQController;
+use App\Http\Controllers\Admin\FaqsCategoryController;
 use App\Http\Controllers\User\ContactController;
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\HomeLinkController;
@@ -21,6 +24,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\CategoryBannerController;
 use App\Http\Controllers\User\BlogCommentController;
 use App\Http\Controllers\User\FeedBackController;
+use App\Http\Controllers\Admin\AdminFeedBackController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -86,6 +90,7 @@ Route::get('/city/{id?}' , [Authcontroller::class , 'get_city'])->name('city.get
 // Address Get
 // Feedback Store
 Route::post("store/feeback" , [FeedBackController::class , 'store'])->name('feedback.store');
+Route::get("search/replies/feeback/{id?}" , [FeedBackController::class , 'searchReplies'])->name('search.replies');
 Route::post('/user/register',[Authcontroller::class, "registeration"])->name('user.register.post');
 Route::get('/Account_setting',[UserController::class, "Account_setting"])->name('Account_setting');
 Route::get('loadPdf/{id?}' , [PDFController::class,'generatePdf'])->name('generate.label');
@@ -289,6 +294,33 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/change_status' , [AboutUsBannerController::class , 'change_status'])->name('admin.aboutusbanner.change_status');
 
     });
+    Route::prefix('/dealsbanners')->group(function(){
+        Route::get('/' , [DealsBannersController::class , 'index'])->name('admin.dealsbanners.index');
+        Route::get('/create' , [DealsBannersController::class , 'create'])->name('admin.dealsbanners.create');
+        Route::post('/store/{id?}' , [DealsBannersController::class , 'store'])->name('admin.dealsbanners.store');
+        Route::get('/edit/{id?}' , [DealsBannersController::class , 'edit'])->name('admin.dealsbanners.edit');
+        Route::get('/delete/{id?}' , [DealsBannersController::class , 'destroy'])->name('admin.dealsbanners.delete');
+        Route::get('/change_status' , [DealsBannersController::class , 'change_status'])->name('admin.dealsbanners.change_status');
+
+    });
+    Route::prefix('/faqs')->group(function(){
+        Route::get('/' , [FAQController::class , 'index'])->name('admin.faqs.index');
+        Route::get('/create' , [FAQController::class , 'create'])->name('admin.faqs.create');
+        Route::post('/store/{id?}' , [FAQController::class , 'store'])->name('admin.faqs.store');
+        Route::get('/edit/{id?}' , [FAQController::class , 'edit'])->name('admin.faqs.edit');
+        Route::get('/delete/{id?}' , [FAQController::class , 'destroy'])->name('admin.faqs.delete');
+        Route::get('/change_status' , [FAQController::class , 'change_status'])->name('admin.faqs.change_status');
+
+    });
+    Route::prefix('/faqs/categories')->group(function(){
+        Route::get('/' , [FaqsCategoryController::class , 'index'])->name('admin.faqscategories.index');
+        Route::get('/create' , [FaqsCategoryController::class , 'create'])->name('admin.faqscategories.create');
+        Route::post('/store/{id?}' , [FaqsCategoryController::class , 'store'])->name('admin.faqscategories.store');
+        Route::get('/edit/{id?}' , [FaqsCategoryController::class , 'edit'])->name('admin.faqscategories.edit');
+        Route::get('/delete/{id?}' , [FaqsCategoryController::class , 'destroy'])->name('admin.faqscategories.delete');
+        Route::get('/change_status' , [FaqsCategoryController::class , 'change_status'])->name('admin.faqscategories.change_status');
+
+    });
     Route::prefix('/blogs')->group(function(){
         Route::get('/' , [BlogController::class , 'index'])->name('admin.blogs.index');
         Route::get('/create' , [BlogController::class , 'create'])->name('admin.blogs.create');
@@ -307,6 +339,15 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::POST('/reply/{id?}' , [ContactController::class , 'reply'])->name('admin.message.reply.post');
         Route::get('/delete/{id?}' ,  [ContactController::class , 'destroy'])->name('admin.contact.messages.delete');
         Route::get('/view_message/{id?}' ,      [ContactController::class , 'view_message'])->name('admin.contact.messages.view.message');
+
+    });
+    Route::prefix('/user-feedback')->group(function(){
+        Route::get('/' , [AdminFeedBackController::class , 'index'])->name('admin.feedback.messages.index');
+        Route::get('/create/{id?}' , [AdminFeedBackController::class , 'create'])->name('admin.feedback.messages.create');
+        Route::POST('/reply/{id?}' , [AdminFeedBackController::class , 'store'])->name('admin.message.feedback.reply.post');
+        Route::get('/delete/{id?}' ,  [AdminFeedBackController::class , 'destroy'])->name('admin.feedback.messages.delete');
+        Route::get('/delete/reply/{id?}' ,  [AdminFeedBackController::class , 'destroy_replied'])->name('admin.feedback.messages.delete.reply');
+        Route::get('/view_message/{id?}' ,      [AdminFeedBackController::class , 'view_message'])->name('admin.feedback.messages.view.message');
 
     });
     Route::get('notifications' , [NotificationController::class ,'fetchNotification'])->name('notification.get');

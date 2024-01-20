@@ -2,6 +2,7 @@
 @php
 $settings = \App\Models\Setting::where('status' , 1)->first();
 @endphp
+
 <html lang="en">
 
 <!-- Mirrored from demo-egenslab.b-cdn.net/html/beautico/preview/about_us by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 11:36:47 GMT -->
