@@ -14,6 +14,9 @@ class Feedback extends Model
        return $this->hasOne(User::class , 'id' , 'user_id');
     }
     public function products(){
-        return $this->hasMany(Product::class , 'id' , 'product_id');
+        return $this->hasOne(Product::class , 'id' , 'product_id');
+    }
+    public function replies(){
+        return $this->hasMany(ReplyFeedback::class, 'feedback_id' , 'id');
     }
 }

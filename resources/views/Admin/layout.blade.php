@@ -359,6 +359,30 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </ul>
                 </li>
               </li>
+              <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-image"></i>
+                    <div data-i18n="Layouts">Deal's Banners</div>
+                  </a>
+
+                  <ul class="menu-sub">
+                      <li class="menu-item">
+                        <a href="{{ route('admin.dealsbanners.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                        </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.dealsbanners.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </li>
               {{-- Orders Management System --}}
               <li class="menu-header small text-uppercase"><span class="menu-header-text">Orders  Management</span></li>
               <!-- Forms -->
@@ -475,6 +499,26 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </ul>
                 </li>
               </li>
+            <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-star"></i>
+                    <div data-i18n="Layouts">Product Feedbacks</div>
+                  </a>
+
+                  <ul class="menu-sub">
+
+                    <li class="menu-item">
+                        <a href="{{ route('admin.feedback.messages.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-chat"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
+
+
+                  </ul>
+                </li>
+              </li>
 
 
               {{-- Users Managment --}}
@@ -500,6 +544,55 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                         <a href="{{ route('admin.carouselsetting.create') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-plus"></i>
                             <div data-i18n="Basic">Create</div>
+                          </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </li>
+              {{-- Faqs --}}
+              <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-collection"></i>
+                    <div data-i18n="Layouts">Faq's Categories</div>
+                  </a>
+
+                  <ul class="menu-sub">
+                      <li class="menu-item">
+                        <a href="{{ route('admin.faqscategories.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                        </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.faqscategories.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
+                          </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </li>
+              <li class="menu-item">
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-question-mark"></i>
+                    <div data-i18n="Layouts">Faq's Managment</div>
+                  </a>
+
+                  <ul class="menu-sub">
+                      <li class="menu-item">
+                        <a href="{{ route('admin.faqs.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-plus"></i>
+                            <div data-i18n="Basic">Create</div>
+                          </a>
+                        </li>
+                    <li class="menu-item">
+                        <a href="{{ route('admin.faqs.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-collection"></i>
+                            <div data-i18n="Basic">All</div>
                           </a>
                     </li>
 

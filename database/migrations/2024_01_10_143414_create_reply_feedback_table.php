@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('reply_feedback', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->longText('message');
+            $table->unsignedBigInteger('feedback_id');
             $table->unsignedBigInteger("admin_id");
             $table->timestamps();
         });

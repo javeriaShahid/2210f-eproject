@@ -22,14 +22,13 @@ class Cartcontroller extends Controller
         $Quantity     = $this->parentModel::where('product_id' , $id)->first();
         $productData  = $this->productmodel::where('id' , $id)->first();
         $colorData    = json_decode($productData->color_code);
-        $QuantityData = $request->quantity != null ? $request->quantity : 1 ;
         $color        = $request->color    != null ?    $request->color : $colorData[0] ;
         $arrayColor   = [$color];
-
+        $cartQuantity = $request->quantity != null ? $request->quantity : 1 ;
         if($cartdata >= 1)
         {
 
-            $incrementedQuantity  = $Quantity->quantity + 1;
+            $incrementedQuantity  = $Quantity->quantity + $cartQuantity;
             $existingColors       = json_decode($cartData->color);
             $newColors            = array_diff($arrayColor, $existingColors);
             $updatedColors        = array_merge($existingColors, $newColors);
@@ -53,7 +52,7 @@ class Cartcontroller extends Controller
             $addToCart    = $this->parentModel::create([
                 'product_id'   => $id,
                 'user_id'      => $userId ,
-                'quantity'     => $QuantityData ,
+                'quantity'     => $cartQuantity ,
                 'color'        => json_encode($arrayColor) ,
             ]);
             if($addToCart == true)
@@ -120,9 +119,9 @@ class Cartcontroller extends Controller
 
     public function increment($id = null)
     {
-        $cartData   =  $this->parentModel::where('id' , $id)->with('product')->first();
+        $cartData            =  $this->parentModel::where('id' , $id)->with('product')->first();
         $incrementedQuantity = $cartData->quantity + 1 ;
-        // dd($incrementedQuantity);
+
         $updateCart  = $this->parentModel::where('id' , $id)->update([
             'quantity' => $incrementedQuantity ,
         ]);
@@ -141,13 +140,13 @@ class Cartcontroller extends Controller
         }
         $updatedQuantity  = $newcartData->quantity;
         $fees             = 0;
-        $totalPrice       = $productPrice * $newcartData->quantity ;
+        $totalPrice       =  $productPrice * $newcartData->quantity ;
         $subTotal         =  0;
         $allCart          = $this->parentModel::all();
         $subTotal         = 0 ;
         foreach($allCart as $cart)
         {   $price    = 0 ;
-            $fees    += $cart->product->shipping_fees;
+            $fees    += $cart->product->shipping_fees ;
             if($cart->product->sale_status  == 1)
             {
                 $price  = $cart->product->discounted_price * $cart->quantity ;

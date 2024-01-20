@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('deals_banners', function (Blueprint $table) {
             $table->id();
+            $table->string("image");
+            $table->string("title");
+            $table->string("side");
+            $table->string("text_color");
+            $table->string("title_color");
+            $table->unsignedBigInteger("category_id");
+            $table->longtext("short_description")->nullable();
+            $table->integer("percent_off");
+            $table->integer("status")->default(0);
             $table->timestamps();
         });
     }
