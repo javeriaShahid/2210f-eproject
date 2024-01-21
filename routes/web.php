@@ -33,6 +33,7 @@ use App\Http\Controllers\PDFController;
 use App\Http\Controllers\User\Cartcontroller;
 use App\Http\Controllers\User\Checkoutcontroller;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\FilterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,11 @@ use App\Http\Controllers\User\HomeController;
 |
 */
 // Getting Dynamic Route
-
+// Product Filter Routes
+Route::get('filter/price' , [FilterController::class ,'price_range'])->name("filter.price");
+Route::get('filter/category' , [FilterController::class ,'category'])->name("filter.category");
+Route::get('filter/brand' , [FilterController::class ,'brand'])->name("filter.brand");
+Route::get('filter/sort' , [FilterController::class ,'sort'])->name("filter.sort");
 // Email and Password Verifications
 Route::post('/get_verification_code' , [ResetPasswordController::class , 'get_verification_code'])->name('get.verification.code');
 Route::post('/verify_code' , [ResetPasswordController::class , 'verify_code'])->name('verify.code');

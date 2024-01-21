@@ -97,29 +97,25 @@ class UserController extends Controller
     $data['product']   = $this->productModel::withoutTrashed()->where('is_published' , 1)->paginate(25);
     $data['title']     = "All Products";
       return view("user.quick_view")->with('data',$data);
-     }
-   public function slider(){
-      $data['product']   = $this->productModel::withoutTrashed()->where('is_published' , 1)->paginate(25);
-      $data['title']     = "All Products";
-      return view("user.slider")->with('data' , $data);
-   }
+    }
+
    public function search_category($id = null){
       $data['product']   = $this->productModel::withoutTrashed()->where(['category_id' => $id , 'is_published' => 1])->paginate(25);
       $category          = $this->categoryModel::where('id' , $id)->first();
       $data['title']     = $category->name;
-      return view("user.slider")->with('data' , $data);
+      return view("user.quick_view")->with('data' , $data);
    }
    public function search_brand($id = null){
       $data['product']   = $this->productModel::withoutTrashed()->where(['brand_id' => $id , 'is_published' => 1])->paginate(25);
       $category          = $this->categoryModel::where('id' , $id)->first();
       $data['title']     = $category->name;
-      return view("user.slider")->with('data' , $data);
+      return view("user.quick_view")->with('data' , $data);
    }
    public function search_subcategory($id = null){
       $data['product']   = $this->productModel::withoutTrashed()->where(['subcategory_id' => $id , 'is_published' => 1])->paginate(25);
       $category          = $this->subCategoryModel::where('id' , $id)->first();
       $data['title']     = $category->name;
-      return view("user.slider")->with('data' , $data);
+      return view("user.quick_view")->with('data' , $data);
    }
    public function search(Request $request){
     $searchInput     = $request->search;
@@ -140,7 +136,7 @@ class UserController extends Controller
     ->paginate(25);
 
       $data['title']     = "Searched Product";
-      return view("user.slider")->with('data' , $data);
+      return view("user.quick_view")->with('data' , $data);
    }
    public function standard(){
       return view("user.standard");

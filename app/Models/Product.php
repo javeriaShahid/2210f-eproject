@@ -40,8 +40,14 @@ class Product extends Model
       public function productimages(){
         return $this->hasMany(Productimages::class ,'product_id' , 'id');
       }
+      public function subimage(){
+        return $this->hasOne(Productimages::class ,'product_id' , 'id');
+      }
       public function brand()
       {
         return $this->hasOne(Brand::class , 'id' , 'brand_id');
+      }
+      public function feedbacks(){
+        return $this->hasMany(Feedback::class,'product_id' , 'id');
       }
 }

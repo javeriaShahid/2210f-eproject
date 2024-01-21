@@ -42,9 +42,8 @@ Products
     <div class="product-card-img double-img">
     <a href="{{route('accordion' , $product->id)}}">
     <img src="{{ asset('Productimages/' . $product->image) }}" style="height:280px!important;object-fit:contain" alt class="img1">
-    <?php
+        <?php
         $subimage   = \DB::table('productimages')->where('product_id' , $product->id)->first();
-
         ?>
 
     <img src="{{ asset('ProductSubImages/' . $subimage->image) }}" style="height:280px!important;object-fit:contain" alt class="img2">
