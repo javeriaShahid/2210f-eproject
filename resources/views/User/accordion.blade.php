@@ -33,7 +33,10 @@ Product detail
 </nav>
 </div>
 </div>
+@php
+$data['feedback'] = \App\Models\FeedBack::where('product_id' , $data['product']->id)->orderBy('id' , 'desc')->limit(5)->get();
 
+@endphp
 
 <div class="shop-details-top-section mt-110 mb-110">
 <div class="container-xl container-fluid-lg container">
