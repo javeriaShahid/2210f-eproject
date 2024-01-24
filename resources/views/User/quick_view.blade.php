@@ -282,9 +282,9 @@ $subimage   = \DB::table('productimages')->where('product_id' , $product->id)->f
 <span class="for-border"></span>
 </div>
 </div>
-</div>
-</div>
 @endforeach
+</div>
+</div>
 
 @else
 <center><b class="text-danger">No Products Available</b></center>

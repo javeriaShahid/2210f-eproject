@@ -185,14 +185,14 @@ class ProductController extends Controller
             if($request->hasFile('subimage'))
             {
 
-                $subImageData      = $this->imagesModel::where('product_id' , $id)->first();
+                // $subImageData      = $this->imagesModel::where('product_id' , $id)->first();
                 foreach($request->file('subimage') as $key => $value)
                 {
                     $image         =  $request->file('subimage')[$key];
                     $subFile  = time().".".$image->getClientOriginalExtension();
                     $image->move('ProductSubImages/' , $subFile);
 
-                    $createImage   = $this->imagesModel::update([
+                    $updateProduct   = $this->imagesModel::create([
                         'product_id'    => $id ,
                         'image'        =>  $subFile
                     ]);
