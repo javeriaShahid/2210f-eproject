@@ -12,7 +12,7 @@ $data['aboutUs']  = \App\Models\AboutUs::where("status" , 1)->orderBy('id' , 'de
 $data['newProducts'] = \App\Models\Product::where("is_published" , 1)->orderBy("id" , "desc")->get();
 $data['dealsBanners'] = \App\Models\DealsBanner::where("status" , 1)->orderBy("id" , "desc")->limit(2)->get();
 $data['testimonals'] = \App\Models\Feedback::orderBy("id" , "desc")->paginate(5);
-$data['blogs'] = \App\Models\Blogs::where('status' , 1)->orderBy('id' , 'desc')->paginate(3);
+$data['blogs'] = \App\Models\Blogs::where('status' , 1)->orderBy('id' , 'desc')->paginate(6);
 $category =  \App\Models\category::withoutTrashed()->get();
 @endphp
 <div class="banner-section">
@@ -263,13 +263,13 @@ $category =  \App\Models\category::withoutTrashed()->get();
 <div class="col-lg-3">
 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 @foreach($category as $categoryDetails)
-    <button class="nav-link active" id="v-Korean-tab" data-bs-toggle="pill" data-bs-target="#v-Korean" type="button" role="tab" aria-controls="v-Korean" aria-selected="true">
+    <a href="{{route('search.category' , $categoryDetails->id)}}" class="nav-link bg-secondary text-light">
 {{$categoryDetails->name}}
 @php
 $numberOfProducts = \App\Models\Product::where('category_id' , $categoryDetails->id)->count();
 @endphp
 <span>({{$numberOfProducts}})</span>
-</button>
+    </a>
 @endforeach
 
 </div>
@@ -1987,7 +1987,7 @@ $numberOfProducts = \App\Models\Product::where('category_id' , $categoryDetails-
 </div>
 </div>
 </div>
-
+{{--
 <div class="offer-banner mb-110">
 <div class="container">
 <div class="row gy-4">
@@ -2016,7 +2016,7 @@ $numberOfProducts = \App\Models\Product::where('category_id' , $categoryDetails-
 
 </div>
 </div>
-</div>
+</div> --}}
 
 
 <div class="newest-product-section mb-110">
@@ -3013,14 +3013,14 @@ To Cart</a>
     <h3>Our Beauty Article</h3>
     </div>
     <div class="row gy-4">
-    <div class="col-lg-7">
+    <div class="col-lg-12">
     <div class="row gy-4">
     @foreach($data['blogs'] as $blogs)
-    <div class="col-sm-6">
-    <div class="article-card" style="min-height: 500px!important; max-height:500px!important">
+    <div class="col-sm-4">
+    <div class="article-card" style="min-height: 500px!important; max-height:600px!important">
     <div class="article-image">
-    <a href="{{route('blog_details' , $blogs->id)}}" class="article-card-img hover-img">
-    <img src="{{asset('blogImages/' . $blogs->image )}}" >
+    <a href="{{route('blog_details' , $blogs->id)}}" class="article-card-img hover-img" style="height: 300px!important object-fit:cover;" >
+    <img src="{{asset('blogImages/' . $blogs->image )}}" style="width: 100%; height:100%;">
     </a>
     <div class="blog-date">
     <a href="{{route('blog_details' , $blogs->id)}}">
@@ -3045,10 +3045,9 @@ To Cart</a>
         @endforeach
     </ul>
     </div>
-    <h5><a href="{{route('blog_details' , $blogs->id)}}" class="hover-underline">{{$blogs->title}}</a></h5>
-    <p>{!! $blogs->blog_qoute !!}</p>
+    <h5><a href="{{route('blog_details' , $blogs->id)}}" class="hover-underline" style="font-size:20px">{{$blogs->title}}</a></h5>
+    <p style="font-size:15px!important!important">{!! $blogs->blog_qoute !!}</p>
 
-    <a href="{{route('blog_details' , $blogs->id)}}">Read More</a>
     </div>
     </div>
     </div>

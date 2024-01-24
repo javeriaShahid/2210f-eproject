@@ -75,7 +75,8 @@ Sent For Delivery
                                 <a href="{{ route('label.download' , $checkout->id) }}" class="btn btn-primary"><i class="bx bx-cloud-download"></i></a>
                             </td>
                             <td>
-                                <a href="" class="btn btn-danger"><i class="bx bx-trash"></i></a>
+                                <a href="{{route('order.delete' , $checkout->id)}}" class="btn btn-danger"><i class="bx bx-trash"></i></a>
+
                             </td>
                         </tr>
 

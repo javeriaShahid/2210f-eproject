@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
 use PDF;
+use App\Models\Cart;
 class OrderController extends Controller
 {
     public $parentModel  =  Checkout::class ;

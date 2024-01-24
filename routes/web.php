@@ -209,6 +209,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/unblock/{id?}' , [AdminUserController::class , 'unblock_user'])->name('admin.user.unblock');
         Route::get('/delete/{id?}' , [AdminUserController::class , 'delete'])->name('admin.user.delete');
         Route::get('/cancelorder/{id?}' , [OrderController::class , 'cancel_order'])->name('order.cancel');
+        Route::get('/delete/order/{id?}' , [OrderController::class , 'delete'])->name('order.delete');
         Route::get('/create/{id?}' , [AdminController::class , 'create'])->name('admin.user.create');
         Route::post('/store/{id?}' , [AdminController::class , 'store'])->name('admin.user.store');
     });

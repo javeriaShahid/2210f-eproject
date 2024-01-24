@@ -96,7 +96,7 @@ $data['brands'] = \App\Models\Brand::withoutTrashed()->get();
     </div>
     <div class="top-product-content">
     <h6><a href="{{ route("accordion" ,  @$topProduct->products->id) }}"> {{ @$topProduct->products->name }}</a></h6>
-    @if($topProduct->products->sale_status == 1)
+    @if(@$topProduct->products->sale_status == 1)
     <span>PKR, {{ @$topProduct->products->discounted_price }} <del>PKR, {{ @$topProduct->products->price }}</del></span>
     @else
     <span>PKR, {{ @$topProduct->products->price }}</span>
