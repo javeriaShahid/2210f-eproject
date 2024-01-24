@@ -16,6 +16,11 @@ class UserController extends Controller
         $data['user']   =  $this->parentModel::where('role',  0)->with('address')->paginate(25);
         return view('Admin.User.index')->with('data' , $data);
     }
+    public function admins()
+    {
+        $data['user']   =  $this->parentModel::where('role',  2)->with('address')->paginate(25);
+        return view('Admin.User.admins')->with('data' , $data);
+    }
 
     public function blocked()
     {
@@ -71,5 +76,5 @@ class UserController extends Controller
             return redirect()->back()->with('error' , 'Failed to delete user');
         }
     }
-  
+
 }

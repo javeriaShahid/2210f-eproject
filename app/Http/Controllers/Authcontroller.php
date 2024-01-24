@@ -41,9 +41,11 @@ class Authcontroller extends Controller
             }
             if($login->email_verified_at != null) // jab if true hogi to esse hum check karenge agr emai_verfied_at column null na ho agr woh null hota hai means verified nhi hai agr nhi to means verified hai to agr verified hoto age wale data mai jae
             {
-                if($login->role == 1 ) // Jab Data bhi miljaiga or Email Verified bhi hoga to fir yahan woh check karega ke role keya hai agr 1 hai to means woh admin hai
+                if($login->role == 1 || $login->role == 2 ) // Jab Data bhi miljaiga or Email Verified bhi hoga to fir yahan woh check karega ke role keya hai agr 1 hai to means woh admin hai
                 {
-                    session()->put('admin' , $login); // or role 1 hone ki wja se admin ka session banaiga or us session mai admin ke data ko daldega or yeh tab tk mujood hoga jab tk admin loggedin hoga  logout hote woh remove honge session storage se database se nhi
+                    session()->put('admin' , $login);
+                    $update_status      =  User::where('id' , $login->id)->update(['status' => 1]);
+                     // or role 1 hone ki wja se admin ka session banaiga or us session mai admin ke data ko daldega or yeh tab tk mujood hoga jab tk admin loggedin hoga  logout hote woh remove honge session storage se database se nhi
                     return redirect(Route('admin.dashboard'));
                 }
                 if($login->role == 0) // Agr nhi to fir woh user ka session banae or home ke route mai redirect ho user session mai same user data dalde
@@ -186,7 +188,7 @@ class Authcontroller extends Controller
         if($updateUser == true || $updateImage == true)
         {
             $userData     = User::where('id' , $id )->first();
-            if($userData->role == 1)
+            if($userData->role == 1 || $userData->role == 2)
             {
                 session()->put('admin' , $userData);
             }
@@ -452,7 +454,18 @@ class Authcontroller extends Controller
                 'route'   =>   Route('admin.user.index'),
                 'message' => "$userData->name Has Verified Email at $currentTime",
             ]);
-            return redirect(Route('login.view'))->with('success' , 'Your Email has been verified');
+            if($userData->role == 1 || $userData->role == 2)
+            {
+                session()->put('admin' , $userData);
+                return redirect(Route('Auth_login'))->with('success' , 'Your Email has been verified');
+
+            }
+            if($userData->role == 0)
+            {
+                session()->put('user' , $userData);
+                return redirect(Route('login.view'))->with('success' , 'Your Email has been verified');
+
+            }
         }
         else
         {

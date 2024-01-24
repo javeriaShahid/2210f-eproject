@@ -109,117 +109,7 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
               </a>
             </li>
             {{-- Product Brands --}}
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Home Links </span></li>
-            <!-- Forms -->
-            <li class="menu-item">
-                <li class="menu-item">
-                  <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons bx bx-home"></i>
-                    <div data-i18n="Layouts">Home Links </div>
-                  </a>
 
-                  <ul class="menu-sub">
-
-                    <li class="menu-item">
-                        <a href="{{ route('admin.homelinks.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">All</div>
-                          </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('admin.homelinks.create') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-plus"></i>
-                            <div data-i18n="Basic">Create</div>
-                          </a>
-                    </li>
-
-                  </ul>
-                </li>
-              </li>
-              <li class="menu-item">
-                <li class="menu-item">
-                  <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons bx bx-info-circle"></i>
-                    <div data-i18n="Layouts">About Us </div>
-                  </a>
-
-                  <ul class="menu-sub">
-
-                    <li class="menu-item">
-                        <a href="{{ route('admin.aboutussettings.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">All</div>
-                          </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('admin.aboutussettings.create') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-plus"></i>
-                            <div data-i18n="Basic">Create</div>
-                          </a>
-                    </li>
-
-                  </ul>
-                </li>
-              </li>
-              <li class="menu-item">
-                <li class="menu-item">
-                  <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons bx bx-image"></i>
-                    <div data-i18n="Layouts">About Us Banners </div>
-                  </a>
-
-                  <ul class="menu-sub">
-
-                    <li class="menu-item">
-                        <a href="{{ route('admin.aboutusbanner.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">All</div>
-                          </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('admin.aboutusbanner.create') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-plus"></i>
-                            <div data-i18n="Basic">Create</div>
-                          </a>
-                    </li>
-
-                  </ul>
-                </li>
-              </li>
-              <li class="menu-item">
-                <li class="menu-item">
-                  <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons bx bx-camera"></i>
-                    <div data-i18n="Layouts">Blogs </div>
-                  </a>
-
-                  <ul class="menu-sub">
-
-                    <li class="menu-item">
-                        <a href="{{ route('admin.blogs.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">All</div>
-                          </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('admin.blogs.create') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-plus"></i>
-                            <div data-i18n="Basic">Create</div>
-                          </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('admin.blogs.comments') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-message"></i>
-                            <div data-i18n="Basic">Comments</div>
-                          </a>
-                    </li>
-
-                  </ul>
-                </li>
-              </li>
-
-
-            <!-- Misc -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Product Managment</span></li>
 
               <!-- Forms -->
@@ -436,14 +326,127 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </li>
                 </li>
 
-              {{-- End of products managemnet --}}
+                {{-- End of products managemnet --}}
+                <li class="menu-header small text-uppercase"><span class="menu-header-text">Home Settings </span></li>
+                <!-- Forms -->
+                @if(Session::get("admin")['role'] == 1)
+              <li class="menu-item">
+                  <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                      <i class="menu-icon tf-icons bx bx-home"></i>
+                      <div data-i18n="Layouts">Home Links </div>
+                    </a>
 
+                    <ul class="menu-sub">
+
+                      <li class="menu-item">
+                          <a href="{{ route('admin.homelinks.index') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-collection"></i>
+                              <div data-i18n="Basic">All</div>
+                            </a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="{{ route('admin.homelinks.create') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-plus"></i>
+                              <div data-i18n="Basic">Create</div>
+                            </a>
+                      </li>
+
+                    </ul>
+                  </li>
+                </li>
+                @endif
+
+                <li class="menu-item">
+                  <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                      <i class="menu-icon tf-icons bx bx-info-circle"></i>
+                      <div data-i18n="Layouts">About Us </div>
+                    </a>
+
+                    <ul class="menu-sub">
+
+                      <li class="menu-item">
+                          <a href="{{ route('admin.aboutussettings.index') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-collection"></i>
+                              <div data-i18n="Basic">All</div>
+                            </a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="{{ route('admin.aboutussettings.create') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-plus"></i>
+                              <div data-i18n="Basic">Create</div>
+                            </a>
+                      </li>
+
+                    </ul>
+                  </li>
+                </li>
+                <li class="menu-item">
+                  <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                      <i class="menu-icon tf-icons bx bx-image"></i>
+                      <div data-i18n="Layouts">About Us Banners </div>
+                    </a>
+
+                    <ul class="menu-sub">
+
+                      <li class="menu-item">
+                          <a href="{{ route('admin.aboutusbanner.index') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-collection"></i>
+                              <div data-i18n="Basic">All</div>
+                            </a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="{{ route('admin.aboutusbanner.create') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-plus"></i>
+                              <div data-i18n="Basic">Create</div>
+                            </a>
+                      </li>
+
+                    </ul>
+                  </li>
+                </li>
+                <li class="menu-item">
+                  <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                      <i class="menu-icon tf-icons bx bx-camera"></i>
+                      <div data-i18n="Layouts">Blogs </div>
+                    </a>
+
+                    <ul class="menu-sub">
+
+                      <li class="menu-item">
+                          <a href="{{ route('admin.blogs.index') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-collection"></i>
+                              <div data-i18n="Basic">All</div>
+                            </a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="{{ route('admin.blogs.create') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-plus"></i>
+                              <div data-i18n="Basic">Create</div>
+                            </a>
+                      </li>
+                      <li class="menu-item">
+                          <a href="{{ route('admin.blogs.comments') }}" class="menu-link">
+                              <i class="menu-icon tf-icons bx bx-message"></i>
+                              <div data-i18n="Basic">Comments</div>
+                            </a>
+                      </li>
+
+                    </ul>
+                  </li>
+                </li>
+
+              <!-- Misc -->
               {{-- Users Managment --}}
                  <!-- Forms & Tables -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">User Management</span></li>
+                 <li class="menu-header small text-uppercase"><span class="menu-header-text">User Management</span></li>
+                 @if(Session::get("admin")['role'] == 1)
             <!-- Forms -->
             <li class="menu-item">
-                <li class="menu-item">
+                 <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons bx bx-user"></i>
                     <div data-i18n="Layouts">Users</div>
@@ -452,9 +455,22 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   <ul class="menu-sub">
 
                     <li class="menu-item">
+                        <a href="{{ route('admin.user.create') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-plus"></i>
+                            <div data-i18n="Basic">Add Admins</div>
+                          </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ route('admin.user.admins') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div data-i18n="Basic">Admins</div>
+                          </a>
+                    </li>
+                    <li class="menu-item">
                         <a href="{{ route('admin.user.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">All</div>
+                            <i class="menu-icon tf-icons bx bx-user"></i>
+                            <div data-i18n="Basic">Users</div>
                           </a>
                     </li>
 
@@ -479,6 +495,7 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                   </ul>
                 </li>
               </li>
+              @endif
             <li class="menu-item">
                 <li class="menu-item">
                   <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -522,6 +539,7 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
 
 
               {{-- Users Managment --}}
+              @if(Session::get("admin")['role'] == 1)
 
               <li class="menu-header small text-uppercase"><span class="menu-header-text">Settings</span></li>
               {{-- carousel --}}
@@ -679,35 +697,36 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
                     </ul>
                   </li>
                 </li>
-              {{-- End  --}}
-              <li class="menu-header small text-uppercase"><span class="menu-header-text">Payment Management </span></li>
-              <!-- Forms -->
-              <li class="menu-item">
-                  <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                      <i class="menu-icon tf-icons bx bx-money"></i>
-                      <div data-i18n="Layouts">Payment Management </div>
-                    </a>
+                {{-- End  --}}
+                <li class="menu-header small text-uppercase"><span class="menu-header-text">Payment Management </span></li>
+                <!-- Forms -->
+                <li class="menu-item">
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-money"></i>
+                            <div data-i18n="Layouts">Payment Management </div>
+                        </a>
 
-                    <ul class="menu-sub">
+                        <ul class="menu-sub">
 
-                      <li class="menu-item">
-                          <a href="{{ route('admin.paymentsettings.index') }}" class="menu-link">
-                              <i class="menu-icon tf-icons bx bx-collection"></i>
-                              <div data-i18n="Basic">All</div>
-                            </a>
-                      </li>
-                      <li class="menu-item">
-                          <a href="{{ route('admin.paymentsettings.create') }}" class="menu-link">
-                              <i class="menu-icon tf-icons bx bx-plus"></i>
-                              <div data-i18n="Basic">Create</div>
-                            </a>
-                      </li>
+                            <li class="menu-item">
+                                <a href="{{ route('admin.paymentsettings.index') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-collection"></i>
+                                    <div data-i18n="Basic">All</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ route('admin.paymentsettings.create') }}" class="menu-link">
+                                    <i class="menu-icon tf-icons bx bx-plus"></i>
+                                    <div data-i18n="Basic">Create</div>
+                                </a>
+                            </li>
 
-                    </ul>
-                  </li>
+                        </ul>
+                    </li>
                 </li>
                 {{-- End  --}}
+                @endif
           </ul>
         </aside>
         <!-- / Menu -->
@@ -730,13 +749,7 @@ $settings = \App\Models\Setting::where('status' , 1)->first();
               <!-- Search -->
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
+                    <b>Dazzle <b style="color: orange">.</b></b> | Admin @yield('title')
                 </div>
               </div>
               <!-- /Search -->

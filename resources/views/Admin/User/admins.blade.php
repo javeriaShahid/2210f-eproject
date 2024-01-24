@@ -1,6 +1,6 @@
 @extends('Admin.layout')
 @section('title')
-All Users
+All Admins
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@ All Users
         <!-- Hoverable Table rows -->
         <div class="card">
             <div class="row">
-                <div class="col-md-6">  <h5 class="card-header">Users Management</h5></div>
+                <div class="col-md-6">  <h5 class="card-header">Admin Management</h5></div>
                 <div class="col-md-6">
                     <div class="row justify-content-end mt-3">
                         <div class="col-md-3 mr-5" style="margin-right:20px;"><a class="btn btn-danger" href="{{ route('admin.user.block') }}">Blocked</a></div>

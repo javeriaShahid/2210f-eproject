@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\CategoryBannerController;
 use App\Http\Controllers\User\BlogCommentController;
 use App\Http\Controllers\User\FeedBackController;
 use App\Http\Controllers\Admin\AdminFeedBackController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -200,6 +201,7 @@ Route::prefix('admin')->middleware('admin')->group(function(){
     // Users Managment
     Route::prefix('/user')->group(function(){
         Route::get('/' , [AdminUserController::class , 'index'])->name('admin.user.index');
+        Route::get('/admins' , [AdminUserController::class , 'admins'])->name('admin.user.admins');
         Route::get('/blocked' , [AdminUserController::class , 'blocked'])->name('admin.user.block');
         Route::get('/active' , [AdminUserController::class , 'active'])->name('admin.user.active');
         Route::get('/deactive' , [AdminUserController::class , 'deactive'])->name('admin.user.deactive');
@@ -207,6 +209,8 @@ Route::prefix('admin')->middleware('admin')->group(function(){
         Route::get('/unblock/{id?}' , [AdminUserController::class , 'unblock_user'])->name('admin.user.unblock');
         Route::get('/delete/{id?}' , [AdminUserController::class , 'delete'])->name('admin.user.delete');
         Route::get('/cancelorder/{id?}' , [OrderController::class , 'cancel_order'])->name('order.cancel');
+        Route::get('/create/{id?}' , [AdminController::class , 'create'])->name('admin.user.create');
+        Route::post('/store/{id?}' , [AdminController::class , 'store'])->name('admin.user.store');
     });
     // Admin Account Setting
     Route::prefix('account')->group(function(){

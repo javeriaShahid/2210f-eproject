@@ -27,9 +27,6 @@ class User extends Authenticatable
         'is_blocked' ,
         'role' ,
         'status' ,
-
-        'phone_code',
-        ''
     ];
 
     /**
