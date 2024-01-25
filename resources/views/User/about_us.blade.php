@@ -229,14 +229,14 @@ $data['testimonals'] = \App\Models\Feedback::orderBy("id" , "desc")->paginate(5)
 <h3>Our Beauty Article</h3>
 </div>
 <div class="row gy-4">
-<div class="col-lg-7">
+<div class="col-lg-12">
 <div class="row gy-4">
 @foreach($data['blogs'] as $blogs)
-<div class="col-sm-6">
-<div class="article-card" style="min-height: 500px!important; max-height:500px!important">
-<div class="article-image">
-<a href="{{route('blog_details' , $blogs->id)}}" class="article-card-img hover-img">
-<img src="{{asset('blogImages/' . $blogs->image )}}" >
+<div class="col-sm-4">
+    <div class="article-card" style="min-height: 500px!important; max-height:600px!important">
+        <div class="article-image">
+        <a href="{{route('blog_details' , $blogs->id)}}" class="article-card-img hover-img" style="height: 300px!important object-fit:cover;" >
+        <img src="{{asset('blogImages/' . $blogs->image )}}" style="width: 100%; height:100%;">
 </a>
 <div class="blog-date">
 <a href="{{route('blog_details' , $blogs->id)}}">
@@ -261,10 +261,9 @@ $data['testimonals'] = \App\Models\Feedback::orderBy("id" , "desc")->paginate(5)
     @endforeach
 </ul>
 </div>
-<h5><a href="{{route('blog_details' , $blogs->id)}}" class="hover-underline">{{$blogs->title}}</a></h5>
-<p>{!! $blogs->blog_qoute !!}</p>
+<h5><a href="{{route('blog_details' , $blogs->id)}}" class="hover-underline" style="font-size:20px">{{$blogs->title}}</a></h5>
+    <p style="font-size:15px!important!important">{!! $blogs->blog_qoute !!}</p>
 
-<a href="{{route('blog_details' , $blogs->id)}}">Read More</a>
 </div>
 </div>
 </div>
