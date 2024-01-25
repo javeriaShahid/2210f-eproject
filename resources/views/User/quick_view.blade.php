@@ -7,7 +7,7 @@
 @endsection
 
 @php
-$data['top-product'] = \App\Models\FeedBack::orderBy('rating' , 'desc')->limit(3)->get();
+$data['top-product'] = \App\Models\FeedBack::orderBy('rating' , 'desc')->paginate(3);
 $data['categories'] = \App\Models\Category::withoutTrashed()->get();
 $data['brands'] = \App\Models\Brand::withoutTrashed()->get();
 @endphp

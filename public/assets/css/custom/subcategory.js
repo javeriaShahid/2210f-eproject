@@ -1,6 +1,6 @@
 $(document).ready(function(){
     let formContainer   = $('#categoryForm');
-    let name            = $('input[name="name"]');
+    let name            = $('.name');
     let category        = $('select[name="category"]');
 
     $(formContainer).submit(function(e){

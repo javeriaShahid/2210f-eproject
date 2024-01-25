@@ -56,10 +56,13 @@ class SubCategoryController extends Controller
          $name      = $request->name ;
          $category  = $request->category;
 
-        $create    = $this->parentModel::where('id' , $id)->update([
-            'category_id' => $category ,
-            'name' => $name ,
-        ]);
+         foreach($name as $key => $value)
+         {
+             $create    = $this->parentModel::updateOrcreate(['id' => $id],[
+                 'category_id' => $category ,
+                 'name' => $name[$key] ,
+             ]);
+         }
 
          if($create == true){
             return redirect(Route('subcategory.index'))->with('success' , 'Subcategory Has Been Added');

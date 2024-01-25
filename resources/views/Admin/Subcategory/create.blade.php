@@ -41,7 +41,7 @@ if($action == "edit")
           <label for="defaultFormControlInput" class="form-label mt-3 mb-3"><div class="bx bx-book"></div>Sub Category Name</label>
           <div id="moreSub">
           <div  class="d-flex ">
-            <input name="name[]" type="text" class="form-control" placeholder="Enter Category name" aria-describedby="defaultFormControlHelp"/>
+            <input name="name[]" type="text" class=" name form-control" placeholder="Enter Category name" aria-describedby="defaultFormControlHelp"/>
             <button id="plus-button" style="margin-left:10px;" class="btn btn-success"><div class="bx bx-plus"></div></button>
           </div>
           </div>

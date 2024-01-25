@@ -191,7 +191,7 @@ Log In
 <ul class="menu-list">
 <li class="">
  @if($data['homeLink'] != null)
-<a href="{{ route($data['homeLink']->route)  }}" class="drop-down"> {{$data['homeLink']->title}} </a><i class=""></i>
+<a href="{{ route($data['homeLink']->route)  }}" style="font-size:12px!important" class="drop-down"> {{$data['homeLink']->title}} </a><i class=""></i>
 @endif
 {{-- <ul class="sub-menu">
 <li><a href="/">Home 1</a></li>
@@ -201,13 +201,13 @@ Log In
 
 @foreach ($data['latestcategory'] as $category)
 <li class="menu-item-has-children position-inherit">
-<a href="#" class="drop-down">{{ $category->name }}</a><i class="bi bi-plus dropdown-icon"></i>
+<a href="#"  style="font-size:12px!important"  class="drop-down">{{ $category->name }}</a><i class="bi bi-plus dropdown-icon"></i>
 <div class="mega-menu2" style="background-image: url('assets/img/home1/megamenu2-face-bg.png');">
 <div class="megamenu-wrap">
 <ul class="menu-row">
 @foreach ($category->subcategory as $subcategory )
 <li class="menu-single-item">
-    <a href="{{ route('search.subcategory' , $subcategory->id) }}">
+    <a  style="font-size:12px!important; margin-left:20px!important"  href="{{ route('search.subcategory' , $subcategory->id) }}">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8">
     <path d="M11.346 4.44443L0.217529 4.42657C0.159577 4.42657 0.104 4.38069 0.0630221 4.29902C0.0220445 4.21734 -0.000976562 4.10656 -0.000976562 3.99106C-0.000976562 3.87555 0.0220445 3.76478 0.0630221 3.6831C0.104 3.60143 0.159577 3.55554 0.217529 3.55554L11.3462 3.5734C11.4042 3.5734 11.4597 3.61928 11.5007 3.70096C11.5417 3.78263 11.5647 3.89341 11.5647 4.00891C11.5647 4.12442 11.5417 4.2352 11.5007 4.31687C11.4597 4.39855 11.4039 4.44443 11.346 4.44443Z" />
     <path d="M15.9991 4.00526C13.6711 4.8883 10.7821 6.39874 8.9917 8L10.4038 4.00021L8.99703 0C10.7858 1.60336 13.6723 3.11716 15.9991 4.00526Z" />
@@ -279,9 +279,10 @@ Log In
 </li>
 </ul>
 <div class="d-lg-none d-block">
-<form class="mobile-menu-form d-lg-none d-block pt-50">
+<form action="{{ route('search') }}" method="Post" class="mobile-menu-form d-lg-none d-block pt-50">
+@csrf
 <div class="input-with-btn d-flex flex-column">
-<input type="text" placeholder="Search here...">
+<input type="text" name="search" placeholder="Search here...">
 <button type="submit" class="primary-btn1 hover-btn3">Search</button>
 </div>
 </form>
@@ -294,7 +295,7 @@ Log In
 </div>
 <div class="hotline-info">
 <span>Call Us Now</span>
-<h6><a href="tel:+8801701111000">+880 170 1111 000</a></h6>
+<h6><a href="tel:{{@$settings->contact}}">{{@$settings->contact}}</a></h6>
 </div>
 </div>
 <div class="email pt-20 d-flex align-items-center">
@@ -305,7 +306,7 @@ Log In
 </div>
 <div class="email-info">
 <span>Email Now</span>
-<h6><a href="https://demo-egenslab.b-cdn.net/cdn-cgi/l/email-protection#03667b626e736f6643646e626a6f2d606c6e"><span class="__cf_email__" data-cfemail="94f1ecf5f9e4f8f1d4f3f9f5fdf8baf7fbf9">[email&#160;protected]</span></a></h6>
+<h6><a href="mailto:{{@$settings->email}}"><span class="__cf_email__" data-cfemail="94f1ecf5f9e4f8f1d4f3f9f5fdf8baf7fbf9">[{{@$settings->email}}]</span></a></h6>
 </div>
 </div>
 </form>
@@ -354,11 +355,12 @@ Log In
         @endif
     </ul>
   </div>
+</div>
 <div class="sidebar-button mobile-menu-btn ">
 <span></span>
 </div>
 </div>
-</div>
+
 </header>
 
 
@@ -379,7 +381,7 @@ Log In
     <div class="col-lg-3 col-md-4 col-sm-6">
     <div class="footer-widget">
     <h3>Want <span>to Take <br></span> Beauty Product <span>off our Shop</span>?</h3>
-    <a href="{{route('slider')}}" class="primary-btn1 hover-btn3">*Shop Now*</a>
+    <a href="{{route('quick_view')}}" class="primary-btn1 hover-btn3">*Shop Now*</a>
     </div>
     </div>
     <div class="col-lg-2 col-md-4 col-sm-6 d-flex justify-content-lg-start justify-content-sm-end">

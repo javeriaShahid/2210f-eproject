@@ -36,6 +36,7 @@ use App\Http\Controllers\User\Checkoutcontroller;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\FilterController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,7 +78,7 @@ Route::get('/gift_card', [UserController::class, "gift_card"])->name('gift_card'
 Route::get('/state_city/{id?}' , [Authcontroller::class , 'get_state_and_city'])->name("get.state.city");
 Route::get('/our_brand', [UserController::class, "our_brand"])->name('our_brand');
 Route::get('/quick_view', [UserController::class, "quick_view"])->name('quick_view');
-Route::get('/slider', [UserController::class, "slider"])->name('slider');
+// Route::get('/slider', [UserController::class, "slider"])->name('slider');
 Route::get('/standard', [UserController::class, "standard"])->name('standard');
 Route::get('/wishlist', [UserController::class, "wishlist"])->name('wishlist');
 Route::get('/cart', [Cartcontroller::class, "index"])->name('cart');
