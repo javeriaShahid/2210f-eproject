@@ -87,7 +87,7 @@ $data['testimonals'] = \App\Models\Feedback::orderBy("id" , "desc")->paginate(5)
 <div class="swiper-slide">
 <div class="brand-icon">
 <a href="shop-list.html">
-<img src="{{ asset("assets/BrandImages/" . $brands->image) }}" style="height:100px ; object-fit:contain;" alt>
+<img src="{{ asset("BrandImages/" . $brands->image) }}" style="height:100px ; object-fit:contain;" alt>
 </a>
 </div>
 </div>

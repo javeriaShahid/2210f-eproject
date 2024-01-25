@@ -30,7 +30,7 @@ Our Brands
 <div class="col">
     <div class="client-logo">
     <a href="shop-list.html">
-    <img src="{{ asset('assets/BrandImages/' . $brand->image) }}" style="height: 100px ;width:200px ; object-fit:Contain;" alt>
+    <img src="{{ asset('BrandImages/' . $brand->image) }}" style="height: 100px ;width:200px ; object-fit:Contain;" alt>
     </a>
     </div>
     </div>

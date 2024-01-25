@@ -2838,7 +2838,7 @@ To Cart</a>
     <div class="swiper-slide">
         <div class="brand-icon">
         <a href="slider">
-        <img src="{{ asset('assets/BrandImages/' . $brand->image)}}"  style="height:100px ; object-fit:contain;" alt>
+        <img src="{{ asset('BrandImages/' . $brand->image)}}"  style="height:100px ; object-fit:contain;" alt>
         </a>
         </div>
         </div>
