@@ -7,7 +7,7 @@ Product Discount Edit
 @section('content')
 
 {{-- If Condition --}}
-<form action="{{ Route('add.discount' , $data['productId']) }}" id="categoryForm" method="Post">
+<form action="{{ Route('add.discount' , $data['productId']) }}" id="saleForm" method="Post">
 @csrf
 <div class="row">
 <div class="col-md-12">
@@ -49,6 +49,7 @@ Product Discount Edit
 <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
 <!-- Page JS -->
 <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+<script src="{{ asset('assets/css/custom/product_sale.js') }}"></script>
 {{-- custom --}}
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
